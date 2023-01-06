@@ -30,17 +30,20 @@ const Navbar__linkGroup = styled.ul`
     margin: 0 30px;
 `;
 
-const Navbar__link = styled.li`
+const Navbar__link__wrapper = styled.div`
     display: flex;
     font-family: 'TTNorms';
     font-size: 14px;
     font-weight: 500;
-    text-decoration: none;
-    list-style: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     column-gap: 24px;
 `;
+
+const Navbar__link__li = styled.li`
+    text-decoration: none;
+    list-style: none;
+`
 
 const Navbar__link__inner = styled.a`
     padding: 10px 0;
@@ -53,14 +56,18 @@ export default function Navbar() {
                 <HamburgerButton />
                 <HomeLogoLink />
                 <Navbar__linkGroup>
-                    <Navbar__link>
-                        <Link href="/" passHref legacyBehavior>
-                            <Navbar__link__inner>Delivery</Navbar__link__inner>
-                        </Link>
-                        <Link href="/pickup" passHref legacyBehavior>
-                            <Navbar__link__inner>Pickup</Navbar__link__inner>
-                        </Link>
-                    </Navbar__link>
+                    <Navbar__link__wrapper>
+                        <Navbar__link__li>
+                            <Link href="/" passHref legacyBehavior>
+                                <Navbar__link__inner>Delivery</Navbar__link__inner>
+                            </Link>
+                        </Navbar__link__li>
+                        <Navbar__link__li>
+                            <Link href="/pickup" passHref legacyBehavior>
+                                <Navbar__link__inner>Pickup</Navbar__link__inner>
+                            </Link>
+                        </Navbar__link__li>
+                    </Navbar__link__wrapper>
                 </Navbar__linkGroup>
             </Navbar__subLeft>
         </Navbar__wrapper>
