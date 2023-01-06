@@ -1,8 +1,9 @@
+import Link from "next/link";
 import styled from "styled-components";
 import HamburgerButton from "./HamburgerButton";
 import HomeLogoLink from "./HomeLogoLink";
 
-const NavbarWrapper = styled.nav`
+const Navbar__wrapper = styled.nav`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -15,20 +16,53 @@ const NavbarWrapper = styled.nav`
     padding: 0 64px;
 `;
 
-const NavbarSubLeft = styled.div`
+const Navbar__subLeft = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
     column-gap: 2px;
 `;
 
+const Navbar__linkGroup = styled.ul`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 30px;
+`;
+
+const Navbar__link = styled.li`
+    display: flex;
+    font-family: 'TTNorms';
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    list-style: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    column-gap: 24px;
+`;
+
+const Navbar__link__inner = styled.a`
+    padding: 10px 0;
+`;
+
 export default function Navbar() {
     return (
-        <NavbarWrapper>
-            <NavbarSubLeft>
+        <Navbar__wrapper>
+            <Navbar__subLeft>
                 <HamburgerButton />
                 <HomeLogoLink />
-            </NavbarSubLeft>
-        </NavbarWrapper>
+                <Navbar__linkGroup>
+                    <Navbar__link>
+                        <Link href="/" passHref legacyBehavior>
+                            <Navbar__link__inner>Delivery</Navbar__link__inner>
+                        </Link>
+                        <Link href="/pickup" passHref legacyBehavior>
+                            <Navbar__link__inner>Pickup</Navbar__link__inner>
+                        </Link>
+                    </Navbar__link>
+                </Navbar__linkGroup>
+            </Navbar__subLeft>
+        </Navbar__wrapper>
     );
 }
