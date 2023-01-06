@@ -1,11 +1,53 @@
 import styled from "styled-components";
 
+const HamburgerButton__wrapper = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 17px;
+    border: none;
+    background-color: white;
+    padding: none;
+`
+
 export default function HamburgerButton() {
     return (
-        <svg width="19" height="12" viewBox="0 0 19 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="1.34253" y1="0.77829" x2="17.6203" y2="0.77829" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-            <line x1="1.34253" y1="5.53302" x2="17.6203" y2="5.53302" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-            <line x1="1.34253" y1="10.2877" x2="17.6203" y2="10.2877" stroke="black" strokeWidth="1.5" strokeLinecap="round"/>
-        </svg>
-    )
+        <HamburgerButton__wrapper>
+            <svg
+                width="18"
+                height="12"
+                viewBox="0 0 18 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <line
+                    x1="1"
+                    y1="1"
+                    x2="17"
+                    y2="1"
+                    stroke="#494949"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                />
+                <line
+                    x1="1"
+                    y1="6"
+                    x2="17"
+                    y2="6"
+                    stroke="#494949"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                />
+                <line
+                    x1="1"
+                    y1="11"
+                    x2="17"
+                    y2="11"
+                    stroke="#494949"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                />
+            </svg>
+        </HamburgerButton__wrapper>
+    );
 }
