@@ -4,6 +4,7 @@ import HamburgerButton from "./HamburgerButton";
 import HomeLogoLink from "./HomeLogoLink";
 import AddressButtonToggle from "./AddressButtonToggle";
 import SearchBar from "./SearchBar";
+import ShoppingCartButton from "./ShoppingCartButton";
 import { useState } from "react";
 
 // Navbar styles
@@ -116,6 +117,7 @@ export default function Navbar() {
                     isSearchBarToggled={isSearchBarToggled}
                     setIsSearchBarToggled={setIsSearchBarToggled} 
                 />
+                <ShoppingCartButton />
             </Navbar__subRight>
         </Navbar__wrapper>
     );

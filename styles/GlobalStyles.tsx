@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
         --secondary-gray: rgba(247, 247, 247, 1);
         --primary-white: rgba(255, 255, 255, 1);
         --primary-red: rgba(255, 48, 8, 1);
+        --secondary-red: rgba(217, 20, 0, 1);
         
         /* System Font Family Variable */
         --primary-font-family: 'TTNorms';
