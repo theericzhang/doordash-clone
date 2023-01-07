@@ -3,6 +3,9 @@ import styled from "styled-components";
 import HamburgerButton from "./HamburgerButton";
 import HomeLogoLink from "./HomeLogoLink";
 import AddressButtonToggle from "./AddressButtonToggle";
+import { useState } from "react";
+
+// Navbar styles
 
 const Navbar__wrapper = styled.nav`
     display: flex;
@@ -62,6 +65,11 @@ const Navbar__verticalDivider = styled.hr`
 `;
 
 export default function Navbar() {
+
+    // AddressButtonToggle state that reveals address list
+    const [ isAddressButtonToggled, setIsAddressButtonToggled ] = useState(false);
+    console.log(isAddressButtonToggled);
+
     return (
         <Navbar__wrapper>
             <Navbar__subLeft>
@@ -88,7 +96,9 @@ export default function Navbar() {
                 <Navbar__verticalDivider />
                 <Navbar__link__wrapper>
                     <Navbar__link__li>
-                        <AddressButtonToggle />
+                        <AddressButtonToggle 
+                            setIsAddressButtonToggled={setIsAddressButtonToggled}
+                        />
                     </Navbar__link__li>
                 </Navbar__link__wrapper>
             </Navbar__subLeft>

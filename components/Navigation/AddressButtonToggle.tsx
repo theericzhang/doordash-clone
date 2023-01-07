@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React from "react";
 
 const Navbar__button__address = styled.button`
     padding: 10px 0;
@@ -19,9 +20,15 @@ const Navbar__label = styled.h4`
     -moz-osx-font-smoothing: grayscale;
 `;
 
-export default function AddressButtonToggle() {
+type TAddressButtonToggle = {
+    setIsAddressButtonToggled: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function AddressButtonToggle({ setIsAddressButtonToggled } : TAddressButtonToggle) {
     return (
-        <Navbar__button__address>
+        <Navbar__button__address 
+            onClick={() => setIsAddressButtonToggled(prevToggleState => !prevToggleState)}
+        >
             <Navbar__label>23 Maple Dr</Navbar__label>
         </Navbar__button__address>
     );
