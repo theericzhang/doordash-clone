@@ -20,7 +20,8 @@ const Navbar__wrapper = styled.nav`
     border-top: none;
     border-right: none;
     border-left: none;
-    padding: 0 64px;
+    padding-left: 64px;
+    padding-right: 144px;
 `;
 
 const Navbar__subLeft = styled.ul`
@@ -71,7 +72,7 @@ const Navbar__subRight = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 5px;
+    column-gap: 16px;
 `
 
 export default function Navbar() {
