@@ -75,6 +75,8 @@ export default function SearchBar({ isSearchBarToggled, setIsSearchBarToggled }:
             }
             <SearchBar__input
                 id="SearchBar__ID"
+                onFocus={searchBarOnClick}
+                onBlur={searchBarOnBlur}
                 placeholder="Search stores, dishes, products"
             />
         </SearchBar__wrapper>
