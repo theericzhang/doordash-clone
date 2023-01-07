@@ -14,16 +14,17 @@ const SearchBar__wrapper = styled("div")<{isSearchBarToggled: boolean}>`
     align-items: center;
     column-gap: 10px;
     height: 40px;
-    padding: 0 13px;
-    width: fit-content;
+    padding: ${props => props.isSearchBarToggled ? "0 11px" : "0 13px"};
+    width: 428px;
     border-radius: 23px;
     border: 2px solid var(--primary-black);
     border: ${props => props.isSearchBarToggled ? "2px solid var(--primary-black)" : "none"};
     background-color: var(--secondary-gray);
+    box-sizing: border-box;
 `;
 
 const SearchBar__input = styled.input`
-    width: 372px;
+    width: 100%;
     max-height: 24px;
     border: none;
     background-color: transparent;
