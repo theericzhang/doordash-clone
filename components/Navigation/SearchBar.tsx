@@ -20,7 +20,6 @@ const SearchBar__wrapper = styled("div")<{isSearchBarToggled: boolean}>`
     border: 2px solid var(--primary-black);
     border: ${props => props.isSearchBarToggled ? "2px solid var(--primary-black)" : "none"};
     background-color: var(--secondary-gray);
-    box-sizing: border-box;
 `;
 
 const SearchBar__input = styled.input`
