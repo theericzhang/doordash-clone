@@ -27,16 +27,12 @@ const Navbar__linkGroup = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 30px;
+    margin-left: 30px;
+    margin-right: 18px;
 `;
 
 const Navbar__link__wrapper = styled.div`
     display: flex;
-    font-family: 'TTNorms';
-    font-size: 14px;
-    font-weight: 500;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     column-gap: 24px;
 `;
 
@@ -49,6 +45,27 @@ const Navbar__link__inner = styled.a`
     padding: 10px 0;
 `;
 
+const Navbar__label = styled.h4`
+    font-family: 'TTNorms';
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+`
+
+const Navbar__verticalDivider = styled.hr`
+    width: 0px;
+    height: 24px;
+    border: 1px solid var(--primary-gray);
+    border-radius: 2px;
+`
+
+const Navbar__button__address = styled.button`
+    padding: 10px 0;
+    border: none;
+    background-color: white;
+`;
+
 export default function Navbar() {
     return (
         <Navbar__wrapper>
@@ -59,16 +76,28 @@ export default function Navbar() {
                     <Navbar__link__wrapper>
                         <Navbar__link__li>
                             <Link href="/" passHref legacyBehavior>
-                                <Navbar__link__inner>Delivery</Navbar__link__inner>
+                                <Navbar__link__inner>
+                                    <Navbar__label>Delivery</Navbar__label>
+                                </Navbar__link__inner>
                             </Link>
                         </Navbar__link__li>
                         <Navbar__link__li>
                             <Link href="/pickup" passHref legacyBehavior>
-                                <Navbar__link__inner>Pickup</Navbar__link__inner>
+                                <Navbar__link__inner>
+                                    <Navbar__label>Pickup</Navbar__label>
+                                </Navbar__link__inner>
                             </Link>
                         </Navbar__link__li>
                     </Navbar__link__wrapper>
                 </Navbar__linkGroup>
+                <Navbar__verticalDivider />
+                <Navbar__link__wrapper>
+                    <Navbar__link__li>
+                        <Navbar__button__address>
+                            <Navbar__label>Pickup</Navbar__label>
+                        </Navbar__button__address>
+                    </Navbar__link__li>
+                </Navbar__link__wrapper>
             </Navbar__subLeft>
         </Navbar__wrapper>
     );
