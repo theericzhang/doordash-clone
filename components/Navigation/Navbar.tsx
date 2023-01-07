@@ -64,6 +64,10 @@ const Navbar__button__address = styled.button`
     padding: 10px 0;
     border: none;
     background-color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 export default function Navbar() {
@@ -94,7 +98,7 @@ export default function Navbar() {
                 <Navbar__link__wrapper>
                     <Navbar__link__li>
                         <Navbar__button__address>
-                            <Navbar__label>Pickup</Navbar__label>
+                            <Navbar__label>123 Maple Dr</Navbar__label>
                         </Navbar__button__address>
                     </Navbar__link__li>
                 </Navbar__link__wrapper>
