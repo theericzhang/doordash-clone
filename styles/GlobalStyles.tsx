@@ -13,6 +13,10 @@ export const GlobalStyles = createGlobalStyle`
         /* Nav Label Font Option Variables */
         --nav-label-font-size: 14px;
         --nav-label-font-weight: 500;
+
+        /* Setting default font family and disabling ligatures */
+        font-family: var(--primary-font-family);
+        font-variant-ligatures: no-common-ligatures;
     }
 
     /* System Font imports */

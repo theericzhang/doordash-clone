@@ -10,6 +10,7 @@ import { useState } from "react";
 const Navbar__wrapper = styled.nav`
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 64px;
@@ -64,11 +65,17 @@ const Navbar__verticalDivider = styled.hr`
     border-radius: 2px;
 `;
 
+const Navbar__subRight = styled.ul`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+`
+
 export default function Navbar() {
 
     // AddressButtonToggle state that reveals address list
     const [ isAddressButtonToggled, setIsAddressButtonToggled ] = useState(false);
-    console.log(isAddressButtonToggled);
 
     return (
         <Navbar__wrapper>
@@ -102,6 +109,9 @@ export default function Navbar() {
                     </Navbar__link__li>
                 </Navbar__link__wrapper>
             </Navbar__subLeft>
+            <Navbar__subRight>
+                Testing!
+            </Navbar__subRight>
         </Navbar__wrapper>
     );
 }
