@@ -3,6 +3,7 @@ import styled from "styled-components";
 import HamburgerButton from "./HamburgerButton";
 import HomeLogoLink from "./HomeLogoLink";
 import AddressButtonToggle from "./AddressButtonToggle";
+import SearchBar from "./SearchBar";
 import { useState } from "react";
 
 // Navbar styles
@@ -76,6 +77,7 @@ export default function Navbar() {
 
     // AddressButtonToggle state that reveals address list
     const [ isAddressButtonToggled, setIsAddressButtonToggled ] = useState(false);
+    const [ isSearchBarToggled, setIsSearchBarToggled ] = useState(false);
 
     return (
         <Navbar__wrapper>
@@ -110,7 +112,7 @@ export default function Navbar() {
                 </Navbar__link__wrapper>
             </Navbar__subLeft>
             <Navbar__subRight>
-                Testing!
+                <SearchBar setIsSearchBarToggled={setIsSearchBarToggled} />
             </Navbar__subRight>
         </Navbar__wrapper>
     );
