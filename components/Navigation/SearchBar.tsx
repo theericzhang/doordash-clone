@@ -29,7 +29,7 @@ const SearchBar__wrapper = styled("label")<{isSearchBarToggled: boolean}>`
 `;
 
 const SearchBar__input = styled.input`
-    width: 100%;
+    width: 91%;
     max-height: 24px;
     border: none;
     background-color: transparent;
@@ -44,6 +44,7 @@ const SearchBar__input = styled.input`
 
     &::placeholder {
         font-size: 16px;
+        color: var(--tertiary-gray);
     }
 `
 
