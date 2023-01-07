@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import HamburgerButton from "./HamburgerButton";
 import HomeLogoLink from "./HomeLogoLink";
+import AddressButtonToggle from "./AddressButtonToggle";
 
 const Navbar__wrapper = styled.nav`
     display: flex;
@@ -46,28 +47,18 @@ const Navbar__link__inner = styled.a`
 `;
 
 const Navbar__label = styled.h4`
-    font-family: 'TTNorms';
-    font-size: 14px;
-    font-weight: 500;
+    font-family: var(--primary-font-family);
+    font-size: var(--nav-label-font-size);
+    font-weight: var(--nav-label-font-weight);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-`
+`;
 
 const Navbar__verticalDivider = styled.hr`
     width: 0px;
     height: 24px;
     border: 1px solid var(--primary-gray);
     border-radius: 2px;
-`
-
-const Navbar__button__address = styled.button`
-    padding: 10px 0;
-    border: none;
-    background-color: white;
-
-    &:hover {
-        cursor: pointer;
-    }
 `;
 
 export default function Navbar() {
@@ -97,9 +88,7 @@ export default function Navbar() {
                 <Navbar__verticalDivider />
                 <Navbar__link__wrapper>
                     <Navbar__link__li>
-                        <Navbar__button__address>
-                            <Navbar__label>123 Maple Dr</Navbar__label>
-                        </Navbar__button__address>
+                        <AddressButtonToggle />
                     </Navbar__link__li>
                 </Navbar__link__wrapper>
             </Navbar__subLeft>

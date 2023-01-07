@@ -2,13 +2,20 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     :root {
-        /* System Colors */
+        /* System Colors Variables */
         --primary-gray: rgba(231, 231, 231, 1);
         --primary-white: rgba(255, 255, 255, 1);
         --primary-red: rgba(255, 48, 8, 1);
+        
+        /* System Font Family Variable */
+        --primary-font-family: 'TTNorms';
+        
+        /* Nav Label Font Option Variables */
+        --nav-label-font-size: 14px;
+        --nav-label-font-weight: 500;
     }
 
-    /* System Fonts */
+    /* System Font imports */
     @font-face {
         font-family: TTNorms;
         font-style: normal;
