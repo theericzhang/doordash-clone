@@ -112,7 +112,10 @@ export default function Navbar() {
                 </Navbar__link__wrapper>
             </Navbar__subLeft>
             <Navbar__subRight>
-                <SearchBar setIsSearchBarToggled={setIsSearchBarToggled} />
+                <SearchBar 
+                    isSearchBarToggled={isSearchBarToggled}
+                    setIsSearchBarToggled={setIsSearchBarToggled} 
+                />
             </Navbar__subRight>
         </Navbar__wrapper>
     );

@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
     :root {
         /* System Colors Variables */
+        --primary-black: rgba(25, 25, 25, 1);
         --primary-gray: rgba(231, 231, 231, 1);
         --secondary-gray: rgba(247, 247, 247, 1);
         --primary-white: rgba(255, 255, 255, 1);
@@ -14,10 +15,14 @@ export const GlobalStyles = createGlobalStyle`
         /* Nav Label Font Option Variables */
         --nav-label-font-size: 14px;
         --nav-label-font-weight: 500;
+    }
 
+    * {
         /* Setting default font family and disabling ligatures */
         font-family: var(--primary-font-family);
         font-variant-ligatures: no-common-ligatures;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     /* System Font imports */

@@ -16,8 +16,6 @@ const Navbar__label = styled.h4`
     font-family: var(--primary-font-family);
     font-size: var(--nav-label-font-size);
     font-weight: var(--nav-label-font-weight);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 `;
 
 type TAddressButtonToggle = {
