@@ -33,15 +33,15 @@ const Navbar__subLeft = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 2px;
+    column-gap: 8px;
 `;
 
 const Navbar__linkGroup = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
-    margin-right: 18px;
+    margin-left: 32px;
+    margin-right: 12px;
 `;
 
 const Navbar__link__wrapper = styled.div`
