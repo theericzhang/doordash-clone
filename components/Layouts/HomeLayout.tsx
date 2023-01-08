@@ -7,7 +7,7 @@ export default function HomeLayout({ children }: any) {
         <>
             <GlobalStyles />
             <Navbar />
-            <main className={styles.main}>{children}</main>
+            {children}
         </>
     )
 }

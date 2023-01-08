@@ -10,8 +10,9 @@ import { useState } from "react";
 // Navbar styles
 
 const Navbar__wrapper = styled.nav`
-    position: sticky;
+    position: fixed;
     top: 0;
+    overscroll-behavior-y: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
