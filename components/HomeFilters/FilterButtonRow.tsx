@@ -8,11 +8,12 @@ const FilterButtonRow__wrapper = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
-    height: 63px;
+    height: 62px;
     background-color: var(--primary-white);
     position: sticky;
-    top: 66px;
+    top: 64px;
     padding: 0 320px;
+    border-bottom: 1px solid var(--primary-gray);
 `;
 
 const FilterButtonRow__list = styled.ul`
