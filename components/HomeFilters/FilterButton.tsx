@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import DashPass from "../Icons/DashPassIcon";
+import Coupon from "../Icons/CouponIcon";
+import Star from "../Icons/StarIcon";
 
 const FilterButton__wrapper = styled.button`
     background-color: var(--primary-gray);

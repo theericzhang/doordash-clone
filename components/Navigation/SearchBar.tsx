@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from 'react';
-import BackArrow from '../Icons/BackArrow';
-import MagnifyingGlass from '../Icons/MagnifyingGlass';
+import BackArrow from '../Icons/BackArrowIcon';
+import MagnifyingGlass from '../Icons/MagnifyingGlassIcon';
 
 type TSearchBar = {
     isSearchBarToggled: boolean;
