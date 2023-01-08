@@ -5,9 +5,7 @@ const HamburgerButton__wrapper = styled.button`
     justify-content: center;
     align-items: center;
     margin: 0 17px;
-    border: none;
     background-color: white;
-    padding: none;
 `
 
 export default function HamburgerButton() {

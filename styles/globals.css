@@ -10,6 +10,11 @@ body {
   overflow-x: clip;
 }
 
+button {
+    border: none;
+    padding: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
