@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
         --primary-gray: rgba(231, 231, 231, 1);
         --secondary-gray: rgba(247, 247, 247, 1);
         --tertiary-gray: rgba(96, 96, 96, 1);
+        --quaternary-gray: rgba(214, 214, 214, 1);
 
         --primary-white: rgba(255, 255, 255, 1);
 
