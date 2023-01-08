@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import CarrotDown from "../Icons/CarrotDownIcon";
 
 const FilterButton__wrapper = styled.button`
     display: flex;
@@ -46,6 +47,11 @@ export default function FilterButton({ buttonData }: TFilterButton) {
             {buttonData.rightLogo}
             {buttonData.hasDivider ? 
                     <FilterButton__verticalDivider />
+                :
+                    null
+            }
+            {buttonData.hasDropdown ?
+                    <CarrotDown />
                 :
                     null
             }
