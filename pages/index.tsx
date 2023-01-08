@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import RestaurantCarousel from "../components/RestaurantCarousel/RestaurantCarousel";
 import FilterButtonRow from "../components/HomeFilters/FilterButtonRow";
 
 export default function Home() {
@@ -18,7 +19,10 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
-                <FilterButtonRow />
+            <FilterButtonRow />
+            <section>
+                <RestaurantCarousel />
+            </section>
             </main>
         </>
     );
