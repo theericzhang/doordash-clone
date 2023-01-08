@@ -7,10 +7,19 @@ const FilterButton__wrapper = styled.button`
     align-items: center;
     column-gap: 2px;
     background-color: var(--primary-gray);
+    transition: 0.35s ease;
+    transition-property: background-color;
     height: 32px;
     width: fit-content;
     padding: 0 13px;
     border-radius: 16px;
+
+    &:hover {
+        cursor: pointer;
+        transition: 0.35s ease;
+        transition-property: background-color;
+        background-color: var(--secondary-gray);
+    }
 `;
 
 const FilterButton__buttonLabel = styled.h5`
