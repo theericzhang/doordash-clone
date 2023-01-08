@@ -2,6 +2,8 @@ import styled from "styled-components";
 import FilterButton from "./FilterButton";
 
 const FilterButtonRow__wrapper = styled.div`
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 63px;
     background-color: var(--primary-white);
