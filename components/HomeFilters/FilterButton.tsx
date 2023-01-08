@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import DashPass from "../Icons/DashPassIcon";
-import Coupon from "../Icons/CouponIcon";
-import Star from "../Icons/StarIcon";
-import { JsxElement } from "typescript";
 
 const FilterButton__wrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    column-gap: 2px;
     background-color: var(--primary-gray);
     height: 32px;
     width: fit-content;

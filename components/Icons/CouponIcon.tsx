@@ -7,6 +7,7 @@ export default function Coupon() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
+            style={{marginRight: '3px'}}
         >
             <g clipPath="url(#clip0_2030_487)">
                 <path
