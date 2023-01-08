@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import FilterButton from "./FilterButton";
+import DashPass from "../Icons/DashPassIcon";
+import Coupon from "../Icons/CouponIcon";
+import Star from "../Icons/StarIcon";
 
 const FilterButtonRow__wrapper = styled.div`
     display: flex;
@@ -22,14 +25,14 @@ export default function FilterButtonRow() {
     const filterButtonData = [
         {
             "buttonLabel": "DashPass",
-            "leftLogo": "DashPass",
+            "leftLogo": <DashPass />,
             "rightLogo": null,
             "hasDivider": false,
             "hasDropdown": false
         },
         {
             "buttonLabel": "Offers",
-            "leftLogo": "Coupon",
+            "leftLogo": <Coupon />,
             "rightLogo": null,
             "hasDivider": false,
             "hasDropdown": false
@@ -44,7 +47,7 @@ export default function FilterButtonRow() {
         {
             "buttonLabel": "Over 4.5",
             "leftLogo": null,
-            "rightLogo": "Star",
+            "rightLogo": <Star />,
             "hasDivider": true,
             "hasDropdown": true
         },
