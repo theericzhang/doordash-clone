@@ -5,7 +5,7 @@ const Navbar__button__address = styled.button`
     padding: 10px 0;
     margin: 0 14px;
     border: none;
-    background-color: var(--primary-white);
+    background-color: transparent;
 
     &:hover {
         cursor: pointer;
