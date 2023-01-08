@@ -29,12 +29,11 @@ const FilterButton__buttonLabel = styled.h5`
 `;
 
 const FilterButton__verticalDivider = styled.hr`
-    width: 1px;
+    border: 1px solid var(--quaternary-gray);
     height: 16px;
     border-top: none;
     border-bottom: none;
     border-left: none;
-    border-color: var(--quaternary-gray);
 `
 
 type TFilterButton = {
