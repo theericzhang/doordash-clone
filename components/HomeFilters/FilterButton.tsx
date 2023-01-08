@@ -8,6 +8,12 @@ const FilterButton__wrapper = styled.button`
     border-radius: 16px;
 `;
 
+const FilterButton__buttonLabel = styled.h5`
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-black);
+`
+
 type TFilterButton = {
     buttonData: {
         buttonLabel: string | null;
@@ -22,7 +28,7 @@ export default function FilterButton({ buttonData }: TFilterButton) {
     
     return (
         <FilterButton__wrapper>
-
+            <FilterButton__buttonLabel>{buttonData.buttonLabel}</FilterButton__buttonLabel>
         </FilterButton__wrapper>
     );
 }
