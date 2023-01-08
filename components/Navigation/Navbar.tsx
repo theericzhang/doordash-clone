@@ -26,6 +26,7 @@ const Navbar__wrapper = styled.nav`
     border-left: none;
     padding-left: 64px;
     padding-right: 144px;
+    z-index: 1;
 `;
 
 const Navbar__subLeft = styled.ul`
