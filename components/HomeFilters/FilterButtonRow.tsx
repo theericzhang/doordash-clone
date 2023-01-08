@@ -60,12 +60,23 @@ export default function FilterButtonRow() {
             "hasDivider": false,
             "hasDropdown": true
         }
-    ]
+    ];
+
+
     
     return (
         <FilterButtonRow__wrapper>
             <FilterButtonRow__list>
-                <FilterButton />
+                {
+                    filterButtonData.map(buttonData => {
+                        return (
+                            <FilterButton 
+                                buttonData={buttonData} 
+                                key={buttonData.buttonLabel}
+                            />
+                        )
+                    })
+                }
             </FilterButtonRow__list>
         </FilterButtonRow__wrapper>
     );

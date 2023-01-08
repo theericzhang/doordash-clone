@@ -8,7 +8,17 @@ const FilterButton__wrapper = styled.button`
     border-radius: 16px;
 `;
 
-export default function FilterButton() {
+type TFilterButton = {
+    buttonData: {
+        buttonLabel: string | null;
+        leftLogo: string | null;
+        rightLogo: string | null;
+        hasDivider: boolean;
+        hasDropdown: boolean;
+    }
+}
+
+export default function FilterButton({ buttonData }: TFilterButton) {
     
     return (
         <FilterButton__wrapper>
