@@ -7,7 +7,6 @@ import data from "../components/data";
 
 const RestaurantCarouselSection = styled.section`
     width: 100%;
-    padding: 0 320px;
 `;
 
 export default function Home() {
