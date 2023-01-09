@@ -69,6 +69,8 @@ export default function RestaurantCard({restaurantData} : TRestaurantCard) {
                     <RestaurantCard__image__wrapper>
                         <RestaurantCard__image
                             src={restaurantData.restaurantImage}
+                            placeholder="blur"
+                            blurDataURL="/images/Blur.png"
                             alt={"A closeup of a New York style pizza pie"}
                             fill={true}
                         />
