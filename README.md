@@ -1,4 +1,4 @@
-# Doordash, a Rapid Prototype Clone 👯 
+# Doordash Clone, a Rapid Prototype 👯 
 
 👋 Hey there! Please take a look at [this Notion](https://piquant-dancer-3b9.notion.site/DoorDash-Clone-Discoveries-Hurdles-Lessons-A-WIP-7bd86cff0d764b4c8ff040a84557d361) to gauge at technical findings, hurdles, and lessons I am uncovering while working on this project.
 
