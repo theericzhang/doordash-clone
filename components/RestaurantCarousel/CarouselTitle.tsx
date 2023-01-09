@@ -6,10 +6,14 @@ const CarouselTitleHeader = styled.h2`
     color: var(--primary-black);
 `;
 
-export default function CarouselTitle() {
+type TCarouselTitle = {
+    carouselName: string;
+}
+
+export default function CarouselTitle({carouselName}: TCarouselTitle) {
     return (
         <CarouselTitleHeader>
-            Now on DoorDash
+            {carouselName}
         </CarouselTitleHeader>
     );
 }

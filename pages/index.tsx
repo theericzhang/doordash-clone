@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 import RestaurantCarousel from "../components/RestaurantCarousel/RestaurantCarousel";
 import FilterButtonRow from "../components/HomeFilters/FilterButtonRow";
+import data from "../components/data";
 
 const RestaurantCarouselSection = styled.section`
     width: 100%;
@@ -10,6 +11,16 @@ const RestaurantCarouselSection = styled.section`
 `;
 
 export default function Home() {
+    
+    const carouselData = data();
+    const arrayOfCarousels = carouselData.map((data, index) => {
+        return (
+            <RestaurantCarousel 
+                carouselData={data}
+                key={index}
+            />
+        );
+    });
     return (
         <>
             <Head>
@@ -27,7 +38,7 @@ export default function Home() {
             <main className={styles.main}>
                 <FilterButtonRow />
                 <RestaurantCarouselSection>
-                    <RestaurantCarousel />
+                    {arrayOfCarousels}
                 </RestaurantCarouselSection>
             </main>
         </>

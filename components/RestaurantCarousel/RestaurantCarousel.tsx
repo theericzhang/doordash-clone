@@ -7,7 +7,7 @@ const RestaurantCarousel__article = styled.article`
     flex-direction: column;
     margin: 19px 0;
     row-gap: 19px;
-`
+`;
 
 const RestaurantCarousel__topRow = styled.div`
     display: flex;
@@ -28,23 +28,41 @@ const RestaurantCarousel__carousel = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
-`
+`;
 
-export default function RestaurantCarousel() {
+type TRestaurauntCarousel = {
+    carouselData: {
+        carouselName: string;
+        restaurantData: {
+            restaurantID: number;
+            restaurantName: string;
+            restaurantImage: string;
+            distance: string;
+            deliveryTime: string;
+        }[];
+    }
+}
+
+export default function RestaurantCarousel({carouselData} : TRestaurauntCarousel) {
+    
+    const arrayOfRestaurantCards = carouselData.restaurantData.map(restaurantData => {
+        return (
+            <RestaurantCard
+                restaurantData={restaurantData}
+                key={restaurantData.restaurantID}
+            />
+        )
+    })
+
     return (
         <RestaurantCarousel__article>
             <RestaurantCarousel__topRow>
-                <CarouselTitle />
+                <CarouselTitle carouselName={carouselData.carouselName}/>
                 {/* add buttons to navigate through carousel */}
             </RestaurantCarousel__topRow>
             <RestaurantCarousel__carousel>
                 {/* Add custom restaurant cards here*/}
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
+                {arrayOfRestaurantCards}
             </RestaurantCarousel__carousel>
         </RestaurantCarousel__article>
     );

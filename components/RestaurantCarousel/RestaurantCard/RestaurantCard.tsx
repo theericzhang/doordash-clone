@@ -49,31 +49,37 @@ const RestaurantCard__auxInfo = styled.h5`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
-`
+`;
 
-export default function RestaurantCard() {
+type TRestaurantCard = {
+    restaurantData: {
+        restaurantID: number;
+        restaurantName: string;
+        restaurantImage: string;
+        distance: string;
+        deliveryTime: string;
+    };
+};
+
+export default function RestaurantCard({restaurantData} : TRestaurantCard) {
     return (
         <RestaurantCard__article>
-            <Link 
-                href=""
-                passHref
-                legacyBehavior
-            >
+            <Link href="" passHref legacyBehavior>
                 <RestaurantCard__link>
                     <RestaurantCard__image__wrapper>
-                        <RestaurantCard__image 
-                            src='/images/BellissimoPizza.avif'
-                            alt={'A closeup of a New York style pizza pie'}
+                        <RestaurantCard__image
+                            src={restaurantData.restaurantImage}
+                            alt={"A closeup of a New York style pizza pie"}
                             fill={true}
-                        />    
+                        />
                     </RestaurantCard__image__wrapper>
                     <RestaurantCard__bottom>
                         <RestaurantCard__text>
                             <RestaurantCard__restaurantName>
-                                Rosa's Pizza
+                                {restaurantData.restaurantName}
                             </RestaurantCard__restaurantName>
                             <RestaurantCard__auxInfo>
-                                0.6 mi • 28 min • $0 delivery fee over $12
+                                {restaurantData.distance} • {restaurantData.deliveryTime} • $0 delivery fee over $12
                             </RestaurantCard__auxInfo>
                         </RestaurantCard__text>
                     </RestaurantCard__bottom>
