@@ -2,6 +2,13 @@ import styled from "styled-components";
 import CarouselTitle from "./CarouselTitle";
 import RestaurantCard from "./RestaurantCard/RestaurantCard";
 
+const RestaurantCarousel__article = styled.article`
+    display: flex;
+    flex-direction: column;
+    margin: 19px 0;
+    row-gap: 19px;
+`
+
 const RestaurantCarousel__topRow = styled.div`
     display: flex;
     justify-content: space-between;
@@ -16,7 +23,7 @@ const RestaurantCarousel__carousel = styled.div`
 
 export default function RestaurantCarousel() {
     return (
-        <article>
+        <RestaurantCarousel__article>
             <RestaurantCarousel__topRow>
                 <CarouselTitle />
                 {/* add buttons to navigate through carousel */}
@@ -25,6 +32,6 @@ export default function RestaurantCarousel() {
                 {/* Add custom restaurant cards here*/}
                 <RestaurantCard />
             </RestaurantCarousel__carousel>
-        </article>
+        </RestaurantCarousel__article>
     );
 }

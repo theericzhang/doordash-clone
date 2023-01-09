@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
         --secondary-gray: rgba(247, 247, 247, 1);
         --tertiary-gray: rgba(96, 96, 96, 1);
         --quaternary-gray: rgba(214, 214, 214, 1);
+        --quinary-gray: rgba(118, 118, 118, 1);
 
         --primary-white: rgba(255, 255, 255, 1);
 
