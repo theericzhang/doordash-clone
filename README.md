@@ -18,6 +18,7 @@ Up-to-date builds are hosted on Vercel. Please take a look at the `About` sectio
     * [In Progress](#in-progress)
     * [Next Up](#next-up)
 * [Resources and References](#📚-resources-and-references)
+* [Feedback](#👂✋-feedback)
 
 ## 🛠️ Getting Started
 
@@ -45,13 +46,13 @@ TypeScript is used as the programming language in this application. With a large
 ## 🛣️ Roadmap
 
 ### Recently Completed
-* Created `<Navbar />` component and `<SearchBar />`, `<ShoppingCartButton />` subcomponents.
-* Created `<HomeLayout />` layout components, that house the `<Navbar />` and child elements from the `index.tsx` page.
-* Created reusable & data driven `<RestaurantCarousel />` and `<RestaurantCard />` components and their subcomponents.
+* Created `<Navbar />` component and `<SearchBar />`, `<ShoppingCartButton />` subcomponents. Completed 1/6/23
+* Created `<HomeLayout />` layout components, that holds the `<Navbar />` and child elements from the `index.tsx` page. Completed 1/7/23
+* Created reusable & data driven `<RestaurantCarousel />` and `<RestaurantCard />` components and their subcomponents. Completed 1/8/23
 
 ### In Progress
-* Responsive styling for existing layouts & components when viewport width is under 1800px.
-* Creating and Linking `<RestaurantCard />` [slug] to a new store view page.
+* Responsive styling for existing layouts & components when viewport width is under 1800px. Begin 1/8/23
+* Creating and Linking `<RestaurantCard />` [slug] to a new store view page. Begin 1/8/23
 
 ### Next Up
 * Implement Search functionality. Start with stores, then cuisines and dishes.
@@ -65,5 +66,13 @@ TypeScript is used as the programming language in this application. With a large
 - [styled-components](https://styled-components.com/) - learn about styled-components with an interactive button component
 - [DoorDash Engineering - Improving Web Page Performance at DoorDash through Server Side Rendering with Next.js](https://doordash.engineering/2022/03/29/improving-web-page-performance-at-doordash-throughserver-side-rendering-with-next-js/) - Read about DoorDash's motivation and technical decision to move to Next.js powered SSR 
 
+## 👂✋ Feedback
+
+I'd love to hear from you! Let me know of any feedback you have; it can be pertinent to this project, tech stack, design assets, etc!
 
 
+| Contact  |                 |
+|----------|----------------------------------------------------------------|
+| Twitter  | [@anericzhang](http://twitter.com/anericzhang)                 |
+| Mastodon | [@anericzhang@hachyderm.io](https://hachyderm.io/@anericzhang) |
+| email    | [anericzhang@gmail.com](mailto:anericzhang@gmail.com)          |
