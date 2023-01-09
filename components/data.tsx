@@ -7,14 +7,14 @@ export default function data() {
                     {
                         "restaurantID": 65341,
                         "restaurantName": "Rosa's Pizza",
-                        "restaurantImage": "/images/BellissimoPizza.avif",
+                        "restaurantImage": "/images/BellissimoPizza.webp",
                         "distance": "0.6 mi",
                         "deliveryTime": "28 min"
                     }, 
                     {
                         "restaurantID": 1243431,
                         "restaurantName": "Omakase Sushi",
-                        "restaurantImage": "/images/Sushi.avif",
+                        "restaurantImage": "/images/Sushi.webp",
                         "distance": "1.2 mi",
                         "deliveryTime": "53 min"
                     }, 
@@ -69,14 +69,14 @@ export default function data() {
                     {
                         "restaurantID": 65341,
                         "restaurantName": "Rosa's Pizza",
-                        "restaurantImage": "/images/BellissimoPizza.avif",
+                        "restaurantImage": "/images/BellissimoPizza.webp",
                         "distance": "0.6 mi",
                         "deliveryTime": "28 min"
                     }, 
                     {
                         "restaurantID": 1243431,
                         "restaurantName": "Omakase Sushi",
-                        "restaurantImage": "/images/Sushi.avif",
+                        "restaurantImage": "/images/Sushi.webp",
                         "distance": "1.2 mi",
                         "deliveryTime": "53 min"
                     }, 
@@ -103,14 +103,14 @@ export default function data() {
                     {
                         "restaurantID": 65341,
                         "restaurantName": "Rosa's Pizza",
-                        "restaurantImage": "/images/BellissimoPizza.avif",
+                        "restaurantImage": "/images/BellissimoPizza.webp",
                         "distance": "0.6 mi",
                         "deliveryTime": "28 min"
                     }, 
                     {
                         "restaurantID": 1243431,
                         "restaurantName": "Omakase Sushi",
-                        "restaurantImage": "/images/Sushi.avif",
+                        "restaurantImage": "/images/Sushi.webp",
                         "distance": "1.2 mi",
                         "deliveryTime": "53 min"
                     }, 
