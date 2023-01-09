@@ -4,15 +4,20 @@ Hey there! Please take a look at [this Notion](https://piquant-dancer-3b9.notion
 
 I wanted to create a baseline clone of DoorDash's home portal from an authenticated user's perspective. This challenge tested a variety of skillsets including prototyping pixel perfect, data driven, and reusable UI components. 
 
-This challenge is currently undergoing development as of January 6th 2023, so features including SSR driven merchant pages, search functionality, and checkout will be implemented along the way. Please check ## Roadmap for more information!
+This challenge is currently undergoing active development as of January 6th 2023, so features including SSR driven merchant pages, search functionality, and checkout will be implemented along the way. Please check ## Roadmap for more information!
+
+Most recent builds are hosted on Vercel. Please take a look at the `About` section on this repository to access the build.
 
 # Table of Contents
-1. [Getting Started](#getting-started)
-2. [Technology](#technology)
-3. [Roadmap](#roadmap)
-4. [Resources and References](#resources-and-references)
+* [Getting Started](#🛠️-getting-started)
+* [Technology](#💻-technology)
+* [Roadmap](#🛣️-roadmap)
+    * [Recently Completed](#recently-completed)
+    * [In Progress](#in-progress)
+    * [Next Up](#next-up)
+* [Resources and References](#📚-resources-and-references)
 
-## Getting Started
+## 🛠️ Getting Started
 
 Install the dependencies and start the development server
 
@@ -28,21 +33,30 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load local fonts.
 
-## Technology
+## 💻 Technology
 Next.js is used as the React Framework in this rapid prototype. DoorDash requires Server Side Rendering, as the content that hydrates a merchant's page is widely dynamic. 
 
 [styled-components](https://styled-components.com/) is used as the CSS-in-JS framework used to generate dynamic styles based on component props. 
 
 TypeScript is used as the programming language in this application. With a large range of data-dependent components, it is necessary to guard data driven UI components (and their props) with explicit types. 
 
-## Roadmap
+## 🛣️ Roadmap
 
 ### Recently Completed
-* Created `<Navbar />` component and `<SearchBar />`, `<ShoppingCartButton />` subcomponents
-* Created `<HomeLayout />` layout components, that house the `<Navbar />` and child elements from the `index.tsx` page
-* Created reusable & data driven `<RestaurantCarousel />` and `<RestaurantCard />` components and their subcomponents
+* Created `<Navbar />` component and `<SearchBar />`, `<ShoppingCartButton />` subcomponents.
+* Created `<HomeLayout />` layout components, that house the `<Navbar />` and child elements from the `index.tsx` page.
+* Created reusable & data driven `<RestaurantCarousel />` and `<RestaurantCard />` components and their subcomponents.
 
-## Resources and References
+### In Progress
+* Responsive styling for existing layouts & components when viewport width is under 1800px.
+* Creating and Linking `<RestaurantCard />` [slug] to a new store view page.
+
+### Next Up
+* Implement Search functionality. Start with stores, then cuisines and dishes.
+* Checkout flow.
+* Garner feedback.
+
+## 📚 Resources and References
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [styled-components](https://styled-components.com/) - learn about styled-components with an interactive button component
