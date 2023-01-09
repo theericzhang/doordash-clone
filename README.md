@@ -1,12 +1,14 @@
-# Doordash, a rapid prototype
+# Doordash, a Rapid Prototype Clone 👯 
 
-Hey there! Please take a look at [this Notion](https://piquant-dancer-3b9.notion.site/DoorDash-Clone-Discoveries-Hurdles-Lessons-A-WIP-7bd86cff0d764b4c8ff040a84557d361) to gauge at technical findings, hurdles, and lessons I am uncovering while working on this project.
+👋 Hey there! Please take a look at [this Notion](https://piquant-dancer-3b9.notion.site/DoorDash-Clone-Discoveries-Hurdles-Lessons-A-WIP-7bd86cff0d764b4c8ff040a84557d361) to gauge at technical findings, hurdles, and lessons I am uncovering while working on this project.
+
+## 🧘 Motivations
 
 I wanted to create a baseline clone of DoorDash's home portal from an authenticated user's perspective. This challenge tested a variety of skillsets including prototyping pixel perfect, data driven, and reusable UI components. 
 
-This challenge is currently undergoing active development as of January 6th 2023, so features including SSR driven merchant pages, search functionality, and checkout will be implemented along the way. Please check ## Roadmap for more information!
+This challenge is currently undergoing active development as of January 6th 2023, so features including SSR driven merchant pages, search functionality, and checkout will be implemented along the way. Please check [Roadmap](#🛣️-roadmap) for more information!
 
-Most recent builds are hosted on Vercel. Please take a look at the `About` section on this repository to access the build.
+Up-to-date builds are hosted on Vercel. Please take a look at the `About` section on this repository to access the build.
 
 # Table of Contents
 * [Getting Started](#🛠️-getting-started)
@@ -58,6 +60,7 @@ TypeScript is used as the programming language in this application. With a large
 
 ## 📚 Resources and References
 
+- [DoorDash Clone - Discoveries, Hurdles, Lessons (A WIP)](https://piquant-dancer-3b9.notion.site/DoorDash-Clone-Discoveries-Hurdles-Lessons-A-WIP-7bd86cff0d764b4c8ff040a84557d361) - read about my experience thus far building this application!
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [styled-components](https://styled-components.com/) - learn about styled-components with an interactive button component
 - [DoorDash Engineering - Improving Web Page Performance at DoorDash through Server Side Rendering with Next.js](https://doordash.engineering/2022/03/29/improving-web-page-performance-at-doordash-throughserver-side-rendering-with-next-js/) - Read about DoorDash's motivation and technical decision to move to Next.js powered SSR 
