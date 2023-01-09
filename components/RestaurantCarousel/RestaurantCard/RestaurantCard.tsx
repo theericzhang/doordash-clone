@@ -3,8 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const RestaurantCard__article = styled.article`
-    width: 374px;
+    min-width: 374px;
     height: 245px;
+    scroll-snap-align: start;
 `;
 
 const RestaurantCard__link = styled.a`

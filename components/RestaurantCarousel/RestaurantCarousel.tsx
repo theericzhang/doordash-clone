@@ -17,8 +17,17 @@ const RestaurantCarousel__topRow = styled.div`
 
 const RestaurantCarousel__carousel = styled.div`
     display: flex;
+    max-width: 100%;
+    column-gap: 15px;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+
+    // hide scrollbar style
+    -ms-overflow-style: none; // IE and Edge
+    scrollbar-width: none; // Firefox
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
 
 export default function RestaurantCarousel() {
@@ -30,6 +39,11 @@ export default function RestaurantCarousel() {
             </RestaurantCarousel__topRow>
             <RestaurantCarousel__carousel>
                 {/* Add custom restaurant cards here*/}
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
+                <RestaurantCard />
                 <RestaurantCard />
             </RestaurantCarousel__carousel>
         </RestaurantCarousel__article>
