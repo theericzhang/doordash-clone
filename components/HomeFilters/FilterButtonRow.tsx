@@ -12,9 +12,16 @@ const FilterButtonRow__wrapper = styled.div`
     background-color: var(--primary-white);
     position: sticky;
     top: 64px;
-    padding: 0 320px;
     border-bottom: 1px solid var(--primary-gray);
     z-index: 1;
+`;
+
+const FilterButtonRow__resizer = styled.div`
+    // TODO: responsive styling for smaller screens. Currently drafting at device width = 1800px
+    
+    width: 1152px;
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 const FilterButtonRow__list = styled.ul`
@@ -73,18 +80,20 @@ export default function FilterButtonRow() {
     
     return (
         <FilterButtonRow__wrapper>
-            <FilterButtonRow__list>
-                {
-                    filterButtonData.map(buttonData => {
-                        return (
-                            <FilterButton 
-                                buttonData={buttonData} 
-                                key={buttonData.buttonLabel}
-                            />
-                        )
-                    })
-                }
-            </FilterButtonRow__list>
+            <FilterButtonRow__resizer>
+                <FilterButtonRow__list>
+                    {
+                        filterButtonData.map(buttonData => {
+                            return (
+                                <FilterButton
+                                    buttonData={buttonData}
+                                    key={buttonData.buttonLabel}
+                                />
+                            )
+                        })
+                    }
+                </FilterButtonRow__list>
+            </FilterButtonRow__resizer>
         </FilterButtonRow__wrapper>
     );
 }

@@ -5,8 +5,11 @@ import RestaurantCard from "./RestaurantCard/RestaurantCard";
 const RestaurantCarousel__article = styled.article`
     display: flex;
     flex-direction: column;
-    margin: 19px 0;
+    margin: 19px auto;
     row-gap: 19px;
+
+    // TODO: responsive styling for smaller screens. Currently drafting at device width = 1800px
+    width: 1152px;
 `;
 
 const RestaurantCarousel__topRow = styled.div`
