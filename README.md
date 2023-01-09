@@ -1,8 +1,16 @@
-# Doordash, a clone
+# Doordash, a rapid prototype
 
 Hey there! Please take a look at [this Notion](https://piquant-dancer-3b9.notion.site/DoorDash-Clone-Discoveries-Hurdles-Lessons-A-WIP-7bd86cff0d764b4c8ff040a84557d361) to gauge at technical findings, hurdles, and lessons I am uncovering while working on this project.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+I wanted to create a baseline clone of DoorDash's home portal from an authenticated user's perspective. This challenge tested a variety of skillsets including prototyping pixel perfect, data driven, and reusable UI components. 
+
+This challenge is currently undergoing development as of January 6th 2023, so features including SSR driven merchant pages, search functionality, and checkout will be implemented along the way. Please check ## Roadmap for more information!
+
+# Table of Contents
+1. [Getting Started](#getting-started)
+2. [Technology](#technology)
+3. [Roadmap](#roadmap)
+4. [Resources and References](#resources-and-references)
 
 ## Getting Started
 
@@ -27,7 +35,14 @@ Next.js is used as the React Framework in this rapid prototype. DoorDash require
 
 TypeScript is used as the programming language in this application. With a large range of data-dependent components, it is necessary to guard data driven UI components (and their props) with explicit types. 
 
-## Learn More
+## Roadmap
+
+### Recently Completed
+* Created `<Navbar />` component and `<SearchBar />`, `<ShoppingCartButton />` subcomponents
+* Created `<HomeLayout />` layout components, that house the `<Navbar />` and child elements from the `index.tsx` page
+* Created reusable & data driven `<RestaurantCarousel />` and `<RestaurantCard />` components and their subcomponents
+
+## Resources and References
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [styled-components](https://styled-components.com/) - learn about styled-components with an interactive button component
@@ -35,8 +50,3 @@ TypeScript is used as the programming language in this application. With a large
 
 
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
