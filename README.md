@@ -13,6 +13,7 @@ Up-to-date builds are hosted on Vercel. Please take a look at the `About` sectio
 # Table of Contents
 * [Getting Started](#getting-started)
 * [Technology](#technology)
+* [Application Architecture](#application-architecture)
 * [Roadmap](#roadmap)
     * [Recently Completed](#recently-completed)
     * [In Progress](#in-progress)
@@ -42,6 +43,10 @@ Next.js is used as the React Framework in this rapid prototype. DoorDash require
 [styled-components](https://styled-components.com/) is used as the CSS-in-JS framework used to generate dynamic styles based on component props. 
 
 TypeScript is used as the programming language in this application. With a large range of data-dependent components, it is necessary to guard data driven UI components (and their props) with explicit types. 
+
+## Application Architecture
+
+⚠️ Under Construction ⚠️
 
 ## Roadmap
 
