@@ -1,7 +1,13 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import styled from "styled-components";
 import RestaurantCarousel from "../components/RestaurantCarousel/RestaurantCarousel";
 import FilterButtonRow from "../components/HomeFilters/FilterButtonRow";
+
+const RestaurantCarouselSection = styled.section`
+    width: 100%;
+    padding: 0 320px;
+`;
 
 export default function Home() {
     return (
@@ -19,10 +25,10 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
-            <FilterButtonRow />
-            <section>
-                <RestaurantCarousel />
-            </section>
+                <FilterButtonRow />
+                <RestaurantCarouselSection>
+                    <RestaurantCarousel />
+                </RestaurantCarouselSection>
             </main>
         </>
     );
