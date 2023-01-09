@@ -14,6 +14,7 @@ const FilterButtonRow__wrapper = styled.div`
     top: 64px;
     padding: 0 320px;
     border-bottom: 1px solid var(--primary-gray);
+    z-index: 1;
 `;
 
 const FilterButtonRow__list = styled.ul`
