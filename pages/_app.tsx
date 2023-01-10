@@ -56,6 +56,12 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <div className={ttNormsFont.className}>
             <GlobalStyles />
+            {
+                /**
+                * Check if the child component pages (Component prop) are either Home or Store. If they are, 
+                * Render a <Navbar />
+                * */
+            }
             {(Component === Home || Component === Store) ? <Navbar /> : null}
             <Component {...pageProps} />
         </div>
