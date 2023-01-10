@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
+import HomeLayout from "../components/Layouts/HomeLayout";
 import RestaurantCarousel from "../components/RestaurantCarousel/RestaurantCarousel";
 import FilterButtonRow from "../components/FilterButtonRow/FilterButtonRow";
 import data from "../components/data";
@@ -21,7 +22,7 @@ export default function Home() {
         );
     });
     return (
-        <>
+        <HomeLayout>
             <Head>
                 <title>Create Next App</title>
                 <meta
@@ -40,6 +41,6 @@ export default function Home() {
                     {arrayOfCarousels}
                 </RestaurantCarouselSection>
             </main>
-        </>
+        </HomeLayout>
     );
 }
