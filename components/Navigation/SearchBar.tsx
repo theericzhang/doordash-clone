@@ -50,8 +50,6 @@ const SearchBar__input = styled.input`
 
 export default function SearchBar({ isSearchBarToggled, setIsSearchBarToggled }: TSearchBar) {
     
-    console.log(isSearchBarToggled);
-    
     function searchBarOnClick() {
         setIsSearchBarToggled(true);
     }
