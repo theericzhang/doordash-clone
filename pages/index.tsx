@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 import HomeLayout from "../components/Layouts/HomeLayout";
 import RestaurantCarousel from "../components/RestaurantCarousel/RestaurantCarousel";
-import data from "../components/data";
+import { restaurantCarousels } from "../components/datav2";
 
 const RestaurantCarouselSection = styled.section`
     width: 100%;
@@ -11,15 +11,15 @@ const RestaurantCarouselSection = styled.section`
 
 export default function Home() {
     
-    const carouselData = data();
-    const arrayOfCarousels = carouselData.map((data, index) => {
+    const arrayOfCarousels = restaurantCarousels.map((carousel, index) => {
         return (
             <RestaurantCarousel 
-                carouselData={data}
+                carouselData={carousel}
                 key={index}
             />
         );
-    });
+    })
+
     return (
         <>
             <Head>

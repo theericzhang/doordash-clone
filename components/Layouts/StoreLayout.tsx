@@ -1,12 +1,11 @@
 type TStoreLayout = {
     children: JSX.Element;
-    storeID: string;
 }
 
-export default function StoreLayout({ children, storeID }: TStoreLayout) {
+export default function StoreLayout({ children }: TStoreLayout) {
     return (
         <>
-            {storeID}
+            {children}
         </>
     );
 }
