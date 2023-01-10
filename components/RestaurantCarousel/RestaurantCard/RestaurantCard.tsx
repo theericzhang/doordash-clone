@@ -64,7 +64,7 @@ type TRestaurantCard = {
 export default function RestaurantCard({restaurantData} : TRestaurantCard) {
     return (
         <RestaurantCard__article>
-            <Link href="" passHref legacyBehavior>
+            <Link href={`/store/${restaurantData.restaurantID}`} passHref legacyBehavior>
                 <RestaurantCard__link>
                     <RestaurantCard__image__wrapper>
                         <RestaurantCard__image
