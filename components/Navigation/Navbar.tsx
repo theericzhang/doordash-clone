@@ -33,7 +33,7 @@ const Navbar__subLeft = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 8px;
+    column-gap: 2px;
 `;
 
 const Navbar__linkGroup = styled.ul`
@@ -41,7 +41,7 @@ const Navbar__linkGroup = styled.ul`
     justify-content: center;
     align-items: center;
     margin-left: 32px;
-    margin-right: 12px;
+    margin-right: 16px;
 `;
 
 const Navbar__link__wrapper = styled.div`

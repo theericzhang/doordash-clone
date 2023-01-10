@@ -3,7 +3,7 @@ import React from "react";
 
 const Navbar__button__address = styled.button`
     padding: 10px 0;
-    margin: 0 8px;
+    margin: 0 14px;
     border: none;
     background-color: transparent;
 
