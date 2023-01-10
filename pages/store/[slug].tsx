@@ -1,4 +1,5 @@
 import StoreLayout from "../../components/Layouts/StoreLayout";
+import HeroComponent from "../../components/StoreComponents/HeroComponent/HeroComponent";
 import { GetServerSidePropsContext } from "next";
 
 type TServerSideProps = {
@@ -10,7 +11,9 @@ export default function Store({ storeID }: TServerSideProps) {
     return (
         <StoreLayout 
             storeID={storeID}
-        />
+        >
+            <HeroComponent />
+        </StoreLayout>
     );
 }
 

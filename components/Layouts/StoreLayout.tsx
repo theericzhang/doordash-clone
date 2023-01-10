@@ -1,13 +1,11 @@
-import HeroComponent from "../StoreComponents/HeroComponent/HeroComponent";
-
 type TStoreLayout = {
+    children: JSX.Element;
     storeID: string;
 }
 
-export default function StoreLayout({ storeID }: TStoreLayout) {
+export default function StoreLayout({ children, storeID }: TStoreLayout) {
     return (
         <>
-            <HeroComponent />
             {storeID}
         </>
     );

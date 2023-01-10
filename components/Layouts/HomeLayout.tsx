@@ -1,6 +1,10 @@
 import FilterButtonRow from "../FilterButtonRow/FilterButtonRow"
 
-export default function HomeLayout({ children }: any) {
+type THomeLayout = {
+    children: JSX.Element;
+}
+
+export default function HomeLayout({ children }: THomeLayout) {
     return (
         <>
             <FilterButtonRow />
