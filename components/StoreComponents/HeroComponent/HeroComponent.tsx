@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { TRestaurantDataPrimary, TStorefrontData } from '../../../global';
 import DashPassLabel from '../../Icons/DashPassLabel';
+import Star from '../../Icons/StarIcon';
 
 const HeroComponent__wrapper = styled.section`
     display: flex;
@@ -96,7 +97,12 @@ const HeroComponent__information__bullet = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
-`
+`;
+
+const HeroComponent__information__rating__wrapper = styled.div`
+    display: flex;
+    align-items: center;
+`;
 
 type TRestaurantData = {
     restaurantData: TRestaurantDataPrimary;
@@ -153,6 +159,18 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                                         •
                                     </HeroComponent__information__bullet>
                                 </>
+                            :
+                                null
+                            }
+                            {!!storefrontData.averageRating ?
+                                <HeroComponent__information__rating__wrapper>
+                                    {storefrontData.averageRating}
+                                    <Star 
+                                        color={`var(--quinary-gray)`}
+                                        isInlineReview={true}
+                                    />
+                                    {storefrontData.ratingCount}
+                                </HeroComponent__information__rating__wrapper>
                             :
                                 null
                             }
