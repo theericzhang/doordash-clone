@@ -5,9 +5,10 @@ export const restaurantList = {
             restaurantImage: "/images/BellissimoPizza.webp",
             distance: "0.6 mi",
             deliveryTime: "28 min",
+            isDashPass: true,
         },
         storefrontData: {
-            
+
         }
     },
     1243431: {
@@ -16,9 +17,10 @@ export const restaurantList = {
             restaurantImage: "/images/Sushi.webp",
             distance: "1.2 mi",
             deliveryTime: "53 min",
+            isDashPass: true,
         },
         storefrontData: {
-            
+
         }
     },
     18764431: {
@@ -27,9 +29,10 @@ export const restaurantList = {
             restaurantImage: "/images/DosaByDosa.jpeg",
             distance: "0.8 mi",
             deliveryTime: "40 min",
+            isDashPass: true,
         },
         storefrontData: {
-            
+
         }
     },
     98441: {
@@ -38,9 +41,10 @@ export const restaurantList = {
             restaurantImage: "/images/CurryUpNow.jpeg",
             distance: "0.8 mi",
             deliveryTime: "40 min",
+            isDashPass: true,
         },
         storefrontData: {
-            
+
         }
     },
     12356667: {
@@ -49,9 +53,10 @@ export const restaurantList = {
             restaurantImage: "/images/BirdAndBuffalo.jpeg",
             distance: "0.3 mi",
             deliveryTime: "21 min",
+            isDashPass: true,
         },
         storefrontData: {
-            
+
         }
     },
     334624: {
@@ -60,9 +65,10 @@ export const restaurantList = {
             restaurantImage: "/images/NariThai.jpeg",
             distance: "3.6 mi",
             deliveryTime: "39 min",
+            isDashPass: true,
         },
         storefrontData: {
-            
+
         }
     },
     120985: {
@@ -71,9 +77,10 @@ export const restaurantList = {
             restaurantImage: "/images/CholitaLinda.jpeg",
             distance: "0.9 mi",
             deliveryTime: "23 min",
+            isDashPass: true,
         },
         storefrontData: {
-            
+
         }
     },
 };

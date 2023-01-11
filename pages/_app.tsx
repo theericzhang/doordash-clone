@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import Home from './index';
 import Store from "./store/[slug]";
 import Navbar from "../components/Navigation/Navbar";
+import { useEffect } from "react";
 
 const ttNormsFont = localFont({
     src: [
@@ -52,7 +53,9 @@ const ttNormsFont = localFont({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-    console.log('%c https://anericzhang.com', 'font-weight: bold; font-size: 50px; color: orange;');
+    useEffect(() => {
+        console.log('%chttps://anericzhang.com', 'background: orange; font-size: 16px');
+    }, []);
     return (
         <div className={ttNormsFont.className}>
             <GlobalStyles />

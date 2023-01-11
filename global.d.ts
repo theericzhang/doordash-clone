@@ -3,4 +3,9 @@ export type TRestaurantDataPrimary = {
     restaurantImage: string;
     distance: string;
     deliveryTime: string;
+    isDashPass: boolean;
+};
+
+export type TStorefrontData = {
+
 };

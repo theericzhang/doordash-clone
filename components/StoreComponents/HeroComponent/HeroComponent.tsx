@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { TRestaurantDataPrimary } from '../../../global';
+import DashPassLabel from '../../Icons/DashPass';
 
 const HeroComponent__wrapper = styled.section`
     display: flex;
@@ -79,6 +80,10 @@ const HeroComponent__restaurantName = styled.h2`
     letter-spacing: -1.1px;
 `;
 
+const HeroComponent__information__primary = styled.div`
+    display: flex;
+`;
+
 type TRestaurantData = {
     restaurantData: TRestaurantDataPrimary;
 }
@@ -114,6 +119,9 @@ export default function HeroComponent({ restaurantData }: TRestaurantData) {
                     <HeroComponent__restaurantName>
                         {restaurantData.restaurantName}
                     </HeroComponent__restaurantName>
+                    <HeroComponent__information__primary>
+                        <DashPassLabel isDashPass={restaurantData.isDashPass}/>
+                    </HeroComponent__information__primary>
                 </HeroComponent__information>
             </HeroComponent__inner>
         </HeroComponent__wrapper>
