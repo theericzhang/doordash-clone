@@ -6,6 +6,9 @@ export const restaurantList = {
             distance: "0.6 mi",
             deliveryTime: "28 min",
         },
+        storefrontData: {
+            
+        }
     },
     1243431: {
         restaurantData: {
@@ -14,6 +17,9 @@ export const restaurantList = {
             distance: "1.2 mi",
             deliveryTime: "53 min",
         },
+        storefrontData: {
+            
+        }
     },
     18764431: {
         restaurantData: {
@@ -22,6 +28,9 @@ export const restaurantList = {
             distance: "0.8 mi",
             deliveryTime: "40 min",
         },
+        storefrontData: {
+            
+        }
     },
     98441: {
         restaurantData: {
@@ -30,6 +39,9 @@ export const restaurantList = {
             distance: "0.8 mi",
             deliveryTime: "40 min",
         },
+        storefrontData: {
+            
+        }
     },
     12356667: {
         restaurantData: {
@@ -38,6 +50,9 @@ export const restaurantList = {
             distance: "0.3 mi",
             deliveryTime: "21 min",
         },
+        storefrontData: {
+            
+        }
     },
     334624: {
         restaurantData: {
@@ -46,6 +61,9 @@ export const restaurantList = {
             distance: "3.6 mi",
             deliveryTime: "39 min",
         },
+        storefrontData: {
+            
+        }
     },
     120985: {
         restaurantData: {
@@ -54,6 +72,9 @@ export const restaurantList = {
             distance: "0.9 mi",
             deliveryTime: "23 min",
         },
+        storefrontData: {
+            
+        }
     },
 };
 

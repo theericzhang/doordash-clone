@@ -1,3 +1,5 @@
+import styles from "../../styles/Home.module.css";
+
 type TStoreLayout = {
     children: JSX.Element;
 }
@@ -5,7 +7,9 @@ type TStoreLayout = {
 export default function StoreLayout({ children }: TStoreLayout) {
     return (
         <>
-            {children}
+            <main className={styles.main}>
+                {children}
+            </main>
         </>
     );
 }

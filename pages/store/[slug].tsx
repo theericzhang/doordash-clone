@@ -2,17 +2,25 @@ import StoreLayout from "../../components/Layouts/StoreLayout";
 import HeroComponent from "../../components/StoreComponents/HeroComponent/HeroComponent";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
+import { restaurantList } from "../../components/datav2";
 
 type TServerSideProps = {
-    storeID: string;
-}
+    restaurant: {
+        restaurantData: {
+            restaurantName: string;
+            restaurantImage: string;
+            distance: string;
+            deliveryTime: string;
+        };
+        storefrontData: {};
+    };
+};
 
-export default function Store({ storeID }: TServerSideProps) {
-    console.log(storeID);
+export default function Store({ restaurant }: TServerSideProps) {
     return (
         <>
             <Head>
-                <title>Nari Thai</title>
+                <title>{restaurant.restaurantData.restaurantName}</title>
                 <meta
                     name="DoorDash"
                     content="DoorDash Food Delivery - Delivering Now, From Restaurants Near You"
@@ -24,7 +32,7 @@ export default function Store({ storeID }: TServerSideProps) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <StoreLayout>
-                <HeroComponent />
+                <HeroComponent restaurantData={restaurant.restaurantData}/>
             </StoreLayout>
         </>
     );
@@ -34,7 +42,9 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     // fetch data pertinent to store here
     // Always note that the last property ctx.params?.slug MUST be the same as the name [slug], without square brackets.
     const storeID = ctx.params?.slug;
+    const restaurant =
+        restaurantList[Number(storeID) as keyof typeof restaurantList];
     return {
-        props: { storeID }
-    }
+        props: { restaurant },
+    };
 }
