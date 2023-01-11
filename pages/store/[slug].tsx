@@ -3,15 +3,11 @@ import HeroComponent from "../../components/StoreComponents/HeroComponent/HeroCo
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import { restaurantList } from "../../components/datav2";
+import { TRestaurantDataPrimary } from "../../global";
 
 type TServerSideProps = {
     restaurant: {
-        restaurantData: {
-            restaurantName: string;
-            restaurantImage: string;
-            distance: string;
-            deliveryTime: string;
-        };
+        restaurantData: TRestaurantDataPrimary;
         storefrontData: {};
     };
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import { TRestaurantDataPrimary } from '../../../global';
 
 const HeroComponent__wrapper = styled.section`
     display: flex;
@@ -79,12 +80,7 @@ const HeroComponent__restaurantName = styled.h2`
 `;
 
 type TRestaurantData = {
-    restaurantData: {
-        restaurantName: string;
-        restaurantImage: string;
-        distance: string;
-        deliveryTime: string;
-    };
+    restaurantData: TRestaurantDataPrimary;
 }
 
 export default function HeroComponent({ restaurantData }: TRestaurantData) {

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
+import { TRestaurantDataPrimary } from "../../../global";
 
 const RestaurantCard__article = styled.article`
     min-width: 374px;
@@ -53,12 +54,7 @@ const RestaurantCard__auxInfo = styled.h5`
 
 type TRestaurantCard = {
     restaurantID: number,
-    restaurantData: {
-        restaurantName: string;
-        restaurantImage: string;
-        distance: string;
-        deliveryTime: string;
-    };
+    restaurantData: TRestaurantDataPrimary;
 };
 
 export default function RestaurantCard({ restaurantID, restaurantData } : TRestaurantCard) {
