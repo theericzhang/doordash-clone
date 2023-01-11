@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import CarouselTitle from "./CarouselTitle";
 import RestaurantCard from "./RestaurantCard/RestaurantCard";
+import { restaurantList } from "../datav2";
 
 const RestaurantCarousel__article = styled.article`
     display: flex;
     flex-direction: column;
-    margin: 19px auto;
+    margin: 30px auto;
     row-gap: 19px;
 
     // TODO: responsive styling for smaller screens. Currently drafting at device width = 1800px
@@ -35,27 +36,22 @@ const RestaurantCarousel__carousel = styled.div`
 
 type TRestaurauntCarousel = {
     carouselData: {
-        carouselName: string;
-        restaurantData: {
-            restaurantID: number;
-            restaurantName: string;
-            restaurantImage: string;
-            distance: string;
-            deliveryTime: string;
-        }[];
-    }
+        carouselName: string,
+        selectedRestaurantIDs: number[];
+    };
 }
 
 export default function RestaurantCarousel({carouselData} : TRestaurauntCarousel) {
-    
-    const arrayOfRestaurantCards = carouselData.restaurantData.map(restaurantData => {
+
+    const arrayOfRestaurantCards = carouselData.selectedRestaurantIDs.map((restaurantID => {
         return (
             <RestaurantCard
-                restaurantData={restaurantData}
-                key={restaurantData.restaurantID}
+                restaurantID={restaurantID}
+                restaurantData={restaurantList[restaurantID as keyof typeof restaurantList].restaurantData}
+                key={restaurantID}
             />
         )
-    })
+    }))
 
     return (
         <RestaurantCarousel__article>

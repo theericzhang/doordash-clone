@@ -52,8 +52,8 @@ const RestaurantCard__auxInfo = styled.h5`
 `;
 
 type TRestaurantCard = {
+    restaurantID: number,
     restaurantData: {
-        restaurantID: number;
         restaurantName: string;
         restaurantImage: string;
         distance: string;
@@ -61,10 +61,10 @@ type TRestaurantCard = {
     };
 };
 
-export default function RestaurantCard({restaurantData} : TRestaurantCard) {
+export default function RestaurantCard({ restaurantID, restaurantData } : TRestaurantCard) {
     return (
         <RestaurantCard__article>
-            <Link href="" passHref legacyBehavior>
+            <Link href={`/store/${restaurantID}`} passHref legacyBehavior>
                 <RestaurantCard__link>
                     <RestaurantCard__image__wrapper>
                         <RestaurantCard__image

@@ -2,7 +2,9 @@ import "../styles/globals.css";
 import { GlobalStyles } from "../styles/GlobalStyles";
 import localFont from '@next/font/local';
 import type { AppProps } from "next/app";
-import HomeLayout from "../components/Layouts/HomeLayout";
+import Home from './index';
+import Store from "./store/[slug]";
+import Navbar from "../components/Navigation/Navbar";
 
 const ttNormsFont = localFont({
     src: [
@@ -54,9 +56,14 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <div className={ttNormsFont.className}>
             <GlobalStyles />
-            <HomeLayout>
-                <Component {...pageProps} />
-            </HomeLayout>
+            {
+                /**
+                * Check if the child component pages (Component prop) are either Home or Store. If they are, 
+                * Render a <Navbar />
+                * */
+            }
+            {(Component === Home || Component === Store) ? <Navbar /> : null}
+            <Component {...pageProps} />
         </div>
     );
 }
