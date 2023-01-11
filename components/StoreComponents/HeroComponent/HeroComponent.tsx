@@ -102,6 +102,7 @@ const HeroComponent__information__bullet = styled.span`
 const HeroComponent__information__rating__wrapper = styled.div`
     display: flex;
     align-items: center;
+    column-gap: 5px;
 `;
 
 type TRestaurantData = {
@@ -110,6 +111,9 @@ type TRestaurantData = {
 }
 
 export default function HeroComponent({ restaurantData, storefrontData }: TRestaurantData) {
+    
+    const ratingsCountLocalized = storefrontData?.ratingCount && `${(Math.floor(storefrontData?.ratingCount / 1000) * 1000).toLocaleString()}+ ratings` 
+    
     return (
         <HeroComponent__wrapper>
             <HeroComponent__inner>
@@ -169,7 +173,10 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                                         color={`var(--quinary-gray)`}
                                         isInlineReview={true}
                                     />
-                                    {storefrontData.ratingCount}
+                                    {ratingsCountLocalized}
+                                    <HeroComponent__information__bullet>
+                                        •
+                                    </HeroComponent__information__bullet>
                                 </HeroComponent__information__rating__wrapper>
                             :
                                 null
