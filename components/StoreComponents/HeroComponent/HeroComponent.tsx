@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { TRestaurantDataPrimary } from '../../../global';
-import DashPassLabel from '../../Icons/DashPass';
+import DashPassLabel from '../../Icons/DashPassLabel';
 
 const HeroComponent__wrapper = styled.section`
     display: flex;
@@ -70,6 +70,7 @@ const HeroComponent__information = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    row-gap: 1px;
     width: 100%;
 `;
 
@@ -120,7 +121,7 @@ export default function HeroComponent({ restaurantData }: TRestaurantData) {
                         {restaurantData.restaurantName}
                     </HeroComponent__restaurantName>
                     <HeroComponent__information__primary>
-                        <DashPassLabel isDashPass={restaurantData.isDashPass}/>
+                        {restaurantData.isDashPass ? <DashPassLabel isFull={true}/> : null}
                     </HeroComponent__information__primary>
                 </HeroComponent__information>
             </HeroComponent__inner>
