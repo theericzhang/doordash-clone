@@ -28,7 +28,10 @@ export default function Store({ restaurant }: TServerSideProps) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <StoreLayout>
-                <HeroComponent restaurantData={restaurant.restaurantData}/>
+                <HeroComponent 
+                    restaurantData={restaurant.restaurantData}
+                    storefrontData={restaurant.storefrontData}
+                />
             </StoreLayout>
         </>
     );

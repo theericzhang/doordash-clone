@@ -8,7 +8,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-
+            shortDescription: "Pizza, Salad",
         }
     },
     1243431: {
@@ -20,7 +20,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-
+            shortDescription: "Fresh Sushi",
         }
     },
     18764431: {
@@ -32,7 +32,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-
+            shortDescription: "Delicious Dosas",
         }
     },
     98441: {
@@ -44,7 +44,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-
+            shortDescription: "Curries, Naan",
         }
     },
     12356667: {
@@ -56,7 +56,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-
+            shortDescription: "Thai, Rice"
         }
     },
     334624: {
@@ -68,7 +68,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-
+            shortDescription: "Thai, Noodles",
         }
     },
     120985: {
@@ -80,7 +80,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-
+            shortDescription: "Tacos, Tortas",
         }
     },
 };

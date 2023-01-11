@@ -7,5 +7,5 @@ export type TRestaurantDataPrimary = {
 };
 
 export type TStorefrontData = {
-
+    shortDescription: string;
 };

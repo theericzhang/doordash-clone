@@ -21,7 +21,6 @@ const DashPassLabel__span = styled.span`
 export default function DashPassLabel({ isFull }: TDashPass) {
     return (
         isFull ?
-            // style this dashpass area
             <DashPassLabel__wrapper>
                 <DashPassIcon 
                     size={20}
