@@ -85,11 +85,18 @@ const HeroComponent__information__primary = styled.div`
     display: flex;
 `;
 
-const HeroComponent_information__span = styled.span`
+const HeroComponent__information__span = styled.span`
     display: flex;
     font-weight: 400;
     color: var(--quinary-gray);
+    column-gap: 6px;
 `;
+
+const HeroComponent__information__bullet = styled.span`
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--quinary-gray);
+`
 
 type TRestaurantData = {
     restaurantData: TRestaurantDataPrimary;
@@ -128,11 +135,28 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                         {restaurantData.restaurantName}
                     </HeroComponent__restaurantName>
                     <HeroComponent__information__primary>
-                        <HeroComponent_information__span>
-                            {restaurantData.isDashPass ? <DashPassLabel isFull={true}/> : null}
-                            •
-                            {storefrontData.shortDescription}
-                        </HeroComponent_information__span>
+                        <HeroComponent__information__span>
+                            {!!restaurantData.isDashPass ? 
+                                <>
+                                    <DashPassLabel isFull={true}/>
+                                    <HeroComponent__information__bullet>
+                                        •
+                                    </HeroComponent__information__bullet>
+                                </> 
+                            : 
+                                null
+                            }
+                            {!!storefrontData.shortDescription ? 
+                                <>
+                                    {storefrontData.shortDescription}
+                                    <HeroComponent__information__bullet>
+                                        •
+                                    </HeroComponent__information__bullet>
+                                </>
+                            :
+                                null
+                            }
+                        </HeroComponent__information__span>
                     </HeroComponent__information__primary>
                 </HeroComponent__information>
             </HeroComponent__inner>
