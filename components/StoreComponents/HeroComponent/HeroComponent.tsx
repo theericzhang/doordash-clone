@@ -31,15 +31,33 @@ const HeroComponent__image__wrapper = styled.div`
     position: relative;
 `;
 
-const HeroComponent__storeProfile__image__wrapper = styled.div`
+const HeroComponent__storeProfile__image__area = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    background-color: aliceblue;
+    background-color: var(--primary-white);
     position: absolute;
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, .2));
     bottom: -38px;
     left: 16px;
+`;
+
+const HeroComponent__storeProfile__image_wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 95%;
+    height: 95%;
+    border-radius: 100%;
+`;
+
+const HeroComponent__storeProfile__image = styled(Image)`
+    object-fit: cover
 `;
 
 const HeroComponent__image = styled(Image)`
@@ -83,7 +101,17 @@ export default function HeroComponent({ restaurantData }: TRestaurantData) {
                             fill={true}
                         />
                     </HeroComponent__image__wrapper>
-                    <HeroComponent__storeProfile__image__wrapper></HeroComponent__storeProfile__image__wrapper>
+                    <HeroComponent__storeProfile__image__area>
+                        <HeroComponent__storeProfile__image_wrapper>
+                            <HeroComponent__storeProfile__image
+                                src={restaurantData.restaurantImage}
+                                alt={`Image from ${restaurantData.restaurantName}`}
+                                placeholder="blur"
+                                blurDataURL="/images/Blur.png"
+                                fill={true}
+                            />
+                        </HeroComponent__storeProfile__image_wrapper>
+                    </HeroComponent__storeProfile__image__area>
                 </HeroComponent__images__collection>
                 {/*immediate info area*/}
                 <HeroComponent__information>
