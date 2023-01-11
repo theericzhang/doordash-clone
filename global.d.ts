@@ -10,4 +10,5 @@ export type TStorefrontData = {
     shortDescription?: string;
     averageRating?: number;
     ratingCount?: number;
+    priceRating?: number;
 };

@@ -181,6 +181,25 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                             :
                                 null
                             }
+                            {!!restaurantData.distance ?
+                                <>
+                                    {restaurantData.distance}
+                                    <HeroComponent__information__bullet>
+                                        •
+                                    </HeroComponent__information__bullet>
+                                </>
+                            :
+                                null
+                            }
+                            {!!storefrontData.priceRating ?
+                                <>
+                                    {
+                                        Array(storefrontData.priceRating).fill('$')
+                                    }
+                                </>
+                            :
+                                null
+                            }
                         </HeroComponent__information__span>
                     </HeroComponent__information__primary>
                 </HeroComponent__information>

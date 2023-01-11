@@ -11,6 +11,7 @@ export const restaurantList = {
             shortDescription: "Pizza, Salad",
             averageRating: 4.2,
             ratingCount: 2034,
+            priceRating: 2,
         }
     },
     1243431: {
@@ -25,6 +26,7 @@ export const restaurantList = {
             shortDescription: "Fresh Sushi",
             averageRating: 4.9,
             ratingCount: 6437,
+            priceRating: 4,
         }
     },
     18764431: {
@@ -39,6 +41,7 @@ export const restaurantList = {
             shortDescription: "Delicious Dosas",
             averageRating: 4.9,
             ratingCount: 3045,
+            priceRating: 3,
         }
     },
     98441: {
@@ -50,9 +53,10 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-            shortDescription: "Curries, Naan",
+            shortDescription: "Curries, Naan, Paneer",
             averageRating: 4.6,
             ratingCount: 2830,
+            priceRating: 3,
         }
     },
     12356667: {
@@ -67,6 +71,7 @@ export const restaurantList = {
             shortDescription: "Thai, Rice",
             averageRating: 4.7,
             ratingCount: 1353,
+            priceRating: 3,
         }
     },
     334624: {
@@ -81,6 +86,7 @@ export const restaurantList = {
             shortDescription: "Thai, Noodles",
             averageRating: 4.9,
             ratingCount: 3425,
+            priceRating: 4,
         }
     },
     120985: {
@@ -95,6 +101,7 @@ export const restaurantList = {
             shortDescription: "Tacos, Tortas",
             averageRating: 4.8,
             ratingCount: 5234,
+            priceRating: 2,
         }
     },
 };
