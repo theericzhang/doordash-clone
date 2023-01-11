@@ -91,6 +91,8 @@ const HeroComponent__information__span = styled.span`
     font-weight: 400;
     color: var(--quinary-gray);
     column-gap: 6px;
+    font-size: 14px;
+    align-items: center;
 `;
 
 const HeroComponent__information__bullet = styled.span`
