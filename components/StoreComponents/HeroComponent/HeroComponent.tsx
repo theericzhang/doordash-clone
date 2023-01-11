@@ -12,6 +12,12 @@ const HeroComponent__inner = styled.div`
     flex-direction: column;
     width: 928px;
     margin: 0 auto;
+    position: relative;
+    row-gap: 50px;
+`;
+
+const HeroComponent__images__collection = styled.div`
+    position: relative;
 `;
 
 const HeroComponent__image__wrapper = styled.div`
@@ -23,6 +29,17 @@ const HeroComponent__image__wrapper = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+`;
+
+const HeroComponent__storeProfile__image__wrapper = styled.div`
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: aliceblue;
+    position: absolute;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, .2));
+    bottom: -38px;
+    left: 16px;
 `;
 
 const HeroComponent__image = styled(Image)`
@@ -38,8 +55,9 @@ const HeroComponent__information = styled.div`
 
 const HeroComponent__restaurantName = styled.h2`
     font-weight: 500;
-    font-size: 38px;
+    font-size: 40px;
     color: var(--primary-black);
+    letter-spacing: -1.1px;
 `;
 
 type TRestaurantData = {
@@ -55,15 +73,18 @@ export default function HeroComponent({ restaurantData }: TRestaurantData) {
     return (
         <HeroComponent__wrapper>
             <HeroComponent__inner>
-                <HeroComponent__image__wrapper>
-                    <HeroComponent__image 
-                        src={restaurantData.restaurantImage}
-                        alt={`Image from ${restaurantData.restaurantName}`}
-                        placeholder="blur"
-                        blurDataURL="/images/Blur.png"
-                        fill={true}
-                    />
-                </HeroComponent__image__wrapper>
+                <HeroComponent__images__collection>
+                    <HeroComponent__image__wrapper>
+                        <HeroComponent__image
+                            src={restaurantData.restaurantImage}
+                            alt={`Image from ${restaurantData.restaurantName}`}
+                            placeholder="blur"
+                            blurDataURL="/images/Blur.png"
+                            fill={true}
+                        />
+                    </HeroComponent__image__wrapper>
+                    <HeroComponent__storeProfile__image__wrapper></HeroComponent__storeProfile__image__wrapper>
+                </HeroComponent__images__collection>
                 {/*immediate info area*/}
                 <HeroComponent__information>
                     <HeroComponent__restaurantName>
