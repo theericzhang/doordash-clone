@@ -3,7 +3,7 @@ type TDashPass = {
     color?: string;
 };
 
-export default function DashPass({ size, color }: TDashPass) {
+export default function DashPassIcon({ size, color }: TDashPass) {
     return (
         (size || color) ?
             <svg

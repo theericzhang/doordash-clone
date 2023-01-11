@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 import { TRestaurantDataPrimary } from "../../../global";
+import DashPassIcon from "../../Icons/DashPassIcon";
 
 const RestaurantCard__article = styled.article`
     min-width: 374px;
@@ -11,7 +12,7 @@ const RestaurantCard__article = styled.article`
 
 const RestaurantCard__link = styled.a`
     display: flex;
-    row-gap: 16px;
+    row-gap: 14px;
     flex-direction: column;
     text-decoration: none;
 `;
@@ -38,7 +39,14 @@ const RestaurantCard__bottom = styled.div`
 const RestaurantCard__text = styled.div`
     display: flex;
     flex-direction: column;
-    row-gap: 7px;
+    row-gap: 4px;
+`;
+
+const RestaurantCard__restaurantName__label = styled.div`
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    margin: 0 2px;
 `;
 
 const RestaurantCard__restaurantName = styled.h3`
@@ -73,9 +81,12 @@ export default function RestaurantCard({ restaurantID, restaurantData } : TResta
                     </RestaurantCard__image__wrapper>
                     <RestaurantCard__bottom>
                         <RestaurantCard__text>
-                            <RestaurantCard__restaurantName>
-                                {restaurantData.restaurantName}
-                            </RestaurantCard__restaurantName>
+                            <RestaurantCard__restaurantName__label>
+                                <DashPassIcon color={`var(--primary-teal)`} />
+                                <RestaurantCard__restaurantName>
+                                    {restaurantData.restaurantName}
+                                </RestaurantCard__restaurantName>
+                            </RestaurantCard__restaurantName__label>
                             <RestaurantCard__auxInfo>
                                 {restaurantData.distance} • {restaurantData.deliveryTime} • $0 delivery fee over $12
                             </RestaurantCard__auxInfo>
