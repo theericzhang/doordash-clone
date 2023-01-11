@@ -9,12 +9,13 @@ const DashPassLabel__wrapper = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    column-gap: 4px;
+    column-gap: 2px;
 `;
 
 const DashPassLabel__span = styled.span`
     font-weight: 500;
     font-size: 14px;
+    color: var(--primary-teal);
 `;
 
 export default function DashPassLabel({ isFull }: TDashPass) {

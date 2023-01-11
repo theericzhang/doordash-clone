@@ -70,7 +70,7 @@ const HeroComponent__information = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    row-gap: 1px;
+    row-gap: 4px;
     width: 100%;
 `;
 
