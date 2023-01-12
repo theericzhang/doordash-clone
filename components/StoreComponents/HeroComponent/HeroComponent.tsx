@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { TRestaurantDataPrimary, TStorefrontData } from '../../../global';
 import DashPassLabel from '../../Icons/DashPassLabel';
 import Star from '../../Icons/StarIcon';
+import ClockIcon from '../../Icons/ClockIcon';
 
 const HeroComponent__wrapper = styled.section`
     display: flex;
@@ -105,6 +106,25 @@ const HeroComponent__information__rating__wrapper = styled.div`
     display: flex;
     align-items: center;
     column-gap: 5px;
+`;
+
+const HeroComponent__information__secondary = styled.div`
+    display: flex;
+    margin: 6px 0;
+`;
+
+const HeroComponent__information__time_open = styled.div`
+    display: flex;
+    color: var(--primary-green);
+    align-items: center;
+    column-gap: 3px;
+`;
+
+const HeroComponent__information__time_closed = styled.div`
+    display: flex;
+    color: var(--primary-gold);
+    align-items: center;
+    column-gap: 3px;
 `;
 
 type TRestaurantData = {
@@ -218,6 +238,21 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                             }
                         </HeroComponent__information__span>
                     </HeroComponent__information__primary>
+                    <HeroComponent__information__secondary>
+                        <HeroComponent__information__span>
+                        {isOpen ? 
+                            <HeroComponent__information__time_open>
+                                <ClockIcon />
+                                Open now
+                            </HeroComponent__information__time_open>
+                        :
+                            <HeroComponent__information__time_closed>
+                                <ClockIcon />
+                                Closed now
+                            </HeroComponent__information__time_closed>
+                        }
+                        </HeroComponent__information__span>
+                    </HeroComponent__information__secondary>
                 </HeroComponent__information>
             </HeroComponent__inner>
         </HeroComponent__wrapper>

@@ -18,6 +18,10 @@ export const GlobalStyles = createGlobalStyle`
         --tertiary-red: rgba(217, 20, 0, 1);
 
         --primary-teal: rgba(0, 131, 138, 1);
+
+        --primary-green: rgba(0, 135, 47, 1);
+
+        --primary-gold: rgba(161, 108, 0, 1);
         
         /* System Font Family Variable */
         --primary-font-family: 'TTNorms';
