@@ -163,7 +163,7 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                             placeholder="blur"
                             blurDataURL="/images/Blur.png"
                             fill={true}
-                            sizes="930w"
+                            sizes="700px"
                             loading='eager'
                         />
                     </HeroComponent__image__wrapper>
