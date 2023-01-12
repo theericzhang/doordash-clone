@@ -150,7 +150,6 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
     closeTime.setMinutes(storefrontData.operationHours[0].openMinute);
 
     const isOpen = currentTime > openTime && currentTime < closeTime;
-    console.log(isOpen);
     
     return (
         <HeroComponent__wrapper>
