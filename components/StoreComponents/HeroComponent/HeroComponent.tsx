@@ -8,7 +8,9 @@ import ClockIcon from '../../Icons/ClockIcon';
 const HeroComponent__wrapper = styled.section`
     display: flex;
     margin: 17px 0;
-    width: 100%;
+    width: calc(100% - 340px);
+    left: 0;
+    position: absolute;
 `;
 
 const HeroComponent__inner = styled.div`

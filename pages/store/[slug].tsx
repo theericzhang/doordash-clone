@@ -4,6 +4,7 @@ import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import { restaurantList } from "../../components/datav2";
 import { TRestaurantDataPrimary, TStorefrontData } from "../../global";
+import CartOverview from "../../components/StoreComponents/CartOverviewComponent/CartOverview";
 
 type TServerSideProps = {
     restaurant: {
@@ -32,6 +33,7 @@ export default function Store({ restaurant }: TServerSideProps) {
                     restaurantData={restaurant.restaurantData}
                     storefrontData={restaurant.storefrontData}
                 />
+                <CartOverview />
             </StoreLayout>
         </>
     );
