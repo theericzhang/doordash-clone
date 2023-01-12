@@ -63,9 +63,10 @@ const RestaurantCard__auxInfo = styled.h5`
 type TRestaurantCard = {
     restaurantID: number,
     restaurantData: TRestaurantDataPrimary;
+    index: number;
 };
 
-export default function RestaurantCard({ restaurantID, restaurantData } : TRestaurantCard) {
+export default function RestaurantCard({ restaurantID, restaurantData, index } : TRestaurantCard) {
     return (
         <RestaurantCard__article>
             <Link href={`/store/${restaurantID}`} passHref legacyBehavior>
@@ -78,6 +79,8 @@ export default function RestaurantCard({ restaurantID, restaurantData } : TResta
                             blurDataURL="/images/Blur.png"
                             alt={"A closeup of a New York style pizza pie"}
                             fill={true}
+                            sizes="374px"
+                            loading={index < 3 ? "eager" : "lazy"}
                         />
                     </RestaurantCard__image__wrapper>
                     <RestaurantCard__bottom>

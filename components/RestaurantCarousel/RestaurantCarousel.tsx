@@ -43,11 +43,12 @@ type TRestaurauntCarousel = {
 
 export default function RestaurantCarousel({carouselData} : TRestaurauntCarousel) {
 
-    const arrayOfRestaurantCards = carouselData.selectedRestaurantIDs.map((restaurantID => {
+    const arrayOfRestaurantCards = carouselData.selectedRestaurantIDs.map(((restaurantID, index) => {
         return (
             <RestaurantCard
                 restaurantID={restaurantID}
                 restaurantData={restaurantList[restaurantID as keyof typeof restaurantList].restaurantData}
+                index={index}
                 key={restaurantID}
             />
         )
