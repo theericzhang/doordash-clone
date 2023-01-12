@@ -63,7 +63,7 @@ const HeroComponent__storeProfile__image_wrapper = styled.div`
 `;
 
 const HeroComponent__storeProfile__image = styled(Image)`
-    object-fit: cover
+    object-fit: cover;
 `;
 
 const HeroComponent__image = styled(Image)`
