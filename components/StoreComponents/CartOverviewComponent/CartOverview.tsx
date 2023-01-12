@@ -13,7 +13,7 @@ const CartOverview__wrapper = styled.aside`
 export default function CartOverview() {
     return (
         <CartOverview__wrapper>
-            hi
+            { /*TODO: Continue working on CartOverview checkout button */}
         </CartOverview__wrapper>
     );
 }
