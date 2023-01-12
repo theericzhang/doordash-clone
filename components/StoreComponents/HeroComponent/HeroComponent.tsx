@@ -137,6 +137,7 @@ type TRestaurantData = {
 export default function HeroComponent({ restaurantData, storefrontData }: TRestaurantData) {
     
     const ratingsCountLocalized = storefrontData?.ratingCount && `${(Math.floor(storefrontData?.ratingCount / 1000) * 1000).toLocaleString()}+ ratings`;
+    // in the future, validate time (isOpen) against a ground truth source instead of machine local.
     const currentTime = new Date();
 
     // create openTime to compare
