@@ -11,4 +11,10 @@ export type TStorefrontData = {
     averageRating?: number;
     ratingCount?: number;
     priceRating?: number;
+    operationHours: {
+        openHour: number;
+        openMinute: number;
+        closeHour: number;
+        closeMinute: number;
+    }[];
 };

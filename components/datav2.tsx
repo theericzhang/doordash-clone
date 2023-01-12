@@ -12,6 +12,12 @@ export const restaurantList = {
             averageRating: 4.2,
             ratingCount: 2034,
             priceRating: 2,
+            operationHours: [{
+                openHour: 8,
+                openMinute: 0,
+                closeHour: 18,
+                closeMinute: 30
+            }]
         }
     },
     1243431: {
@@ -27,6 +33,12 @@ export const restaurantList = {
             averageRating: 4.9,
             ratingCount: 6437,
             priceRating: 4,
+            operationHours: [{
+                openHour: 8,
+                openMinute: 0,
+                closeHour: 18,
+                closeMinute: 30
+            }]
         }
     },
     18764431: {
@@ -42,6 +54,12 @@ export const restaurantList = {
             averageRating: 4.9,
             ratingCount: 3045,
             priceRating: 3,
+            operationHours: [{
+                openHour: 8,
+                openMinute: 0,
+                closeHour: 18,
+                closeMinute: 30
+            }]
         }
     },
     98441: {
@@ -57,6 +75,12 @@ export const restaurantList = {
             averageRating: 4.6,
             ratingCount: 2830,
             priceRating: 3,
+            operationHours: [{
+                openHour: 8,
+                openMinute: 0,
+                closeHour: 18,
+                closeMinute: 30
+            }]
         }
     },
     12356667: {
@@ -72,6 +96,12 @@ export const restaurantList = {
             averageRating: 4.7,
             ratingCount: 1353,
             priceRating: 3,
+            operationHours: [{
+                openHour: 8,
+                openMinute: 0,
+                closeHour: 18,
+                closeMinute: 30
+            }]
         }
     },
     334624: {
@@ -87,6 +117,12 @@ export const restaurantList = {
             averageRating: 4.9,
             ratingCount: 3425,
             priceRating: 4,
+            operationHours: [{
+                openHour: 8,
+                openMinute: 0,
+                closeHour: 18,
+                closeMinute: 30
+            }]
         }
     },
     120985: {
@@ -102,6 +138,12 @@ export const restaurantList = {
             averageRating: 4.8,
             ratingCount: 5234,
             priceRating: 2,
+            operationHours: [{
+                openHour: 8,
+                openMinute: 0,
+                closeHour: 18,
+                closeMinute: 30
+            }]
         }
     },
 };

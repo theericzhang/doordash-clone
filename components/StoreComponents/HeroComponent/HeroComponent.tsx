@@ -114,7 +114,21 @@ type TRestaurantData = {
 
 export default function HeroComponent({ restaurantData, storefrontData }: TRestaurantData) {
     
-    const ratingsCountLocalized = storefrontData?.ratingCount && `${(Math.floor(storefrontData?.ratingCount / 1000) * 1000).toLocaleString()}+ ratings` 
+    const ratingsCountLocalized = storefrontData?.ratingCount && `${(Math.floor(storefrontData?.ratingCount / 1000) * 1000).toLocaleString()}+ ratings`;
+    const currentTime = new Date();
+
+    // create openTime to compare
+    const openTime = new Date(currentTime);
+    openTime.setHours(storefrontData.operationHours[0].openHour);
+    openTime.setMinutes(storefrontData.operationHours[0].openMinute);
+
+    // create closeTime to compare
+    const closeTime = new Date(currentTime);
+    closeTime.setHours(storefrontData.operationHours[0].closeHour);
+    closeTime.setMinutes(storefrontData.operationHours[0].openMinute);
+
+    const isOpen = currentTime > openTime && currentTime < closeTime;
+    console.log(isOpen);
     
     return (
         <HeroComponent__wrapper>
