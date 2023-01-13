@@ -3,7 +3,7 @@ export const restaurantList = {
         restaurantData: {
             restaurantName: "Rosa's Pizza",
             restaurantImage: {
-                src: "/images/BellissimoPizza.webp",
+                src: "/images/RosasPizza.webp",
                 alt: "Image from Rosa's Pizza",
             },
             distance: "0.6 mi",
