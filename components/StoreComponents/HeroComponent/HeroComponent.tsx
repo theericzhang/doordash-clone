@@ -161,7 +161,7 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                             src={restaurantData.restaurantImage}
                             alt={`Image from ${restaurantData.restaurantName}`}
                             fill={true}
-                            sizes="700px"
+                            sizes="500px"
                             // sizes="374px"
                             priority={true}
                             loading='eager'
