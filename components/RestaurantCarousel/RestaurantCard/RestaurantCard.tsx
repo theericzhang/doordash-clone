@@ -79,7 +79,7 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
                             blurDataURL="/images/Blur.webp"
                             alt={restaurantData.restaurantImage.alt}
                             fill={true}
-                            sizes="(max-width: 960px) 440px , 500px"
+                            sizes="(max-width: 960px) 440px , 374px"
                             loading={index < 3 ? "eager" : "lazy"}
                         />
                     </RestaurantCard__image__wrapper>
