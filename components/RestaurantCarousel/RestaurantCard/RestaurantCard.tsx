@@ -76,7 +76,7 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
                         <RestaurantCard__image
                             src={restaurantData.restaurantImage}
                             placeholder="blur"
-                            blurDataURL="/images/Blur.png"
+                            blurDataURL="/images/Blur.webp"
                             alt={"A closeup of a New York style pizza pie"}
                             fill={true}
                             sizes="(max-width: 960px) 440px , 374px"
