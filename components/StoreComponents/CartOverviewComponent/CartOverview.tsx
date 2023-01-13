@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import CheckoutButton from "../CheckoutButton/CheckoutButton";
+import CartItem from "../CartItem/CartItem";
 
 const CartOverview__wrapper = styled.aside`
     display: flex;
@@ -40,10 +41,16 @@ const CartOverview__checkout__link = styled(Link)`
     color: var(--primary-black);
 `;
 
+const CartOverview__list__wrapper = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    width: 95%;
+`;
+
 export default function CartOverview() {
     return (
         <CartOverview__wrapper>
-            { /*TODO: Continue working on CartOverview checkout button */}
             <CartOverview__checkout__wrapper>
                 <CartOverview__checkout__description>
                     <CartOverview__checkout__header>
@@ -57,6 +64,9 @@ export default function CartOverview() {
                 </CartOverview__checkout__description>
                 <CheckoutButton />
             </CartOverview__checkout__wrapper>
+            <CartOverview__list__wrapper>
+                <CartItem />
+            </CartOverview__list__wrapper>
         </CartOverview__wrapper>
     );
 }

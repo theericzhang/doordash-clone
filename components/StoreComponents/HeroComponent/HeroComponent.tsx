@@ -41,6 +41,7 @@ const HeroComponent__storeProfile__image__area = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     width: 80px;
     height: 80px;
     border-radius: 100%;
