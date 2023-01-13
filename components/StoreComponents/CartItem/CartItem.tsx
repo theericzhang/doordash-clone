@@ -9,7 +9,7 @@ const CartItem__wrapper = styled.a`
 export default function CartItem() {
     return (
         <CartItem__wrapper>
-
+            ITEM GOES HERE
         </CartItem__wrapper>
     );
 }

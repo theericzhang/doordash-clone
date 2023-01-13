@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import CheckoutButton from "../CheckoutButton/CheckoutButton";
 import CartItem from "../CartItem/CartItem";
+import CarrotRight from "../../Icons/CarrotRightIcon";
 
 const CartOverview__wrapper = styled.aside`
     display: flex;
@@ -18,7 +19,8 @@ const CartOverview__checkout__wrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 16px;
-    margin: 18px 0;
+    margin-top: 18px;
+    margin-bottom: 16px;
     row-gap: 17.5px;
 `;
 
@@ -39,13 +41,16 @@ const CartOverview__checkout__link = styled(Link)`
     font-weight: 500;
     letter-spacing: -0.5px;
     color: var(--primary-black);
+    display: flex;
+    align-items: center;
 `;
 
 const CartOverview__list__wrapper = styled.ul`
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-    width: 95%;
+    width: 95.5%;
+    border-top: 1px solid var(--primary-gray);
 `;
 
 export default function CartOverview() {
@@ -60,6 +65,7 @@ export default function CartOverview() {
                         href='https://www.google.com'
                     >
                         Cholita Linda
+                        <CarrotRight />
                     </CartOverview__checkout__link>
                 </CartOverview__checkout__description>
                 <CheckoutButton />
