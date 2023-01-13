@@ -158,8 +158,8 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                 <HeroComponent__images__collection>
                     <HeroComponent__image__wrapper>
                         <HeroComponent__image
-                            src={restaurantData.restaurantImage}
-                            alt={`Image from ${restaurantData.restaurantName}`}
+                            src={restaurantData.restaurantImage.src}
+                            alt={restaurantData.restaurantImage.alt}
                             fill={true}
                             sizes="500px"
                             // sizes="374px"
@@ -170,8 +170,8 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                     <HeroComponent__storeProfile__image__area>
                         <HeroComponent__storeProfile__image_wrapper>
                             <HeroComponent__storeProfile__image
-                                src={restaurantData.restaurantImage}
-                                alt={`Image from ${restaurantData.restaurantName}`}
+                                src={restaurantData.restaurantImage.src}
+                                alt={restaurantData.restaurantImage.alt}
                                 placeholder="blur"
                                 blurDataURL="/images/Blur.webp"
                                 fill={true}

@@ -2,7 +2,10 @@ export const restaurantList = {
     65341: {
         restaurantData: {
             restaurantName: "Rosa's Pizza",
-            restaurantImage: "/images/BellissimoPizza.webp",
+            restaurantImage: {
+                src: "/images/BellissimoPizza.webp",
+                alt: "Image from Rosa's Pizza",
+            },
             distance: "0.6 mi",
             deliveryTime: "28 min",
             isDashPass: true,
@@ -23,7 +26,10 @@ export const restaurantList = {
     1243431: {
         restaurantData: {
             restaurantName: "Omakase Sushi",
-            restaurantImage: "/images/Sushi.webp",
+            restaurantImage: {
+                src: "/images/Sushi.webp",
+                alt: "Image from Omakase Sushi",
+            },
             distance: "1.2 mi",
             deliveryTime: "53 min",
             isDashPass: true,
@@ -44,7 +50,10 @@ export const restaurantList = {
     18764431: {
         restaurantData: {
             restaurantName: "dosa by DOSA",
-            restaurantImage: "/images/DosaByDosa.webp",
+            restaurantImage: {
+                src: "/images/DosaByDosa.webp",
+                alt: "Image from dosa by DOSA",
+            },
             distance: "0.8 mi",
             deliveryTime: "40 min",
             isDashPass: true,
@@ -65,7 +74,10 @@ export const restaurantList = {
     98441: {
         restaurantData: {
             restaurantName: "Curry Up Now",
-            restaurantImage: "/images/CurryUpNow.webp",
+            restaurantImage: {
+                src: "/images/CurryUpNow.webp",
+                alt: "Image from Curry Up Now",
+            },
             distance: "0.8 mi",
             deliveryTime: "40 min",
             isDashPass: true,
@@ -86,7 +98,10 @@ export const restaurantList = {
     12356667: {
         restaurantData: {
             restaurantName: "Bird and Buffalo",
-            restaurantImage: "/images/BirdAndBuffalo.webp",
+            restaurantImage: {
+                src: "/images/BirdAndBuffalo.webp",
+                alt: "Image from Bird and Buffalo",
+            },
             distance: "0.3 mi",
             deliveryTime: "21 min",
             isDashPass: true,
@@ -107,7 +122,10 @@ export const restaurantList = {
     334624: {
         restaurantData: {
             restaurantName: "Nari Thai",
-            restaurantImage: "/images/NariThai.webp",
+            restaurantImage: {
+                src: "/images/NariThai.webp",
+                alt: "Image from Nari Thai",
+            },
             distance: "3.6 mi",
             deliveryTime: "39 min",
             isDashPass: true,
@@ -128,7 +146,10 @@ export const restaurantList = {
     120985: {
         restaurantData: {
             restaurantName: "Cholita Linda",
-            restaurantImage: "/images/CholitaLinda.webp",
+            restaurantImage: {
+                src: "/images/CholitaLinda.webp",
+                alt: "Image from Cholita Linda",
+            },
             distance: "0.9 mi",
             deliveryTime: "23 min",
             isDashPass: true,

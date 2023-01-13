@@ -74,10 +74,10 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
                     <RestaurantCard__image__wrapper>
                         {/* TODO: add a srizes property to improve loading performance */}
                         <RestaurantCard__image
-                            src={restaurantData.restaurantImage}
+                            src={restaurantData.restaurantImage.src}
                             placeholder="blur"
                             blurDataURL="/images/Blur.webp"
-                            alt={"A closeup of a New York style pizza pie"}
+                            alt={restaurantData.restaurantImage.alt}
                             fill={true}
                             sizes="(max-width: 960px) 440px , 500px"
                             loading={index < 3 ? "eager" : "lazy"}

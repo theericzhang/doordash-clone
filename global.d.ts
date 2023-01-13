@@ -1,6 +1,9 @@
 export type TRestaurantDataPrimary = {
     restaurantName: string;
-    restaurantImage: string;
+    restaurantImage: {
+        src: string;
+        alt: string;
+    };
     distance: string;
     deliveryTime: string;
     isDashPass: boolean;
