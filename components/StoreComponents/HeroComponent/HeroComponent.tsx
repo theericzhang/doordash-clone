@@ -160,8 +160,6 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                         <HeroComponent__image
                             src={restaurantData.restaurantImage}
                             alt={`Image from ${restaurantData.restaurantName}`}
-                            placeholder="blur"
-                            blurDataURL="/images/Blur.webp"
                             fill={true}
                             sizes="700px"
                             // sizes="374px"
