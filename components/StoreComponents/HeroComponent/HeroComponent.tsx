@@ -158,21 +158,24 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                 <HeroComponent__images__collection>
                     <HeroComponent__image__wrapper>
                         <HeroComponent__image
-                            src={restaurantData.restaurantImage}
-                            alt={`Image from ${restaurantData.restaurantName}`}
-                            placeholder="blur"
-                            blurDataURL="/images/Blur.png"
+                            src={restaurantData.restaurantImage.src}
+                            alt={restaurantData.restaurantImage.alt}
                             fill={true}
+                            sizes="440px"
+                            // sizes="374px"
+                            priority={true}
+                            loading='eager'
                         />
                     </HeroComponent__image__wrapper>
                     <HeroComponent__storeProfile__image__area>
                         <HeroComponent__storeProfile__image_wrapper>
                             <HeroComponent__storeProfile__image
-                                src={restaurantData.restaurantImage}
-                                alt={`Image from ${restaurantData.restaurantName}`}
+                                src={restaurantData.restaurantImage.src}
+                                alt={restaurantData.restaurantImage.alt}
                                 placeholder="blur"
-                                blurDataURL="/images/Blur.png"
+                                blurDataURL="/images/Blur.webp"
                                 fill={true}
+                                sizes="(max-width: 960px) 76px, 76px"
                             />
                         </HeroComponent__storeProfile__image_wrapper>
                     </HeroComponent__storeProfile__image__area>
