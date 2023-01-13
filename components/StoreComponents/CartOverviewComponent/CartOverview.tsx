@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import CheckoutButton from "../CheckoutButton/CheckoutButton";
 
 const CartOverview__wrapper = styled.aside`
     display: flex;
@@ -15,13 +16,15 @@ const CartOverview__wrapper = styled.aside`
 const CartOverview__checkout__wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 0 17px;
-    margin: 19px 0;
+    padding: 0 16px;
+    margin: 18px 0;
+    row-gap: 17.5px;
 `;
 
 const CartOverview__checkout__description = styled.div`
     display: flex;
     flex-direction: column;
+    row-gap: 3px;
 `;
 
 const CartOverview__checkout__header = styled.h6`
@@ -33,7 +36,7 @@ const CartOverview__checkout__header = styled.h6`
 const CartOverview__checkout__link = styled(Link)`
     font-size: 18px;
     font-weight: 500;
-    letter-spacing: -3%;
+    letter-spacing: -0.5px;
     color: var(--primary-black);
 `;
 
@@ -49,9 +52,10 @@ export default function CartOverview() {
                     <CartOverview__checkout__link
                         href='https://www.google.com'
                     >
-                        L.O.L BBQ & BAR
+                        Cholita Linda
                     </CartOverview__checkout__link>
                 </CartOverview__checkout__description>
+                <CheckoutButton />
             </CartOverview__checkout__wrapper>
         </CartOverview__wrapper>
     );
