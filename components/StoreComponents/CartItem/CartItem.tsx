@@ -1,9 +1,12 @@
 import Image from "next/image";
 import styled from "styled-components";
+import InputStepper from "../InputStepper/InputStepper";
 
 const CartItem__wrapper = styled.a`
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 16px 0;
     padding-left: 5px;
     border-bottom: 1px solid var(--primary-gray);
@@ -27,6 +30,7 @@ const CartItem__image = styled(Image)`
 const CartItem__description__wrapper = styled.div`
     display: flex;
     flex-direction: column;
+    row-gap: 10px;
 `;
 
 const CartItem__description__span = styled.span`
@@ -54,6 +58,7 @@ export default function CartItem() {
                     $8.99
                 </CartItem__description__span>
             </CartItem__description__wrapper>
+            <InputStepper />
         </CartItem__wrapper>
     );
 }
