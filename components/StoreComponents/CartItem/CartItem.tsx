@@ -42,9 +42,11 @@ const CartItem__description__item = styled.span`
     font-weight: 400;
     color: var(--primary-black);
     line-height: 22px;
-    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 `;
 
 const CartItem__description__price = styled.span`
