@@ -20,6 +20,10 @@ const InputStepper__button = styled.button`
     height: 32px;
     border-radius: 500px;
     background-color: var(--primary-white);
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const InputStepper__label__wrapper = styled.div`
