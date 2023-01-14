@@ -11,7 +11,7 @@ const CartOverview__wrapper = styled.aside`
     border-left: 1px solid var(--primary-gray);
     position: fixed;
     right: 0;
-    height: 100%;
+    height: calc(100% - 64px);
     overflow-y: scroll;
 `;
 
@@ -71,6 +71,26 @@ export default function CartOverview() {
                 <CheckoutButton />
             </CartOverview__checkout__wrapper>
             <CartOverview__list__wrapper>
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
                 <CartItem />
             </CartOverview__list__wrapper>
         </CartOverview__wrapper>
