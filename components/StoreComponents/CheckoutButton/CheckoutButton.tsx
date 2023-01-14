@@ -7,9 +7,14 @@ const CheckoutButton__button = styled.button`
     align-items: center;
     background-color: var(--secondary-red);
     border-radius: 20px;
+    transition: ease 0.1s;
+    transition-property: background-color;
 
     &:hover {
         background-color: var(--tertiary-red);
+        transition: ease 0.1s;
+        transition-property: background-color;
+        cursor: pointer;
     }
 `;
 

@@ -22,7 +22,7 @@ export const restaurantList = {
                 closeMinute: 30
             }],
             items: {
-                item: {
+                garlicKnots: {
                     image: {
                         src: "/hello/changeme",
                         alt: "hello change me"
