@@ -22,10 +22,38 @@ const initialState: ICartState = {
     ]
 }
 
+// cartSlice needs access to the storeID to ensure that all items in the cart are from storeID. 
+// Without storeID validation, the cart could contain items from multiple stores, which is disallowed in standard DD delivery (with exception of having dasher pick up items after a delivery has been dispatched)
 const cartSlice = createSlice({
     name: 'cart',
     initialState: initialState,
     reducers: {
 
+        // if the user adds an item from a different store, we need to reset the storeID and cart to the storeID of the new item they were looking at 
+        resetCartNewStore: (state, action: PayloadAction<number>) => {
+            state.storeID = action.payload;
+            state.cart = [];
+        },
+
+        // the user adds an item, passing the itemID
+        addItemToCart: (state, action: PayloadAction<number>) => {
+            
+            // loop through cart items to see if the itemID (action.payload) exists.
+            // if it exists, then just increment the quantity.
+            // if it does not exist, then add the new item to a copy of the existing cart state. 
+            for (let i = 0; i < state.cart.length; i++) {
+                if (state.cart[i].itemID === action.payload) {
+                    state.cart[i].quantity += 1;
+                } else {
+                    state.cart = [
+                        ...state.cart, 
+                        {
+                            itemID: action.payload, 
+                            quantity: 1
+                        }
+                    ];
+                }
+            }
+        }
     }
 })
