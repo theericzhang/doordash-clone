@@ -24,12 +24,12 @@ export const restaurantList = {
             items: {
                 garlicKnots: {
                     image: {
-                        src: "/hello/changeme",
-                        alt: "hello change me"
+                        src: "/images/65341/GarlicKnots.webp",
+                        alt: "Delicious and buttery garlic knots"
                     },
-                    itemName: "Your Item",
-                    price: 10,
-                    description: "Your Item's Description",
+                    itemName: "Garlic Knots",
+                    price: 8.99,
+                    description: "Delicious and buttery garlic knots",
                 },
             },
         }
@@ -57,7 +57,7 @@ export const restaurantList = {
                 closeMinute: 30
             }],
             items: {
-                item: {
+                chefsChoice: {
                     image: {
                         src: "/hello/changeme",
                         alt: "hello change me"
