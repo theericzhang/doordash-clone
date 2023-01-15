@@ -54,12 +54,13 @@ TypeScript is used as the programming language in this application. With a large
 * Created `<Navbar />` component and `<SearchBar />`, `<ShoppingCartButton />` subcomponents. Completed 1/6/23
 * Created `<HomeLayout />` layout components, that holds the `<Navbar />` and child elements from the `index.tsx` page. Completed 1/7/23
 * Created reusable & data driven `<RestaurantCarousel />` and `<RestaurantCard />` components and their subcomponents. Completed 1/8/23
+* Creating and Linking `<RestaurantCard />` [slug] to a new store view page. Completed 1/10/23
 
 ### In Progress
-* Responsive styling for existing layouts & components when viewport width is under 1800px. Begin 1/8/23
-* Creating and Linking `<RestaurantCard />` [slug] to a new store view page. Begin 1/8/23
+* Establish global state for CartOverview & Store Items. Begin 1/14/23
 
 ### Next Up
+* Responsive styling for existing layouts & components when viewport width is under 1800px. (Backlogged, until global state management has been implemented)
 * Implement Search functionality. Start with stores, then cuisines and dishes.
 * Checkout flow.
 * Garner feedback.
