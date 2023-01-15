@@ -23,7 +23,8 @@ const DeliveryTile__half__wrapper = styled.div`
 
 const DeliveryTile__DashPass__wrapper = styled.div`
     position: absolute;
-    left: 10px;
+    left: 34px;
+    top: 10px;
 `;
 
 const DeliveryTile__divider = styled.div`
@@ -35,18 +36,28 @@ const DeliveryTime__text_strong_teal = styled.span`
     font-size: 16px;
     font-weight: 500;
     color: var(--primary-teal);
+    letter-spacing: -0.4px;
+    margin-bottom: -1px;
 `;
 
 const DeliveryTime__text_strong = styled.span`
     font-size: 16px;
     font-weight: 500;
     color: var(--primary-black);
+    letter-spacing: -0.4px;
+    margin-bottom: -1px;
 `;
 
 const DeliveryTime__text_regular = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
+`;
+
+const DeliveryTime__Information__wrapper = styled.div`
+    position: absolute;
+    right: 31px;
+    bottom: 13px;
 `;
 
 export default function DeliveryTile() {
@@ -62,6 +73,9 @@ export default function DeliveryTile() {
                 <DeliveryTime__text_regular>
                     delivery fee
                 </DeliveryTime__text_regular>
+                <DeliveryTime__Information__wrapper>
+                    <Information />
+                </DeliveryTime__Information__wrapper>
             </DeliveryTile__half__wrapper>
             <DeliveryTile__divider />
             <DeliveryTile__half__wrapper>
