@@ -41,7 +41,7 @@ const cartSlice = createSlice({
             // if it does not exist, then add the new item to a copy of the existing cart state.
 
             let itemExists = false;
-            
+
             for (let i = 0; i < state.cart.length; i++) {
                 if (state.cart[i].itemID === action.payload) {
                     state.cart[i].quantity += 1;
@@ -62,6 +62,8 @@ const cartSlice = createSlice({
         },
 
         // the user deletes an item from the cart
-        deleteItemFromCart: (state, action: PayloadAction<number>) => {},
+        deleteItemFromCart: (state, action: PayloadAction<number>) => {
+            state.cart = state.cart.filter(item => item.itemID !== action.payload);
+        },
     },
 });
