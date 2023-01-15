@@ -20,7 +20,18 @@ export const restaurantList = {
                 openMinute: 0,
                 closeHour: 18,
                 closeMinute: 30
-            }]
+            }],
+            items: {
+                garlicKnots: {
+                    image: {
+                        src: "/images/65341/GarlicKnots.webp",
+                        alt: "Delicious and buttery garlic knots"
+                    },
+                    itemName: "Garlic Knots",
+                    price: 8.99,
+                    description: "Delicious and buttery garlic knots",
+                },
+            },
         }
     },
     1243431: {
@@ -44,7 +55,18 @@ export const restaurantList = {
                 openMinute: 0,
                 closeHour: 18,
                 closeMinute: 30
-            }]
+            }],
+            items: {
+                chefsChoice: {
+                    image: {
+                        src: "/hello/changeme",
+                        alt: "hello change me"
+                    },
+                    itemName: "Your Item",
+                    price: 10,
+                    description: "Your Item's Description",
+                },
+            },
         }
     },
     18764431: {
@@ -68,7 +90,18 @@ export const restaurantList = {
                 openMinute: 0,
                 closeHour: 18,
                 closeMinute: 30
-            }]
+            }],
+            items: {
+                item: {
+                    image: {
+                        src: "/hello/changeme",
+                        alt: "hello change me"
+                    },
+                    itemName: "Your Item",
+                    price: 10,
+                    description: "Your Item's Description",
+                },
+            },
         }
     },
     98441: {
@@ -92,7 +125,18 @@ export const restaurantList = {
                 openMinute: 0,
                 closeHour: 18,
                 closeMinute: 30
-            }]
+            }],
+            items: {
+                item: {
+                    image: {
+                        src: "/hello/changeme",
+                        alt: "hello change me"
+                    },
+                    itemName: "Your Item",
+                    price: 10,
+                    description: "Your Item's Description",
+                },
+            },
         }
     },
     12356667: {
@@ -116,7 +160,18 @@ export const restaurantList = {
                 openMinute: 0,
                 closeHour: 18,
                 closeMinute: 30
-            }]
+            }],
+            items: {
+                item: {
+                    image: {
+                        src: "/hello/changeme",
+                        alt: "hello change me"
+                    },
+                    itemName: "Your Item",
+                    price: 10,
+                    description: "Your Item's Description",
+                },
+            },
         }
     },
     334624: {
@@ -140,7 +195,18 @@ export const restaurantList = {
                 openMinute: 0,
                 closeHour: 18,
                 closeMinute: 30
-            }]
+            }],
+            items: {
+                item: {
+                    image: {
+                        src: "/hello/changeme",
+                        alt: "hello change me"
+                    },
+                    itemName: "Your Item",
+                    price: 10,
+                    description: "Your Item's Description",
+                },
+            },
         }
     },
     120985: {
@@ -164,7 +230,18 @@ export const restaurantList = {
                 openMinute: 0,
                 closeHour: 18,
                 closeMinute: 30
-            }]
+            }],
+            items: {
+                item: {
+                    image: {
+                        src: "/hello/changeme",
+                        alt: "hello change me"
+                    },
+                    itemName: "Your Item",
+                    price: 10,
+                    description: "Your Item's Description",
+                },
+            },
         }
     },
 };

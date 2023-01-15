@@ -21,3 +21,13 @@ export type TStorefrontData = {
         closeMinute: number;
     }[];
 };
+
+export type TStoreItem = {
+    image: {
+        src: string;
+        alt: string;
+    };
+    itemName: string;
+    price: number;
+    description: string;
+};
