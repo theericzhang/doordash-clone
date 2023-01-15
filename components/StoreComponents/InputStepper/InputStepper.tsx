@@ -48,11 +48,13 @@ export default function InputStepper() {
     }
 
     function handleClickDecrement() {
-        if (stepperCount > 0) {
+        if (stepperCount > 1) {
             setStepperCount(prevStepperCount => prevStepperCount - 1);
+        } else if (stepperCount === 1) {
             // delete item and remove from list if stepperCount reaches 0.
             // think of passing an ID that react can remove from an array of cart items.
-        } else {return}
+        }
+        else {return}
     }
 
     return (
