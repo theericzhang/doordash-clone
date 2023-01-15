@@ -68,7 +68,7 @@ export default function CartItem() {
             </CartItem__image__wrapper>
             <CartItem__description__wrapper>
                 <CartItem__description__item>
-                    Rice & Black Beans Rice & Black Beans Rice & Black Beans Rice & Black Beans Rice & Black Beans
+                    Rice & Black Beans
                 </CartItem__description__item>
                 <CartItem__description__price>
                     $8.99

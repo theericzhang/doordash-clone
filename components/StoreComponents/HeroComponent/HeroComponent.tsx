@@ -9,7 +9,7 @@ import Information from '../../Icons/InformationIcon';
 
 const HeroComponent__wrapper = styled.section`
     display: flex;
-    margin: 17px 0;
+    margin: 16px 0;
     width: calc(100% - 340px);
     left: 0;
     position: absolute;
