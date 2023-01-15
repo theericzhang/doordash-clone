@@ -55,6 +55,8 @@ TypeScript is used as the programming language in this application. With a large
 * Created `<HomeLayout />` layout components, that holds the `<Navbar />` and child elements from the `index.tsx` page. Completed 1/7/23
 * Created reusable & data driven `<RestaurantCarousel />` and `<RestaurantCard />` components and their subcomponents. Completed 1/8/23
 * Creating and Linking `<RestaurantCard />` [slug] to a new store view page. Completed 1/10/23
+* Asset optimization. Images batched to webp format with 40% quality. Proper image caching, eager/lazy loading on qualified assets.
+* Created `<HeroComponent />`, `<CartOverview />`, `<CartItem />`, `<InputStepper />`, and wired them. Currently uses temporary data, needs management from global state. Completed 1/14/23
 
 ### In Progress
 * Establish global state for CartOverview & Store Items. Begin 1/14/23
