@@ -6,6 +6,7 @@ import DeliveryTile from './DeliveryTile/DeliveryTile';
 import Star from '../../Icons/StarIcon';
 import ClockIcon from '../../Icons/ClockIcon';
 import Information from '../../Icons/InformationIcon';
+import AuxOptions from './AuxOptions/AuxOptions';
 
 const HeroComponent__wrapper = styled.section`
     display: flex;
@@ -277,6 +278,7 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                     </HeroComponent__information__tertiary>
                     <HeroComponent__information__quaternary>
                         <DeliveryTile />
+                        <AuxOptions />
                     </HeroComponent__information__quaternary>
                 </HeroComponent__information>
             </HeroComponent__inner>
