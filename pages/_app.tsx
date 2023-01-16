@@ -6,6 +6,8 @@ import Home from './index';
 import Store from "./store/[slug]";
 import Navbar from "../components/Navigation/Navbar";
 import { useEffect } from "react";
+import { Provider } from "react-redux";
+import { store } from "../app-redux/store";
 
 const ttNormsFont = localFont({
     src: [
@@ -57,16 +59,18 @@ export default function App({ Component, pageProps }: AppProps) {
         console.log('%chttps://anericzhang.com', 'background: orange; font-size: 16px');
     }, []);
     return (
-        <div className={ttNormsFont.className}>
-            <GlobalStyles />
-            {
-                /**
-                * Check if the child component pages (Component prop) are either Home or Store. If they are, 
-                * Render a <Navbar />
-                * */
-            }
-            {(Component === Home || Component === Store) ? <Navbar /> : null}
-            <Component {...pageProps} />
-        </div>
+        <Provider store={store}>
+            <div className={ttNormsFont.className}>
+                <GlobalStyles />
+                {
+                    /**
+                    * Check if the child component pages (Component prop) are either Home or Store. If they are,
+                    * Render a <Navbar />
+                    * */
+                }
+                {(Component === Home || Component === Store) ? <Navbar /> : null}
+                <Component {...pageProps} />
+            </div>
+        </Provider>
     );
 }
