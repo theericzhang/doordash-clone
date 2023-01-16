@@ -21,6 +21,27 @@ const AuxOptions__Button__primary = styled.button`
     column-gap: 10px;
 `;
 
+const AuxOptions__Button__label = styled.span`
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-black);
+`;
+
+const AuxOptions__Toggle__wrapper = styled.div`
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: var(--primary-gray);
+    border: none;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
 const AuxOptions__Toggle = styled.button<{ isDelivery: boolean }>`
     display: flex;
     justify-content: center;
@@ -28,14 +49,17 @@ const AuxOptions__Toggle = styled.button<{ isDelivery: boolean }>`
     background-color: ${props => props.isDelivery ? 'var(--primary-black)' : 'var(--primary-gray)'};
     align-items: center;
     border: none;
-    border-radius: 20px;
+    border-radius: ${props => props.isDelivery ? '20px' : '0'};
     padding: 0 24px;
-`;
+    transition: 0.15s ease;
+    transition-property: background-color;
 
-const AuxOptions__Button__label = styled.span`
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--primary-black);
+    &:hover {
+        cursor: pointer;
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: ${props => props.isDelivery ? 'var(--tertiary-gray)' : 'var(--secondary-gray)'};
+    }
 `;
 
 const AuxOptions__Toggle__label__wrapper = styled.div`
@@ -43,7 +67,7 @@ const AuxOptions__Toggle__label__wrapper = styled.div`
     flex-direction: column;
     row-gap: 1px;
     margin-bottom: 1px;
-`
+`;
 
 const AuxOptions__Toggle__label__small = styled.span<{isDelivery: boolean}>`
     font-size: 12px;
@@ -54,15 +78,6 @@ const AuxOptions__Toggle__label = styled.span<{isDelivery: boolean}>`
     font-size: 14px;
     font-weight: 500;
     color: ${props => props.isDelivery ? `var(--primary-white)` : `var(--primary-black)`};
-`;
-
-const AuxOptions__Toggle__wrapper = styled.div`
-    display: flex;
-    align-items: center;
-    height: 100%;
-    background-color: var(--primary-gray);
-    border: none;
-    border-radius: 20px;
 `;
 
 export default function AuxOptions() {
