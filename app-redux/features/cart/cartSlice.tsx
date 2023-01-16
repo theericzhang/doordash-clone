@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { restaurantList } from '../../../components/datav2';
 
 interface ICartState {
     storeID: number;
@@ -6,6 +7,7 @@ interface ICartState {
         itemID: number;
         quantity: number;
     }[];
+    totalValue: number;
 }
 
 const initialState: ICartState = {
@@ -20,7 +22,21 @@ const initialState: ICartState = {
             quantity: 2,
         },
     ],
+    totalValue: 0
 };
+
+const restaurants = restaurantList;
+
+function calculateCartTotal() {
+    let sum = 0;
+    initialState.cart.forEach(item => {
+        sum += item.quantity * restaurants[initialState.storeID as keyof typeof restaurants].storefrontData.items[item.itemID].price;
+    })
+    console.log(initialState.totalValue)
+    return sum;
+}
+
+initialState.totalValue = calculateCartTotal();
 
 // cartSlice needs access to the storeID to ensure that all items in the cart are from storeID.
 // Without storeID validation, the cart could contain items from multiple stores, which is disallowed in standard DD delivery (with exception of having dasher pick up items after a delivery has been dispatched)
@@ -32,6 +48,11 @@ const cartSlice = createSlice({
         resetCartNewStore: (state, action: PayloadAction<number>) => {
             state.storeID = action.payload;
             state.cart = [];
+            let sum = 0;
+            state.cart.forEach(item => {
+                sum += item.quantity * restaurants[state.storeID as keyof typeof restaurants].storefrontData.items[item.itemID].price;
+            });
+            state.totalValue = sum;
         },
 
         // the user adds an item, passing the itemID
@@ -59,6 +80,11 @@ const cartSlice = createSlice({
                     },
                 ];
             }
+            let sum = 0;
+            state.cart.forEach(item => {
+                sum += item.quantity * restaurants[state.storeID as keyof typeof restaurants].storefrontData.items[item.itemID].price;
+            });
+            state.totalValue = sum;
         },
 
         // reduces the quantity of an item in a cart if quantity > 0
@@ -67,6 +93,7 @@ const cartSlice = createSlice({
             for (let i = 0; i < state.cart.length; i++) {
                 if (state.cart[i].itemID === action.payload && state.cart[i].quantity > 1) {
                     state.cart[i].quantity -= 1;
+                    
                     break;
                 } else if (state.cart[i].itemID === action.payload && state.cart[i].quantity === 1) {
                     // if state.cart[i].quantity is 1, then filter out that item altogether.
@@ -74,6 +101,11 @@ const cartSlice = createSlice({
                     break;
                 }
             }
+            let sum = 0;
+                    state.cart.forEach(item => {
+                        sum += item.quantity * restaurants[state.storeID as keyof typeof restaurants].storefrontData.items[item.itemID].price;
+                    });
+                    state.totalValue = sum;
         },
     },
 });

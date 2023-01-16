@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { useAppSelector } from "../../../app-redux/hooks";
+
 const CheckoutButton__button = styled.button`
     width: 100%;
     height: 40px;
@@ -38,11 +40,13 @@ const CheckoutButton__price__label = styled.span`
 `;
 
 export default function CheckoutButton() {
+    const cartTotalValue = useAppSelector((state) => state.cartSlice.totalValue);
+    
     return (
         <CheckoutButton__button>
             <CheckoutButton__text__wrapper>
                 <CheckoutButton__checkout__label>Checkout</CheckoutButton__checkout__label>
-                <CheckoutButton__price__label>$55.65</CheckoutButton__price__label>
+                <CheckoutButton__price__label>${cartTotalValue}</CheckoutButton__price__label>
             </CheckoutButton__text__wrapper>
         </CheckoutButton__button>
     );
