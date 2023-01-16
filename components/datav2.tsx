@@ -242,7 +242,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-            shortDescription: "Tacos, Tortas",
+            shortDescription: "Mexican, Tacos",
             averageRating: 4.8,
             ratingCount: 5234,
             priceRating: 2,
