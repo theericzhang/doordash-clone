@@ -6,6 +6,7 @@ const AuxOptions__wrapper = styled.div`
     display: flex;
     height: 40px;
     column-gap: 15px;
+    margin-bottom: 5px;
 `;
 
 const AuxOptions__Button__primary = styled.button`
@@ -28,7 +29,7 @@ const AuxOptions__Toggle__selected = styled.button`
     align-items: center;
     border: none;
     border-radius: 20px;
-    padding: 0 20px;
+    padding: 0 24px;
     column-gap: 10px;
 `;
 
@@ -41,7 +42,7 @@ const AuxOptions__Toggle = styled.button`
     align-items: center;
     border: none;
     border-radius: 20px;
-    padding: 0 20px;
+    padding: 0 24px;
     column-gap: 10px;
 `;
 
