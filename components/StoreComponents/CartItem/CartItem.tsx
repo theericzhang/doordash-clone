@@ -61,9 +61,10 @@ type TCartItem = {
     itemName: string;
     price: number;
     quantity: number;
+    itemID: number;
 }
 
-export default function CartItem({ imageSrc, imageAlt, itemName, price, quantity }: TCartItem) {
+export default function CartItem({ imageSrc, imageAlt, itemName, price, quantity, itemID }: TCartItem) {
     return (
         <CartItem__wrapper>
             <CartItem__image__wrapper>
@@ -82,7 +83,10 @@ export default function CartItem({ imageSrc, imageAlt, itemName, price, quantity
                     ${price}
                 </CartItem__description__price>
             </CartItem__description__wrapper>
-            <InputStepper quantity={quantity}/>
+            <InputStepper 
+                quantity={quantity}
+                itemID={itemID}
+            />
         </CartItem__wrapper>
     );
 }

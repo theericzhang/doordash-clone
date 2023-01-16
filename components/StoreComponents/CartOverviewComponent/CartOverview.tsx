@@ -64,11 +64,13 @@ interface IItemsProperty {
 }
 
 export default function CartOverview() {
+    const numberofitems = useAppSelector((state) => state.cartSlice.cart[0]?.quantity);
+    console.log(numberofitems);
+    
     const restaurants = restaurantList;
 
     // consume store, get storeID
     const storeID = useAppSelector((state) => state.cartSlice.storeID) as keyof typeof restaurants;
-    console.log(storeID);
 
     // consume store, get cart array
     const cart = useAppSelector((state) => state.cartSlice.cart);
@@ -81,6 +83,7 @@ export default function CartOverview() {
                 itemName={restaurants[storeID].storefrontData.items[item.itemID].itemName}
                 price={restaurants[storeID].storefrontData.items[item.itemID].price}
                 quantity={item.quantity}
+                itemID={item.itemID}
                 key={restaurants[storeID].storefrontData.items[item.itemID].image.src}
             />
         )

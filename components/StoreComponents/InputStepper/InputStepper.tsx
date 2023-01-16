@@ -44,27 +44,33 @@ const InputStepper__label = styled.span`
 
 type TInputStepper = {
     quantity: number;
+    itemID: number;
 }
 
-export default function InputStepper({ quantity }: TInputStepper) {
+export default function InputStepper({ quantity, itemID }: TInputStepper) {
     
     const [stepperCount, setStepperCount] = useState(quantity);
 
     /**
-     * TODO: make use of reducers. Values need to be debounced before they are dispatched to global store.
+     * TODO: Values need to be debounced before they are dispatched to global store.
      */
+
+    const dispatch = useAppDispatch();
 
     function handleClickIncrement() {
         setStepperCount(prevStepperCount => prevStepperCount + 1);
+        dispatch(addItemToCart(itemID));
         return;
     }
 
     function handleClickDecrement() {
         if (stepperCount > 1) {
             setStepperCount(prevStepperCount => prevStepperCount - 1);
+            dispatch(deleteItemFromCart(itemID));
         } else if (stepperCount === 1) {
             // delete item and remove from list if stepperCount reaches 0.
             // think of passing an ID that react can remove from an array of cart items.
+            dispatch(deleteItemFromCart(itemID));
         }
         else {return}
     }
