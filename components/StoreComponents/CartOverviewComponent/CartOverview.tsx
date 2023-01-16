@@ -4,6 +4,10 @@ import CheckoutButton from "../CheckoutButton/CheckoutButton";
 import CartItem from "../CartItem/CartItem";
 import CarrotRight from "../../Icons/CarrotRightIcon";
 
+// redux global state
+import { useAppDispatch, useAppSelector } from "../../../app-redux/hooks";
+import { resetCartNewStore } from "../../../app-redux/features/cart/cartSlice";
+
 const CartOverview__wrapper = styled.aside`
     display: flex;
     flex-direction: column;
@@ -54,6 +58,11 @@ const CartOverview__list__wrapper = styled.ul`
 `;
 
 export default function CartOverview() {
+    
+    // consume store. using useAppSelector to grab the state we want to see, state.cart.cart.length
+    const numberOfItems = useAppSelector((state) => state.cartSlice.cart.length);
+    console.log(numberOfItems);
+    
     return (
         <CartOverview__wrapper>
             <CartOverview__checkout__wrapper>
