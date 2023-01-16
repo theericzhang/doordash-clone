@@ -80,6 +80,8 @@ const cartSlice = createSlice({
                     },
                 ];
             }
+            
+            // TODO: refactor this? Try to create a new function that accepts state.totalValue
             let sum = 0;
             state.cart.forEach(item => {
                 sum += item.quantity * restaurants[state.storeID as keyof typeof restaurants].storefrontData.items[item.itemID].price;
