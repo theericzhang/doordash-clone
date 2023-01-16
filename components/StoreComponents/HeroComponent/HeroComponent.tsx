@@ -140,6 +140,8 @@ const HeroComponent__information__tertiary = styled.div`
 
 const HeroComponent__information__quaternary = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;
 
 type TRestaurantData = {

@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import Heart from "../../../Icons/HeartIcon";
+import GroupOfPeople from "../../../Icons/GroupOfPeopleIcon";
 
 const AuxOptions__wrapper = styled.div`
     display: flex;
     height: 40px;
+    column-gap: 15px;
 `;
 
 const AuxOptions__Button__primary = styled.button`
@@ -15,23 +17,65 @@ const AuxOptions__Button__primary = styled.button`
     border-radius: 20px;
     padding: 0 12px;
     column-gap: 10px;
-`
+`;
+
+const AuxOptions__Button__primary__selected = styled.button`
+    display: flex;
+    height: 100%;
+    background-color: var(--primary-black);
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    padding: 0 12px;
+    column-gap: 10px;
+`;
 
 const AuxOptions__Button__label = styled.span`
     font-size: 14px;
     font-weight: 500;
     color: var(--primary-black);
-`
+`;
+
+const AuxOptions__Button__label__selected = styled.span`
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-white);
+`;
+
+const AuxOptions__Toggle__wrapper = styled.div`
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: var(--primary-gray);
+    border: none;
+    border-radius: 20px;
+`;
 
 export default function AuxOptions() {
     return (
         <AuxOptions__wrapper>
             <AuxOptions__Button__primary>
                 <Heart />
+                <AuxOptions__Button__label>Save</AuxOptions__Button__label>
+            </AuxOptions__Button__primary>
+            <AuxOptions__Button__primary>
+                <GroupOfPeople />
                 <AuxOptions__Button__label>
-                    Save
+                    Group Order
                 </AuxOptions__Button__label>
             </AuxOptions__Button__primary>
+            <AuxOptions__Toggle__wrapper>
+                <AuxOptions__Button__primary__selected>
+                    <AuxOptions__Button__label__selected>
+                        Delivery
+                    </AuxOptions__Button__label__selected>
+                </AuxOptions__Button__primary__selected>
+                <AuxOptions__Button__primary>
+                    <AuxOptions__Button__label>
+                        Pickup
+                    </AuxOptions__Button__label>
+                </AuxOptions__Button__primary>
+            </AuxOptions__Toggle__wrapper>
         </AuxOptions__wrapper>
     );
 }
