@@ -31,6 +31,8 @@ const ShoppingCartButton__label = styled.h4`
 `;
 
 export default function ShoppingCartButton() {
+    
+    // calculate total number of items in cart
     const cart = useAppSelector((state) => state.cartSlice.cart);
     let cartCount = 0;
     cart.forEach((item) => {
