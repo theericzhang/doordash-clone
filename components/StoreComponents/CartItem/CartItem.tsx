@@ -55,26 +55,38 @@ const CartItem__description__price = styled.span`
     color: var(--primary-black);
 `;
 
-export default function CartItem() {
+type TCartItem = {
+    imageSrc: string;
+    imageAlt: string;
+    itemName: string;
+    price: number;
+    quantity: number;
+    itemID: number;
+}
+
+export default function CartItem({ imageSrc, imageAlt, itemName, price, quantity, itemID }: TCartItem) {
     return (
         <CartItem__wrapper>
             <CartItem__image__wrapper>
                 <CartItem__image 
-                    src="/images/65341/GarlicKnots.webp"
-                    alt="yummy LOL"
+                    src={imageSrc}
+                    alt={imageAlt}
                     sizes="80px"
                     fill={true}
                 />
             </CartItem__image__wrapper>
             <CartItem__description__wrapper>
                 <CartItem__description__item>
-                    Rice & Black Beans
+                    {itemName}
                 </CartItem__description__item>
                 <CartItem__description__price>
-                    $8.99
+                    ${price}
                 </CartItem__description__price>
             </CartItem__description__wrapper>
-            <InputStepper />
+            <InputStepper 
+                quantity={quantity}
+                itemID={itemID}
+            />
         </CartItem__wrapper>
     );
 }

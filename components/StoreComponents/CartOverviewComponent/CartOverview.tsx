@@ -4,6 +4,12 @@ import CheckoutButton from "../CheckoutButton/CheckoutButton";
 import CartItem from "../CartItem/CartItem";
 import CarrotRight from "../../Icons/CarrotRightIcon";
 
+import { restaurantList } from "../../datav2";
+
+// redux global state
+import { useAppDispatch, useAppSelector } from "../../../app-redux/hooks";
+import { resetCartNewStore } from "../../../app-redux/features/cart/cartSlice";
+
 const CartOverview__wrapper = styled.aside`
     display: flex;
     flex-direction: column;
@@ -53,7 +59,35 @@ const CartOverview__list__wrapper = styled.ul`
     border-top: 1px solid var(--primary-gray);
 `;
 
+interface IItemsProperty {
+    [key: number]: any;
+}
+
 export default function CartOverview() {
+    const numberofitems = useAppSelector((state) => state.cartSlice.cart[0]?.quantity);
+    console.log(numberofitems);
+    
+    const restaurants = restaurantList;
+
+    // consume store, get storeID
+    const storeID = useAppSelector((state) => state.cartSlice.storeID) as keyof typeof restaurants;
+
+    // consume store, get cart array
+    const cart = useAppSelector((state) => state.cartSlice.cart);
+    
+    const arrayOfCartItems = cart.map((item) => {
+        return (
+            <CartItem 
+                imageSrc={restaurants[storeID].storefrontData.items[item.itemID].image.src}
+                imageAlt={restaurants[storeID].storefrontData.items[item.itemID].image.alt}
+                itemName={restaurants[storeID].storefrontData.items[item.itemID].itemName}
+                price={restaurants[storeID].storefrontData.items[item.itemID].price}
+                quantity={item.quantity}
+                itemID={item.itemID}
+                key={restaurants[storeID].storefrontData.items[item.itemID].image.src}
+            />
+        )
+    })
     return (
         <CartOverview__wrapper>
             <CartOverview__checkout__wrapper>
@@ -71,27 +105,7 @@ export default function CartOverview() {
                 <CheckoutButton />
             </CartOverview__checkout__wrapper>
             <CartOverview__list__wrapper>
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
-                <CartItem />
+                {arrayOfCartItems}
             </CartOverview__list__wrapper>
         </CartOverview__wrapper>
     );

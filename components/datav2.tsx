@@ -15,24 +15,26 @@ export const restaurantList = {
             averageRating: 4.2,
             ratingCount: 2034,
             priceRating: 2,
-            operationHours: [{
-                openHour: 8,
-                openMinute: 0,
-                closeHour: 18,
-                closeMinute: 30
-            }],
-            items: {
-                garlicKnots: {
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    itemName: "Garlic Knots",
                     image: {
                         src: "/images/65341/GarlicKnots.webp",
-                        alt: "Delicious and buttery garlic knots"
+                        alt: "Delicious and buttery garlic knots",
                     },
-                    itemName: "Garlic Knots",
                     price: 8.99,
                     description: "Delicious and buttery garlic knots",
                 },
-            },
-        }
+            ],
+        },
     },
     1243431: {
         restaurantData: {
@@ -50,24 +52,35 @@ export const restaurantList = {
             averageRating: 4.9,
             ratingCount: 6437,
             priceRating: 4,
-            operationHours: [{
-                openHour: 8,
-                openMinute: 0,
-                closeHour: 18,
-                closeMinute: 30
-            }],
-            items: {
-                chefsChoice: {
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    itemName: "12 course Omakase",
                     image: {
-                        src: "/hello/changeme",
-                        alt: "hello change me"
+                        src: "/images/1243431/12course.webp",
+                        alt: "12 course Omakase",
                     },
-                    itemName: "Your Item",
-                    price: 10,
+                    price: 119,
                     description: "Your Item's Description",
                 },
-            },
-        }
+                {
+                    itemName: "Sake Pairing",
+                    image: {
+                        src: "/images/1243431/sakePairing.jpeg",
+                        alt: "Sake Pairing",
+                    },
+                    price: 80,
+                    description: "Your Item's Description",
+                },
+            ],
+        },
     },
     18764431: {
         restaurantData: {
@@ -85,24 +98,26 @@ export const restaurantList = {
             averageRating: 4.9,
             ratingCount: 3045,
             priceRating: 3,
-            operationHours: [{
-                openHour: 8,
-                openMinute: 0,
-                closeHour: 18,
-                closeMinute: 30
-            }],
-            items: {
-                item: {
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    itemName: "Your Item",
                     image: {
                         src: "/hello/changeme",
-                        alt: "hello change me"
+                        alt: "hello change me",
                     },
-                    itemName: "Your Item",
                     price: 10,
                     description: "Your Item's Description",
                 },
-            },
-        }
+            ],
+        },
     },
     98441: {
         restaurantData: {
@@ -120,24 +135,26 @@ export const restaurantList = {
             averageRating: 4.6,
             ratingCount: 2830,
             priceRating: 3,
-            operationHours: [{
-                openHour: 8,
-                openMinute: 0,
-                closeHour: 18,
-                closeMinute: 30
-            }],
-            items: {
-                item: {
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    itemName: "Your Item",
                     image: {
                         src: "/hello/changeme",
-                        alt: "hello change me"
+                        alt: "hello change me",
                     },
-                    itemName: "Your Item",
                     price: 10,
                     description: "Your Item's Description",
                 },
-            },
-        }
+            ],
+        },
     },
     12356667: {
         restaurantData: {
@@ -155,24 +172,26 @@ export const restaurantList = {
             averageRating: 4.7,
             ratingCount: 1353,
             priceRating: 3,
-            operationHours: [{
-                openHour: 8,
-                openMinute: 0,
-                closeHour: 18,
-                closeMinute: 30
-            }],
-            items: {
-                item: {
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    itemName: "Your Item",
                     image: {
                         src: "/hello/changeme",
-                        alt: "hello change me"
+                        alt: "hello change me",
                     },
-                    itemName: "Your Item",
                     price: 10,
                     description: "Your Item's Description",
                 },
-            },
-        }
+            ],
+        },
     },
     334624: {
         restaurantData: {
@@ -190,24 +209,26 @@ export const restaurantList = {
             averageRating: 4.9,
             ratingCount: 3425,
             priceRating: 4,
-            operationHours: [{
-                openHour: 8,
-                openMinute: 0,
-                closeHour: 18,
-                closeMinute: 30
-            }],
-            items: {
-                item: {
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    itemName: "Your Item",
                     image: {
                         src: "/hello/changeme",
-                        alt: "hello change me"
+                        alt: "hello change me",
                     },
-                    itemName: "Your Item",
                     price: 10,
                     description: "Your Item's Description",
                 },
-            },
-        }
+            ],
+        },
     },
     120985: {
         restaurantData: {
@@ -225,24 +246,26 @@ export const restaurantList = {
             averageRating: 4.8,
             ratingCount: 5234,
             priceRating: 2,
-            operationHours: [{
-                openHour: 8,
-                openMinute: 0,
-                closeHour: 18,
-                closeMinute: 30
-            }],
-            items: {
-                item: {
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    itemName: "Your Item",
                     image: {
                         src: "/hello/changeme",
-                        alt: "hello change me"
+                        alt: "hello change me",
                     },
-                    itemName: "Your Item",
                     price: 10,
                     description: "Your Item's Description",
                 },
-            },
-        }
+            ],
+        },
     },
 };
 

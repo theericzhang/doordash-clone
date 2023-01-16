@@ -4,6 +4,10 @@ import Minus from "../../Icons/MinusIcon";
 import Plus from "../../Icons/PlusIcon";
 import GarbageCan from "../../Icons/GarbageCanIcon";
 
+// redux global state
+import { useAppDispatch, useAppSelector } from "../../../app-redux/hooks";
+import { addItemToCart, deleteItemFromCart } from "../../../app-redux/features/cart/cartSlice";
+
 const InputStepper__wrapper = styled.div`
     display: flex;
     align-items: center;
@@ -38,21 +42,35 @@ const InputStepper__label = styled.span`
     color: var(--primary-black);
 `;
 
-export default function InputStepper() {
+type TInputStepper = {
+    quantity: number;
+    itemID: number;
+}
+
+export default function InputStepper({ quantity, itemID }: TInputStepper) {
     
-    const [stepperCount, setStepperCount] = useState(2);
+    const [stepperCount, setStepperCount] = useState(quantity);
+
+    /**
+     * TODO: Values need to be debounced before they are dispatched to global store.
+     */
+
+    const dispatch = useAppDispatch();
 
     function handleClickIncrement() {
         setStepperCount(prevStepperCount => prevStepperCount + 1);
+        dispatch(addItemToCart(itemID));
         return;
     }
 
     function handleClickDecrement() {
         if (stepperCount > 1) {
             setStepperCount(prevStepperCount => prevStepperCount - 1);
+            dispatch(deleteItemFromCart(itemID));
         } else if (stepperCount === 1) {
             // delete item and remove from list if stepperCount reaches 0.
             // think of passing an ID that react can remove from an array of cart items.
+            dispatch(deleteItemFromCart(itemID));
         }
         else {return}
     }
