@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ICartState {
-    storeID: number | null;
+    storeID: number;
     cart: {
         itemID: number;
         quantity: number;
@@ -12,12 +12,12 @@ const initialState: ICartState = {
     storeID: 1243431,
     cart: [
         {
-            itemID: 123,
+            itemID: 0,
             quantity: 2,
         },
         {
-            itemID: 125,
-            quantity: 3,
+            itemID: 1,
+            quantity: 2,
         },
     ],
 };

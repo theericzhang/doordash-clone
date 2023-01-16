@@ -4,6 +4,10 @@ import Minus from "../../Icons/MinusIcon";
 import Plus from "../../Icons/PlusIcon";
 import GarbageCan from "../../Icons/GarbageCanIcon";
 
+// redux global state
+import { useAppDispatch, useAppSelector } from "../../../app-redux/hooks";
+import { addItemToCart, deleteItemFromCart } from "../../../app-redux/features/cart/cartSlice";
+
 const InputStepper__wrapper = styled.div`
     display: flex;
     align-items: center;
@@ -38,9 +42,13 @@ const InputStepper__label = styled.span`
     color: var(--primary-black);
 `;
 
-export default function InputStepper() {
+type TInputStepper = {
+    quantity: number;
+}
+
+export default function InputStepper({ quantity }: TInputStepper) {
     
-    const [stepperCount, setStepperCount] = useState(2);
+    const [stepperCount, setStepperCount] = useState(quantity);
 
     function handleClickIncrement() {
         setStepperCount(prevStepperCount => prevStepperCount + 1);
