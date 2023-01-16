@@ -48,6 +48,14 @@ TypeScript is used as the programming language in this application. With a large
 
 ⚠️ Under Construction ⚠️
 
+⚠️ Under Construction ⚠️
+
+State Management
+
+This clone uses Redux-Toolkit to manage state. Several items are put in global store, including the cart list. Check `cartSlice.tsx` to see reducers and `CartOverview.tsx` to see global store consumption. #5
+
+![State Management flow for cart as of 1/16](./README-supporting/StateManagement.png)
+
 ## Roadmap
 
 ### Recently Completed
