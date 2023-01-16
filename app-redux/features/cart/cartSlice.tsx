@@ -61,11 +61,6 @@ const cartSlice = createSlice({
             }
         },
 
-        // the user deletes an item from the cart
-        // deleteItemFromCart: (state, action: PayloadAction<number>) => {
-        //     state.cart = state.cart.filter(item => item.itemID !== action.payload);
-        // },
-
         // reduces the quantity of an item in a cart if quantity > 0
         // if quantity is 1 and user hits delete, item should be removed from list
         deleteItemFromCart: (state, action: PayloadAction<number>) => {
