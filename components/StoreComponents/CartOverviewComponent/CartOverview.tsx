@@ -96,9 +96,9 @@ export default function CartOverview() {
                         Your cart from
                     </CartOverview__checkout__header>
                     <CartOverview__checkout__link
-                        href='https://www.google.com'
+                        href={`/store/${storeID}`}
                     >
-                        Cholita Linda
+                        {restaurants[storeID].restaurantData.restaurantName}
                         <CarrotRight />
                     </CartOverview__checkout__link>
                 </CartOverview__checkout__description>
