@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import CartIcon from "../Icons/CartIcon";
 
+import { useAppSelector } from "../../app-redux/hooks";
+
 const ShoppingCartButton__wrapper = styled.button`
     display: flex;
     justify-content: center;
@@ -29,11 +31,17 @@ const ShoppingCartButton__label = styled.h4`
 `;
 
 export default function ShoppingCartButton() {
+    const cart = useAppSelector((state) => state.cartSlice.cart);
+    let cartCount = 0;
+    cart.forEach((item) => {
+        cartCount += item.quantity;
+    });
+    
     return (
         <ShoppingCartButton__wrapper>
             <CartIcon />
             <ShoppingCartButton__label>
-                2
+                {cartCount}
             </ShoppingCartButton__label>
         </ShoppingCartButton__wrapper>
     );
