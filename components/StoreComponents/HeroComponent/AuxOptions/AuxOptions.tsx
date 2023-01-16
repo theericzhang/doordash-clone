@@ -82,7 +82,10 @@ export default function AuxOptions() {
                 </AuxOptions__Button__label>
             </AuxOptions__Button__primary>
             <AuxOptions__Toggle__wrapper>
-                <AuxOptions__Toggle isDelivery={isDelivery}>
+                <AuxOptions__Toggle 
+                    isDelivery={isDelivery}
+                    disabled={isDelivery}
+                    onClick={() => {setIsDelivery(prevIsDelivery => !prevIsDelivery)}}>
                     <AuxOptions__Toggle__label__wrapper>
                         <AuxOptions__Toggle__label isDelivery={isDelivery}>
                             Delivery
@@ -92,7 +95,10 @@ export default function AuxOptions() {
                         </AuxOptions__Toggle__label__small>
                     </AuxOptions__Toggle__label__wrapper>
                 </AuxOptions__Toggle>
-                <AuxOptions__Toggle isDelivery={!isDelivery}>
+                <AuxOptions__Toggle 
+                    isDelivery={!isDelivery}
+                    disabled={!isDelivery}
+                    onClick={() => {setIsDelivery(prevIsDelivery => !prevIsDelivery)}}>
                     <AuxOptions__Toggle__label__wrapper>
                         <AuxOptions__Toggle__label isDelivery={!isDelivery}>
                             Pickup
