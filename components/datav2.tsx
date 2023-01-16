@@ -78,7 +78,7 @@ export const restaurantList = {
                     },
                     price: 80,
                     description: "Your Item's Description",
-                }
+                },
             ],
         },
     },

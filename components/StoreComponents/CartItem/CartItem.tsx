@@ -79,7 +79,7 @@ export default function CartItem({ imageSrc, imageAlt, itemName, price, quantity
                     {itemName}
                 </CartItem__description__item>
                 <CartItem__description__price>
-                    {price}
+                    ${price}
                 </CartItem__description__price>
             </CartItem__description__wrapper>
             <InputStepper quantity={quantity}/>

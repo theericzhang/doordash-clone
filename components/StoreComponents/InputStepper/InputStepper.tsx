@@ -50,6 +50,10 @@ export default function InputStepper({ quantity }: TInputStepper) {
     
     const [stepperCount, setStepperCount] = useState(quantity);
 
+    /**
+     * TODO: make use of reducers. Values need to be debounced before they are dispatched to global store.
+     */
+
     function handleClickIncrement() {
         setStepperCount(prevStepperCount => prevStepperCount + 1);
         return;
