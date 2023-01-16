@@ -22,7 +22,6 @@ const AuxOptions__Button__primary = styled.button`
 
 const AuxOptions__Toggle__selected = styled.button`
     display: flex;
-    flex-direction: column;
     justify-content: center;
     height: 100%;
     background-color: var(--primary-black);
@@ -30,12 +29,10 @@ const AuxOptions__Toggle__selected = styled.button`
     border: none;
     border-radius: 20px;
     padding: 0 24px;
-    column-gap: 10px;
 `;
 
 const AuxOptions__Toggle = styled.button`
     display: flex;
-    flex-direction: column;
     justify-content: center;
     height: 100%;
     background-color: var(--primary-gray);
@@ -43,7 +40,6 @@ const AuxOptions__Toggle = styled.button`
     border: none;
     border-radius: 20px;
     padding: 0 24px;
-    column-gap: 10px;
 `;
 
 const AuxOptions__Button__label = styled.span`
@@ -52,10 +48,17 @@ const AuxOptions__Button__label = styled.span`
     color: var(--primary-black);
 `;
 
+const AuxOptions__Toggle__label__wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    row-gap: 1px;
+    margin-bottom: 1px;
+`
+
 const AuxOptions__Toggle__label__small = styled.span`
     font-size: 12px;
     color: var(--secondary-black);
-`
+`;
 
 const AuxOptions__Toggle__label = styled.span`
     font-size: 14px;
@@ -98,20 +101,24 @@ export default function AuxOptions() {
             </AuxOptions__Button__primary>
             <AuxOptions__Toggle__wrapper>
                 <AuxOptions__Toggle__selected>
-                    <AuxOptions__Toggle__label__selected>
-                        Delivery
-                    </AuxOptions__Toggle__label__selected>
-                    <AuxOptions__Toggle__label__selected__small>
-                        22 min
-                    </AuxOptions__Toggle__label__selected__small>
+                    <AuxOptions__Toggle__label__wrapper>
+                        <AuxOptions__Toggle__label__selected>
+                            Delivery
+                        </AuxOptions__Toggle__label__selected>
+                        <AuxOptions__Toggle__label__selected__small>
+                            22 min
+                        </AuxOptions__Toggle__label__selected__small>
+                    </AuxOptions__Toggle__label__wrapper>
                 </AuxOptions__Toggle__selected>
                 <AuxOptions__Toggle>
-                    <AuxOptions__Toggle__label>
-                        Pickup
-                    </AuxOptions__Toggle__label>
-                    <AuxOptions__Toggle__label__small>
-                        14 min
-                    </AuxOptions__Toggle__label__small>
+                    <AuxOptions__Toggle__label__wrapper>
+                        <AuxOptions__Toggle__label>
+                            Pickup
+                        </AuxOptions__Toggle__label>
+                        <AuxOptions__Toggle__label__small>
+                            14 min
+                        </AuxOptions__Toggle__label__small>
+                    </AuxOptions__Toggle__label__wrapper>
                 </AuxOptions__Toggle>
             </AuxOptions__Toggle__wrapper>
         </AuxOptions__wrapper>
