@@ -116,6 +116,7 @@ export default function MenuSection() {
                 </MenuSection__subheader>
             </MenuSection__header__wrapper>
             <MenuSection__items__wrapper>
+                {/* TODO: REFACTOR MENUSECTION__ITEM INTO ITS OWN COMPONENT */}
                 <MenuSection__item>
                     <Item__text__wrapper>
                         <Item__text__name>
