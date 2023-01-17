@@ -10,7 +10,7 @@ const StorePage = styled.article`
     width: calc(100% - 340px);
     left: 0;
     position: absolute;
-    row-gap: 50px;
+    row-gap: 22px;
 `;
 
 const StorePage__divider = styled.hr`

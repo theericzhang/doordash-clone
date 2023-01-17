@@ -9,8 +9,25 @@ const QuickActions__wrapper = styled.section`
     row-gap: 50px;
 `;
 
+const QuickActions__section = styled.section`
+    display: flex;
+    flex-direction: column;
+`;
+
+const QuickActions__section__header = styled.h2`
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.6px;
+`
+
 export default function QuickActions() {
     return (
-        <QuickActions__wrapper>Hello</QuickActions__wrapper>
+        <QuickActions__wrapper>
+            <QuickActions__section>
+                <QuickActions__section__header>
+                    Featured Items
+                </QuickActions__section__header>
+            </QuickActions__section>
+        </QuickActions__wrapper>
     );
 }
