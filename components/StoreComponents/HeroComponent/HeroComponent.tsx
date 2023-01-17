@@ -136,12 +136,6 @@ const HeroComponent__information__quaternary = styled.div`
     justify-content: space-between;
 `;
 
-const HeroComponent__end__divider = styled.hr`
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid var(--primary-gray);
-`
-
 type TRestaurantData = {
     restaurantData: TRestaurantDataPrimary;
     storefrontData: TStorefrontData
@@ -280,7 +274,6 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                     <AuxOptions />
                 </HeroComponent__information__quaternary>
             </HeroComponent__information>
-            <HeroComponent__end__divider />
         </HeroComponent__wrapper>
     );
 }
