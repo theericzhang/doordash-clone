@@ -5,6 +5,7 @@ import Head from "next/head";
 import { restaurantList } from "../../components/datav2";
 import { TRestaurantDataPrimary, TStorefrontData } from "../../global";
 import CartOverview from "../../components/StoreComponents/CartOverviewComponent/CartOverview";
+import QuickActions from "../../components/StoreComponents/QuickActionsComponent/QuickActions";
 
 type TServerSideProps = {
     restaurant: {
@@ -34,6 +35,7 @@ export default function Store({ restaurant }: TServerSideProps) {
                     storefrontData={restaurant.storefrontData}
                 />
                 {/* Insert Rest of the Store's components */}
+                <QuickActions />
                 <CartOverview />
             </StoreLayout>
         </>
