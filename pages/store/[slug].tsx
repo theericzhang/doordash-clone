@@ -33,6 +33,7 @@ export default function Store({ restaurant }: TServerSideProps) {
                     restaurantData={restaurant.restaurantData}
                     storefrontData={restaurant.storefrontData}
                 />
+                {/* Insert Rest of the Store's components */}
                 <CartOverview />
             </StoreLayout>
         </>

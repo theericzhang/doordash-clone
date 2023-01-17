@@ -10,14 +10,6 @@ import AuxOptions from './AuxOptions/AuxOptions';
 
 const HeroComponent__wrapper = styled.section`
     display: flex;
-    margin: 16px 0;
-    width: calc(100% - 340px);
-    left: 0;
-    position: absolute;
-`;
-
-const HeroComponent__inner = styled.div`
-    display: flex;
     flex-direction: column;
     width: 928px;
     margin: 0 auto;
@@ -144,6 +136,12 @@ const HeroComponent__information__quaternary = styled.div`
     justify-content: space-between;
 `;
 
+const HeroComponent__end__divider = styled.hr`
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--primary-gray);
+`
+
 type TRestaurantData = {
     restaurantData: TRestaurantDataPrimary;
     storefrontData: TStorefrontData
@@ -169,121 +167,120 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
     
     return (
         <HeroComponent__wrapper>
-            <HeroComponent__inner>
-                <HeroComponent__images__collection>
-                    <HeroComponent__image__wrapper>
-                        <HeroComponent__image
+            <HeroComponent__images__collection>
+                <HeroComponent__image__wrapper>
+                    <HeroComponent__image
+                        src={restaurantData.restaurantImage.src}
+                        alt={restaurantData.restaurantImage.alt}
+                        fill={true}
+                        sizes="440px"
+                        // sizes="374px"
+                        priority={true}
+                        loading='eager'
+                    />
+                </HeroComponent__image__wrapper>
+                <HeroComponent__storeProfile__image__area>
+                    <HeroComponent__storeProfile__image_wrapper>
+                        <HeroComponent__storeProfile__image
                             src={restaurantData.restaurantImage.src}
                             alt={restaurantData.restaurantImage.alt}
+                            placeholder="blur"
+                            blurDataURL="/images/Blur.webp"
                             fill={true}
-                            sizes="440px"
-                            // sizes="374px"
-                            priority={true}
-                            loading='eager'
+                            sizes="(max-width: 960px) 76px, 76px"
                         />
-                    </HeroComponent__image__wrapper>
-                    <HeroComponent__storeProfile__image__area>
-                        <HeroComponent__storeProfile__image_wrapper>
-                            <HeroComponent__storeProfile__image
-                                src={restaurantData.restaurantImage.src}
-                                alt={restaurantData.restaurantImage.alt}
-                                placeholder="blur"
-                                blurDataURL="/images/Blur.webp"
-                                fill={true}
-                                sizes="(max-width: 960px) 76px, 76px"
-                            />
-                        </HeroComponent__storeProfile__image_wrapper>
-                    </HeroComponent__storeProfile__image__area>
-                </HeroComponent__images__collection>
-                {/*immediate info area*/}
-                <HeroComponent__information>
-                    <HeroComponent__restaurantName>
-                        {restaurantData.restaurantName}
-                    </HeroComponent__restaurantName>
-                    <HeroComponent__information__primary>
-                        <HeroComponent__information__span>
-                            {!!restaurantData.isDashPass ? 
-                                <>
-                                    <DashPassLabel isFull={true}/>
-                                    <HeroComponent__information__bullet>
-                                        •
-                                    </HeroComponent__information__bullet>
-                                </> 
-                            : 
-                                null
-                            }
-                            {!!storefrontData.shortDescription ? 
-                                <>
-                                    {storefrontData.shortDescription}
-                                    <HeroComponent__information__bullet>
-                                        •
-                                    </HeroComponent__information__bullet>
-                                </>
-                            :
-                                null
-                            }
-                            {!!storefrontData.averageRating ?
-                                <HeroComponent__information__rating__wrapper>
-                                    {storefrontData.averageRating}
-                                    <Star 
-                                        color={`var(--quinary-gray)`}
-                                        isInlineReview={true}
-                                    />
-                                    {ratingsCountLocalized}
-                                    <HeroComponent__information__bullet>
-                                        •
-                                    </HeroComponent__information__bullet>
-                                </HeroComponent__information__rating__wrapper>
-                            :
-                                null
-                            }
-                            {!!restaurantData.distance ?
-                                <>
-                                    {restaurantData.distance}
-                                    <HeroComponent__information__bullet>
-                                        •
-                                    </HeroComponent__information__bullet>
-                                </>
-                            :
-                                null
-                            }
-                            {!!storefrontData.priceRating ?
-                                <>
-                                    {
-                                        Array(storefrontData.priceRating).fill('$')
-                                    }
-                                </>
-                            :
-                                null
-                            }
-                        </HeroComponent__information__span>
-                    </HeroComponent__information__primary>
-                    <HeroComponent__information__secondary>
-                        <HeroComponent__information__span>
-                        {isOpen ? 
-                            <HeroComponent__information__time_open>
-                                <ClockIcon />
-                                Open now
-                            </HeroComponent__information__time_open>
-                        :
-                            <HeroComponent__information__time_closed>
-                                <ClockIcon />
-                                Closed now
-                            </HeroComponent__information__time_closed>
+                    </HeroComponent__storeProfile__image_wrapper>
+                </HeroComponent__storeProfile__image__area>
+            </HeroComponent__images__collection>
+            {/*immediate info area*/}
+            <HeroComponent__information>
+                <HeroComponent__restaurantName>
+                    {restaurantData.restaurantName}
+                </HeroComponent__restaurantName>
+                <HeroComponent__information__primary>
+                    <HeroComponent__information__span>
+                        {!!restaurantData.isDashPass ? 
+                            <>
+                                <DashPassLabel isFull={true}/>
+                                <HeroComponent__information__bullet>
+                                    •
+                                </HeroComponent__information__bullet>
+                            </> 
+                        : 
+                            null
                         }
-                        </HeroComponent__information__span>
-                    </HeroComponent__information__secondary>
-                    <HeroComponent__information__tertiary>
-                        <HeroComponent__information__span>
-                            Pricing & Fees <Information />
-                        </HeroComponent__information__span>
-                    </HeroComponent__information__tertiary>
-                    <HeroComponent__information__quaternary>
-                        <DeliveryTile />
-                        <AuxOptions />
-                    </HeroComponent__information__quaternary>
-                </HeroComponent__information>
-            </HeroComponent__inner>
+                        {!!storefrontData.shortDescription ? 
+                            <>
+                                {storefrontData.shortDescription}
+                                <HeroComponent__information__bullet>
+                                    •
+                                </HeroComponent__information__bullet>
+                            </>
+                        :
+                            null
+                        }
+                        {!!storefrontData.averageRating ?
+                            <HeroComponent__information__rating__wrapper>
+                                {storefrontData.averageRating}
+                                <Star 
+                                    color={`var(--quinary-gray)`}
+                                    isInlineReview={true}
+                                />
+                                {ratingsCountLocalized}
+                                <HeroComponent__information__bullet>
+                                    •
+                                </HeroComponent__information__bullet>
+                            </HeroComponent__information__rating__wrapper>
+                        :
+                            null
+                        }
+                        {!!restaurantData.distance ?
+                            <>
+                                {restaurantData.distance}
+                                <HeroComponent__information__bullet>
+                                    •
+                                </HeroComponent__information__bullet>
+                            </>
+                        :
+                            null
+                        }
+                        {!!storefrontData.priceRating ?
+                            <>
+                                {
+                                    Array(storefrontData.priceRating).fill('$')
+                                }
+                            </>
+                        :
+                            null
+                        }
+                    </HeroComponent__information__span>
+                </HeroComponent__information__primary>
+                <HeroComponent__information__secondary>
+                    <HeroComponent__information__span>
+                    {isOpen ? 
+                        <HeroComponent__information__time_open>
+                            <ClockIcon />
+                            Open now
+                        </HeroComponent__information__time_open>
+                    :
+                        <HeroComponent__information__time_closed>
+                            <ClockIcon />
+                            Closed now
+                        </HeroComponent__information__time_closed>
+                    }
+                    </HeroComponent__information__span>
+                </HeroComponent__information__secondary>
+                <HeroComponent__information__tertiary>
+                    <HeroComponent__information__span>
+                        Pricing & Fees <Information />
+                    </HeroComponent__information__span>
+                </HeroComponent__information__tertiary>
+                <HeroComponent__information__quaternary>
+                    <DeliveryTile />
+                    <AuxOptions />
+                </HeroComponent__information__quaternary>
+            </HeroComponent__information>
+            <HeroComponent__end__divider />
         </HeroComponent__wrapper>
     );
 }
