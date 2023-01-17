@@ -27,7 +27,7 @@ const AuxOptions__Button__label = styled.span`
     color: var(--primary-black);
 `;
 
-const AuxOptions__Toggle__wrapper = styled.div`
+const AuxOptions__Toggle__wrapper = styled.button`
     display: flex;
     align-items: center;
     height: 100%;
