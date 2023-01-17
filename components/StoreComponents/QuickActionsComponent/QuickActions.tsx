@@ -25,7 +25,7 @@ export default function QuickActions() {
         <QuickActions__wrapper>
             <QuickActions__section>
                 <QuickActions__section__header>
-                    Featured Items
+                    Popular Items
                 </QuickActions__section__header>
             </QuickActions__section>
         </QuickActions__wrapper>
