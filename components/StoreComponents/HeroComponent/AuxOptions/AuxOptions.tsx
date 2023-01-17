@@ -47,6 +47,13 @@ const AuxOptions__Toggle__wrapper = styled.button`
         transition-property: background-color;
         background-color: var(--secondary-gray);
     }
+
+    // equivalent to onMouseDown
+    &:active {
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: var(--quaternary-gray);
+    }
 `;
 
 const AuxOptions__Toggle__slider = styled.div<{isDelivery: boolean}>`
@@ -57,16 +64,16 @@ const AuxOptions__Toggle__slider = styled.div<{isDelivery: boolean}>`
     height: 100%;
     padding: 0 24px;
     border-radius: 20px;
-    transition: 0.15s ease;
+    transition: 0.25s ease;
     transition-property: background-color;
     position: absolute;
-    left: ${props => props.isDelivery ? '0px' : 'unset'}; // something's wrong here
+    left: ${props => props.isDelivery ? '0px' : 'unset'};
     right: ${props => !props.isDelivery ? '0px' : 'unset'};
     z-index: 1;
 
     &:hover {
         cursor: pointer;
-        transition: 0.15s ease;
+        transition: 0.25s ease;
         transition-property: background-color;
         background-color: var(--tertiary-gray);
     }
@@ -134,10 +141,11 @@ export default function AuxOptions() {
                     Group Order
                 </AuxOptions__Button__label>
             </AuxOptions__Button__primary>
-            {/* TODO: STOP EVENT PROPOGATION TO SLIDER COMPONENT. ANIMATE SLIDER COMPONENT TO MOVE ACROSS. CLEAN UP UNNEEDED CSS */}
-            <AuxOptions__Toggle__wrapper onClick={(e) => {
-                setIsDelivery(prevIsDelivery => !prevIsDelivery);
-            }}>
+            <AuxOptions__Toggle__wrapper 
+                onClick={(e) => {
+                    setIsDelivery(prevIsDelivery => !prevIsDelivery);
+                }}
+            >
                 <AuxOptions__Toggle__slider 
                     isDelivery={isDelivery}
                     onClick={(e) => e.stopPropagation()}
