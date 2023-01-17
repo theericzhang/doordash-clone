@@ -27,7 +27,7 @@ const AuxOptions__Button__label = styled.span`
     color: var(--primary-black);
 `;
 
-const AuxOptions__Toggle__wrapper = styled.div`
+const AuxOptions__Toggle__wrapper = styled.button`
     display: flex;
     align-items: center;
     height: 100%;
@@ -36,48 +36,93 @@ const AuxOptions__Toggle__wrapper = styled.div`
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-
-    &:hover {
-        cursor: pointer;
-    }
-`;
-
-const AuxOptions__Toggle = styled.button<{ isDelivery: boolean }>`
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    background-color: ${props => props.isDelivery ? 'var(--primary-black)' : 'var(--primary-gray)'};
-    align-items: center;
-    border: none;
-    border-radius: ${props => props.isDelivery ? '20px' : '0'};
-    padding: 0 24px;
+    width: 195px;
     transition: 0.15s ease;
     transition-property: background-color;
+    justify-content: space-around;
 
     &:hover {
         cursor: pointer;
         transition: 0.15s ease;
         transition-property: background-color;
-        background-color: ${props => props.isDelivery ? 'var(--tertiary-gray)' : 'var(--secondary-gray)'};
+        background-color: var(--secondary-gray);
+    }
+
+    // equivalent to onMouseDown
+    &:active {
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: var(--quaternary-gray);
+    }
+`;
+
+const AuxOptions__Toggle__slider = styled.div<{isDelivery: boolean}>`
+    display: flex;
+    background-color: var(--primary-black);
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 24px;
+    border-radius: 20px;
+    transition: 0.25s ease;
+    transition-property: background-color;
+    position: absolute;
+    left: ${props => props.isDelivery ? '0px' : 'unset'};
+    right: ${props => !props.isDelivery ? '0px' : 'unset'};
+    z-index: 1;
+
+    &:hover {
+        cursor: pointer;
+        transition: 0.25s ease;
+        transition-property: background-color;
+        background-color: var(--tertiary-gray);
     }
 `;
 
 const AuxOptions__Toggle__label__wrapper = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 1px;
     margin-bottom: 1px;
 `;
 
-const AuxOptions__Toggle__label__small = styled.span<{isDelivery: boolean}>`
+const AuxOptions__Toggle__label__wrapper__stationary__left = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1px;
+    margin-bottom: 1px;
+`
+
+const AuxOptions__Toggle__label__wrapper__stationary__right = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1px;
+    margin-bottom: 1px;
+`
+
+const AuxOptions__Toggle__label__small = styled.span`
     font-size: 12px;
-    color: ${props => props.isDelivery ? `var(--quaternary-gray)` : `var(--secondary-black)`};
+    color: var(--quaternary-gray);
 `;
 
-const AuxOptions__Toggle__label = styled.span<{isDelivery: boolean}>`
+const AuxOptions__Toggle__label = styled.span`
     font-size: 14px;
     font-weight: 500;
-    color: ${props => props.isDelivery ? `var(--primary-white)` : `var(--primary-black)`};
+    color: var(--primary-white);
+`;
+
+const AuxOptions__Toggle__label__small__stationary = styled.span`
+    font-size: 12px;
+    color: var(--secondary-black);
+`;
+
+const AuxOptions__Toggle__label__stationary = styled.span`
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-black);
 `;
 
 export default function AuxOptions() {
@@ -96,33 +141,41 @@ export default function AuxOptions() {
                     Group Order
                 </AuxOptions__Button__label>
             </AuxOptions__Button__primary>
-            <AuxOptions__Toggle__wrapper>
-                <AuxOptions__Toggle 
+            <AuxOptions__Toggle__wrapper 
+                onClick={(e) => {
+                    setIsDelivery(prevIsDelivery => !prevIsDelivery);
+                }}
+            >
+                <AuxOptions__Toggle__slider 
                     isDelivery={isDelivery}
-                    disabled={isDelivery}
-                    onClick={() => {setIsDelivery(prevIsDelivery => !prevIsDelivery)}}>
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <AuxOptions__Toggle__label__wrapper>
-                        <AuxOptions__Toggle__label isDelivery={isDelivery}>
-                            Delivery
+                        <AuxOptions__Toggle__label>
+                            {isDelivery ? 'Delivery' : 'Pickup'}
                         </AuxOptions__Toggle__label>
-                        <AuxOptions__Toggle__label__small isDelivery={isDelivery}>
-                            22 min
+                        <AuxOptions__Toggle__label__small>
+                            {isDelivery ? '22' : '14'} min
                         </AuxOptions__Toggle__label__small>
                     </AuxOptions__Toggle__label__wrapper>
-                </AuxOptions__Toggle>
-                <AuxOptions__Toggle 
-                    isDelivery={!isDelivery}
-                    disabled={!isDelivery}
-                    onClick={() => {setIsDelivery(prevIsDelivery => !prevIsDelivery)}}>
-                    <AuxOptions__Toggle__label__wrapper>
-                        <AuxOptions__Toggle__label isDelivery={!isDelivery}>
-                            Pickup
-                        </AuxOptions__Toggle__label>
-                        <AuxOptions__Toggle__label__small isDelivery={!isDelivery}>
-                            14 min
-                        </AuxOptions__Toggle__label__small>
-                    </AuxOptions__Toggle__label__wrapper>
-                </AuxOptions__Toggle>
+                </AuxOptions__Toggle__slider>
+
+                <AuxOptions__Toggle__label__wrapper__stationary__left>
+                    <AuxOptions__Toggle__label__stationary>
+                        Delivery
+                    </AuxOptions__Toggle__label__stationary>
+                    <AuxOptions__Toggle__label__small__stationary>
+                        22 min
+                    </AuxOptions__Toggle__label__small__stationary>
+                </AuxOptions__Toggle__label__wrapper__stationary__left>
+                <AuxOptions__Toggle__label__wrapper__stationary__right>
+                    <AuxOptions__Toggle__label__stationary>
+                        Pickup
+                    </AuxOptions__Toggle__label__stationary>
+                    <AuxOptions__Toggle__label__small__stationary>
+                        14 min
+                    </AuxOptions__Toggle__label__small__stationary>
+                </AuxOptions__Toggle__label__wrapper__stationary__right>
             </AuxOptions__Toggle__wrapper>
         </AuxOptions__wrapper>
     );
