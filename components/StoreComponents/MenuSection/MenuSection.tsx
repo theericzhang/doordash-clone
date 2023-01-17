@@ -44,8 +44,18 @@ const MenuSection__item = styled.button`
     height: 144px;
     display: flex;
     background-color: var(--primary-white);
-    border: 1px solid var(--primary-gray);
+    border: 1px solid;
+    border-color: var(--primary-gray);
     border-radius: 4px;
+    transition: 0.25s ease;
+    transition-property: border-color;
+
+    &:hover {
+        cursor: pointer;
+        border-color: var(--quaternary-gray);
+        transition: 0.25s ease;
+        transition-property: border-color;
+    }
 `
 
 export default function MenuSection() {
