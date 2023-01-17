@@ -8,7 +8,7 @@ const MenuSection__section = styled.section`
 const MenuSection__header__wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    row-gap: 3px;
+    row-gap: 3.5px;
 `;
 
 // reserved for larger headers, like feature items section
@@ -34,9 +34,12 @@ const MenuSection__subheader = styled.span`
 
 const MenuSection__items__wrapper = styled.div`
     display: flex;
-    gap: 14px;
+    column-gap: 14px;
+    row-gap: 16px;
     flex-wrap: wrap;
     width: 100%;
+    margin: 18px 0;
+    overflow: hidden;
 `;
 
 const MenuSection__item = styled.button`
