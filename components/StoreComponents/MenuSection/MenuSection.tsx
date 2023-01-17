@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ThumbsUp from "../../Icons/ThumbsUpIcon";
 
 const MenuSection__section = styled.section`
     display: flex;
@@ -85,6 +86,15 @@ const Item__text__description = styled.span`
 
 const Item__text__stats__wrapper = styled.div`
     display: flex;
+    column-gap: 4px;
+    align-items: center;
+`;
+
+const Item__text__price = styled.span`
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    color: var(--secondary-black);
 `;
 
 const Item__text__stats = styled.span`
@@ -115,9 +125,17 @@ export default function MenuSection() {
                             Chef&apos;s choice of daily sushi
                         </Item__text__description>
                         <Item__text__stats__wrapper>
-                            <Item__text__stats>
+                            <Item__text__price>
                                 $8.95
+                            </Item__text__price>
+                            <Item__text__stats>
+                                •
                             </Item__text__stats>
+                            <ThumbsUp />
+                            <Item__text__stats>
+                                94% (120)
+                            </Item__text__stats>
+
                         </Item__text__stats__wrapper>
                     </Item__text__wrapper>
                 </MenuSection__item>
