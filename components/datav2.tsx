@@ -38,7 +38,7 @@ export const restaurantList = {
                 {
                     itemName: "Grandma Slice",
                     image: {
-                        src: "/images/65341/GrandmaSlice.jpeg",
+                        src: "/images/65341/GrandmaSlice.webp",
                         alt: "Grandma Slice",
                     },
                     price: 4.99,
@@ -50,7 +50,7 @@ export const restaurantList = {
                 {
                     itemName: "Margherita Slice",
                     image: {
-                        src: "/images/65341/MargheritaSlice.jpeg",
+                        src: "/images/65341/MargheritaSlice.webp",
                         alt: "Margherita Slice",
                     },
                     price: 4.99,
@@ -61,7 +61,7 @@ export const restaurantList = {
                 {
                     itemName: "Cheese Slice",
                     image: {
-                        src: "/images/65341/CheeseSlice.jpeg",
+                        src: "/images/65341/CheeseSlice.webp",
                         alt: "Cheese Slice",
                     },
                     price: 4.99,
@@ -112,7 +112,7 @@ export const restaurantList = {
                 {
                     itemName: "Sake Pairing",
                     image: {
-                        src: "/images/1243431/sakePairing.jpeg",
+                        src: "/images/1243431/sakePairing.webp",
                         alt: "Sake Pairing",
                     },
                     price: 80,
@@ -134,7 +134,7 @@ export const restaurantList = {
                 {
                     itemName: "Buckwheat Custard",
                     image: {
-                        src: "/images/1243431/BuckwheatCustard.jpeg",
+                        src: "/images/1243431/BuckwheatCustard.webp",
                         alt: "Buckwheat Custard",
                     },
                     price: 20,
@@ -172,7 +172,7 @@ export const restaurantList = {
                 {
                     itemName: "Banana Turmeric Lassi",
                     image: {
-                        src: "/images/18764431/BananaTurmericLassi.jpeg",
+                        src: "/images/18764431/BananaTurmericLassi.webp",
                         alt: "Banana Turmeric Lassi",
                     },
                     price: 8.99,
@@ -184,7 +184,7 @@ export const restaurantList = {
                 {
                     itemName: "Cardamom Mango Lassi",
                     image: {
-                        src: "/images/18764431/CardamomMangoLassi.jpeg",
+                        src: "/images/18764431/CardamomMangoLassi.webp",
                         alt: "Cardamom Mango Lassi",
                     },
                     price: 8.99,
@@ -197,7 +197,7 @@ export const restaurantList = {
                 {
                     itemName: "Cayenne Tamarind Lassi",
                     image: {
-                        src: "/images/18764431/CayenneTamarindLassi.jpeg",
+                        src: "/images/18764431/CayenneTamarindLassi.webp",
                         alt: "Cayenne Tamarind Lassi",
                     },
                     price: 8.99,
@@ -209,7 +209,7 @@ export const restaurantList = {
                 {
                     itemName: "Peppercorn Berry Lassi",
                     image: {
-                        src: "/images/18764431/PepperCornBerryLassi.jpeg",
+                        src: "/images/18764431/PepperCornBerryLassi.webp",
                         alt: "Peppercorn Berry Lassi",
                     },
                     price: 8.99,
@@ -221,7 +221,7 @@ export const restaurantList = {
                 {
                     itemName: "Saag Paneer",
                     image: {
-                        src: "/images/18764431/SaagPaneer.jpeg",
+                        src: "/images/18764431/SaagPaneer.webp",
                         alt: "Saag Paneer Bowl",
                     },
                     price: 15.99,
@@ -232,7 +232,7 @@ export const restaurantList = {
                 {
                     itemName: "Chick’n Tikka Street Wrap",
                     image: {
-                        src: "/images/18764431/ChicknTikkaStreetWrap.jpeg",
+                        src: "/images/18764431/ChicknTikkaStreetWrap.webp",
                         alt: "Chick’n Tikka Street Wrap",
                     },
                     price: 15.99,
@@ -466,7 +466,7 @@ export const restaurantList = {
                 {
                     itemName: "Yum Sum-o",
                     image: {
-                        src: "/images/334624/YumSumO.jpeg",
+                        src: "/images/334624/YumSumO.webp",
                         alt: "Yum Sum-o",
                     },
                     price: 19,
@@ -477,7 +477,7 @@ export const restaurantList = {
                 {
                     itemName: "Yum Tawai",
                     image: {
-                        src: "/images/334624/YumTawai.jpeg",
+                        src: "/images/334624/YumTawai.webp",
                         alt: "Yum Tawai",
                     },
                     price: 17,
@@ -488,7 +488,7 @@ export const restaurantList = {
                 {
                     itemName: "Gaeng Massaman Gae",
                     image: {
-                        src: "/images/334624/YumTawai.jpeg",
+                        src: "/images/334624/YumTawai.webp",
                         alt: "Gaeng Massaman Gae",
                     },
                     price: 56,
@@ -500,7 +500,7 @@ export const restaurantList = {
                 {
                     itemName: "Squid & Pork Jowl",
                     image: {
-                        src: "/images/334624/PorkSquidJowl.jpeg",
+                        src: "/images/334624/PorkSquidJowl.webp",
                         alt: "Squid & Pork Jowl",
                     },
                     price: 29,
