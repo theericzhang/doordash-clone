@@ -8,7 +8,7 @@ import Image from "next/image";
 const ItemCustomizationPanel__wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    min-width: 560px;
+    width: 560px;
     min-height: 200px;
     background-color: var(--primary-white);
     opacity: 1;
@@ -35,7 +35,7 @@ const ItemCustomizationPanel__content__wrapper = styled.div`
     flex-direction: column;
     row-gap: 10px;
     align-items: flex-start;
-    margin: 32px 0; 
+    margin: 33px 0; 
 `;
 
 const ItemCustomizationPanel__item__name = styled.h2`
@@ -62,6 +62,9 @@ const ItemCustomizationPanel__item__description = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--secondary-black);
+    line-height: 1.4;
+    margin-top: 10px;
+    margin-bottom: 25px;
 `;
 
 const ItemCustomizationPanel__image__wrapper = styled.div`
@@ -81,6 +84,7 @@ const ItemCustomizationPanel__image = styled(Image)`
 
 export default function ItemCustomizationPanel() {
     const dispatch = useAppDispatch();
+    // grabbing item data that was set when the user clicks on MenuItem
     const itemData = useAppSelector((state) => state.itemSlice.itemData);
 
     return (
@@ -94,7 +98,7 @@ export default function ItemCustomizationPanel() {
                 </ItemCustomizationPanel__item__name>
                 {itemData?.ratingCount ? 
                     <ItemCustomizationPanel__stats__wrapper>
-                        <ThumbsUp />
+                        <ThumbsUp size={16}/>
                         <ItemCustomizationPanel__stats>
                             {itemData.ratingPercentage}% ({itemData.ratingCount})
                         </ItemCustomizationPanel__stats>
