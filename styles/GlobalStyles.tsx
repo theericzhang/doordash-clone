@@ -4,6 +4,7 @@ export const GlobalStyles = createGlobalStyle`
     :root {
         /* System Colors Variables */
         --primary-black: rgba(25, 25, 25, 1);
+        --primary-black-transparency-75: rgba(25, 25, 25, 0.75);
         --secondary-black: rgba(73, 73, 73, 1);
 
         --primary-gray: rgba(231, 231, 231, 1);

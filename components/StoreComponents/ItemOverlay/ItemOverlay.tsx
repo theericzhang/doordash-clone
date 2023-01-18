@@ -1,24 +1,29 @@
 import styled from "styled-components";
-import { useAppSelector } from "../../../app-redux/hooks";
+import { useAppSelector, useAppDispatch } from "../../../app-redux/hooks";
+import { toggleIsModalOpen } from "../../../app-redux/features/item/itemSlice";
+import ItemCustomizationPanel from "./ItemCustomizationPanel/ItemCustomizationPanel";
 
-const ItemOverlay__wrapper = styled.section`
+const ItemModal__wrapper = styled.section`
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--primary-black);
-    opacity: 0.75;
+    background-color: var(--primary-black-transparency-75);
     z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
-export default function ItemOverlay() {
-    const isOverlayOpen = useAppSelector((state) => state.itemSlice.isOverlayOpen);
+export default function ItemModal() {
+    const isModalOpen = useAppSelector((state) => state.itemSlice.isModalOpen);
+    const dispatch = useAppDispatch();
     return (
-        isOverlayOpen ? 
-            <ItemOverlay__wrapper>
-
-            </ItemOverlay__wrapper>
+        isModalOpen ? 
+            <ItemModal__wrapper onClick={() => dispatch(toggleIsModalOpen())}>
+                <ItemCustomizationPanel />
+            </ItemModal__wrapper>
         :
             null
     );
