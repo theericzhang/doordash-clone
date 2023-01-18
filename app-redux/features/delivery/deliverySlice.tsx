@@ -1,0 +1,22 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface IDeliveryState {
+    isDelivery: boolean;
+};
+
+const initialState: IDeliveryState = {
+    isDelivery: true,
+};
+
+const deliverySlice = createSlice({
+    name: "delivery",
+    initialState: initialState,
+    reducers: {
+        toggleDeliveryState: (state) => {
+            state.isDelivery = !state.isDelivery;
+        }
+    }
+});
+
+export const { toggleDeliveryState } = deliverySlice.actions;
+export default deliverySlice.reducer;

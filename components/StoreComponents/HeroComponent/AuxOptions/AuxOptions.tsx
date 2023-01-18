@@ -3,6 +3,10 @@ import Heart from "../../../Icons/HeartIcon";
 import GroupOfPeople from "../../../Icons/GroupOfPeopleIcon";
 import { useState } from "react";
 
+// redux global state
+import { useAppSelector, useAppDispatch } from "../../../../app-redux/hooks";
+import { toggleDeliveryState } from "../../../../app-redux/features/delivery/deliverySlice";
+
 const AuxOptions__wrapper = styled.div`
     display: flex;
     height: 40px;
@@ -109,7 +113,7 @@ const AuxOptions__Toggle__label__wrapper__stationary__left = styled.div`
     align-items: center;
     row-gap: 1px;
     margin-bottom: 1px;
-`
+`;
 
 const AuxOptions__Toggle__label__wrapper__stationary__right = styled.div`
     display: flex;
@@ -117,7 +121,7 @@ const AuxOptions__Toggle__label__wrapper__stationary__right = styled.div`
     align-items: center;
     row-gap: 1px;
     margin-bottom: 1px;
-`
+`;
 
 const AuxOptions__Toggle__label__small = styled.span`
     font-size: 12px;
@@ -144,12 +148,15 @@ const AuxOptions__Toggle__label__stationary = styled.span`
 type TAuxOptions = {
     deliveryTime: string;
     pickupTime: string;
-}
+};
+
 
 export default function AuxOptions({ deliveryTime, pickupTime }: TAuxOptions) {
     
     // TODO: shift isDelivery state to global store. Components in parallel need access to this state. POSTing to back-end will also be suitable when using a global store.
-    const [ isDelivery, setIsDelivery ] = useState(true);
+    // const [ isDelivery, setIsDelivery ] = useState(true);
+    const isDelivery = useAppSelector((state) => state.deliverySlice.isDelivery);
+    const dispatch = useAppDispatch();
 
     return (
         <AuxOptions__wrapper>
@@ -164,8 +171,9 @@ export default function AuxOptions({ deliveryTime, pickupTime }: TAuxOptions) {
                 </AuxOptions__Button__label>
             </AuxOptions__Button__primary>
             <AuxOptions__Toggle__wrapper 
-                onClick={(e) => {
-                    setIsDelivery(prevIsDelivery => !prevIsDelivery);
+                onClick={() => {
+                    // setIsDelivery(prevIsDelivery => !prevIsDelivery);
+                    dispatch(toggleDeliveryState());
                 }}
             >
                 <AuxOptions__Toggle__slider 
