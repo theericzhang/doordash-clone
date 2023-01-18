@@ -88,7 +88,7 @@ const Item__image__wrapper = styled.div`
 `;
 
 const Item__image = styled(Image)`
-    object-fit: fill;
+    object-fit: cover;
 `
 
 type TMenuItem = {
