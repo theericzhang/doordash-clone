@@ -13,8 +13,13 @@ const ItemCustomizationPanel__wrapper = styled.div`
     background-color: var(--primary-white);
     opacity: 1;
     border-radius: 16px;
-    padding: 16px;
+    /* padding: 16px; */
+    position: relative;
 `;
+
+const ItemCustomizationPanel__main__wrapper = styled.div`
+    padding: 16px;
+`
 
 const ItemCustomizationPanel__button_close = styled.button`
     display: flex;
@@ -82,6 +87,13 @@ const ItemCustomizationPanel__image = styled(Image)`
     object-fit: cover;
 `;
 
+const ItemCustomizationPanel__footer = styled.div`
+    display: flex;
+    width: 100%;
+    height: 72px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px calc(-1px) 15px;
+`;
+
 export default function ItemCustomizationPanel() {
     const dispatch = useAppDispatch();
     // grabbing item data that was set when the user clicks on MenuItem
@@ -89,44 +101,46 @@ export default function ItemCustomizationPanel() {
 
     return (
         <ItemCustomizationPanel__wrapper onClick={(e) => e.stopPropagation()}>
-            <ItemCustomizationPanel__button_close onClick={() => dispatch(toggleIsModalOpen())}>
-                <X />
-            </ItemCustomizationPanel__button_close>
-            <ItemCustomizationPanel__content__wrapper>
-                <ItemCustomizationPanel__item__name>
-                    {itemData?.itemName}
-                </ItemCustomizationPanel__item__name>
-                {itemData?.ratingCount ? 
-                    <ItemCustomizationPanel__stats__wrapper>
-                        <ThumbsUp size={16}/>
-                        <ItemCustomizationPanel__stats>
-                            {itemData.ratingPercentage}% ({itemData.ratingCount})
-                        </ItemCustomizationPanel__stats>
-                    </ItemCustomizationPanel__stats__wrapper>
-                :
-                    null
-                }
-                {itemData?.description ?
-                    <ItemCustomizationPanel__item__description>
-                        {itemData?.description}
-                    </ItemCustomizationPanel__item__description>
-                :
-                    null
-                }
-                {itemData?.image.src ? 
-                    <ItemCustomizationPanel__image__wrapper>
-                        <ItemCustomizationPanel__image 
-                            src={itemData.image.src}
-                            alt={itemData.image.alt}
-                            sizes={"295px"}
-                            fill={true}
-                        />
-                    </ItemCustomizationPanel__image__wrapper>
-                :
-                    null
-                }
-            </ItemCustomizationPanel__content__wrapper>
-
+            <ItemCustomizationPanel__main__wrapper>
+                <ItemCustomizationPanel__button_close onClick={() => dispatch(toggleIsModalOpen())}>
+                    <X />
+                </ItemCustomizationPanel__button_close>
+                <ItemCustomizationPanel__content__wrapper>
+                    <ItemCustomizationPanel__item__name>
+                        {itemData?.itemName}
+                    </ItemCustomizationPanel__item__name>
+                    {itemData?.ratingCount ?
+                        <ItemCustomizationPanel__stats__wrapper>
+                            <ThumbsUp size={16}/>
+                            <ItemCustomizationPanel__stats>
+                                {itemData.ratingPercentage}% ({itemData.ratingCount})
+                            </ItemCustomizationPanel__stats>
+                        </ItemCustomizationPanel__stats__wrapper>
+                    :
+                        null
+                    }
+                    {itemData?.description ?
+                        <ItemCustomizationPanel__item__description>
+                            {itemData?.description}
+                        </ItemCustomizationPanel__item__description>
+                    :
+                        null
+                    }
+                    {itemData?.image.src ?
+                        <ItemCustomizationPanel__image__wrapper>
+                            <ItemCustomizationPanel__image
+                                src={itemData.image.src}
+                                alt={itemData.image.alt}
+                                sizes={"295px"}
+                                fill={true}
+                            />
+                        </ItemCustomizationPanel__image__wrapper>
+                    :
+                        null
+                    }
+                </ItemCustomizationPanel__content__wrapper>
+            </ItemCustomizationPanel__main__wrapper>
+            <ItemCustomizationPanel__footer>Hi</ItemCustomizationPanel__footer>
         </ItemCustomizationPanel__wrapper>
     );
 }
