@@ -17,7 +17,7 @@ const itemSlice = createSlice({
         toggleIsOverlayOpen: (state) => {
             state.isOverlayOpen = !state.isOverlayOpen;
         },
-
+        // TODO: add reducer to set itemData when an item is clicked
     }
 });
 

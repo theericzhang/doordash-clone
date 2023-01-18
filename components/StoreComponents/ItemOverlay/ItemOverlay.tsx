@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useAppSelector } from "../../../app-redux/hooks";
 
 const ItemOverlay__wrapper = styled.section`
     width: 100%;
@@ -12,9 +13,13 @@ const ItemOverlay__wrapper = styled.section`
 `;
 
 export default function ItemOverlay() {
+    const isOverlayOpen = useAppSelector((state) => state.itemSlice.isOverlayOpen);
     return (
-        <ItemOverlay__wrapper>
+        isOverlayOpen ? 
+            <ItemOverlay__wrapper>
 
-        </ItemOverlay__wrapper>
+            </ItemOverlay__wrapper>
+        :
+            null
     );
 }

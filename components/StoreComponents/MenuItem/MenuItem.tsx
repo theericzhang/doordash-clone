@@ -2,6 +2,8 @@ import styled from "styled-components";
 import ThumbsUp from "../../Icons/ThumbsUpIcon";
 import Image from "next/image";
 import { TStoreItem } from "../../../global";
+import { useAppSelector, useAppDispatch } from "../../../app-redux/hooks";
+import { toggleIsOverlayOpen } from "../../../app-redux/features/item/itemSlice";
 
 const Item__wrapper = styled.button`
     width: 49.2%;
@@ -94,8 +96,9 @@ const Item__image = styled(Image)`
 `;
 
 export default function MenuItem({ image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }: TStoreItem) {
+    const dispatch = useAppDispatch();
     return (
-        <Item__wrapper>
+        <Item__wrapper onClick={() => dispatch(toggleIsOverlayOpen())}>
             <Item__text__wrapper>
                 <Item__text__name>{itemName}</Item__text__name>
                 <Item__text__description>
