@@ -94,7 +94,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-            shortDescription: "Delicious Dosas",
+            shortDescription: "Lassi, Paneer",
             averageRating: 4.9,
             ratingCount: 3045,
             priceRating: 3,
@@ -108,13 +108,58 @@ export const restaurantList = {
             ],
             items: [
                 {
-                    itemName: "Your Item",
+                    itemName: "Banana Turmeric Lassi",
                     image: {
-                        src: "/hello/changeme",
-                        alt: "hello change me",
+                        src: "/images/18764431/BananaTurmericLassi.jpeg",
+                        alt: "Banana Turmeric Lassi",
                     },
-                    price: 10,
-                    description: "Your Item's Description",
+                    price: 8.99,
+                    description: "Spiced Indian probiotic drink with pasteurized and cultured milk, banana puree, naturally milled cane sugar, salt, milk protein concentrate, turmeric, black pepper, luo han guo, stevia",
+                },
+                {
+                    itemName: "Cardamom Mango Lassi",
+                    image: {
+                        src: "/images/18764431/CardamomMangoLassi.jpeg",
+                        alt: "Cardamom Mango Lassi",
+                    },
+                    price: 8.99,
+                    description: "Spiced Indian probiotic drink with pasteurized and cultured milk, mango puree, naturally milled cane sugar, salt, milk protein concentrate, cardamom, luo han guo, stevia.",
+                },
+                {
+                    itemName: "Cayenne Tamarind Lassi",
+                    image: {
+                        src: "/images/18764431/CayenneTamarindLassi.jpeg",
+                        alt: "Cayenne Tamarind Lassi",
+                    },
+                    price: 8.99,
+                    description: "Spiced Indian probiotic drink with pasteurized and cultured milk, tamarind pulp, milk protein concentrate, cumin, ground coriander, fennel, cayenne, salt, luo han guo, stevia.",
+                },
+                {
+                    itemName: "Peppercorn Berry Lassi",
+                    image: {
+                        src: "/images/18764431/PepperCornBerryLassi.jpeg",
+                        alt: "Peppercorn Berry Lassi",
+                    },
+                    price: 8.99,
+                    description: "Spiced Indian probiotic drink with pasteurized and cultured milk, strawberry puree, raspberry puree, naturally milled cane sugar, salt, milk protein concentrate, cumin, black pepper, luo han guo, stevia.",
+                },
+                {
+                    itemName: "Saag Paneer",
+                    image: {
+                        src: "/images/18764431/SaagPaneer.jpeg",
+                        alt: "Saag Paneer Bowl",
+                    },
+                    price: 15.99,
+                    description: "farmers cheese, spinach, cream, lemon rice",
+                },
+                {
+                    itemName: "Chick’n Tikka Street Wrap",
+                    image: {
+                        src: "/images/18764431/ChicknTikkaStreetWrap.jpeg",
+                        alt: "Chick’n Tikka Street Wrap",
+                    },
+                    price: 15.99,
+                    description: "meatless chick’n, organic roti, pickled carrot, radish, red onion",
                 },
             ],
         },

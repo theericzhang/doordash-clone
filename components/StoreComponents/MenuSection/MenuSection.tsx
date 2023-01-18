@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import MenuItem from "../MenuItem/MenuItem";
+import { useContext } from "react";
+import { StoreItemsContext } from "../../../pages/store/[slug]";
 
 const MenuSection__section = styled.section`
     display: flex;
@@ -44,6 +46,8 @@ const MenuSection__items__wrapper = styled.div`
 `;
 
 export default function MenuSection() {
+    const restaurantMenu = useContext(StoreItemsContext);
+    
     return (
         <MenuSection__section>
             <MenuSection__header__wrapper>
@@ -56,25 +60,19 @@ export default function MenuSection() {
             </MenuSection__header__wrapper>
             <MenuSection__items__wrapper>
                 {/* TODO: REFACTOR MENUSECTION__ITEM INTO ITS OWN COMPONENT */}
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
+                {restaurantMenu?.map((item, index) => {
+                    return (
+                        <MenuItem 
+                            itemName={item.itemName}
+                            shortDescription={item.description}
+                            imageSrc={item.image.src}
+                            imageAlt={item.image.alt}
+                            price={item.price}
+                            key={item.itemName}
+                        />
+
+                    )
+                })}
             </MenuSection__items__wrapper>
         </MenuSection__section>
     );

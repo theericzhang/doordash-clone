@@ -20,6 +20,7 @@ export type TStorefrontData = {
         closeHour: number;
         closeMinute: number;
     }[];
+    items: TStoreItem[];
 };
 
 export type TStoreItem = {

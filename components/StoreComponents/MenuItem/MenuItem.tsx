@@ -30,6 +30,7 @@ const Item__text__wrapper = styled.div`
     align-items: flex-start;
     padding: 0 16px;
     row-gap: 5px;
+    max-width: 313px;
 `;
 
 const Item__text__name = styled.span`
@@ -43,6 +44,11 @@ const Item__text__description = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 `;
 
 const Item__text__stats__wrapper = styled.div`
@@ -85,16 +91,24 @@ const Item__image = styled(Image)`
     object-fit: fill;
 `
 
-export default function MenuItem() {
+type TMenuItem = {
+    itemName: string;
+    shortDescription: string;
+    imageSrc: string;
+    imageAlt: string;
+    price: number;
+}
+
+export default function MenuItem({itemName, shortDescription, imageSrc, imageAlt, price}: TMenuItem) {
     return (
         <Item__wrapper>
             <Item__text__wrapper>
-                <Item__text__name>12 piece Omakase</Item__text__name>
+                <Item__text__name>{itemName}</Item__text__name>
                 <Item__text__description>
-                    Chef&apos;s choice of daily sushi
+                    {shortDescription}
                 </Item__text__description>
                 <Item__text__stats__wrapper>
-                    <Item__text__price>$8.95</Item__text__price>
+                    <Item__text__price>${price}</Item__text__price>
                     <Item__text__stats>•</Item__text__stats>
                     <ThumbsUp />
                     <Item__text__stats>94% (120)</Item__text__stats>
@@ -105,8 +119,8 @@ export default function MenuItem() {
             </Item__text__wrapper>
             <Item__image__wrapper>
                 <Item__image
-                    src={'/images/1243431/12course.webp'}
-                    alt={'Test'}
+                    src={imageSrc}
+                    alt={imageAlt}
                     fill={true}
                 />
             </Item__image__wrapper>
