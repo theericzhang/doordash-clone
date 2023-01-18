@@ -14,11 +14,27 @@ const AuxOptions__Button__primary = styled.button`
     display: flex;
     height: 100%;
     background-color: var(--primary-gray);
+    transition: 0.15s ease;
+    transition-property: background-color;
     align-items: center;
     border: none;
     border-radius: 20px;
     padding: 0 12px;
     column-gap: 10px;
+
+    &:hover {
+        cursor: pointer;
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: var(--secondary-gray);
+    }
+
+    // equivalent to onMouseDown
+    &:active {
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: var(--quaternary-gray);
+    }
 `;
 
 const AuxOptions__Button__label = styled.span`
