@@ -116,6 +116,7 @@ export default function MenuItem({ image, itemName, price, description, ratingCo
                     src={image.src}
                     alt={image.alt}
                     fill={true}
+                    sizes={"141px"}
                 />
             </Item__image__wrapper>
         </Item__wrapper>
