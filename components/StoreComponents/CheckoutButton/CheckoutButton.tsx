@@ -41,12 +41,16 @@ const CheckoutButton__price__label = styled.span`
 
 export default function CheckoutButton() {
     const cartTotalValue = useAppSelector((state) => state.cartSlice.totalValue);
-    
+    const priceFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+
     return (
         <CheckoutButton__button>
             <CheckoutButton__text__wrapper>
                 <CheckoutButton__checkout__label>Checkout</CheckoutButton__checkout__label>
-                <CheckoutButton__price__label>${cartTotalValue}</CheckoutButton__price__label>
+                <CheckoutButton__price__label>{priceFormatter.format(cartTotalValue)}</CheckoutButton__price__label>
             </CheckoutButton__text__wrapper>
         </CheckoutButton__button>
     );

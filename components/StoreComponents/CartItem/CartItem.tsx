@@ -65,6 +65,11 @@ type TCartItem = {
 }
 
 export default function CartItem({ imageSrc, imageAlt, itemName, price, quantity, itemID }: TCartItem) {
+    const priceFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+
     return (
         <CartItem__wrapper>
             <CartItem__image__wrapper>
@@ -80,7 +85,7 @@ export default function CartItem({ imageSrc, imageAlt, itemName, price, quantity
                     {itemName}
                 </CartItem__description__item>
                 <CartItem__description__price>
-                    ${price}
+                    {priceFormatter.format(price)}
                 </CartItem__description__price>
             </CartItem__description__wrapper>
             <InputStepper 

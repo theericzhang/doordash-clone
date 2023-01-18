@@ -89,15 +89,44 @@ const ItemCustomizationPanel__image = styled(Image)`
 
 const ItemCustomizationPanel__footer = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px;
     width: 100%;
     height: 72px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px calc(-1px) 15px;
+`;
+
+const ItemCustomizationPanel__AddToCart__button = styled.button`
+    width: fit-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-red);
+    border-radius: 20px;
+    transition: ease 0.1s;
+    transition-property: background-color;
+    padding: 0 25px;
+    color: var(--primary-white);
+    font-weight: 500;
+    font-size: 16px;
+
+    &:hover {
+        background-color: var(--tertiary-red);
+        transition: ease 0.1s;
+        transition-property: background-color;
+        cursor: pointer;
+    }
 `;
 
 export default function ItemCustomizationPanel() {
     const dispatch = useAppDispatch();
     // grabbing item data that was set when the user clicks on MenuItem
     const itemData = useAppSelector((state) => state.itemSlice.itemData);
+    const priceFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
 
     return (
         <ItemCustomizationPanel__wrapper onClick={(e) => e.stopPropagation()}>
@@ -140,7 +169,11 @@ export default function ItemCustomizationPanel() {
                     }
                 </ItemCustomizationPanel__content__wrapper>
             </ItemCustomizationPanel__main__wrapper>
-            <ItemCustomizationPanel__footer>Hi</ItemCustomizationPanel__footer>
+            <ItemCustomizationPanel__footer>
+                <ItemCustomizationPanel__AddToCart__button>
+                    Add to Cart - {priceFormatter.format(itemData.price)}
+                </ItemCustomizationPanel__AddToCart__button>
+            </ItemCustomizationPanel__footer>
         </ItemCustomizationPanel__wrapper>
     );
 }

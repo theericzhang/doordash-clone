@@ -3,11 +3,12 @@ import { TStoreItem } from "../../../global";
 
 interface IItemState {
     isModalOpen: boolean;
-    itemData?: TStoreItem;
+    itemData: TStoreItem;
 };
 
 const initialState: IItemState = {
     isModalOpen: false,
+    itemData: {} as TStoreItem,
 };
 
 const itemSlice = createSlice({

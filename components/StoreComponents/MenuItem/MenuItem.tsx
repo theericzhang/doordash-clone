@@ -97,6 +97,11 @@ const Item__image = styled(Image)`
 
 export default function MenuItem({ image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }: TStoreItem) {
     const dispatch = useAppDispatch();
+    const priceFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+    
     return (
         <Item__wrapper 
             onClick={
@@ -112,7 +117,7 @@ export default function MenuItem({ image, itemName, price, description, ratingCo
                     {description}
                 </Item__text__description>
                 <Item__text__stats__wrapper>
-                    <Item__text__price>${price}</Item__text__price>
+                    <Item__text__price>{priceFormatter.format(price)}</Item__text__price>
                     <Item__text__stats>•</Item__text__stats>
                     <ThumbsUp />
                     <Item__text__stats>{ratingPercentage}% ({ratingCount})</Item__text__stats>
