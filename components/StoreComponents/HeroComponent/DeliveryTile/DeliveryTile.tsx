@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import DashPassIcon from "../../../Icons/DashPassIcon";
 import Information from "../../../Icons/InformationIcon";
+import { useAppSelector } from "../../../../app-redux/hooks";
 
 const DeliveryTile__wrapper = styled.div`
     display: flex;
@@ -21,9 +22,9 @@ const DeliveryTile__half__wrapper = styled.div`
     position: relative;
 `;
 
-const DeliveryTile__DashPass__wrapper = styled.div`
+const DeliveryTile__DashPass__wrapper = styled.div<{ isDelivery: boolean }>`
     position: absolute;
-    left: 34px;
+    left: ${props => props.isDelivery ? '34px' : '28px'};
     top: 10px;
 `;
 
@@ -66,17 +67,19 @@ type TDeliveryTime = {
 }
 
 export default function DeliveryTile({ deliveryTime, pickupTime }: TDeliveryTime) {
+    const isDelivery = useAppSelector((state) => state.deliverySlice.isDelivery);
+
     return (
         <DeliveryTile__wrapper>
             <DeliveryTile__half__wrapper>
-                <DeliveryTile__DashPass__wrapper>
+                <DeliveryTile__DashPass__wrapper isDelivery={isDelivery}>
                     <DashPassIcon color={`var(--primary-teal)`}/>
                 </DeliveryTile__DashPass__wrapper>
                 <DeliveryTime__text_strong_teal>
-                    $0.00
+                    {isDelivery ? '$0.00' : '5% back'}
                 </DeliveryTime__text_strong_teal>
                 <DeliveryTime__text_regular>
-                    delivery fee
+                    {isDelivery ? 'delivery fee' : 'and $0 fees'}
                 </DeliveryTime__text_regular>
                 <DeliveryTime__Information__wrapper>
                     <Information />
@@ -85,10 +88,10 @@ export default function DeliveryTile({ deliveryTime, pickupTime }: TDeliveryTime
             <DeliveryTile__divider />
             <DeliveryTile__half__wrapper>
                 <DeliveryTime__text_strong>
-                    {deliveryTime}
+                    {isDelivery ? deliveryTime : pickupTime}
                 </DeliveryTime__text_strong>
                 <DeliveryTime__text_regular>
-                    delivery time
+                    {isDelivery ? 'delivery time' : 'ready for pickup'}
                 </DeliveryTime__text_regular>
             </DeliveryTile__half__wrapper>
         </DeliveryTile__wrapper>
