@@ -148,6 +148,7 @@ type TAuxOptions = {
 
 export default function AuxOptions({ deliveryTime, pickupTime }: TAuxOptions) {
     
+    // TODO: shift isDelivery state to global store. Components in parallel need access to this state. POSTing to back-end will also be suitable when using a global store.
     const [ isDelivery, setIsDelivery ] = useState(true);
 
     return (
