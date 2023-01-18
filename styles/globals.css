@@ -85,8 +85,8 @@ a {
     font-display: block;
 }
 
-@media (prefers-color-scheme: dark) {
-  /* html {
+/* @media (prefers-color-scheme: dark) {
+  html {
     color-scheme: dark;
-  } */
-}
+  } 
+} */

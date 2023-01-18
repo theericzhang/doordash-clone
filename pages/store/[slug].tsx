@@ -1,10 +1,14 @@
-import StoreLayout from "../../components/Layouts/StoreLayout";
-import HeroComponent from "../../components/StoreComponents/HeroComponent/HeroComponent";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import { restaurantList } from "../../components/datav2";
-import { TRestaurantDataPrimary, TStorefrontData } from "../../global";
+import { TRestaurantDataPrimary, TStorefrontData, TStoreItem } from "../../global";
+
+import StoreLayout from "../../components/Layouts/StoreLayout";
+import HeroComponent from "../../components/StoreComponents/HeroComponent/HeroComponent";
 import CartOverview from "../../components/StoreComponents/CartOverviewComponent/CartOverview";
+import QuickActions from "../../components/StoreComponents/QuickActionsComponent/QuickActions";
+
+import { createContext } from "react";
 
 type TServerSideProps = {
     restaurant: {
@@ -12,6 +16,8 @@ type TServerSideProps = {
         storefrontData: TStorefrontData;
     };
 };
+
+export const StoreItemsContext = createContext<TStoreItem[] | null>(null);
 
 export default function Store({ restaurant }: TServerSideProps) {
     return (
@@ -33,6 +39,10 @@ export default function Store({ restaurant }: TServerSideProps) {
                     restaurantData={restaurant.restaurantData}
                     storefrontData={restaurant.storefrontData}
                 />
+                {/* Insert Rest of the Store's components */}
+                <StoreItemsContext.Provider value={restaurant.storefrontData.items}>
+                    <QuickActions />
+                </StoreItemsContext.Provider>
                 <CartOverview />
             </StoreLayout>
         </>
