@@ -59,7 +59,6 @@ export default function MenuSection() {
                 </MenuSection__subheader>
             </MenuSection__header__wrapper>
             <MenuSection__items__wrapper>
-                {/* TODO: REFACTOR MENUSECTION__ITEM INTO ITS OWN COMPONENT */}
                 {restaurantMenu?.map((item, index) => {
                     return (
                         <MenuItem 
@@ -69,6 +68,7 @@ export default function MenuSection() {
                             description={item.description}
                             ratingCount={item.ratingCount}
                             ratingPercentage={item.ratingPercentage}
+                            lastOrdered={item?.lastOrdered}
                             key={item.itemName}
                         />
 

@@ -45,11 +45,12 @@ const Item__text__description = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
+    text-align: left;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    text-align: left;
     -webkit-line-clamp: 2;
     overflow: hidden;
+    line-height: 1.5;
 `;
 
 const Item__text__stats__wrapper = styled.div`
@@ -90,9 +91,9 @@ const Item__image__wrapper = styled.div`
 
 const Item__image = styled(Image)`
     object-fit: cover;
-`
+`;
 
-export default function MenuItem({image, itemName, price, description, ratingCount, ratingPercentage}: TStoreItem) {
+export default function MenuItem({ image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }: TStoreItem) {
     return (
         <Item__wrapper>
             <Item__text__wrapper>
@@ -107,7 +108,7 @@ export default function MenuItem({image, itemName, price, description, ratingCou
                     <Item__text__stats>{ratingPercentage}% ({ratingCount})</Item__text__stats>
                 </Item__text__stats__wrapper>
                 <Item__text__lastordered>
-                    Last ordered on 7/27/22
+                    {!!lastOrdered ? `Last ordered on ${lastOrdered}` : null}
                 </Item__text__lastordered>
             </Item__text__wrapper>
             <Item__image__wrapper>

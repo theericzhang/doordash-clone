@@ -31,6 +31,7 @@ export type TStoreItem = {
     itemName: string;
     price: number;
     description: string;
+    lastOrdered?: string;
     ratingPercentage: number;
     ratingCount: number;
 };
