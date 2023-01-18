@@ -18,8 +18,11 @@ const itemSlice = createSlice({
             state.isModalOpen = !state.isModalOpen;
         },
         // TODO: add reducer to set itemData when an item is clicked
+        setModalData: (state, action: PayloadAction<TStoreItem>) => {
+            state.itemData = action.payload;
+        }
     }
 });
 
-export const { toggleIsModalOpen } = itemSlice.actions;
+export const { toggleIsModalOpen, setModalData } = itemSlice.actions;
 export default itemSlice.reducer;
