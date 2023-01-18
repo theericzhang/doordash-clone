@@ -360,16 +360,80 @@ export const restaurantList = {
             ],
             items: [
                 {
-                    itemName: "Your Item",
+                    itemName: "Thai Iced Tea",
                     image: {
-                        src: "/hello/changeme",
-                        alt: "hello change me",
+                        src: "/images/12356667/ThaiIcedTea.webp",
+                        alt: "Thai Iced Tea",
                     },
-                    price: 10,
-                    description: "Your Item's Description",
+                    price: 5,
+                    description:
+                        "A cold and sweet Thai drink made with black tea, milk, sugar, and sometimes spices such as star anise or cardamom",
                     lastOrdered: "1/1/23",
-                    ratingPercentage: 94,
+                    ratingPercentage: 95,
                     ratingCount: 120,
+                },
+                {
+                    itemName: "Guay Tiow Kua Gai",
+                    image: {
+                        src: "/images/12356667/GuayTiowKuaGai.webp",
+                        alt: "Guay Tiow Kua Gai",
+                    },
+                    price: 16,
+                    description:
+                        "A Thai street food dish made with wide rice noodles, chicken, and Chinese broccoli in a soy sauce based broth",
+                    ratingPercentage: 97,
+                    ratingCount: 150,
+                },
+                {
+                    itemName: "Mussamun Neur",
+                    image: {
+                        src: "/images/12356667/MussamunNeur.webp",
+                        alt: "Mussamun Neur",
+                    },
+                    price: 18.62,
+                    description:
+                        "A traditional Thai curry made with beef or chicken, potatoes, peanuts, and a variety of spices such as cinnamon, cardamom, and cumin",
+                    lastOrdered: "1/10/23",
+                    ratingPercentage: 91,
+                    ratingCount: 100,
+                },
+                {
+                    itemName: "Kai Jiew",
+                    image: {
+                        src: "/images/12356667/KaiJiew.webp",
+                        alt: "Kai Jiew",
+                    },
+                    price: 6.52,
+                    description:
+                        "A Thai omelette made with eggs, vegetables, and sometimes meat or seafood, often served with rice",
+                    ratingPercentage: 99,
+                    ratingCount: 120,
+                },
+                {
+                    itemName: "Kao Soi",
+                    image: {
+                        src: "/images/12356667/KaoSoi.webp",
+                        alt: "Kao Soi",
+                    },
+                    price: 18,
+                    description:
+                        "A Northern Thai curry noodle soup made with a coconut milk-based broth, meat or chicken, and egg noodles",
+                    lastOrdered: "1/15/23",
+                    ratingPercentage: 96,
+                    ratingCount: 130,
+                },
+                {
+                    itemName: "Gai Gra Pao",
+                    image: {
+                        src: "/images/12356667/GaiGraPao.webp",
+                        alt: "Gai Gra Pao",
+                    },
+                    price: 16.26,
+                    description:
+                        "A Thai dish made with stir-fried chicken, chili peppers, and holy basil leaves, often served with rice",
+                    lastOrdered: "1/20/23",
+                    ratingPercentage: 98,
+                    ratingCount: 140,
                 },
             ],
         },
@@ -400,16 +464,50 @@ export const restaurantList = {
             ],
             items: [
                 {
-                    itemName: "Your Item",
+                    itemName: "Yum Sum-o",
                     image: {
-                        src: "/hello/changeme",
-                        alt: "hello change me",
+                        src: "/images/334624/YumSumO.jpeg",
+                        alt: "Yum Sum-o",
                     },
-                    price: 10,
-                    description: "Your Item's Description",
-                    lastOrdered: "1/1/23",
+                    price: 19,
+                    description: "warm citrus salad with peanuts, chili, & shallots sprinkled with toasted shrimp + coconut",
                     ratingPercentage: 94,
                     ratingCount: 120,
+                },
+                {
+                    itemName: "Yum Tawai",
+                    image: {
+                        src: "/images/334624/YumTawai.jpeg",
+                        alt: "Yum Tawai",
+                    },
+                    price: 17,
+                    description: "haricots verts, torn chicken, peanuts and sesame in coconut tamarind dressing",
+                    ratingPercentage: 98,
+                    ratingCount: 231,
+                },
+                {
+                    itemName: "Gaeng Massaman Gae",
+                    image: {
+                        src: "/images/334624/YumTawai.jpeg",
+                        alt: "Gaeng Massaman Gae",
+                    },
+                    price: 56,
+                    description: "tender lamb shank in massaman curry with pomegranate & baby scallions",
+                    lastOrdered: "12/1/22",
+                    ratingPercentage: 99,
+                    ratingCount: 180,
+                },
+                {
+                    itemName: "Squid & Pork Jowl",
+                    image: {
+                        src: "/images/334624/PorkSquidJowl.jpeg",
+                        alt: "Squid & Pork Jowl",
+                    },
+                    price: 29,
+                    description: "grilled Monterey squid in chili-lime dressing with sweer & succulent pork jowl, topped with peanuts & cilantro. served with sticky rice",
+                    lastOrdered: "12/1/22",
+                    ratingPercentage: 97,
+                    ratingCount: 165,
                 },
             ],
         },
@@ -440,16 +538,49 @@ export const restaurantList = {
             ],
             items: [
                 {
-                    itemName: "Your Item",
+                    itemName: "Baja Fish Taco",
                     image: {
-                        src: "/hello/changeme",
-                        alt: "hello change me",
+                        src: "/images/120985/BajaFishTaco.webp",
+                        alt: "Baja Fish Taco",
                     },
-                    price: 10,
-                    description: "Your Item's Description",
+                    price: 3.85,
+                    description: "crispy fried fish, salsa roja, cabbage slaw, baja crema.",
+                    lastOrdered: "1/1/23",
+                    ratingPercentage: 98,
+                    ratingCount: 528,
+                },
+                {
+                    itemName: "Chicharron Pollo",
+                    image: {
+                        src: "/images/120985/ChicharronPollo.webp",
+                        alt: "Chicharron Pollo",
+                    },
+                    price: 13.65,
+                    description: "crispy pieces of free range chicken thighs topped with salsa criolla served with rice & pinto or black beans, organic salad and sweet potatoes.",
+                    ratingPercentage: 94,
+                    ratingCount: 98,
+                },
+                {
+                    itemName: "Papito",
+                    image: {
+                        src: "/images/120985/Papito.webp",
+                        alt: "Papito",
+                    },
+                    price: 12.95,
+                    description: "steak, plantains, caramelized onions, organic arugula, aioli and Swiss cheese on grilled French bread.",
+                    ratingPercentage: 94,
+                    ratingCount: 105,
+                },
+                {
+                    itemName: "Yuca Frita",
+                    image: {
+                        src: "/images/120985/YucaFrita.webp",
+                        alt: "Yuca Frita",
+                    },
+                    price: 4.65,
                     lastOrdered: "1/1/23",
                     ratingPercentage: 94,
-                    ratingCount: 120,
+                    ratingCount: 156,
                 },
             ],
         },
