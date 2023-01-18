@@ -270,8 +270,14 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                     </HeroComponent__information__span>
                 </HeroComponent__information__tertiary>
                 <HeroComponent__information__quaternary>
-                    <DeliveryTile />
-                    <AuxOptions />
+                    <DeliveryTile 
+                        deliveryTime={restaurantData.deliveryTime}
+                        pickupTime={restaurantData.pickupTime}
+                    />
+                    <AuxOptions 
+                        deliveryTime={restaurantData.deliveryTime}
+                        pickupTime={restaurantData.pickupTime}
+                    />
                 </HeroComponent__information__quaternary>
             </HeroComponent__information>
         </HeroComponent__wrapper>

@@ -6,6 +6,7 @@ export type TRestaurantDataPrimary = {
     };
     distance: string;
     deliveryTime: string;
+    pickupTime: string;
     isDashPass: boolean;
 };
 

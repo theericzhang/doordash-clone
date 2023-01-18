@@ -141,7 +141,12 @@ const AuxOptions__Toggle__label__stationary = styled.span`
     color: var(--primary-black);
 `;
 
-export default function AuxOptions() {
+type TAuxOptions = {
+    deliveryTime: string;
+    pickupTime: string;
+}
+
+export default function AuxOptions({ deliveryTime, pickupTime }: TAuxOptions) {
     
     const [ isDelivery, setIsDelivery ] = useState(true);
 
@@ -171,7 +176,7 @@ export default function AuxOptions() {
                             {isDelivery ? 'Delivery' : 'Pickup'}
                         </AuxOptions__Toggle__label>
                         <AuxOptions__Toggle__label__small>
-                            {isDelivery ? '22' : '14'} min
+                            {isDelivery ? deliveryTime : pickupTime}
                         </AuxOptions__Toggle__label__small>
                     </AuxOptions__Toggle__label__wrapper>
                 </AuxOptions__Toggle__slider>
@@ -181,7 +186,7 @@ export default function AuxOptions() {
                         Delivery
                     </AuxOptions__Toggle__label__stationary>
                     <AuxOptions__Toggle__label__small__stationary>
-                        22 min
+                        {deliveryTime}
                     </AuxOptions__Toggle__label__small__stationary>
                 </AuxOptions__Toggle__label__wrapper__stationary__left>
                 <AuxOptions__Toggle__label__wrapper__stationary__right>
@@ -189,7 +194,7 @@ export default function AuxOptions() {
                         Pickup
                     </AuxOptions__Toggle__label__stationary>
                     <AuxOptions__Toggle__label__small__stationary>
-                        14 min
+                        {pickupTime}
                     </AuxOptions__Toggle__label__small__stationary>
                 </AuxOptions__Toggle__label__wrapper__stationary__right>
             </AuxOptions__Toggle__wrapper>

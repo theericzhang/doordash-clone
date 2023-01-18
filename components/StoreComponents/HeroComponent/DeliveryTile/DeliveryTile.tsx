@@ -60,7 +60,12 @@ const DeliveryTime__Information__wrapper = styled.div`
     bottom: 13px;
 `;
 
-export default function DeliveryTile() {
+type TDeliveryTime = {
+    deliveryTime: string;
+    pickupTime: string;
+}
+
+export default function DeliveryTile({ deliveryTime, pickupTime }: TDeliveryTime) {
     return (
         <DeliveryTile__wrapper>
             <DeliveryTile__half__wrapper>
@@ -80,7 +85,7 @@ export default function DeliveryTile() {
             <DeliveryTile__divider />
             <DeliveryTile__half__wrapper>
                 <DeliveryTime__text_strong>
-                    29 min
+                    {deliveryTime}
                 </DeliveryTime__text_strong>
                 <DeliveryTime__text_regular>
                     delivery time

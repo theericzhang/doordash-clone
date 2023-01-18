@@ -8,6 +8,7 @@ export const restaurantList = {
             },
             distance: "0.6 mi",
             deliveryTime: "28 min",
+            pickupTime: "20 min",
             isDashPass: true,
         },
         storefrontData: {
@@ -81,6 +82,7 @@ export const restaurantList = {
             },
             distance: "1.2 mi",
             deliveryTime: "53 min",
+            pickupTime: "45 min",
             isDashPass: true,
         },
         storefrontData: {
@@ -153,6 +155,7 @@ export const restaurantList = {
             },
             distance: "0.8 mi",
             deliveryTime: "40 min",
+            pickupTime: "30 min",
             isDashPass: true,
         },
         storefrontData: {
@@ -253,6 +256,7 @@ export const restaurantList = {
             },
             distance: "0.8 mi",
             deliveryTime: "40 min",
+            pickupTime: "23 min",
             isDashPass: true,
         },
         storefrontData: {
@@ -343,6 +347,7 @@ export const restaurantList = {
             },
             distance: "0.3 mi",
             deliveryTime: "21 min",
+            pickupTime: "15 min",
             isDashPass: true,
         },
         storefrontData: {
@@ -447,6 +452,7 @@ export const restaurantList = {
             },
             distance: "3.6 mi",
             deliveryTime: "39 min",
+            pickupTime: "28 min",
             isDashPass: true,
         },
         storefrontData: {
@@ -521,6 +527,7 @@ export const restaurantList = {
             },
             distance: "0.9 mi",
             deliveryTime: "23 min",
+            pickupTime: "15 min",
             isDashPass: true,
         },
         storefrontData: {
