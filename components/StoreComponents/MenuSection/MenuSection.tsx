@@ -63,11 +63,19 @@ export default function MenuSection() {
                 {restaurantMenu?.map((item, index) => {
                     return (
                         <MenuItem 
+                            image={item.image}
                             itemName={item.itemName}
-                            shortDescription={item.description}
-                            imageSrc={item.image.src}
-                            imageAlt={item.image.alt}
                             price={item.price}
+                            description={item.description}
+                            ratingCount={item.ratingCount}
+                            ratingPercentage={item.ratingPercentage}
+                            // itemName={item.itemName}
+                            // shortDescription={item.description}
+                            // imageSrc={item.image.src}
+                            // imageAlt={item.image.alt}
+                            // price={item.price}
+                            // ratingPercentage={item.ratingPercentage}
+                            // ratingCount={item.ratingCount}
                             key={item.itemName}
                         />
 

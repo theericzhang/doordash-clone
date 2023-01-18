@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ThumbsUp from "../../Icons/ThumbsUpIcon";
 import Image from "next/image";
+import { TStoreItem } from "../../../global";
 
 const Item__wrapper = styled.button`
     width: 49.2%;
@@ -91,27 +92,19 @@ const Item__image = styled(Image)`
     object-fit: cover;
 `
 
-type TMenuItem = {
-    itemName: string;
-    shortDescription: string;
-    imageSrc: string;
-    imageAlt: string;
-    price: number;
-}
-
-export default function MenuItem({itemName, shortDescription, imageSrc, imageAlt, price}: TMenuItem) {
+export default function MenuItem({image, itemName, price, description, ratingCount, ratingPercentage}: TStoreItem) {
     return (
         <Item__wrapper>
             <Item__text__wrapper>
                 <Item__text__name>{itemName}</Item__text__name>
                 <Item__text__description>
-                    {shortDescription}
+                    {description}
                 </Item__text__description>
                 <Item__text__stats__wrapper>
                     <Item__text__price>${price}</Item__text__price>
                     <Item__text__stats>•</Item__text__stats>
                     <ThumbsUp />
-                    <Item__text__stats>94% (120)</Item__text__stats>
+                    <Item__text__stats>{ratingPercentage}% ({ratingCount})</Item__text__stats>
                 </Item__text__stats__wrapper>
                 <Item__text__lastordered>
                     Last ordered on 7/27/22
@@ -119,8 +112,8 @@ export default function MenuItem({itemName, shortDescription, imageSrc, imageAlt
             </Item__text__wrapper>
             <Item__image__wrapper>
                 <Item__image
-                    src={imageSrc}
-                    alt={imageAlt}
+                    src={image.src}
+                    alt={image.alt}
                     fill={true}
                 />
             </Item__image__wrapper>
