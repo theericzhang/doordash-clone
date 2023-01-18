@@ -7,6 +7,7 @@ const ItemOverlay__wrapper = styled.section`
     top: 0;
     left: 0;
     background-color: var(--primary-black);
+    opacity: 0.75;
     z-index: 9;
 `;
 
