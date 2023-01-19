@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../../../app-redux/hooks";
 import { toggleIsModalOpen } from "../../../../app-redux/features/item/itemSlice";
-import { addItemToCart, resetCartNewStore, setPageViewingStoreID } from "../../../../app-redux/features/cart/cartSlice";
+import { addItemToCart, setStoreID, resetCartNewStore, setPageViewingStoreID } from "../../../../app-redux/features/cart/cartSlice";
 import { useState } from "react";
 
 import X from "../../../Icons/XIcon";
@@ -150,6 +150,7 @@ export default function ItemCustomizationPanel() {
         // if the cart store is not defined meaning no items in cart, set the viewingID and then add
         else if (cartStoreID === undefined && !!pageViewingStoreID) {
             dispatch(setPageViewingStoreID(pageViewingStoreID));
+            dispatch(setStoreID(pageViewingStoreID));
             dispatch(addItemToCart(cartPayload));
             dispatch(toggleIsModalOpen());
             return;

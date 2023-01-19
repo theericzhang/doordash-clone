@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { restaurantList } from "../../../components/datav2";
 
 interface ICartState {
-    storeID: number;
+    storeID?: number;
     pageViewingStoreID?: number;
     cart: ICartItem[];
     totalValue: number;
@@ -14,16 +14,16 @@ interface ICartItem {
 }
 
 const initialState: ICartState = {
-    storeID: 1243431,
+    // storeID: 1243431,
     cart: [
-        {
-            itemID: 0,
-            quantity: 2,
-        },
-        {
-            itemID: 1,
-            quantity: 2,
-        },
+        // {
+        //     itemID: 0,
+        //     quantity: 2,
+        // },
+        // {
+        //     itemID: 1,
+        //     quantity: 2,
+        // },
     ],
     totalValue: 0,
 };
@@ -64,6 +64,10 @@ const cartSlice = createSlice({
     reducers: {
         setPageViewingStoreID: (state, action: PayloadAction<number>) => {
             state.pageViewingStoreID = action.payload;
+        },
+
+        setStoreID: (state, action: PayloadAction<number>) => {
+            state.storeID = action.payload;
         },
 
         // if the user adds an item from a different store, we need to reset the storeID and cart to the storeID of the new item they were looking at
@@ -121,6 +125,6 @@ const cartSlice = createSlice({
     },
 });
 
-export const { setPageViewingStoreID, resetCartNewStore, addItemToCart, deleteItemFromCart } =
+export const { setPageViewingStoreID, setStoreID, resetCartNewStore, addItemToCart, deleteItemFromCart } =
     cartSlice.actions;
 export default cartSlice.reducer;
