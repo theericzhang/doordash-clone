@@ -3,6 +3,7 @@ import { restaurantList } from "../../../components/datav2";
 
 interface ICartState {
     storeID: number;
+    pageViewingStoreID?: number;
     cart: {
         itemID: number;
         quantity: number;
@@ -59,6 +60,10 @@ const cartSlice = createSlice({
     name: "cart",
     initialState: initialState,
     reducers: {
+        setPageViewingStoreID: (state, action: PayloadAction<number>) => {
+            state.pageViewingStoreID = action.payload;
+        },
+
         // if the user adds an item from a different store, we need to reset the storeID and cart to the storeID of the new item they were looking at
         resetCartNewStore: (state, action: PayloadAction<number>) => {
             state.storeID = action.payload;
@@ -114,6 +119,6 @@ const cartSlice = createSlice({
     },
 });
 
-export const { resetCartNewStore, addItemToCart, deleteItemFromCart } =
+export const { setPageViewingStoreID, resetCartNewStore, addItemToCart, deleteItemFromCart } =
     cartSlice.actions;
 export default cartSlice.reducer;
