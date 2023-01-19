@@ -96,6 +96,7 @@ const ItemCustomizationPanel__footer = styled.div`
     width: 100%;
     height: 72px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px calc(-1px) 15px;
+    column-gap: 26px;
 `;
 
 const ItemCustomizationPanel__AddToCart__button = styled.button`
