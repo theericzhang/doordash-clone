@@ -65,12 +65,13 @@ This clone uses Redux-Toolkit to manage state. Several items are put in global s
 * Creating and Linking `<RestaurantCard />` [slug] to a new store view page. Completed 1/10/23
 * Asset optimization. Images batched to webp format with 40% quality. Proper image caching, eager/lazy loading on qualified assets.
 * Created `<HeroComponent />`, `<CartOverview />`, `<CartItem />`, `<InputStepper />`, and wired them. Currently uses temporary data, needs management from global state. Completed 1/14/23
+* Establish global state for CartOverview & Store Items. Completed 1/19/23 https://github.com/theericzhang/doordash-clone/pull/10
+* Created `<ItemOverlay />`, `<ItemCustomizationPanel />` to complete add-to-cart logic. completed 1/19/23 https://github.com/theericzhang/doordash-clone/pull/10
 
 ### In Progress
-* Establish global state for CartOverview & Store Items. Begin 1/14/23
+* Responsive styling for existing layouts & components when viewport width is under 1800px. (Backlogged, until global state management has been implemented) Begin 1/19/23
 
 ### Next Up
-* Responsive styling for existing layouts & components when viewport width is under 1800px. (Backlogged, until global state management has been implemented)
 * Implement Search functionality. Start with stores, then cuisines and dishes.
 * Checkout flow.
 * Garner feedback.
