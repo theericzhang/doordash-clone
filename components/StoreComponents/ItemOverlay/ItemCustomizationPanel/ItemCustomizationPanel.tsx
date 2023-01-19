@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../../../app-redux/hooks";
 import { toggleIsModalOpen } from "../../../../app-redux/features/item/itemSlice";
-import { addItemToCart } from "../../../../app-redux/features/cart/cartSlice";
+import { addItemToCart, resetCartNewStore, setPageViewingStoreID } from "../../../../app-redux/features/cart/cartSlice";
 import { useState } from "react";
 
 import X from "../../../Icons/XIcon";
@@ -141,9 +141,29 @@ export default function ItemCustomizationPanel() {
             itemID: itemData.itemID,
             quantity: itemCounter
         }
+        // if the cart matches the currently viewed page's ID
         if (cartStoreID === pageViewingStoreID) {
             dispatch(addItemToCart(cartPayload));
+            dispatch(toggleIsModalOpen());
             return;
+        } 
+        // if the cart store is not defined meaning no items in cart, set the viewingID and then add
+        else if (cartStoreID === undefined && !!pageViewingStoreID) {
+            dispatch(setPageViewingStoreID(pageViewingStoreID));
+            dispatch(addItemToCart(cartPayload));
+            dispatch(toggleIsModalOpen());
+            return;
+        }
+
+        else if (cartStoreID !== pageViewingStoreID && !!pageViewingStoreID) {
+            if (confirm("You will start a new cart by doing this, do you wish to continue?")) {
+                dispatch(resetCartNewStore(pageViewingStoreID));
+                dispatch(addItemToCart(cartPayload));
+                dispatch(toggleIsModalOpen());
+                return;
+            } else {
+
+            }
         }
     }
 
