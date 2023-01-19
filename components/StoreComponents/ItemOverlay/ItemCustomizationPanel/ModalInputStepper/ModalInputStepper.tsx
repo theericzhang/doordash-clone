@@ -49,7 +49,6 @@ const ModalInputStepper__input = styled.input`
 
 export default function ModalInputStepper() {
     const [itemCounter, setItemCounter] = useState(1);
-    console.log(itemCounter);
     function incrementCounter() {
         setItemCounter(prevItemCounter => prevItemCounter + 1);
     }
@@ -60,6 +59,8 @@ export default function ModalInputStepper() {
         }
     };
 
+    // this is pretty important. Without this, the text cursor will be placed anywhere along existing text, but you can't delete it.
+    // by selecting the entire field on click, we can ensure that the input will be properly reset.
     function setInputFocus() {
         (document.getElementById("ModalInputStepperInput") as HTMLInputElement).select();
     }
