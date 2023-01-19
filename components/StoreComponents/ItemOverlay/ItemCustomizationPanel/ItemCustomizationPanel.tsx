@@ -137,8 +137,13 @@ export default function ItemCustomizationPanel() {
     });
     
     function addToCartClickHandler() {
+        const cartPayload = {
+            itemID: itemData.itemID,
+            quantity: itemCounter
+        }
         if (cartStoreID === pageViewingStoreID) {
-            dispatch(addItemToCart(itemData.itemID))
+            dispatch(addItemToCart(cartPayload));
+            return;
         }
     }
 

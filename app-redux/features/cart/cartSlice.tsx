@@ -4,11 +4,13 @@ import { restaurantList } from "../../../components/datav2";
 interface ICartState {
     storeID: number;
     pageViewingStoreID?: number;
-    cart: {
-        itemID: number;
-        quantity: number;
-    }[];
+    cart: ICartItem[];
     totalValue: number;
+}
+
+interface ICartItem {
+    itemID: number;
+    quantity: number;
 }
 
 const initialState: ICartState = {
@@ -72,7 +74,7 @@ const cartSlice = createSlice({
         },
 
         // the user adds an item, passing the itemID
-        addItemToCart: (state, action: PayloadAction<number>) => {
+        addItemToCart: (state, action: PayloadAction<ICartItem>) => {
             // loop through cart items to see if the itemID (action.payload) exists.
             // if it exists, then just increment the quantity.
             // if it does not exist, then add the new item to a copy of the existing cart state.
@@ -80,8 +82,8 @@ const cartSlice = createSlice({
             let itemExists = false;
 
             for (let i = 0; i < state.cart.length; i++) {
-                if (state.cart[i].itemID === action.payload) {
-                    state.cart[i].quantity += 1;
+                if (state.cart[i].itemID === action.payload.itemID) {
+                    state.cart[i].quantity += action.payload.quantity;
                     itemExists = true;
                     break;
                 }
@@ -91,8 +93,8 @@ const cartSlice = createSlice({
                 state.cart = [
                     ...state.cart,
                     {
-                        itemID: action.payload,
-                        quantity: 1,
+                        itemID: action.payload.itemID,
+                        quantity: action.payload.quantity,
                     },
                 ];
             }
