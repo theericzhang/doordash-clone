@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import React, { useState } from "react";
 import MinusCircle from "../../../../Icons/MinusCircleIcon";
 import PlusCircle from "../../../../Icons/PlusCircleIcon";
 
@@ -47,8 +47,12 @@ const ModalInputStepper__input = styled.input`
     }
 `;
 
-export default function ModalInputStepper() {
-    const [itemCounter, setItemCounter] = useState(1);
+type TModalInputStepper = {
+    itemCounter: number;
+    setItemCounter: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function ModalInputStepper({ itemCounter, setItemCounter }: TModalInputStepper) {
     function incrementCounter() {
         setItemCounter(prevItemCounter => prevItemCounter + 1);
     }

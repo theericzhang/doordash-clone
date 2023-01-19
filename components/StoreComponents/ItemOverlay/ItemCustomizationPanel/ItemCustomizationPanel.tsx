@@ -5,6 +5,7 @@ import X from "../../../Icons/XIcon";
 import ThumbsUp from "../../../Icons/ThumbsUpIcon";
 import Image from "next/image";
 import ModalInputStepper from "./ModalInputStepper/ModalInputStepper";
+import { useState } from "react";
 
 const ItemCustomizationPanel__wrapper = styled.div`
     display: flex;
@@ -100,9 +101,10 @@ const ItemCustomizationPanel__footer = styled.div`
 `;
 
 const ItemCustomizationPanel__AddToCart__button = styled.button`
-    width: fit-content;
+    width: 220px;
     height: 40px;
     display: flex;
+    justify-content: center;
     align-items: center;
     background-color: var(--secondary-red);
     border-radius: 20px;
@@ -129,6 +131,9 @@ export default function ItemCustomizationPanel() {
         style: 'currency',
         currency: 'USD',
     });
+    
+    // we need this local state to talk between modalinputstepper and add to cart button
+    const [itemCounter, setItemCounter] = useState(1);
 
     return (
         <ItemCustomizationPanel__wrapper onClick={(e) => e.stopPropagation()}>
@@ -172,9 +177,12 @@ export default function ItemCustomizationPanel() {
                 </ItemCustomizationPanel__content__wrapper>
             </ItemCustomizationPanel__main__wrapper>
             <ItemCustomizationPanel__footer>
-                <ModalInputStepper />
+                <ModalInputStepper 
+                    itemCounter={itemCounter}
+                    setItemCounter={setItemCounter}
+                />
                 <ItemCustomizationPanel__AddToCart__button>
-                    Add to Cart - {priceFormatter.format(itemData.price)}
+                    Add to Cart - {priceFormatter.format(itemData.price * itemCounter)}
                 </ItemCustomizationPanel__AddToCart__button>
             </ItemCustomizationPanel__footer>
         </ItemCustomizationPanel__wrapper>
