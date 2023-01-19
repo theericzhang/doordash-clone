@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../../../app-redux/hooks";
 import { toggleIsModalOpen } from "../../../../app-redux/features/item/itemSlice";
+import { addItemToCart } from "../../../../app-redux/features/cart/cartSlice";
+import { useState } from "react";
+
 import X from "../../../Icons/XIcon";
 import ThumbsUp from "../../../Icons/ThumbsUpIcon";
 import Image from "next/image";
 import ModalInputStepper from "./ModalInputStepper/ModalInputStepper";
-import { useState } from "react";
 
 const ItemCustomizationPanel__wrapper = styled.div`
     display: flex;
@@ -127,11 +129,19 @@ export default function ItemCustomizationPanel() {
     const dispatch = useAppDispatch();
     // grabbing item data that was set when the user clicks on MenuItem
     const itemData = useAppSelector((state) => state.itemSlice.itemData);
+    const cartStoreID = useAppSelector((state) => state.cartSlice.storeID);
+    const pageViewingStoreID = useAppSelector((state) => state.cartSlice.pageViewingStoreID);
     const priceFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
     });
     
+    function addToCartClickHandler() {
+        if (cartStoreID === pageViewingStoreID) {
+            dispatch(addItemToCart(itemData.itemID))
+        }
+    }
+
     // we need this local state to talk between modalinputstepper and add to cart button
     const [itemCounter, setItemCounter] = useState(1);
     // TODO: wire a validator reducer from Add to cart button to global store
@@ -182,7 +192,7 @@ export default function ItemCustomizationPanel() {
                     itemCounter={itemCounter}
                     setItemCounter={setItemCounter}
                 />
-                <ItemCustomizationPanel__AddToCart__button>
+                <ItemCustomizationPanel__AddToCart__button onClick={addToCartClickHandler}>
                     Add to Cart - {priceFormatter.format(itemData.price * itemCounter)}
                 </ItemCustomizationPanel__AddToCart__button>
             </ItemCustomizationPanel__footer>

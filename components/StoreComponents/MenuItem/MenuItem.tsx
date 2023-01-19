@@ -95,7 +95,7 @@ const Item__image = styled(Image)`
     object-fit: cover;
 `;
 
-export default function MenuItem({ image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }: TStoreItem) {
+export default function MenuItem({ itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }: TStoreItem) {
     const dispatch = useAppDispatch();
     const priceFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -107,7 +107,7 @@ export default function MenuItem({ image, itemName, price, description, ratingCo
             onClick={
                 () => {
                     dispatch(toggleIsModalOpen());
-                    dispatch(setModalData({ image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }));
+                    dispatch(setModalData({ itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }));
                 }
             }
         >
