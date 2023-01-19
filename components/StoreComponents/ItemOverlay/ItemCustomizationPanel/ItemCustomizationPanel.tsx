@@ -146,24 +146,20 @@ export default function ItemCustomizationPanel() {
             dispatch(addItemToCart(cartPayload));
             dispatch(toggleIsModalOpen());
             return;
-        } 
+        }
         // if the cart store is not defined meaning no items in cart, set the viewingID and then add
         else if (cartStoreID === undefined && !!pageViewingStoreID) {
             dispatch(setPageViewingStoreID(pageViewingStoreID));
             dispatch(addItemToCart(cartPayload));
             dispatch(toggleIsModalOpen());
             return;
-        }
-
+        } 
+        // if the cart's storeID doesn't match the viewingID, then start a new cart.
         else if (cartStoreID !== pageViewingStoreID && !!pageViewingStoreID) {
-            if (confirm("You will start a new cart by doing this, do you wish to continue?")) {
-                dispatch(resetCartNewStore(pageViewingStoreID));
-                dispatch(addItemToCart(cartPayload));
-                dispatch(toggleIsModalOpen());
-                return;
-            } else {
-
-            }
+            dispatch(resetCartNewStore(pageViewingStoreID));
+            dispatch(addItemToCart(cartPayload));
+            dispatch(toggleIsModalOpen());
+            return;
         }
     }
 
