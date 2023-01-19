@@ -72,7 +72,6 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
             <Link href={`/store/${restaurantID}`} passHref legacyBehavior>
                 <RestaurantCard__link>
                     <RestaurantCard__image__wrapper>
-                        {/* TODO: add a srizes property to improve loading performance */}
                         <RestaurantCard__image
                             src={restaurantData.restaurantImage.src}
                             placeholder="blur"
