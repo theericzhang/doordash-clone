@@ -165,8 +165,6 @@ export default function ItemCustomizationPanel() {
 
     // we need this local state to talk between modalinputstepper and add to cart button
     const [itemCounter, setItemCounter] = useState(1);
-    // TODO: wire a validator reducer from Add to cart button to global store
-    // TODO: we need to check if the store from the items that are being added to the cart belong to store from the items that already exist in the cart.
     return (
         <ItemCustomizationPanel__wrapper onClick={(e) => e.stopPropagation()}>
             <ItemCustomizationPanel__main__wrapper>
