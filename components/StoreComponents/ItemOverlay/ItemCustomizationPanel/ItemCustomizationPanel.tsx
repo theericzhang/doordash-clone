@@ -4,6 +4,7 @@ import { toggleIsModalOpen } from "../../../../app-redux/features/item/itemSlice
 import X from "../../../Icons/XIcon";
 import ThumbsUp from "../../../Icons/ThumbsUpIcon";
 import Image from "next/image";
+import ModalInputStepper from "./ModalInputStepper/ModalInputStepper";
 
 const ItemCustomizationPanel__wrapper = styled.div`
     display: flex;
@@ -170,6 +171,7 @@ export default function ItemCustomizationPanel() {
                 </ItemCustomizationPanel__content__wrapper>
             </ItemCustomizationPanel__main__wrapper>
             <ItemCustomizationPanel__footer>
+                <ModalInputStepper />
                 <ItemCustomizationPanel__AddToCart__button>
                     Add to Cart - {priceFormatter.format(itemData.price)}
                 </ItemCustomizationPanel__AddToCart__button>

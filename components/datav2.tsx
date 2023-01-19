@@ -494,7 +494,7 @@ export const restaurantList = {
                 {
                     itemName: "Gaeng Massaman Gae",
                     image: {
-                        src: "/images/334624/YumTawai.webp",
+                        src: "/images/334624/MassamanGae.webp",
                         alt: "Gaeng Massaman Gae",
                     },
                     price: 56,
