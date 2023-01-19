@@ -1,6 +1,7 @@
 import styles from "../../styles/StoreLayout.module.css";
 import styled from 'styled-components';
 import React from "react";
+import ItemOverlay from "../StoreComponents/ItemOverlay/ItemOverlay";
 
 const StorePage = styled.article`
     display: flex;
@@ -29,6 +30,7 @@ export default function StoreLayout({ children }: TStoreLayout) {
     const mainContent = children.slice(0, -1);
     return (
         <>
+            <ItemOverlay />
             <main className={styles.main}>
                 <StorePage>
                     {mainContent.map((child, index) => {

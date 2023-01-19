@@ -58,8 +58,12 @@ export default function InputStepper({ quantity, itemID }: TInputStepper) {
     const dispatch = useAppDispatch();
 
     function handleClickIncrement() {
+        const cartPayload = {
+            itemID: itemID,
+            quantity: 1,
+        }
         setStepperCount(prevStepperCount => prevStepperCount + 1);
-        dispatch(addItemToCart(itemID));
+        dispatch(addItemToCart(cartPayload));
         return;
     }
 

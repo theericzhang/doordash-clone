@@ -2,6 +2,8 @@ import styled from "styled-components";
 import ThumbsUp from "../../Icons/ThumbsUpIcon";
 import Image from "next/image";
 import { TStoreItem } from "../../../global";
+import { useAppSelector, useAppDispatch } from "../../../app-redux/hooks";
+import { toggleIsModalOpen, setModalData } from "../../../app-redux/features/item/itemSlice";
 
 const Item__wrapper = styled.button`
     width: 49.2%;
@@ -93,16 +95,29 @@ const Item__image = styled(Image)`
     object-fit: cover;
 `;
 
-export default function MenuItem({ image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }: TStoreItem) {
+export default function MenuItem({ itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }: TStoreItem) {
+    const dispatch = useAppDispatch();
+    const priceFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+    
     return (
-        <Item__wrapper>
+        <Item__wrapper 
+            onClick={
+                () => {
+                    dispatch(toggleIsModalOpen());
+                    dispatch(setModalData({ itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }));
+                }
+            }
+        >
             <Item__text__wrapper>
                 <Item__text__name>{itemName}</Item__text__name>
                 <Item__text__description>
                     {description}
                 </Item__text__description>
                 <Item__text__stats__wrapper>
-                    <Item__text__price>${price}</Item__text__price>
+                    <Item__text__price>{priceFormatter.format(price)}</Item__text__price>
                     <Item__text__stats>•</Item__text__stats>
                     <ThumbsUp />
                     <Item__text__stats>{ratingPercentage}% ({ratingCount})</Item__text__stats>

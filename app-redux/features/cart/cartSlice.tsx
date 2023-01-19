@@ -3,11 +3,14 @@ import { restaurantList } from "../../../components/datav2";
 
 interface ICartState {
     storeID: number;
-    cart: {
-        itemID: number;
-        quantity: number;
-    }[];
+    pageViewingStoreID?: number;
+    cart: ICartItem[];
     totalValue: number;
+}
+
+interface ICartItem {
+    itemID: number;
+    quantity: number;
 }
 
 const initialState: ICartState = {
@@ -59,6 +62,10 @@ const cartSlice = createSlice({
     name: "cart",
     initialState: initialState,
     reducers: {
+        setPageViewingStoreID: (state, action: PayloadAction<number>) => {
+            state.pageViewingStoreID = action.payload;
+        },
+
         // if the user adds an item from a different store, we need to reset the storeID and cart to the storeID of the new item they were looking at
         resetCartNewStore: (state, action: PayloadAction<number>) => {
             state.storeID = action.payload;
@@ -67,7 +74,7 @@ const cartSlice = createSlice({
         },
 
         // the user adds an item, passing the itemID
-        addItemToCart: (state, action: PayloadAction<number>) => {
+        addItemToCart: (state, action: PayloadAction<ICartItem>) => {
             // loop through cart items to see if the itemID (action.payload) exists.
             // if it exists, then just increment the quantity.
             // if it does not exist, then add the new item to a copy of the existing cart state.
@@ -75,8 +82,8 @@ const cartSlice = createSlice({
             let itemExists = false;
 
             for (let i = 0; i < state.cart.length; i++) {
-                if (state.cart[i].itemID === action.payload) {
-                    state.cart[i].quantity += 1;
+                if (state.cart[i].itemID === action.payload.itemID) {
+                    state.cart[i].quantity += action.payload.quantity;
                     itemExists = true;
                     break;
                 }
@@ -86,8 +93,8 @@ const cartSlice = createSlice({
                 state.cart = [
                     ...state.cart,
                     {
-                        itemID: action.payload,
-                        quantity: 1,
+                        itemID: action.payload.itemID,
+                        quantity: action.payload.quantity,
                     },
                 ];
             }
@@ -114,6 +121,6 @@ const cartSlice = createSlice({
     },
 });
 
-export const { resetCartNewStore, addItemToCart, deleteItemFromCart } =
+export const { setPageViewingStoreID, resetCartNewStore, addItemToCart, deleteItemFromCart } =
     cartSlice.actions;
 export default cartSlice.reducer;

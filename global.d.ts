@@ -25,6 +25,7 @@ export type TStorefrontData = {
 };
 
 export type TStoreItem = {
+    itemID: number;
     image: {
         src: string;
         alt: string;

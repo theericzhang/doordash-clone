@@ -1,8 +1,12 @@
-export default function ThumbsUp() {
+type TThumbsUp = {
+    size?: number;
+}
+
+export default function ThumbsUp({ size }: TThumbsUp) {
     return (
         <svg
-            width="13.2"
-            height="13.2"
+            width={!!size ? size : "13.2"}
+            height={!!size ? size : "13.2"}
             viewBox="0 0 16 16"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

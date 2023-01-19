@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CheckoutButton from "../CheckoutButton/CheckoutButton";
 import CartItem from "../CartItem/CartItem";
 import CarrotRight from "../../Icons/CarrotRightIcon";
+import TableOfFood from "../../SVGgraphics/TableOfFood";
 
 import { restaurantList } from "../../datav2";
 
@@ -59,6 +60,30 @@ const CartOverview__list__wrapper = styled.ul`
     border-top: 1px solid var(--primary-gray);
 `;
 
+const CartOverview__zeroItems = styled.div`
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 36px 0;
+`;
+
+const CartOverview__zeroItems__span__wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 24.5px 0;
+    row-gap: 1.5px;
+`;
+
+const CartOverview__zeroItems__span = styled.span`
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--quinary-gray);
+`;
+
 interface IItemsProperty {
     [key: number]: any;
 }
@@ -90,23 +115,37 @@ export default function CartOverview() {
     })
     return (
         <CartOverview__wrapper>
-            <CartOverview__checkout__wrapper>
-                <CartOverview__checkout__description>
-                    <CartOverview__checkout__header>
-                        Your cart from
-                    </CartOverview__checkout__header>
-                    <CartOverview__checkout__link
-                        href={`/store/${storeID}`}
-                    >
-                        {restaurants[storeID].restaurantData.restaurantName}
-                        <CarrotRight />
-                    </CartOverview__checkout__link>
-                </CartOverview__checkout__description>
-                <CheckoutButton />
-            </CartOverview__checkout__wrapper>
-            <CartOverview__list__wrapper>
-                {arrayOfCartItems}
-            </CartOverview__list__wrapper>
+            {numberofitems > 0 ?
+                <>
+                    <CartOverview__checkout__wrapper>
+                        <CartOverview__checkout__description>
+                            <CartOverview__checkout__header>
+                                Your cart from
+                            </CartOverview__checkout__header>
+                            <CartOverview__checkout__link
+                                href={`/store/${storeID}`}
+                            >
+                                {restaurants[storeID].restaurantData.restaurantName}
+                                <CarrotRight />
+                            </CartOverview__checkout__link>
+                        </CartOverview__checkout__description>
+                        <CheckoutButton />
+                    </CartOverview__checkout__wrapper>
+                    <CartOverview__list__wrapper>
+                        {arrayOfCartItems}
+                    </CartOverview__list__wrapper>
+                </>
+            :
+                <CartOverview__zeroItems>
+                    <TableOfFood />
+                    <CartOverview__zeroItems__span__wrapper>
+                        <CartOverview__zeroItems__span>Your cart is empty</CartOverview__zeroItems__span>
+                        <CartOverview__zeroItems__span>Add items to get started</CartOverview__zeroItems__span>
+                    </CartOverview__zeroItems__span__wrapper>
+                </CartOverview__zeroItems>
+            }
+            
+            
         </CartOverview__wrapper>
     );
 }
