@@ -78,7 +78,7 @@ This clone uses Redux-Toolkit to manage state. Several items are put in global s
 
 ## Resources and References
 
-- [DoorDash Clone - Discoveries, Hurdles, Lessons (A WIP)](https://piquant-dancer-3b9.notion.site/DoorDash-Clone-Discoveries-Hurdles-Lessons-A-WIP-7bd86cff0d764b4c8ff040a84557d361) - read about my experience thus far building this application!
+- [DoorDash Clone - Discoveries, Hurdles, Lessons (A WIP)](https://anericzhang.notion.site/DoorDash-Clone-Discoveries-Hurdles-Lessons-A-WIP-f2fc244b5a3441528a1a69376377170f) - read about my experience thus far building this application!
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [styled-components](https://styled-components.com/) - learn about styled-components with an interactive button component
 - [DoorDash Engineering - Improving Web Page Performance at DoorDash through Server Side Rendering with Next.js](https://doordash.engineering/2022/03/29/improving-web-page-performance-at-doordash-throughserver-side-rendering-with-next-js/) - Read about DoorDash's motivation and technical decision to move to Next.js powered SSR 
