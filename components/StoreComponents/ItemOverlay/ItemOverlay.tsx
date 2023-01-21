@@ -58,15 +58,5 @@ export default function ItemModal() {
                 </ItemModal__wrapper>
             )}
         </Transition>
-
-        // isModalOpen ?
-        //     <ItemModal__wrapper
-        //         onClick={() => dispatch(toggleIsModalOpen())}
-        //         isModalOpen={isModalOpen}
-        //     >
-        //         <ItemCustomizationPanel />
-        //     </ItemModal__wrapper>
-        // :
-        //     null
     );
 }
