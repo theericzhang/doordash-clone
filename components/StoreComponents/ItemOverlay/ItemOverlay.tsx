@@ -3,10 +3,15 @@ import { useAppSelector, useAppDispatch } from "../../../app-redux/hooks";
 import { toggleIsModalOpen } from "../../../app-redux/features/item/itemSlice";
 import ItemCustomizationPanel from "./ItemCustomizationPanel/ItemCustomizationPanel";
 
-import { Transition } from "react-transition-group";
+import { Transition, TransitionStatus } from "react-transition-group";
 import { useRef } from "react";
 
-const ItemModal__wrapper = styled.section<{ isModalOpen: boolean }>`
+interface ItemModalWrapperProps {
+    state: TransitionStatus;
+    isModalOpen: boolean;
+}
+
+const ItemModal__wrapper = styled.section<ItemModalWrapperProps>`
     width: 100%;
     height: 100%;
     position: fixed;
@@ -17,7 +22,14 @@ const ItemModal__wrapper = styled.section<{ isModalOpen: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: ${(props) => (props.isModalOpen ? 1 : 0)};
+    opacity: ${(props) => 
+    (props.state === "entering" 
+    ?
+        0 : props.state === "entered" 
+        ? 
+            1 : props.state ==="exiting" 
+            ? 0 
+            : 0)};
     transition: opacity 300ms ease;
 `;
 
@@ -34,7 +46,7 @@ export default function ItemModal() {
         >
             {(state) => (
                 <ItemModal__wrapper 
-                    
+                    state={state}
                     isModalOpen={isModalOpen}
                     onClick={() => dispatch(toggleIsModalOpen())}
                     ref={nodeRef}
