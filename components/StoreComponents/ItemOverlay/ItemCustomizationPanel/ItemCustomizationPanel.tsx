@@ -39,7 +39,7 @@ const ItemCustomizationPanel__wrapper = styled.div<TItemCustomizationPanel>`
             : props.state === "exiting"
             ? `scale(0.95)`
             : `scale(0.95)`};
-    transition: transform 200ms ease;
+    transition: transform 225ms ease-in-out;
 `;
 
 const ItemCustomizationPanel__main__wrapper = styled.div`
@@ -195,7 +195,7 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
         <Transition 
             nodeRef={nodeRef}
             in={isModalOpen} 
-            timeout={200} 
+            timeout={225} 
             unmountOnExit
         >
             {() => (

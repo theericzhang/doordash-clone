@@ -30,7 +30,7 @@ const ItemModal__wrapper = styled.section<ItemModalWrapperProps>`
                     1 : props.state ==="exiting" 
                         ? 0 
                         : 0)};
-    transition: opacity 300ms ease;
+    transition: opacity 225ms ease;
 `;
 
 export default function ItemModal() {
@@ -41,7 +41,7 @@ export default function ItemModal() {
         <Transition
             nodeRef={nodeRef}
             in={isModalOpen}
-            timeout={300}
+            timeout={225}
             unmountOnExit
         >
             {(state) => (
