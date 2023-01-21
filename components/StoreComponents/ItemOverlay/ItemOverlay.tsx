@@ -24,12 +24,12 @@ const ItemModal__wrapper = styled.section<ItemModalWrapperProps>`
     align-items: center;
     opacity: ${(props) => 
     (props.state === "entering" 
-    ?
-        0 : props.state === "entered" 
-        ? 
-            1 : props.state ==="exiting" 
-            ? 0 
-            : 0)};
+        ?
+            0 : props.state === "entered" 
+                ? 
+                    1 : props.state ==="exiting" 
+                        ? 0 
+                        : 0)};
     transition: opacity 300ms ease;
 `;
 
@@ -51,7 +51,10 @@ export default function ItemModal() {
                     onClick={() => dispatch(toggleIsModalOpen())}
                     ref={nodeRef}
                 >
-                    <ItemCustomizationPanel />
+                    <ItemCustomizationPanel 
+                        state={state}
+                        isModalOpen={isModalOpen}
+                    />
                 </ItemModal__wrapper>
             )}
         </Transition>
