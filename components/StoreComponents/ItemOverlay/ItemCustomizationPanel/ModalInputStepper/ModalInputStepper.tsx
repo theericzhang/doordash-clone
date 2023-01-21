@@ -8,7 +8,7 @@ const ModalInputStepper__wrapper = styled.div`
     align-items: center;
     height: 100%;
     width: fit-content;
-    column-gap: 26px;
+    column-gap: 16px;
 `;
 
 const ModalInputStepper__button = styled.button`
@@ -16,6 +16,11 @@ const ModalInputStepper__button = styled.button`
     justify-content: center;
     align-items: center;
     background-color: transparent;
+    padding: 10px;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const ModalInputStepper__input = styled.input`
