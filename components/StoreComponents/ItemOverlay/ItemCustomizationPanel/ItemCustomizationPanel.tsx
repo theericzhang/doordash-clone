@@ -146,10 +146,7 @@ const ItemCustomizationPanel__AddToCart__button = styled.button`
     }
 `;
 
-export default function ItemCustomizationPanel({
-    state,
-    isModalOpen,
-}: TItemCustomizationPanel) {
+export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCustomizationPanel) {
     const dispatch = useAppDispatch();
     // grabbing item data that was set when the user clicks on MenuItem
     const itemData = useAppSelector((state) => state.itemSlice.itemData);
@@ -198,10 +195,10 @@ export default function ItemCustomizationPanel({
         <Transition 
             nodeRef={nodeRef}
             in={isModalOpen} 
-            timeout={300} 
+            timeout={200} 
             unmountOnExit
         >
-            {(state) => (
+            {() => (
                 <ItemCustomizationPanel__wrapper
                     state={state}
                     isModalOpen={isModalOpen}
