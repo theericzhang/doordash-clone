@@ -1,15 +1,27 @@
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../../../app-redux/hooks";
 import { toggleIsModalOpen } from "../../../../app-redux/features/item/itemSlice";
-import { addItemToCart, setStoreID, resetCartNewStore, setPageViewingStoreID } from "../../../../app-redux/features/cart/cartSlice";
+import {
+    addItemToCart,
+    setStoreID,
+    resetCartNewStore,
+    setPageViewingStoreID,
+} from "../../../../app-redux/features/cart/cartSlice";
 import { useState } from "react";
+import { Transition, TransitionStatus } from "react-transition-group";
 
 import X from "../../../Icons/XIcon";
 import ThumbsUp from "../../../Icons/ThumbsUpIcon";
 import Image from "next/image";
 import ModalInputStepper from "./ModalInputStepper/ModalInputStepper";
+import { useRef } from "react";
 
-const ItemCustomizationPanel__wrapper = styled.div`
+type TItemCustomizationPanel = {
+    state: TransitionStatus;
+    isModalOpen: boolean;
+};
+
+const ItemCustomizationPanel__wrapper = styled.div<TItemCustomizationPanel>`
     display: flex;
     flex-direction: column;
     width: 560px;
@@ -19,11 +31,20 @@ const ItemCustomizationPanel__wrapper = styled.div`
     border-radius: 16px;
     /* padding: 16px; */
     position: relative;
+    transform: ${(props) =>
+        props.state === "entering"
+            ? `scale(0.95)`
+            : props.state === "entered"
+            ? `scale(1)`
+            : props.state === "exiting"
+            ? `scale(0.95)`
+            : `scale(0.95)`};
+    transition: transform 200ms ease;
 `;
 
 const ItemCustomizationPanel__main__wrapper = styled.div`
     padding: 16px;
-`
+`;
 
 const ItemCustomizationPanel__button_close = styled.button`
     display: flex;
@@ -44,7 +65,7 @@ const ItemCustomizationPanel__content__wrapper = styled.div`
     flex-direction: column;
     row-gap: 10px;
     align-items: flex-start;
-    margin: 33px 0; 
+    margin: 33px 0;
 `;
 
 const ItemCustomizationPanel__item__name = styled.h2`
@@ -125,22 +146,24 @@ const ItemCustomizationPanel__AddToCart__button = styled.button`
     }
 `;
 
-export default function ItemCustomizationPanel() {
+export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCustomizationPanel) {
     const dispatch = useAppDispatch();
     // grabbing item data that was set when the user clicks on MenuItem
     const itemData = useAppSelector((state) => state.itemSlice.itemData);
     const cartStoreID = useAppSelector((state) => state.cartSlice.storeID);
-    const pageViewingStoreID = useAppSelector((state) => state.cartSlice.pageViewingStoreID);
-    const priceFormatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
+    const pageViewingStoreID = useAppSelector(
+        (state) => state.cartSlice.pageViewingStoreID
+    );
+    const priceFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
     });
-    
+
     function addToCartClickHandler() {
         const cartPayload = {
             itemID: itemData.itemID,
-            quantity: itemCounter
-        }
+            quantity: itemCounter,
+        };
         // if the cart matches the currently viewed page's ID
         if (cartStoreID === pageViewingStoreID) {
             dispatch(addItemToCart(cartPayload));
@@ -154,7 +177,7 @@ export default function ItemCustomizationPanel() {
             dispatch(addItemToCart(cartPayload));
             dispatch(toggleIsModalOpen());
             return;
-        } 
+        }
         // if the cart's storeID doesn't match the viewingID, then start a new cart.
         else if (cartStoreID !== pageViewingStoreID && !!pageViewingStoreID) {
             dispatch(resetCartNewStore(pageViewingStoreID));
@@ -166,56 +189,74 @@ export default function ItemCustomizationPanel() {
 
     // we need this local state to talk between modalinputstepper and add to cart button
     const [itemCounter, setItemCounter] = useState(1);
+
+    const nodeRef = useRef(null);
     return (
-        <ItemCustomizationPanel__wrapper onClick={(e) => e.stopPropagation()}>
-            <ItemCustomizationPanel__main__wrapper>
-                <ItemCustomizationPanel__button_close onClick={() => dispatch(toggleIsModalOpen())}>
-                    <X />
-                </ItemCustomizationPanel__button_close>
-                <ItemCustomizationPanel__content__wrapper>
-                    <ItemCustomizationPanel__item__name>
-                        {itemData?.itemName}
-                    </ItemCustomizationPanel__item__name>
-                    {itemData?.ratingCount ?
-                        <ItemCustomizationPanel__stats__wrapper>
-                            <ThumbsUp size={16}/>
-                            <ItemCustomizationPanel__stats>
-                                {itemData.ratingPercentage}% ({itemData.ratingCount})
-                            </ItemCustomizationPanel__stats>
-                        </ItemCustomizationPanel__stats__wrapper>
-                    :
-                        null
-                    }
-                    {itemData?.description ?
-                        <ItemCustomizationPanel__item__description>
-                            {itemData?.description}
-                        </ItemCustomizationPanel__item__description>
-                    :
-                        null
-                    }
-                    {itemData?.image.src ?
-                        <ItemCustomizationPanel__image__wrapper>
-                            <ItemCustomizationPanel__image
-                                src={itemData.image.src}
-                                alt={itemData.image.alt}
-                                sizes={"295px"}
-                                fill={true}
-                            />
-                        </ItemCustomizationPanel__image__wrapper>
-                    :
-                        null
-                    }
-                </ItemCustomizationPanel__content__wrapper>
-            </ItemCustomizationPanel__main__wrapper>
-            <ItemCustomizationPanel__footer>
-                <ModalInputStepper 
-                    itemCounter={itemCounter}
-                    setItemCounter={setItemCounter}
-                />
-                <ItemCustomizationPanel__AddToCart__button onClick={addToCartClickHandler}>
-                    Add to Cart - {priceFormatter.format(itemData.price * itemCounter)}
-                </ItemCustomizationPanel__AddToCart__button>
-            </ItemCustomizationPanel__footer>
-        </ItemCustomizationPanel__wrapper>
+        <Transition 
+            nodeRef={nodeRef}
+            in={isModalOpen} 
+            timeout={200} 
+            unmountOnExit
+        >
+            {() => (
+                <ItemCustomizationPanel__wrapper
+                    state={state}
+                    isModalOpen={isModalOpen}
+                    onClick={(e) => e.stopPropagation()}
+                    ref={nodeRef}
+                >
+                    <ItemCustomizationPanel__main__wrapper>
+                        <ItemCustomizationPanel__button_close
+                            onClick={() => dispatch(toggleIsModalOpen())}
+                        >
+                            <X />
+                        </ItemCustomizationPanel__button_close>
+                        <ItemCustomizationPanel__content__wrapper>
+                            <ItemCustomizationPanel__item__name>
+                                {itemData?.itemName}
+                            </ItemCustomizationPanel__item__name>
+                            {itemData?.ratingCount ? (
+                                <ItemCustomizationPanel__stats__wrapper>
+                                    <ThumbsUp size={16} />
+                                    <ItemCustomizationPanel__stats>
+                                        {itemData.ratingPercentage}% (
+                                        {itemData.ratingCount})
+                                    </ItemCustomizationPanel__stats>
+                                </ItemCustomizationPanel__stats__wrapper>
+                            ) : null}
+                            {itemData?.description ? (
+                                <ItemCustomizationPanel__item__description>
+                                    {itemData?.description}
+                                </ItemCustomizationPanel__item__description>
+                            ) : null}
+                            {itemData?.image.src ? (
+                                <ItemCustomizationPanel__image__wrapper>
+                                    <ItemCustomizationPanel__image
+                                        src={itemData.image.src}
+                                        alt={itemData.image.alt}
+                                        sizes={"295px"}
+                                        fill={true}
+                                    />
+                                </ItemCustomizationPanel__image__wrapper>
+                            ) : null}
+                        </ItemCustomizationPanel__content__wrapper>
+                    </ItemCustomizationPanel__main__wrapper>
+                    <ItemCustomizationPanel__footer>
+                        <ModalInputStepper
+                            itemCounter={itemCounter}
+                            setItemCounter={setItemCounter}
+                        />
+                        <ItemCustomizationPanel__AddToCart__button
+                            onClick={addToCartClickHandler}
+                        >
+                            Add to Cart -{" "}
+                            {priceFormatter.format(
+                                itemData.price * itemCounter
+                            )}
+                        </ItemCustomizationPanel__AddToCart__button>
+                    </ItemCustomizationPanel__footer>
+                </ItemCustomizationPanel__wrapper>
+            )}
+        </Transition>
     );
 }
