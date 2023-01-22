@@ -14,6 +14,8 @@ const RestaurantCard__article = styled.article`
         flex: 0 0 calc((100% - 32px) / 3);
         min-width: unset;
     }
+
+    // TODO: 1185px BREAKPOINT - MARGINS
 `;
 
 const RestaurantCard__link = styled.a`
