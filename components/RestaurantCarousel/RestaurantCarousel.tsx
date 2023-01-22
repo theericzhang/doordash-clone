@@ -11,6 +11,12 @@ const RestaurantCarousel__article = styled.article`
 
     // TODO: responsive styling for smaller screens. Currently drafting at device width = 1800px
     width: 1152px;
+
+    @media screen and (max-width: 1280px) {
+        width: unset;
+        max-width: 100%;
+        margin: 30px 64px;
+    }
 `;
 
 const RestaurantCarousel__topRow = styled.div`

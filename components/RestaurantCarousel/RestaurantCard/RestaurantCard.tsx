@@ -10,9 +10,9 @@ const RestaurantCard__article = styled.article`
     scroll-snap-align: start;
 
 
-    // TODO: resize RestaurantCard for case when RestaurantCarousel + margins exceed 1280px. Currently width is fixed at 1152px
     @media screen and (max-width: 1280px) {
         flex: 0 0 calc((100% - 32px) / 3);
+        min-width: unset;
     }
 `;
 
