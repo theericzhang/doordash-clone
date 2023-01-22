@@ -22,6 +22,16 @@ const FilterButtonRow__resizer = styled.div`
     width: 1152px;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (max-width: 1280px) {
+        width: unset;
+        max-width: 100%;
+        margin: 30px 64px;
+    }
+
+    @media screen and (max-width: 1185px) {
+        margin: 30px 48px;
+    }
 `;
 
 const FilterButtonRow__list = styled.ul`

@@ -17,6 +17,10 @@ const RestaurantCarousel__article = styled.article`
         max-width: 100%;
         margin: 30px 64px;
     }
+
+    @media screen and (max-width: 1185px) {
+        margin: 30px 48px;
+    }
 `;
 
 const RestaurantCarousel__topRow = styled.div`
