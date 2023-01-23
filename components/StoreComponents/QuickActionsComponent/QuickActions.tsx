@@ -13,6 +13,7 @@ const QuickActions__wrapper = styled.section`
     @media screen and (max-width: 1300px) {
         padding: 0 16px;
         margin: 0;
+        max-width: 100%;
     }
 `;
 
