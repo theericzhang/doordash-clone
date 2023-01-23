@@ -48,6 +48,10 @@ const RestaurantCarousel__carousel = styled.div`
     }
 
     @media screen and (max-width: 770px) {
+        // TODO: continue styles for under 770, making sure that the cards are visible and you can scroll.
+        // TODO: Look into removing margin for RestaurantCarousel__article under 770px so that the cards are not hidden anymore.
+        // TODO: Also change the flex width of the RestaurantCard to match a marginless experience.
+        // TODO: to "shift right", think of using a ::before class?
         overflow-x: visible;
     }
 `;
