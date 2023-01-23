@@ -18,6 +18,10 @@ const RestaurantCard__article = styled.article`
     @media screen and (max-width: 960px) {
         flex: 0 0 calc((100% - 16px) / 2);
     }
+
+    @media screen and (max-width: 770px) {
+        flex: 0 0 346px;
+    }
 `;
 
 const RestaurantCard__link = styled.a`

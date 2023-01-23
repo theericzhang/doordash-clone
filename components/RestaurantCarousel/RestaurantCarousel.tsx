@@ -63,6 +63,7 @@ const RestaurantCarousel__carousel = styled.div`
         overflow-x: scroll;
         padding: 0 32px;
         scroll-snap-type: none;
+        column-gap: 12px;
     }
 `;
 
