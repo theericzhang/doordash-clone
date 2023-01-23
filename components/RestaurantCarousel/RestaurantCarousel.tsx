@@ -25,12 +25,20 @@ const RestaurantCarousel__article = styled.article`
     @media screen and (max-width: 960px) {
         margin: 30px 32px;
     }
+
+    @media screen and (max-width: 770px) {
+        margin: 30px 0;
+    }
 `;
 
 const RestaurantCarousel__topRow = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    
+    @media screen and (max-width: 770px) {
+        padding-left: 32px;
+    }
 `;
 
 const RestaurantCarousel__carousel = styled.div`
@@ -52,7 +60,9 @@ const RestaurantCarousel__carousel = styled.div`
         // TODO: Look into removing margin for RestaurantCarousel__article under 770px so that the cards are not hidden anymore.
         // TODO: Also change the flex width of the RestaurantCard to match a marginless experience.
         // TODO: to "shift right", think of using a ::before class?
-        overflow-x: visible;
+        overflow-x: scroll;
+        padding: 0 32px;
+        scroll-snap-type: none;
     }
 `;
 
