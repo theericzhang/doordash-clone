@@ -43,6 +43,10 @@ const Navbar__subLeft = styled.ul`
     @media screen and (max-width: 1280px) {
         min-width: 496px;
     }
+
+    @media screen and (max-width: 1280px) {
+        min-width: unset;
+    }
 `;
 
 const Navbar__linkGroup = styled.ul`
@@ -80,6 +84,10 @@ const Navbar__verticalDivider = styled.hr`
     height: 24px;
     border: 1px solid var(--primary-gray);
     border-radius: 2px;
+
+    @media screen and (max-width: 960px) {
+        display: none;
+    }
 `;
 
 const Navbar__subRight = styled.ul`
