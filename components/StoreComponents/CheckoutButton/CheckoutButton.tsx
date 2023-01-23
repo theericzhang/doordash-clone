@@ -9,14 +9,20 @@ const CheckoutButton__button = styled.button`
     align-items: center;
     background-color: var(--secondary-red);
     border-radius: 20px;
-    transition: ease 0.1s;
+    transition: ease 0.15s;
     transition-property: background-color;
 
     &:hover {
         background-color: var(--tertiary-red);
-        transition: ease 0.1s;
+        transition: ease 0.15s;
         transition-property: background-color;
         cursor: pointer;
+    }
+
+    &:active {
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: var(--quaternary-red);
     }
 `;
 

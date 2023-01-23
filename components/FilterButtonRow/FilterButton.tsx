@@ -7,7 +7,7 @@ const FilterButton__wrapper = styled.button`
     align-items: center;
     column-gap: 2px;
     background-color: var(--primary-gray);
-    transition: 0.35s ease;
+    transition: 0.15s ease;
     transition-property: background-color;
     height: 32px;
     width: fit-content;
@@ -16,9 +16,16 @@ const FilterButton__wrapper = styled.button`
 
     &:hover {
         cursor: pointer;
-        transition: 0.35s ease;
+        transition: 0.15s ease;
         transition-property: background-color;
         background-color: var(--secondary-gray);
+    }
+
+    // equivalent to onMouseDown
+    &:active {
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: var(--quaternary-gray);
     }
 `;
 

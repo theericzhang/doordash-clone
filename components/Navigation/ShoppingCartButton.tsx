@@ -11,16 +11,22 @@ const ShoppingCartButton__wrapper = styled.button`
     min-width: 68px;
     height: 32px;
     background-color: var(--secondary-red);
-    transition: ease 0.1s;
+    transition: ease 0.15s;
     transition-property: background-color;
     border-radius: 17px;
     border: none;
 
     &:hover {
         background-color: var(--tertiary-red);
-        transition: ease 0.1s;
+        transition: ease 0.15s;
         transition-property: background-color;
         cursor: pointer;
+    }
+
+    &:active {
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: var(--quaternary-red);
     }
 `;
 
