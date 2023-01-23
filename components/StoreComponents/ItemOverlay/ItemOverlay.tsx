@@ -38,6 +38,7 @@ const ItemModal__wrapper = styled.section<ItemModalWrapperProps>`
 
     @media screen and (max-width: 480px) {
         padding: 0;
+        // TODO: change item button styling into borderless buttons
     }
 `;
 
