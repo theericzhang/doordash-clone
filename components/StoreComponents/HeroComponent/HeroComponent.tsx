@@ -15,6 +15,13 @@ const HeroComponent__wrapper = styled.section`
     margin: 0 auto;
     position: relative;
     row-gap: 50px;
+
+    @media screen and (max-width: 1300px) {
+        padding: 0 16px;
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+    }
 `;
 
 const HeroComponent__images__collection = styled.div`

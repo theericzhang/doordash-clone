@@ -19,6 +19,12 @@ const StorePage__divider = styled.hr`
     margin: 0 auto;
     border: none;
     border-bottom: 1px solid var(--primary-gray);
+
+    @media screen and (max-width: 1300px) {
+        margin: 0 16px;
+        max-width: calc(100% - 32px);
+        width: 100%;
+    }
 `;
 
 type TStoreLayout = {
