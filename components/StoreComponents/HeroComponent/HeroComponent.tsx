@@ -145,6 +145,7 @@ const HeroComponent__information__quaternary = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 `;
 
 type TRestaurantData = {

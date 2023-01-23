@@ -29,6 +29,11 @@ const Item__wrapper = styled.button`
     @media screen and (max-width: 1300px) {
         max-width: 49.1%;
     }
+
+    @media screen and (max-width: 770px) {
+        max-width: 100%;
+        width: 100%;
+    }
 `;
 
 const Item__text__wrapper = styled.div`
@@ -38,6 +43,10 @@ const Item__text__wrapper = styled.div`
     padding: 0 16px;
     row-gap: 5px;
     max-width: 313px;
+
+    @media screen and (max-width: 770px) {
+        max-width: 580px;
+    }
 `;
 
 const Item__text__name = styled.span`
