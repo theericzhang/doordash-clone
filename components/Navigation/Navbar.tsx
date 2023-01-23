@@ -53,6 +53,10 @@ const Navbar__subLeft = styled.ul`
         justify-content: flex-start;
         min-width: fit-content;
     }
+
+    @media screen and (max-width: 770px) {
+        margin-right: 30px;
+    }
 `;
 
 const Navbar__linkGroup = styled.ul`
@@ -109,6 +113,10 @@ const Navbar__subRight = styled.ul`
     @media screen and (max-width: 1185px) {
         width: 100%;
         justify-content: flex-end;
+    }
+
+    @media screen and (max-width: 960px) {
+        padding-right: 24px;
     }
 
     @media screen and (max-width: 770px) {
