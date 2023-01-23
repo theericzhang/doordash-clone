@@ -22,6 +22,10 @@ const RestaurantCard__article = styled.article`
     @media screen and (max-width: 770px) {
         flex: 0 0 346px;
     }
+
+    @media screen and (max-width: 480px) {
+        flex: 0 0 293px;
+    }
 `;
 
 const RestaurantCard__link = styled.a`
@@ -40,6 +44,10 @@ const RestaurantCard__image__wrapper = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+
+    @media screen and (max-width: 480px) {
+        height: 144px;
+    }
 `;
 
 const RestaurantCard__image = styled(Image)`

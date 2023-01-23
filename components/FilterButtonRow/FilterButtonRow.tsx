@@ -63,6 +63,10 @@ const FilterButtonRow__list = styled.ul`
         padding: 0 32px;
         width: max-content;
     }
+
+    @media screen and (max-width: 480px) {
+        padding: 0 16px;
+    }
 `;
 
 export default function FilterButtonRow() {

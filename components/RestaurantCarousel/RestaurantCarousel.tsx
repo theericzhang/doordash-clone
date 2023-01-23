@@ -27,6 +27,11 @@ const RestaurantCarousel__article = styled.article`
     @media screen and (max-width: 770px) {
         margin: 30px 0;
     }
+
+    @media screen and (max-width: 480px) {
+        margin: 15px 0;
+        row-gap: 15px;
+    }
 `;
 
 const RestaurantCarousel__topRow = styled.div`
@@ -36,6 +41,10 @@ const RestaurantCarousel__topRow = styled.div`
     
     @media screen and (max-width: 770px) {
         padding-left: 32px;
+    }
+
+    @media screen and (max-width: 480px) {
+        padding-left: 16px;
     }
 `;
 
@@ -58,6 +67,13 @@ const RestaurantCarousel__carousel = styled.div`
         padding: 0 32px;
         scroll-snap-type: none;
         column-gap: 12px;
+    }
+
+    @media screen and (max-width: 480px) {
+        overflow-x: scroll;
+        padding: 0 16px;
+        scroll-snap-type: none;
+        column-gap: 8px;
     }
 `;
 
