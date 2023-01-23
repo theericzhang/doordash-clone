@@ -40,6 +40,16 @@ const ItemCustomizationPanel__wrapper = styled.div<TItemCustomizationPanel>`
             ? `scale(0.95)`
             : `scale(0.95)`};
     transition: transform 225ms ease-in-out;
+
+    @media screen and (max-width: 770px) {
+        width: 480px;
+    }
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
 `;
 
 const ItemCustomizationPanel__main__wrapper = styled.div`
