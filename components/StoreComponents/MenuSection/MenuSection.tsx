@@ -43,6 +43,11 @@ const MenuSection__items__wrapper = styled.div`
     width: 100%;
     margin: 18px 0;
     overflow: hidden;
+
+    @media screen and (max-width: 1300px) {
+        justify-content: space-between;
+        column-gap: unset;
+    }
 `;
 
 export default function MenuSection() {
