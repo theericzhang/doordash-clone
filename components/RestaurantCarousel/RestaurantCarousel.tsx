@@ -8,8 +8,6 @@ const RestaurantCarousel__article = styled.article`
     flex-direction: column;
     margin: 30px auto;
     row-gap: 19px;
-
-    // TODO: responsive styling for smaller screens. Currently drafting at device width = 1800px
     width: 1152px;
 
     @media screen and (max-width: 1280px) {

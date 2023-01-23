@@ -25,6 +25,10 @@ const Item__wrapper = styled.button`
         transition: 0.25s ease;
         transition-property: border-color;
     }
+
+    @media screen and (max-width: 1300px) {
+        max-width: 49.1%;
+    }
 `;
 
 const Item__text__wrapper = styled.div`
@@ -87,7 +91,7 @@ const Item__image__wrapper = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 143px;
+    min-width: 143px;
     height: 100%;
 `;
 
