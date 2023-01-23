@@ -46,6 +46,10 @@ const RestaurantCarousel__carousel = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
+
+    @media screen and (max-width: 770px) {
+        overflow-x: visible;
+    }
 `;
 
 type TRestaurauntCarousel = {

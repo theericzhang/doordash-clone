@@ -61,6 +61,10 @@ const Navbar__linkGroup = styled.ul`
     align-items: center;
     margin-left: 32px;
     margin-right: 16px;
+
+    @media screen and (max-width: 770px) {
+        display: none;
+    }
 `;
 
 const Navbar__link__wrapper = styled.div`
