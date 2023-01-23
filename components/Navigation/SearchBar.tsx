@@ -33,11 +33,12 @@ const SearchBar__wrapper = styled("label")<{isSearchBarToggled: boolean}>`
 
     @media screen and (max-width: 1185px) {
         /* width: fit-content; */
-        width: 308px;
+        width: 300px;
     }
 
     @media screen and (max-width: 960px) {
-        width: 428px;
+        width: 100%;
+        max-width: 460px;
     }
 
     @media screen and (max-width: 770px) {
