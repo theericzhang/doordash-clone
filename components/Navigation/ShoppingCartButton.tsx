@@ -8,7 +8,7 @@ const ShoppingCartButton__wrapper = styled.button`
     justify-content: center;
     align-items: center;
     column-gap: 12px;
-    width: 68px;
+    min-width: 68px;
     height: 32px;
     background-color: var(--secondary-red);
     transition: ease 0.1s;

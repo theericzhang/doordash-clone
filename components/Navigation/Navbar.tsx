@@ -95,6 +95,10 @@ const Navbar__subRight = styled.ul`
     align-items: center;
     justify-content: center;
     column-gap: 16px;
+
+    @media screen and (max-width: 770px) {
+        width: 100%;
+    }
 `
 
 export default function Navbar() {

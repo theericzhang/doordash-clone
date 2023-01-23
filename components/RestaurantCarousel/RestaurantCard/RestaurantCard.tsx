@@ -15,8 +15,9 @@ const RestaurantCard__article = styled.article`
         min-width: unset;
     }
 
-    // TODO: 1185px BREAKPOINT - MARGINS
-    
+    @media screen and (max-width: 960px) {
+        flex: 0 0 calc((100% - 16px) / 2);
+    }
 `;
 
 const RestaurantCard__link = styled.a`

@@ -21,6 +21,10 @@ const RestaurantCarousel__article = styled.article`
     @media screen and (max-width: 1185px) {
         margin: 30px 48px;
     }
+
+    @media screen and (max-width: 960px) {
+        margin: 30px 32px;
+    }
 `;
 
 const RestaurantCarousel__topRow = styled.div`

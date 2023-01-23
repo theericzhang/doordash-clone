@@ -39,6 +39,10 @@ const SearchBar__wrapper = styled("label")<{isSearchBarToggled: boolean}>`
     @media screen and (max-width: 960px) {
         width: 428px;
     }
+
+    @media screen and (max-width: 770px) {
+        width: 100%;
+    }
 `;
 
 const SearchBar__input = styled.input`
