@@ -20,6 +20,11 @@ const CartOverview__wrapper = styled.aside`
     right: 0;
     height: calc(100% - 64px);
     overflow-y: scroll;
+
+    @media screen and (max-width: 1185px) {
+        // hide the component for now - it will show itself when the shopping cart button is triggered
+        display: none;
+    }
 `;
 
 const CartOverview__checkout__wrapper = styled.div`

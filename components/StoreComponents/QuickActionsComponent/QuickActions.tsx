@@ -15,6 +15,10 @@ const QuickActions__wrapper = styled.section`
         margin: 0;
         max-width: 100%;
     }
+
+    @media screen and (max-width: 1185px) {
+        width: calc(928px + 16px * 2);
+    }
 `;
 
 

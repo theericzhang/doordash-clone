@@ -22,6 +22,10 @@ const HeroComponent__wrapper = styled.section`
         max-width: 100%;
         width: 100%;
     }
+
+    @media screen and (max-width: 1185px) {
+        width: calc(928px + 16px * 2);
+    }
 `;
 
 const HeroComponent__images__collection = styled.div`

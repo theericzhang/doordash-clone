@@ -12,6 +12,10 @@ const StorePage = styled.article`
     left: 0;
     position: absolute;
     row-gap: 22px;
+
+    @media screen and (max-width: 1185px) {
+        width: 100%;
+    }
 `;
 
 const StorePage__divider = styled.hr`
@@ -24,6 +28,11 @@ const StorePage__divider = styled.hr`
         margin: 0 16px;
         max-width: calc(100% - 32px);
         width: 100%;
+    }
+
+    @media screen and (max-width: 1185px) {
+        margin: 0;
+        width: calc(928px);
     }
 `;
 
