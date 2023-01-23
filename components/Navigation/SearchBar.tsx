@@ -64,6 +64,7 @@ const SearchBar__input = styled.input`
     &::placeholder {
         font-size: 16px;
         color: var(--tertiary-gray);
+        text-overflow: ellipsis;
     }
 `
 
