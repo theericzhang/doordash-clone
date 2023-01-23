@@ -26,6 +26,12 @@ const HeroComponent__wrapper = styled.section`
     @media screen and (max-width: 1185px) {
         width: calc(928px + 16px * 2);
     }
+
+    @media screen and (max-width: 480px) {
+        width: 100%;
+        padding: 0;
+        // padding is 16px for other elements
+    }
 `;
 
 const HeroComponent__images__collection = styled.div`
@@ -41,6 +47,10 @@ const HeroComponent__image__wrapper = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+
+    @media screen and (max-width: 480px) {
+        border-radius: 0;
+    }
 `;
 
 const HeroComponent__storeProfile__image__area = styled.div`
@@ -83,6 +93,10 @@ const HeroComponent__information = styled.div`
     justify-content: flex-start;
     row-gap: 4px;
     width: 100%;
+
+    @media screen and (max-width: 480px) {
+        padding: 0 16px;
+    }
 `;
 
 const HeroComponent__restaurantName = styled.h2`
@@ -90,6 +104,10 @@ const HeroComponent__restaurantName = styled.h2`
     font-size: 40px;
     color: var(--primary-black);
     letter-spacing: -1.1px;
+
+    @media screen and (max-width: 480px) {
+        font-size: 32px;
+    }
 `;
 
 const HeroComponent__information__primary = styled.div`
@@ -103,6 +121,11 @@ const HeroComponent__information__span = styled.span`
     column-gap: 6px;
     font-size: 14px;
     align-items: center;
+
+    @media screen and (max-width: 480px) {
+        flex-wrap: wrap;
+        width: 70%;
+    }
 `;
 
 const HeroComponent__information__bullet = styled.span`

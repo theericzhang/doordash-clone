@@ -11,6 +11,10 @@ const AuxOptions__wrapper = styled.div`
     height: 40px;
     column-gap: 15px;
     margin-bottom: 5px;
+
+    @media screen and (max-width: 480px) {
+        align-items: center;
+    }
 `;
 
 const AuxOptions__Button__primary = styled.button`
@@ -38,12 +42,21 @@ const AuxOptions__Button__primary = styled.button`
         transition-property: background-color;
         background-color: var(--quaternary-gray);
     }
+
+    @media screen and (max-width: 480px) {
+        padding: 0 8px;
+        height: 32px;
+    }
 `;
 
 const AuxOptions__Button__label = styled.span`
     font-size: 14px;
     font-weight: 500;
     color: var(--primary-black);
+
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
 `;
 
 const AuxOptions__Toggle__wrapper = styled.button`
