@@ -26,6 +26,14 @@ const SearchBar__wrapper = styled("label")<{isSearchBarToggled: boolean}>`
     &:hover {
         cursor: text;
     }
+
+    @media screen and (max-width: 1280px) {
+        
+    }
+
+    @media screen and (max-width: 1185px) {
+        /* width: fit-content; */
+    }
 `;
 
 const SearchBar__input = styled.input`

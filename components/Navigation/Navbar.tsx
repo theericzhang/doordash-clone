@@ -27,6 +27,11 @@ const Navbar__wrapper = styled.nav`
     padding-left: 64px;
     padding-right: 144px;
     z-index: 2;
+
+    @media screen and (max-width: 1185px) {
+        padding-left: 0;
+        padding-right: 48px;
+    }
 `;
 
 const Navbar__subLeft = styled.ul`
@@ -34,6 +39,10 @@ const Navbar__subLeft = styled.ul`
     align-items: center;
     justify-content: center;
     column-gap: 2px;
+
+    @media screen and (max-width: 1280px) {
+        min-width: 496px;
+    }
 `;
 
 const Navbar__linkGroup = styled.ul`
