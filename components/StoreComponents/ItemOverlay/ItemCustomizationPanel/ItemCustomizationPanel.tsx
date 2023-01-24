@@ -161,9 +161,9 @@ const ItemCustomizationPanel__AddToCart__button = styled.button`
         cursor: pointer;
     }
 
-    @media screen and (max-width: 480) {
+    @media screen and (max-width: 480px) {
         width: 192px;
-        padding: 0 10px;
+        padding: 0 5px;
     }
 `;
 

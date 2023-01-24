@@ -9,6 +9,10 @@ const ModalInputStepper__wrapper = styled.div`
     height: 100%;
     width: fit-content;
     column-gap: 16px;
+    
+    @media screen and (max-width: 480px) {
+        column-gap: 9px;
+    }
 `;
 
 const ModalInputStepper__button = styled.button`
