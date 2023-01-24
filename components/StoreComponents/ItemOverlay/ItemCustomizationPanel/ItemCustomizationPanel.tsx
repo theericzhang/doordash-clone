@@ -40,6 +40,7 @@ const ItemCustomizationPanel__wrapper = styled.div<TItemCustomizationPanel>`
             ? `scale(0.95)`
             : `scale(0.95)`};
     transition: transform 225ms ease-in-out;
+    justify-content: space-between;
 
     @media screen and (max-width: 770px) {
         width: 480px;
@@ -131,6 +132,11 @@ const ItemCustomizationPanel__footer = styled.div`
     height: 72px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px calc(-1px) 15px;
     column-gap: 26px;
+
+    @media screen and (max-width: 480px) {
+        column-gap: 0;
+        justify-content: center;
+    }
 `;
 
 const ItemCustomizationPanel__AddToCart__button = styled.button`
@@ -153,6 +159,11 @@ const ItemCustomizationPanel__AddToCart__button = styled.button`
         transition: ease 0.1s;
         transition-property: background-color;
         cursor: pointer;
+    }
+
+    @media screen and (max-width: 480) {
+        width: 192px;
+        padding: 0 10px;
     }
 `;
 
