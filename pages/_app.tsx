@@ -8,6 +8,7 @@ import Navbar from "../components/Navigation/Navbar";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 import { store } from "../app-redux/store";
+import CartSheet from "../components/CartSheet/CartSheet";
 
 const ttNormsFont = localFont({
     src: [
@@ -69,6 +70,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     * */
                 }
                 {(Component === Home || Component === Store) ? <Navbar /> : null}
+                <CartSheet />
                 <Component {...pageProps} />
             </div>
         </Provider>

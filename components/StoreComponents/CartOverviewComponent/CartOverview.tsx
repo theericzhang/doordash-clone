@@ -18,8 +18,9 @@ const CartOverview__wrapper = styled.aside<{isInCartSheet: boolean}>`
     border-left: 1px solid var(--primary-gray);
     position: fixed;
     right: 0;
-    height: calc(100% - 64px);
+    height: ${props => props.isInCartSheet ? `100%` : `calc(100% - 64px)`};
     overflow-y: scroll;
+    background-color: var(--primary-white);
 
     @media screen and (max-width: 1185px) {
         // hide the component for now - it will show itself when the shopping cart button is triggered

@@ -5,6 +5,10 @@ const CartSheet__wrapper = styled.aside`
     display: flex;
     position: absolute;
     right: -100%;
+    z-index: 3;
+    background-color: var(--primary-white);
+    height: 100%;
+    width: 340px;
 `
 
 export default function CartSheet() {
