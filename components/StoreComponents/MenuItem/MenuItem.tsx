@@ -33,6 +33,8 @@ const Item__wrapper = styled.button`
     @media screen and (max-width: 770px) {
         max-width: 100%;
         width: 100%;
+        border: none;
+        border-radius: 0;
     }
 `;
 
@@ -46,6 +48,7 @@ const Item__text__wrapper = styled.div`
 
     @media screen and (max-width: 770px) {
         max-width: 580px;
+        padding-left: 0;
     }
 `;
 
@@ -102,6 +105,13 @@ const Item__image__wrapper = styled.div`
     position: relative;
     min-width: 143px;
     height: 100%;
+
+    @media screen and (max-width: 770px) {
+        border-radius: 4px;
+        overflow: hidden;
+        min-width: 110px;
+        height: 110px;
+    }
 `;
 
 const Item__image = styled(Image)`

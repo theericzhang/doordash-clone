@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import MenuItem from "../MenuItem/MenuItem";
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import { StoreItemsContext } from "../../../pages/store/[slug]";
 
 const MenuSection__section = styled.section`
@@ -48,7 +48,24 @@ const MenuSection__items__wrapper = styled.div`
         justify-content: space-between;
         column-gap: unset;
     }
+
+    @media screen and (max-width: 770px) {
+        padding: 0 18px;
+    }
 `;
+
+const MenuSection__items__divider = styled.hr`
+    display: none;
+
+    @media screen and (max-width: 770px) {
+        display: block;
+        width: 100%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid var(--primary-gray);
+    }
+`
 
 export default function MenuSection() {
     const restaurantMenu = useContext(StoreItemsContext);
@@ -66,18 +83,19 @@ export default function MenuSection() {
             <MenuSection__items__wrapper>
                 {restaurantMenu?.map((item, index) => {
                     return (
-                        <MenuItem 
-                            itemID={index}
-                            image={item.image}
-                            itemName={item.itemName}
-                            price={item.price}
-                            description={item.description}
-                            ratingCount={item.ratingCount}
-                            ratingPercentage={item.ratingPercentage}
-                            lastOrdered={item?.lastOrdered}
-                            key={item.itemName}
-                        />
-
+                        <Fragment key={item.itemName}>
+                            <MenuItem
+                                itemID={index}
+                                image={item.image}
+                                itemName={item.itemName}
+                                price={item.price}
+                                description={item.description}
+                                ratingCount={item.ratingCount}
+                                ratingPercentage={item.ratingPercentage}
+                                lastOrdered={item?.lastOrdered}
+                            />
+                            <MenuSection__items__divider />
+                        </Fragment>
                     )
                 })}
             </MenuSection__items__wrapper>
