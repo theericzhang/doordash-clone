@@ -17,7 +17,7 @@ const CartOverview__wrapper = styled.aside<{isInCartSheet: boolean}>`
     width: 340px;
     border-left: 1px solid var(--primary-gray);
     position: ${props => props.isInCartSheet ? `relative` : `fixed`};
-    right: 0;
+    right: ${props => props.isInCartSheet ? `unset` : `0`};
     height: ${props => props.isInCartSheet ? `100%` : `calc(100% - 64px)`};
     box-shadow: ${props => props.isInCartSheet ? `rgb(0 0 0 / 20%) 0px 8px 24px;` : `none`};
     overflow-y: scroll;

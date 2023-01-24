@@ -5,9 +5,10 @@ import { toggleIsOpenFromCartSheet } from "../../app-redux/features/cart/cartSli
 
 const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean }>`
     display: flex;
-    position: absolute;
+    position: fixed;
     // width of the wrapper + box shadow = 340px + 24px
     right: ${props => props.isOpenFromCartSheet ? `0px` : `-364px`};
+    top: 0px;
     pointer-events: ${props => props.isOpenFromCartSheet ? `all` : `none`};
     z-index: 3;
     background-color: var(--primary-white);
@@ -20,7 +21,10 @@ export default function CartSheet() {
     const isOpenFromCartSheet = useAppSelector((state) => state.cartSlice.isOpenFromCartSheet);
 
     return (
-        <CartSheet__wrapper isOpenFromCartSheet={!!isOpenFromCartSheet}>
+        <CartSheet__wrapper 
+            isOpenFromCartSheet={!!isOpenFromCartSheet}
+            onBlur={() => {console.log('you just blurred me!!')}}
+        >
             {/* Create an X button that triggers toggleIsOpenFromCartSheet */}
             <CartOverview isInCartSheet={true} />
         </CartSheet__wrapper>
