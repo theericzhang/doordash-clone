@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import CartIcon from "../Icons/CartIcon";
 
-import { useAppSelector } from "../../app-redux/hooks";
+import { useAppSelector, useAppDispatch } from "../../app-redux/hooks";
+import { toggleIsOpenFromCartSheet } from "../../app-redux/features/cart/cartSlice";
 
 const ShoppingCartButton__wrapper = styled.button`
     display: flex;
@@ -44,9 +45,11 @@ export default function ShoppingCartButton() {
     cart.forEach((item) => {
         cartCount += item.quantity;
     });
+
+    const dispatch = useAppDispatch();
     
     return (
-        <ShoppingCartButton__wrapper>
+        <ShoppingCartButton__wrapper onClick={() => {dispatch(toggleIsOpenFromCartSheet())}}>
             <CartIcon />
             <ShoppingCartButton__label>
                 {cartCount}

@@ -3,6 +3,7 @@ import { restaurantList } from "../../../components/datav2";
 
 interface ICartState {
     storeID?: number;
+    isOpenFromCartSheet?: boolean;
     pageViewingStoreID?: number;
     cart: ICartItem[];
     totalValue: number;
@@ -15,6 +16,7 @@ interface ICartItem {
 
 const initialState: ICartState = {
     // storeID: 1243431,
+    isOpenFromCartSheet: false,
     cart: [
         // {
         //     itemID: 0,
@@ -62,6 +64,11 @@ const cartSlice = createSlice({
     name: "cart",
     initialState: initialState,
     reducers: {
+        toggleIsOpenFromCartSheet: (state) => {
+            state.isOpenFromCartSheet = !state.isOpenFromCartSheet;
+            console.log("toggled here", state.isOpenFromCartSheet);
+        },
+
         setPageViewingStoreID: (state, action: PayloadAction<number>) => {
             state.pageViewingStoreID = action.payload;
         },
@@ -125,6 +132,6 @@ const cartSlice = createSlice({
     },
 });
 
-export const { setPageViewingStoreID, setStoreID, resetCartNewStore, addItemToCart, deleteItemFromCart } =
+export const { toggleIsOpenFromCartSheet, setPageViewingStoreID, setStoreID, resetCartNewStore, addItemToCart, deleteItemFromCart } =
     cartSlice.actions;
 export default cartSlice.reducer;
