@@ -93,9 +93,10 @@ const CartOverview__zeroItems__span = styled.span`
 
 type TCartOverview = {
     isInCartSheet: boolean;
+    children?: JSX.Element;
 }
 
-export default function CartOverview({ isInCartSheet }: TCartOverview) {
+export default function CartOverview({ isInCartSheet, children }: TCartOverview) {
     const numberofitems = useAppSelector((state) => state.cartSlice.cart[0]?.quantity);
     console.log(numberofitems);
     
@@ -123,6 +124,7 @@ export default function CartOverview({ isInCartSheet }: TCartOverview) {
     
     return (
         <CartOverview__wrapper isInCartSheet={isInCartSheet}>
+            {children}
             {numberofitems > 0 ?
                 <>
                     <CartOverview__checkout__wrapper>

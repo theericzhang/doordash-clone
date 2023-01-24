@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CartOverview from "../StoreComponents/CartOverviewComponent/CartOverview";
 import { useAppSelector, useAppDispatch } from "../../app-redux/hooks";
 import { toggleIsOpenFromCartSheet } from "../../app-redux/features/cart/cartSlice";
+import X from "../Icons/XIcon";
 
 const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean }>`
     display: flex;
@@ -15,18 +16,42 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean }>`
     height: 100%;
     width: 340px;
     transition: 0.225s right ease;
-`
+`;
+
+const CartSheet__button_close = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
 
 export default function CartSheet() {
     const isOpenFromCartSheet = useAppSelector((state) => state.cartSlice.isOpenFromCartSheet);
+    const dispatch = useAppDispatch();
 
     return (
-        <CartSheet__wrapper 
+        <CartSheet__wrapper
             isOpenFromCartSheet={!!isOpenFromCartSheet}
-            onBlur={() => {console.log('you just blurred me!!')}}
+            onBlur={() => {
+                console.log("you just blurred me!!");
+            }}
         >
             {/* Create an X button that triggers toggleIsOpenFromCartSheet */}
-            <CartOverview isInCartSheet={true} />
+            
+            <CartOverview isInCartSheet={true}>
+                <CartSheet__button_close
+                    onClick={() => dispatch(toggleIsOpenFromCartSheet())}
+                >
+                    <X />
+                </CartSheet__button_close>
+            </CartOverview>
         </CartSheet__wrapper>
     );
 }
