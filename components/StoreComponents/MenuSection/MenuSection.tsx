@@ -12,6 +12,14 @@ const MenuSection__header__wrapper = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 3.5px;
+
+    @media screen and (max-width: 770px) {
+        padding: 0 16px;
+    }
+
+    @media screen and (max-width: 480px) {
+        padding: 0;
+    }
 `;
 
 // reserved for larger headers, like feature items section
@@ -51,6 +59,10 @@ const MenuSection__items__wrapper = styled.div`
 
     @media screen and (max-width: 770px) {
         padding: 0 18px;
+    }
+
+    @media screen and (max-width: 480px) {
+        padding: 0;
     }
 `;
 
