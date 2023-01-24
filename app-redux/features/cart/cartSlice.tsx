@@ -66,7 +66,6 @@ const cartSlice = createSlice({
     reducers: {
         toggleIsOpenFromCartSheet: (state) => {
             state.isOpenFromCartSheet = !state.isOpenFromCartSheet;
-            console.log("toggled here", state.isOpenFromCartSheet);
         },
 
         setPageViewingStoreID: (state, action: PayloadAction<number>) => {

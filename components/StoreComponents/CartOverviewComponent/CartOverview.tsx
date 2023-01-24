@@ -20,6 +20,7 @@ const CartOverview__wrapper = styled.aside<{isInCartSheet: boolean}>`
     right: ${props => props.isInCartSheet ? `unset` : `0`};
     height: ${props => props.isInCartSheet ? `100%` : `calc(100% - 64px)`};
     box-shadow: ${props => props.isInCartSheet ? `rgb(0 0 0 / 20%) 0px 8px 24px;` : `none`};
+    /* padding-top: ${props => props.isInCartSheet ? `72px` : `0`}; */
     overflow-y: scroll;
     background-color: var(--primary-white);
 
@@ -98,7 +99,6 @@ type TCartOverview = {
 
 export default function CartOverview({ isInCartSheet, children }: TCartOverview) {
     const numberofitems = useAppSelector((state) => state.cartSlice.cart[0]?.quantity);
-    console.log(numberofitems);
     
     const restaurants = restaurantList;
 
@@ -124,7 +124,7 @@ export default function CartOverview({ isInCartSheet, children }: TCartOverview)
     
     return (
         <CartOverview__wrapper isInCartSheet={isInCartSheet}>
-            {children}
+            {!!children ? children : null}
             {numberofitems > 0 ?
                 <>
                     <CartOverview__checkout__wrapper>

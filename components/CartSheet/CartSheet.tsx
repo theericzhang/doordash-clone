@@ -22,10 +22,13 @@ const CartSheet__button_close = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 24px;
+    width: 72px;
     height: 24px;
     border: none;
     background-color: transparent;
+    margin: 24px 0;
+    padding: 0 24px;
+    // TODO: Position close button, then responsive styling.
 
     &:hover {
         cursor: pointer;
