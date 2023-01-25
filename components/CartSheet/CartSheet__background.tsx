@@ -8,6 +8,8 @@ const CartSheet__Background = styled.div<{ isStoreCartSheet?: boolean }>`
     background-color: transparent;
     z-index: 3;
     position: fixed;
+    top: 0;
+    left: 0;
 
     @media screen and (max-width: 1185px) {
         display: ${props => props.isStoreCartSheet ? `none` : `flex`}
