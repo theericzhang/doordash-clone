@@ -14,7 +14,7 @@ import { resetCartNewStore } from "../../../app-redux/features/cart/cartSlice";
 const CartOverview__wrapper = styled.aside<{isInCartSheet: boolean}>`
     display: flex;
     flex-direction: column;
-    width: 340px;
+    width: ${props => props.isInCartSheet ? `100%` : `340px`};
     border-left: 1px solid var(--primary-gray);
     position: ${props => props.isInCartSheet ? `relative` : `fixed`};
     right: ${props => props.isInCartSheet ? `unset` : `0`};

@@ -10,9 +10,10 @@ const CartSheet__Background = styled.div<{ isStoreCartSheet?: boolean }>`
     position: fixed;
     top: 0;
     left: 0;
+    display: ${props => props.isStoreCartSheet ? `none` : `flex`};
 
     @media screen and (max-width: 1185px) {
-        display: ${props => props.isStoreCartSheet ? `none` : `flex`}
+        
     }
 `;
 
