@@ -4,7 +4,7 @@ import CartIcon from "../Icons/CartIcon";
 import { useAppSelector, useAppDispatch } from "../../app-redux/hooks";
 import { toggleIsOpenFromCartSheet } from "../../app-redux/features/cart/cartSlice";
 
-const ShoppingCartButton__wrapper = styled.button`
+const ShoppingCartButton__wrapper = styled.button<{ isShoppingCartToggleable?: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,6 +28,10 @@ const ShoppingCartButton__wrapper = styled.button`
         transition: 0.15s ease;
         transition-property: background-color;
         background-color: var(--quaternary-red);
+    }
+
+    @media screen and (min-width: 1185px) {
+        pointer-events: ${props => props.isShoppingCartToggleable ? 'all' : 'none'};
     }
 `;
 
@@ -55,7 +59,7 @@ export default function ShoppingCartButton({ isShoppingCartToggleable }: TShoppi
     return (
         <ShoppingCartButton__wrapper 
             onClick={() => {dispatch(toggleIsOpenFromCartSheet())}}
-            disabled={!isShoppingCartToggleable}
+            isShoppingCartToggleable={isShoppingCartToggleable}
         >
             <CartIcon />
             <ShoppingCartButton__label>

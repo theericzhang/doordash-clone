@@ -5,7 +5,7 @@ import { toggleIsOpenFromCartSheet } from "../../app-redux/features/cart/cartSli
 import X from "../Icons/XIcon";
 import CartSheet__background from "./CartSheet__background";
 
-const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean }>`
+const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreCartSheet?: boolean }>`
     display: flex;
     position: fixed;
     // width of the wrapper + box shadow = 340px + 24px
@@ -19,10 +19,11 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean }>`
     transition: 0.225s right ease;
 
     @media screen and (min-width: 1185px) {
-        display: none;
+        display: ${props => props.isStoreCartSheet ? `none` : `flex`};
     }
 
     @media screen and (max-width: 770px) {
+        display: ${props => props.isStoreCartSheet ? `flex`: `none`};
         right: ${props => !props.isOpenFromCartSheet ? `0px` : `-364px`};
         pointer-events: ${props => !props.isOpenFromCartSheet ? `all` : `none`};
     }
@@ -45,22 +46,26 @@ const CartSheet__button_close = styled.button`
     background-color: transparent;
     margin: 18px 0;
     padding: 18px 0;
-    // TODO: Position close button, then responsive styling.
 
     &:hover {
         cursor: pointer;
     }
 `;
 
-export default function CartSheet() {
+type TCartSheet = {
+    isStoreCartSheet?: boolean;
+}
+
+export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
     const isOpenFromCartSheet = useAppSelector((state) => state.cartSlice.isOpenFromCartSheet);
     const dispatch = useAppDispatch();
 
     return (
         <>
-            {isOpenFromCartSheet ? <CartSheet__background /> : null}
+            {isOpenFromCartSheet ? <CartSheet__background /> : !!isStoreCartSheet ? <CartSheet__background isStoreCartSheet={isStoreCartSheet} /> : null}
             <CartSheet__wrapper
                 isOpenFromCartSheet={!!isOpenFromCartSheet}
+                isStoreCartSheet={!!isStoreCartSheet}
             >
                 {/* Create an X button that triggers toggleIsOpenFromCartSheet */}
             

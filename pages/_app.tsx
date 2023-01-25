@@ -64,16 +64,24 @@ export default function App({ Component, pageProps }: AppProps) {
         <Provider store={store}>
             <div className={ttNormsFont.className}>
                 <GlobalStyles />
-                {
-                    /**
-                    * Check if the child component pages (Component prop) are either Home or Store. If they are,
-                    * Render a <Navbar />
-                    * */
-                }
-                {(Component === Home || Component === Store) 
-                    ? (Component !== Store) ? <Navbar isShoppingCartToggleable={true} /> : <Navbar isShoppingCartToggleable={false} /> : null}
+                {/**
+                 * Check if the child component pages (Component prop) are either Home or Store. If they are,
+                 * Render a <Navbar />
+                 * */}
+                {Component === Home || Component === Store ? (
+                    Component !== Store ? (
+                        <Navbar isShoppingCartToggleable={true} />
+                    ) : (
+                        <Navbar isShoppingCartToggleable={false} />
+                    )
+                ) : null}
                 {/* {(Component !== Store) ? <CartSheet /> : null} */}
-                <CartSheet />
+                {/* Consider passing a cartSheet with property isStoreCartSheet for Component === store? So we can use this boolean to hide/show the cart sheet */}
+                {Component === Home ? (
+                    <CartSheet />
+                ) : Component === Store ? (
+                    <CartSheet isStoreCartSheet={true} />
+                ) : null}
                 <Component {...pageProps} />
             </div>
         </Provider>
