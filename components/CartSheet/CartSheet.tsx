@@ -17,7 +17,23 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean }>`
     height: 100%;
     width: 340px;
     transition: 0.225s right ease;
+
+    @media screen and (min-width: 1185px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 770px) {
+        right: ${props => !props.isOpenFromCartSheet ? `0px` : `-364px`};
+        pointer-events: ${props => !props.isOpenFromCartSheet ? `all` : `none`};
+    }
 `;
+
+/**
+ * TODO: FIGURE OUT HOW TO ENABLE CARTSHEET ON STORE PAGE WHEN VIEWPORT WIDTH IS LESS THAN 1185px.
+ * TODO: KEEP BUTTON -SHOPPINGCARTBUTTON- THAT TOGGLES STATE (COMPLETELY ENABLED) ON HOME PAGE
+ * TODO: DISABLE THE SAME BUTTON WHEN ON STORE PAGE, BUT ENABLE IT WHEN VIEWPORT WIDTH IS LESS THAN 1185px. 
+ * TODO: TRY NOT TO USE COSTLY EVENT LISTENERS LIKE RESIZE EVENTS
+ */
 
 const CartSheet__button_close = styled.button`
     display: flex;
