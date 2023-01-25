@@ -14,6 +14,7 @@ const InputStepper__wrapper = styled.div`
     background-color: var(--secondary-gray);
     border-radius: 17px;
     box-shadow: rgb(0 0 0 / 20%) 0px 2px 8px;
+    margin-left: auto;
 `;
 
 const InputStepper__button = styled.button`

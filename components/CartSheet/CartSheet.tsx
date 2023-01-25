@@ -45,9 +45,6 @@ export default function CartSheet() {
             {isOpenFromCartSheet ? <CartSheet__background /> : null}
             <CartSheet__wrapper
                 isOpenFromCartSheet={!!isOpenFromCartSheet}
-                onBlur={() => {
-                    console.log("you just blurred me!!");
-                }}
             >
                 {/* Create an X button that triggers toggleIsOpenFromCartSheet */}
             
