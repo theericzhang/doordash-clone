@@ -70,7 +70,9 @@ export default function App({ Component, pageProps }: AppProps) {
                     * Render a <Navbar />
                     * */
                 }
-                {(Component === Home || Component === Store) ? <Navbar /> : null}
+                {(Component === Home || Component === Store) 
+                    ? (Component !== Store) ? <Navbar isShoppingCartToggleable={true} /> : <Navbar isShoppingCartToggleable={false} /> : null}
+                {/* {(Component !== Store) ? <CartSheet /> : null} */}
                 <CartSheet />
                 <Component {...pageProps} />
             </div>

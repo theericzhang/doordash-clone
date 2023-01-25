@@ -122,9 +122,13 @@ const Navbar__subRight = styled.ul`
     @media screen and (max-width: 770px) {
         width: 100%;
     }
-`
+`;
 
-export default function Navbar() {
+type TNavBar = {
+    isShoppingCartToggleable: boolean;
+}
+
+export default function Navbar({ isShoppingCartToggleable }: TNavBar) {
 
     // AddressButtonToggle state that reveals address list
     const [ isAddressButtonToggled, setIsAddressButtonToggled ] = useState(false);
@@ -167,7 +171,7 @@ export default function Navbar() {
                     isSearchBarToggled={isSearchBarToggled}
                     setIsSearchBarToggled={setIsSearchBarToggled} 
                 />
-                <ShoppingCartButton />
+                <ShoppingCartButton isShoppingCartToggleable={isShoppingCartToggleable}/>
             </Navbar__subRight>
         </Navbar__wrapper>
     );

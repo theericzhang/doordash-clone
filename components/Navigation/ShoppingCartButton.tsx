@@ -37,7 +37,11 @@ const ShoppingCartButton__label = styled.h4`
     font-size: 14px;
 `;
 
-export default function ShoppingCartButton() {
+type TShoppingCartButton = {
+    isShoppingCartToggleable: boolean;
+}
+
+export default function ShoppingCartButton({ isShoppingCartToggleable }: TShoppingCartButton) {
     
     // calculate total number of items in cart
     const cart = useAppSelector((state) => state.cartSlice.cart);
@@ -49,7 +53,10 @@ export default function ShoppingCartButton() {
     const dispatch = useAppDispatch();
     
     return (
-        <ShoppingCartButton__wrapper onClick={() => {dispatch(toggleIsOpenFromCartSheet())}}>
+        <ShoppingCartButton__wrapper 
+            onClick={() => {dispatch(toggleIsOpenFromCartSheet())}}
+            disabled={!isShoppingCartToggleable}
+        >
             <CartIcon />
             <ShoppingCartButton__label>
                 {cartCount}
