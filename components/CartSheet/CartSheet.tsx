@@ -22,6 +22,10 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreC
         display: ${props => props.isStoreCartSheet ? `none` : `flex`};
     }
 
+    @media screen and (max-width: 1185px) {
+        width: ${props => props.isStoreCartSheet && props.isOpenFromCartSheet && `50%`};
+    }
+
     @media screen and (max-width: 770px) {
         display: ${props => props.isStoreCartSheet ? `flex`: `none`};
         right: ${props => !props.isOpenFromCartSheet ? `0px` : `-364px`};
