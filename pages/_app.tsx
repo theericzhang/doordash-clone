@@ -59,6 +59,7 @@ export default function App({ Component, pageProps }: AppProps) {
     useEffect(() => {
         console.log('%chttps://anericzhang.com', 'background: orange; font-size: 16px');
     }, []);
+
     return (
         <Provider store={store}>
             <div className={ttNormsFont.className}>
