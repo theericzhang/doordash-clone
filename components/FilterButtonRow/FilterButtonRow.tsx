@@ -22,7 +22,6 @@ const FilterButtonRow__wrapper = styled.div`
 `;
 
 const FilterButtonRow__resizer = styled.div`
-    // TODO: responsive styling for smaller screens. Currently drafting at device width = 1800px
 
     width: 1152px;
     margin-left: auto;
