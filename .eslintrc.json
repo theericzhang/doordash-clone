@@ -1,11 +1,9 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:jsx-a11y/recommended"
-],
-  "plugins": [
-    "jsx-a11y"
-    ],
+  "extends": ["next/core-web-vitals","plugin:jsx-a11y/recommended", "airbnb", "airbnb-typescript"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["jsx-a11y"],
     "rules": {
         "jsx-a11y/accessible-emoji": 2,
         "jsx-a11y/alt-text": 2,
