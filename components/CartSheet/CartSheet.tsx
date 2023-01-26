@@ -1,17 +1,17 @@
-import styled from "styled-components";
-import CartOverview from "../StoreComponents/CartOverviewComponent/CartOverview";
-import { useAppSelector, useAppDispatch } from "../../app-redux/hooks";
-import { toggleIsOpenFromCartSheet } from "../../app-redux/features/cart/cartSlice";
-import X from "../Icons/XIcon";
-import CartSheet__background from "./CartSheet__background";
+import styled from 'styled-components';
+import CartOverview from '../StoreComponents/CartOverviewComponent/CartOverview';
+import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
+import { toggleIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSlice';
+import X from '../Icons/XIcon';
+import CartSheetBackground from './CartSheetBackground';
 
 const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreCartSheet?: boolean }>`
     display: flex;
     position: fixed;
     // width of the wrapper + box shadow = 340px + 24px
-    right: ${props => props.isOpenFromCartSheet ? `0px` : `-370px`};
+    right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-370px')};
     top: 0px;
-    pointer-events: ${props => props.isOpenFromCartSheet ? `all` : `none`};
+    pointer-events: ${(props) => (props.isOpenFromCartSheet ? 'all' : 'none')};
     z-index: 4;
     background-color: var(--primary-white);
     height: 100%;
@@ -19,27 +19,27 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreC
     transition: 0.225s right ease;
 
     @media screen and (min-width: 1185px) {
-        display: ${props => props.isStoreCartSheet ? `none` : `flex`};
+        display: ${(props) => (props.isStoreCartSheet ? 'none' : 'flex')};
     }
 
     @media screen and (max-width: 1185px) {
-        width: ${props => props.isStoreCartSheet && props.isOpenFromCartSheet && `50%`};
-        right: ${props => props.isOpenFromCartSheet ? `0px` : `-53%`};
+        width: ${(props) => props.isStoreCartSheet && props.isOpenFromCartSheet && '50%'};
+        right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-53%')};
     }
 
     @media screen and (max-width: 770px) {
-        /* display: ${props => props.isStoreCartSheet ? `flex`: `none`}; */
+        /* display: ${(props) => (props.isStoreCartSheet ? 'flex' : 'none')}; */
         display: flex;
-        width: ${props => props.isStoreCartSheet && props.isOpenFromCartSheet && `375px`};
-        right: ${props => props.isOpenFromCartSheet ? `0px` : `-394px`};
-        /* right: ${props => props.isOpenFromCartSheet ? `0px` : `-100%`}; */
+        width: ${(props) => props.isStoreCartSheet && props.isOpenFromCartSheet && '375px'};
+        right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-394px')};
+        /* right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-100%')}; */
         pointer-events: all;
-        /* pointer-events: ${props => !props.isOpenFromCartSheet ? `all` : `none`}; */
+        /* pointer-events: ${(props) => (!props.isOpenFromCartSheet ? 'all' : 'none')}; */
     }
 
     @media screen and (max-width: 480px) {
         width: 100%;
-        right: ${props => props.isOpenFromCartSheet ? `0px` : `-105%`};
+        right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-105%')};
     }
 `;
 
@@ -61,7 +61,7 @@ const CartSheet__button_close = styled.button`
 
 type TCartSheet = {
     isStoreCartSheet?: boolean;
-}
+};
 
 export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
     const isOpenFromCartSheet = useAppSelector((state) => state.cartSlice.isOpenFromCartSheet);
@@ -69,14 +69,14 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
 
     return (
         <>
-            {isOpenFromCartSheet ? <CartSheet__background /> : !!isStoreCartSheet ? <CartSheet__background isStoreCartSheet={isStoreCartSheet} /> : null}
+            {isOpenFromCartSheet ?
+                <CartSheetBackground /> : isStoreCartSheet ?
+                    <CartSheetBackground isStoreCartSheet={isStoreCartSheet} /> : null}
             <CartSheet__wrapper
                 isOpenFromCartSheet={!!isOpenFromCartSheet}
                 isStoreCartSheet={!!isStoreCartSheet}
             >
-                {/* Create an X button that triggers toggleIsOpenFromCartSheet */}
-            
-                <CartOverview isInCartSheet={true}>
+                <CartOverview isInCartSheet>
                     <CartSheet__button_close
                         onClick={() => dispatch(toggleIsOpenFromCartSheet())}
                     >

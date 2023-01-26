@@ -1,32 +1,45 @@
 {
-  "extends": ["next/core-web-vitals","plugin:jsx-a11y/recommended", "airbnb", "airbnb-typescript"],
+  "extends": ["next/core-web-vitals", "plugin:jsx-a11y/strict", "plugin:styled-components-a11y/strict", "airbnb", "airbnb-typescript"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["jsx-a11y"],
+  "plugins": ["jsx-a11y", "styled-components-a11y"],
     "rules": {
-        "jsx-a11y/accessible-emoji": 2,
-        "jsx-a11y/alt-text": 2,
-        "jsx-a11y/anchor-has-content": 2,
-        "jsx-a11y/anchor-is-valid": [2, {
-            "aspects": ["noHref", "invalidHref"]
-        }],
-        "jsx-a11y/aria-activedescendant-has-tabindex": 2,
-        "jsx-a11y/aria-props": 2,
-        "jsx-a11y/aria-proptypes": 2,
-        "jsx-a11y/aria-role": 2,
-        "jsx-a11y/aria-unsupported-elements": 2,
-        "jsx-a11y/heading-has-content": 2,
-        "jsx-a11y/iframe-has-title": 2,
-        "jsx-a11y/img-redundant-alt": 2,
-        "jsx-a11y/no-access-key": 2,
-        "jsx-a11y/no-distracting-elements": [2, {
-            "elements": ["marquee", "blink"]
-        }],
-        "jsx-a11y/no-redundant-roles": 2,
-        "jsx-a11y/role-has-required-aria-props": 2,
-        "jsx-a11y/role-supports-aria-props": 2,
-        "jsx-a11y/scope": 2,
-        "jsx-a11y/tabindex-no-positive": 2
+        "no-param-reassign": 0,
+        "no-plusplus": 0,
+
+        // Indent with 4 spaces
+        "indent": ["error", 4],
+        "@typescript-eslint/indent": 0,
+
+        // Indent JSX with 4 spaces
+        "react/jsx-indent": ["error", 4],
+
+        // Indent props with 4 spaces
+        "react/jsx-indent-props": ["error", 4],
+
+        // Operator, like +=, linebreak
+        "operator-linebreak": 0,
+
+        // Trailing comma dangle
+        "@typescript-eslint/comma-dangle": 0,
+
+        // Suppress errors for React scope since Next.js takes care of it
+        "react/react-in-jsx-scope": 0,
+
+        // Suppress no-console
+        "no-console": 0,
+
+        // Suppress no-nested-ternary
+        "no-nested-ternary": 0,
+
+        // Suppress jsx-no-props-spreading
+        "react/jsx-props-no-spreading" : 0,
+
+        // Suppress jsx-pascal-case
+        "react/jsx-pascal-case": 0,
+
+        // Suppress proptypes as TypeScript is being used
+        "react/require-default-props": 0
     }
 }

@@ -1,7 +1,6 @@
-import styled from "styled-components";
-import React, { useState } from "react";
-import MinusCircle from "../../../../Icons/MinusCircleIcon";
-import PlusCircle from "../../../../Icons/PlusCircleIcon";
+import styled from 'styled-components';
+import MinusCircle from '../../../../Icons/MinusCircleIcon';
+import PlusCircle from '../../../../Icons/PlusCircleIcon';
 
 const ModalInputStepper__wrapper = styled.div`
     display: flex;
@@ -59,23 +58,24 @@ const ModalInputStepper__input = styled.input`
 type TModalInputStepper = {
     itemCounter: number;
     setItemCounter: React.Dispatch<React.SetStateAction<number>>;
-}
+};
 
 export default function ModalInputStepper({ itemCounter, setItemCounter }: TModalInputStepper) {
     function incrementCounter() {
-        setItemCounter(prevItemCounter => prevItemCounter + 1);
+        setItemCounter((prevItemCounter) => prevItemCounter + 1);
     }
 
     function decrementCounter() {
         if (itemCounter > 1) {
-            setItemCounter(prevItemCounter => prevItemCounter - 1);
+            setItemCounter((prevItemCounter) => prevItemCounter - 1);
         }
-    };
+    }
 
-    // this is pretty important. Without this, the text cursor will be placed anywhere along existing text, but you can't delete it.
+    // this is pretty important. Without this, the text cursor will be
+    // placed anywhere along existing text, but you can't delete it.
     // by selecting the entire field on click, we can ensure that the input will be properly reset.
     function setInputFocus() {
-        (document.getElementById("ModalInputStepperInput") as HTMLInputElement).select();
+        (document.getElementById('ModalInputStepperInput') as HTMLInputElement).select();
     }
 
     return (
@@ -84,9 +84,9 @@ export default function ModalInputStepper({ itemCounter, setItemCounter }: TModa
                 <MinusCircle isEnabled={itemCounter > 1} />
             </ModalInputStepper__button>
             <ModalInputStepper__input
-                placeholder={"1"}
+                placeholder="1"
                 value={itemCounter}
-                type={"number"}
+                type="number"
                 onChange={(e) => {
                     setItemCounter(Number(e.target.value));
                 }}
@@ -94,7 +94,7 @@ export default function ModalInputStepper({ itemCounter, setItemCounter }: TModa
                 onFocus={setInputFocus}
             />
             <ModalInputStepper__button onClick={incrementCounter}>
-                <PlusCircle isEnabled={true}/>
+                <PlusCircle isEnabled />
             </ModalInputStepper__button>
         </ModalInputStepper__wrapper>
     );
