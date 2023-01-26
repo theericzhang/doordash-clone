@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import FilterButton from "./FilterButton";
-import DashPass from "../Icons/DashPassIcon";
-import Coupon from "../Icons/CouponIcon";
-import Star from "../Icons/StarIcon";
+import styled from 'styled-components';
+import FilterButton from './FilterButton';
+import DashPass from '../Icons/DashPassIcon';
+import Coupon from '../Icons/CouponIcon';
+import Star from '../Icons/StarIcon';
 
-const FilterButtonRow__wrapper = styled.div`
+const FilterButtonRowWrapper = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
@@ -21,7 +21,7 @@ const FilterButtonRow__wrapper = styled.div`
     }
 `;
 
-const FilterButtonRow__resizer = styled.div`
+const FilterButtonRowResizer = styled.div`
 
     width: 1152px;
     margin-left: auto;
@@ -53,7 +53,7 @@ const FilterButtonRow__resizer = styled.div`
     }
 `;
 
-const FilterButtonRow__list = styled.ul`
+const FilterButtonRowList = styled.ul`
     display: flex;
     column-gap: 8px;
     list-style: none;
@@ -71,42 +71,42 @@ const FilterButtonRow__list = styled.ul`
 export default function FilterButtonRow() {
     const filterButtonData = [
         {
-            buttonLabel: "DashPass",
+            buttonLabel: 'DashPass',
             leftLogo: <DashPass />,
             rightLogo: null,
             hasDivider: false,
             hasDropdown: false,
         },
         {
-            buttonLabel: "Offers",
+            buttonLabel: 'Offers',
             leftLogo: <Coupon />,
             rightLogo: null,
             hasDivider: false,
             hasDropdown: false,
         },
         {
-            buttonLabel: "Pickup",
+            buttonLabel: 'Pickup',
             leftLogo: null,
             rightLogo: null,
             hasDivider: false,
             hasDropdown: false,
         },
         {
-            buttonLabel: "Over 4.5",
+            buttonLabel: 'Over 4.5',
             leftLogo: null,
             rightLogo: <Star />,
             hasDivider: true,
             hasDropdown: true,
         },
         {
-            buttonLabel: "Under 30 min",
+            buttonLabel: 'Under 30 min',
             leftLogo: null,
             rightLogo: null,
             hasDivider: false,
             hasDropdown: false,
         },
         {
-            buttonLabel: "Price",
+            buttonLabel: 'Price',
             leftLogo: null,
             rightLogo: null,
             hasDivider: false,
@@ -115,19 +115,17 @@ export default function FilterButtonRow() {
     ];
 
     return (
-        <FilterButtonRow__wrapper>
-            <FilterButtonRow__resizer>
-                <FilterButtonRow__list>
-                    {filterButtonData.map((buttonData) => {
-                        return (
-                            <FilterButton
-                                buttonData={buttonData}
-                                key={buttonData.buttonLabel}
-                            />
-                        );
-                    })}
-                </FilterButtonRow__list>
-            </FilterButtonRow__resizer>
-        </FilterButtonRow__wrapper>
+        <FilterButtonRowWrapper>
+            <FilterButtonRowResizer>
+                <FilterButtonRowList>
+                    {filterButtonData.map((buttonData) => (
+                        <FilterButton
+                            buttonData={buttonData}
+                            key={buttonData.buttonLabel}
+                        />
+                    ))}
+                </FilterButtonRowList>
+            </FilterButtonRowResizer>
+        </FilterButtonRowWrapper>
     );
 }
