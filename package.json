@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^13.1.5",
     "@next/font": "^13.1.1",
     "@reduxjs/toolkit": "^1.9.1",
     "@types/node": "18.11.18",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@types/react-transition-group": "^4.4.5",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "eslint-plugin-jsx-a11y": "^6.7.1"
   }
 }
