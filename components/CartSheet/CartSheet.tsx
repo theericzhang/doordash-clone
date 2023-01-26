@@ -5,7 +5,7 @@ import { toggleIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSli
 import X from '../Icons/XIcon';
 import CartSheetBackground from './CartSheetBackground';
 
-const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreCartSheet?: boolean }>`
+const CartSheetWrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreCartSheet?: boolean }>`
     display: flex;
     position: fixed;
     // width of the wrapper + box shadow = 340px + 24px
@@ -28,13 +28,10 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreC
     }
 
     @media screen and (max-width: 770px) {
-        /* display: ${(props) => (props.isStoreCartSheet ? 'flex' : 'none')}; */
         display: flex;
         width: ${(props) => props.isStoreCartSheet && props.isOpenFromCartSheet && '375px'};
         right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-394px')};
-        /* right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-100%')}; */
         pointer-events: all;
-        /* pointer-events: ${(props) => (!props.isOpenFromCartSheet ? 'all' : 'none')}; */
     }
 
     @media screen and (max-width: 480px) {
@@ -43,7 +40,7 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreC
     }
 `;
 
-const CartSheet__button_close = styled.button`
+const CartSheetButtonClose = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,18 +69,18 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
             {isOpenFromCartSheet ?
                 <CartSheetBackground /> : isStoreCartSheet ?
                     <CartSheetBackground isStoreCartSheet={isStoreCartSheet} /> : null}
-            <CartSheet__wrapper
+            <CartSheetWrapper
                 isOpenFromCartSheet={!!isOpenFromCartSheet}
                 isStoreCartSheet={!!isStoreCartSheet}
             >
                 <CartOverview isInCartSheet>
-                    <CartSheet__button_close
+                    <CartSheetButtonClose
                         onClick={() => dispatch(toggleIsOpenFromCartSheet())}
                     >
                         <X />
-                    </CartSheet__button_close>
+                    </CartSheetButtonClose>
                 </CartOverview>
-            </CartSheet__wrapper>
+            </CartSheetWrapper>
         </>
     );
 }

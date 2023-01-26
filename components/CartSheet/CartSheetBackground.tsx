@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useAppDispatch } from '../../app-redux/hooks';
 import { toggleIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSlice';
 
-const CartSheet__Background = styled.div<{ isStoreCartSheet?: boolean }>`
+const CartSheetBackgroundWrapper = styled.div<{ isStoreCartSheet?: boolean }>`
     width: 100vw;
     height: 100vh;
     background-color: transparent;
@@ -25,7 +25,7 @@ export default function CartSheetBackground({ isStoreCartSheet }: TCartSheetBack
     const dispatch = useAppDispatch();
 
     return (
-        <CartSheet__Background
+        <CartSheetBackgroundWrapper
             onClick={() => { dispatch(toggleIsOpenFromCartSheet()); }}
             isStoreCartSheet={isStoreCartSheet}
         />
