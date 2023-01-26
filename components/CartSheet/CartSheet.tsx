@@ -9,7 +9,7 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreC
     display: flex;
     position: fixed;
     // width of the wrapper + box shadow = 340px + 24px
-    right: ${props => props.isOpenFromCartSheet ? `0px` : `-100%`};
+    right: ${props => props.isOpenFromCartSheet ? `0px` : `-370px`};
     top: 0px;
     pointer-events: ${props => props.isOpenFromCartSheet ? `all` : `none`};
     z-index: 4;
@@ -24,12 +24,14 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreC
 
     @media screen and (max-width: 1185px) {
         width: ${props => props.isStoreCartSheet && props.isOpenFromCartSheet && `50%`};
+        right: ${props => props.isOpenFromCartSheet ? `0px` : `-53%`};
     }
 
     @media screen and (max-width: 770px) {
         /* display: ${props => props.isStoreCartSheet ? `flex`: `none`}; */
         display: flex;
         width: ${props => props.isStoreCartSheet && props.isOpenFromCartSheet && `375px`};
+        right: ${props => props.isOpenFromCartSheet ? `0px` : `-394px`};
         /* right: ${props => props.isOpenFromCartSheet ? `0px` : `-100%`}; */
         pointer-events: all;
         /* pointer-events: ${props => !props.isOpenFromCartSheet ? `all` : `none`}; */
@@ -37,6 +39,7 @@ const CartSheet__wrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreC
 
     @media screen and (max-width: 480px) {
         width: 100%;
+        right: ${props => props.isOpenFromCartSheet ? `0px` : `-105%`};
     }
 `;
 
