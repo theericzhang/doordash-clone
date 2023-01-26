@@ -27,6 +27,16 @@ const Navbar__wrapper = styled.nav`
     padding-left: 64px;
     padding-right: 144px;
     z-index: 2;
+
+    @media screen and (max-width: 1185px) {
+        padding-left: 0;
+        padding-right: 48px;
+    }
+
+    @media screen and (max-width: 960px) {
+        padding-left: 0;
+        padding-right: 16px;
+    }
 `;
 
 const Navbar__subLeft = styled.ul`
@@ -34,6 +44,19 @@ const Navbar__subLeft = styled.ul`
     align-items: center;
     justify-content: center;
     column-gap: 2px;
+
+    @media screen and (max-width: 1280px) {
+        min-width: 496px;
+    }
+
+    @media screen and (max-width: 960px) {
+        justify-content: flex-start;
+        min-width: fit-content;
+    }
+
+    @media screen and (max-width: 770px) {
+        margin-right: 30px;
+    }
 `;
 
 const Navbar__linkGroup = styled.ul`
@@ -42,6 +65,10 @@ const Navbar__linkGroup = styled.ul`
     align-items: center;
     margin-left: 32px;
     margin-right: 16px;
+
+    @media screen and (max-width: 770px) {
+        display: none;
+    }
 `;
 
 const Navbar__link__wrapper = styled.div`
@@ -71,6 +98,10 @@ const Navbar__verticalDivider = styled.hr`
     height: 24px;
     border: 1px solid var(--primary-gray);
     border-radius: 2px;
+
+    @media screen and (max-width: 960px) {
+        display: none;
+    }
 `;
 
 const Navbar__subRight = styled.ul`
@@ -78,9 +109,26 @@ const Navbar__subRight = styled.ul`
     align-items: center;
     justify-content: center;
     column-gap: 16px;
-`
 
-export default function Navbar() {
+    @media screen and (max-width: 1185px) {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    @media screen and (max-width: 960px) {
+        padding-right: 24px;
+    }
+
+    @media screen and (max-width: 770px) {
+        width: 100%;
+    }
+`;
+
+type TNavBar = {
+    isShoppingCartToggleable: boolean;
+}
+
+export default function Navbar({ isShoppingCartToggleable }: TNavBar) {
 
     // AddressButtonToggle state that reveals address list
     const [ isAddressButtonToggled, setIsAddressButtonToggled ] = useState(false);
@@ -123,7 +171,7 @@ export default function Navbar() {
                     isSearchBarToggled={isSearchBarToggled}
                     setIsSearchBarToggled={setIsSearchBarToggled} 
                 />
-                <ShoppingCartButton />
+                <ShoppingCartButton isShoppingCartToggleable={isShoppingCartToggleable}/>
             </Navbar__subRight>
         </Navbar__wrapper>
     );

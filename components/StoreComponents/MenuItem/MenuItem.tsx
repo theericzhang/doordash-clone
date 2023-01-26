@@ -25,6 +25,17 @@ const Item__wrapper = styled.button`
         transition: 0.25s ease;
         transition-property: border-color;
     }
+
+    @media screen and (max-width: 1300px) {
+        max-width: 49.1%;
+    }
+
+    @media screen and (max-width: 770px) {
+        max-width: 100%;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+    }
 `;
 
 const Item__text__wrapper = styled.div`
@@ -34,6 +45,11 @@ const Item__text__wrapper = styled.div`
     padding: 0 16px;
     row-gap: 5px;
     max-width: 313px;
+
+    @media screen and (max-width: 770px) {
+        max-width: 580px;
+        padding-left: 0;
+    }
 `;
 
 const Item__text__name = styled.span`
@@ -87,8 +103,15 @@ const Item__image__wrapper = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 143px;
+    min-width: 143px;
     height: 100%;
+
+    @media screen and (max-width: 770px) {
+        border-radius: 4px;
+        overflow: hidden;
+        min-width: 110px;
+        height: 110px;
+    }
 `;
 
 const Item__image = styled(Image)`

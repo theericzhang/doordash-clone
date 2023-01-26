@@ -48,7 +48,7 @@ export default function Store({ restaurant, storeID }: TServerSideProps) {
                 <StoreItemsContext.Provider value={restaurant.storefrontData.items}>
                     <QuickActions />
                 </StoreItemsContext.Provider>
-                <CartOverview />
+                <CartOverview isInCartSheet={false}/>
             </StoreLayout>
         </>
     );

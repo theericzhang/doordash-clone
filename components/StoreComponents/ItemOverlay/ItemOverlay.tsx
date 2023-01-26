@@ -31,6 +31,14 @@ const ItemModal__wrapper = styled.section<ItemModalWrapperProps>`
                         ? 0 
                         : 0)};
     transition: opacity 225ms ease;
+
+    @media screen and (max-width: 770px) {
+        padding: 0 16px;
+    }
+
+    @media screen and (max-width: 480px) {
+        padding: 0;
+    }
 `;
 
 export default function ItemModal() {

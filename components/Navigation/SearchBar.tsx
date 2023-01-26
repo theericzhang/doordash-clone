@@ -26,6 +26,25 @@ const SearchBar__wrapper = styled("label")<{isSearchBarToggled: boolean}>`
     &:hover {
         cursor: text;
     }
+
+    @media screen and (max-width: 1280px) {
+        
+    }
+
+    @media screen and (max-width: 1185px) {
+        /* width: fit-content; */
+        width: 300px;
+    }
+
+    @media screen and (max-width: 960px) {
+        width: 100%;
+        max-width: 460px;
+    }
+
+    @media screen and (max-width: 770px) {
+        width: 100%;
+        max-width: 550px;
+    }
 `;
 
 const SearchBar__input = styled.input`
@@ -45,6 +64,7 @@ const SearchBar__input = styled.input`
     &::placeholder {
         font-size: 16px;
         color: var(--tertiary-gray);
+        text-overflow: ellipsis;
     }
 `
 

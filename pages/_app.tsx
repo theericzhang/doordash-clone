@@ -8,6 +8,7 @@ import Navbar from "../components/Navigation/Navbar";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 import { store } from "../app-redux/store";
+import CartSheet from "../components/CartSheet/CartSheet";
 
 const ttNormsFont = localFont({
     src: [
@@ -58,17 +59,29 @@ export default function App({ Component, pageProps }: AppProps) {
     useEffect(() => {
         console.log('%chttps://anericzhang.com', 'background: orange; font-size: 16px');
     }, []);
+
     return (
         <Provider store={store}>
             <div className={ttNormsFont.className}>
                 <GlobalStyles />
-                {
-                    /**
-                    * Check if the child component pages (Component prop) are either Home or Store. If they are,
-                    * Render a <Navbar />
-                    * */
-                }
-                {(Component === Home || Component === Store) ? <Navbar /> : null}
+                {/**
+                 * Check if the child component pages (Component prop) are either Home or Store. If they are,
+                 * Render a <Navbar />
+                 * */}
+                {Component === Home || Component === Store ? (
+                    Component !== Store ? (
+                        <Navbar isShoppingCartToggleable={true} />
+                    ) : (
+                        <Navbar isShoppingCartToggleable={false} />
+                    )
+                ) : null}
+                {/* {(Component !== Store) ? <CartSheet /> : null} */}
+                {/* Consider passing a cartSheet with property isStoreCartSheet for Component === store? So we can use this boolean to hide/show the cart sheet */}
+                {Component === Home ? (
+                    <CartSheet />
+                ) : Component === Store ? (
+                    <CartSheet isStoreCartSheet={true} />
+                ) : null}
                 <Component {...pageProps} />
             </div>
         </Provider>

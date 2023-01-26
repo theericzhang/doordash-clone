@@ -6,6 +6,7 @@ const CartItem__wrapper = styled.a`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    column-gap: 20px;
     align-items: center;
     padding: 16px 0;
     padding-left: 5px;

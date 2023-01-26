@@ -11,15 +11,23 @@ import { restaurantList } from "../../datav2";
 import { useAppDispatch, useAppSelector } from "../../../app-redux/hooks";
 import { resetCartNewStore } from "../../../app-redux/features/cart/cartSlice";
 
-const CartOverview__wrapper = styled.aside`
+const CartOverview__wrapper = styled.aside<{isInCartSheet: boolean}>`
     display: flex;
     flex-direction: column;
-    width: 340px;
+    width: ${props => props.isInCartSheet ? `100%` : `340px`};
     border-left: 1px solid var(--primary-gray);
-    position: fixed;
-    right: 0;
-    height: calc(100% - 64px);
+    position: ${props => props.isInCartSheet ? `relative` : `fixed`};
+    right: ${props => props.isInCartSheet ? `unset` : `0`};
+    height: ${props => props.isInCartSheet ? `100%` : `calc(100% - 64px)`};
+    box-shadow: ${props => props.isInCartSheet ? `rgb(0 0 0 / 20%) 0px 8px 24px;` : `none`};
+    /* padding-top: ${props => props.isInCartSheet ? `72px` : `0`}; */
     overflow-y: scroll;
+    background-color: var(--primary-white);
+
+    @media screen and (max-width: 1185px) {
+        // hide the component for now - it will show itself when the shopping cart button is triggered
+        display: ${props => props.isInCartSheet ? `flex` : `none`};
+    }
 `;
 
 const CartOverview__checkout__wrapper = styled.div`
@@ -84,13 +92,13 @@ const CartOverview__zeroItems__span = styled.span`
     color: var(--quinary-gray);
 `;
 
-interface IItemsProperty {
-    [key: number]: any;
+type TCartOverview = {
+    isInCartSheet: boolean;
+    children?: JSX.Element;
 }
 
-export default function CartOverview() {
+export default function CartOverview({ isInCartSheet, children }: TCartOverview) {
     const numberofitems = useAppSelector((state) => state.cartSlice.cart[0]?.quantity);
-    console.log(numberofitems);
     
     const restaurants = restaurantList;
 
@@ -113,8 +121,10 @@ export default function CartOverview() {
             />
         )
     })
+    
     return (
-        <CartOverview__wrapper>
+        <CartOverview__wrapper isInCartSheet={isInCartSheet}>
+            {!!children ? children : null}
             {numberofitems > 0 ?
                 <>
                     <CartOverview__checkout__wrapper>
