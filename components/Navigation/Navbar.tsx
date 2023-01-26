@@ -1,15 +1,15 @@
-import Link from "next/link";
-import styled from "styled-components";
-import HamburgerButton from "./HamburgerButton";
-import HomeLogoLink from "./HomeLogoLink";
-import AddressButtonToggle from "./AddressButtonToggle";
-import SearchBar from "./SearchBar";
-import ShoppingCartButton from "./ShoppingCartButton";
-import { useState } from "react";
+import Link from 'next/link';
+import styled from 'styled-components';
+import { useState } from 'react';
+import HamburgerButton from './HamburgerButton';
+import HomeLogoLink from './HomeLogoLink';
+import AddressButtonToggle from './AddressButtonToggle';
+import SearchBar from './SearchBar';
+import ShoppingCartButton from './ShoppingCartButton';
 
 // Navbar styles
 
-const Navbar__wrapper = styled.nav`
+const NavbarWrapper = styled.nav`
     position: fixed;
     top: 0;
     overscroll-behavior-y: none;
@@ -39,7 +39,7 @@ const Navbar__wrapper = styled.nav`
     }
 `;
 
-const Navbar__subLeft = styled.ul`
+const NavbarSubLeft = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +59,7 @@ const Navbar__subLeft = styled.ul`
     }
 `;
 
-const Navbar__linkGroup = styled.ul`
+const NavbarLinkGroup = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,21 +71,21 @@ const Navbar__linkGroup = styled.ul`
     }
 `;
 
-const Navbar__link__wrapper = styled.div`
+const NavbarLinkWrapper = styled.div`
     display: flex;
     column-gap: 24px;
 `;
 
-const Navbar__link__li = styled.li`
+const NavbarLinkli = styled.li`
     text-decoration: none;
     list-style: none;
-`
+`;
 
-const Navbar__link__inner = styled.a`
+const NavbarLinkInner = styled.a`
     padding: 10px 0;
 `;
 
-const Navbar__label = styled.h4`
+const NavbarLabel = styled.h4`
     font-family: var(--primary-font-family);
     font-size: var(--nav-label-font-size);
     font-weight: var(--nav-label-font-weight);
@@ -93,7 +93,7 @@ const Navbar__label = styled.h4`
     -moz-osx-font-smoothing: grayscale;
 `;
 
-const Navbar__verticalDivider = styled.hr`
+const NavbarVerticalDivider = styled.hr`
     width: 0px;
     height: 24px;
     border: 1px solid var(--primary-gray);
@@ -104,7 +104,7 @@ const Navbar__verticalDivider = styled.hr`
     }
 `;
 
-const Navbar__subRight = styled.ul`
+const NavbarSubRight = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,53 +126,53 @@ const Navbar__subRight = styled.ul`
 
 type TNavBar = {
     isShoppingCartToggleable: boolean;
-}
+};
 
 export default function Navbar({ isShoppingCartToggleable }: TNavBar) {
-
     // AddressButtonToggle state that reveals address list
-    const [ isAddressButtonToggled, setIsAddressButtonToggled ] = useState(false);
-    const [ isSearchBarToggled, setIsSearchBarToggled ] = useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [isAddressButtonToggled, setIsAddressButtonToggled] = useState(false);
+    const [isSearchBarToggled, setIsSearchBarToggled] = useState(false);
 
     return (
-        <Navbar__wrapper>
-            <Navbar__subLeft>
+        <NavbarWrapper>
+            <NavbarSubLeft>
                 <HamburgerButton />
                 <HomeLogoLink />
-                <Navbar__linkGroup>
-                    <Navbar__link__wrapper>
-                        <Navbar__link__li>
+                <NavbarLinkGroup>
+                    <NavbarLinkWrapper>
+                        <NavbarLinkli>
                             <Link href="/" passHref legacyBehavior>
-                                <Navbar__link__inner>
-                                    <Navbar__label>Delivery</Navbar__label>
-                                </Navbar__link__inner>
+                                <NavbarLinkInner>
+                                    <NavbarLabel>Delivery</NavbarLabel>
+                                </NavbarLinkInner>
                             </Link>
-                        </Navbar__link__li>
-                        <Navbar__link__li>
+                        </NavbarLinkli>
+                        <NavbarLinkli>
                             <Link href="/pickup" passHref legacyBehavior>
-                                <Navbar__link__inner>
-                                    <Navbar__label>Pickup</Navbar__label>
-                                </Navbar__link__inner>
+                                <NavbarLinkInner>
+                                    <NavbarLabel>Pickup</NavbarLabel>
+                                </NavbarLinkInner>
                             </Link>
-                        </Navbar__link__li>
-                    </Navbar__link__wrapper>
-                </Navbar__linkGroup>
-                <Navbar__verticalDivider />
-                <Navbar__link__wrapper>
-                    <Navbar__link__li>
-                        <AddressButtonToggle 
+                        </NavbarLinkli>
+                    </NavbarLinkWrapper>
+                </NavbarLinkGroup>
+                <NavbarVerticalDivider />
+                <NavbarLinkWrapper>
+                    <NavbarLinkli>
+                        <AddressButtonToggle
                             setIsAddressButtonToggled={setIsAddressButtonToggled}
                         />
-                    </Navbar__link__li>
-                </Navbar__link__wrapper>
-            </Navbar__subLeft>
-            <Navbar__subRight>
-                <SearchBar 
+                    </NavbarLinkli>
+                </NavbarLinkWrapper>
+            </NavbarSubLeft>
+            <NavbarSubRight>
+                <SearchBar
                     isSearchBarToggled={isSearchBarToggled}
-                    setIsSearchBarToggled={setIsSearchBarToggled} 
+                    setIsSearchBarToggled={setIsSearchBarToggled}
                 />
-                <ShoppingCartButton isShoppingCartToggleable={isShoppingCartToggleable}/>
-            </Navbar__subRight>
-        </Navbar__wrapper>
+                <ShoppingCartButton isShoppingCartToggleable={isShoppingCartToggleable} />
+            </NavbarSubRight>
+        </NavbarWrapper>
     );
 }

@@ -1,16 +1,16 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const HamburgerButton__wrapper = styled.button`
+const HamburgerButtonWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 17px;
     background-color: white;
-`
+`;
 
 export default function HamburgerButton() {
     return (
-        <HamburgerButton__wrapper>
+        <HamburgerButtonWrapper>
             <svg
                 width="18"
                 height="12"
@@ -46,6 +46,6 @@ export default function HamburgerButton() {
                     strokeLinecap="round"
                 />
             </svg>
-        </HamburgerButton__wrapper>
+        </HamburgerButtonWrapper>
     );
 }

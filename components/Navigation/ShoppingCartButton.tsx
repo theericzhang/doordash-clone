@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import CartIcon from "../Icons/CartIcon";
+import styled from 'styled-components';
+import CartIcon from '../Icons/CartIcon';
 
-import { useAppSelector, useAppDispatch } from "../../app-redux/hooks";
-import { toggleIsOpenFromCartSheet } from "../../app-redux/features/cart/cartSlice";
+import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
+import { toggleIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSlice';
 
-const ShoppingCartButton__wrapper = styled.button<{ isShoppingCartToggleable?: boolean }>`
+const ShoppingCartButtonWrapper = styled.button<{ isShoppingCartToggleable?: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,11 +31,11 @@ const ShoppingCartButton__wrapper = styled.button<{ isShoppingCartToggleable?: b
     }
 
     @media screen and (min-width: 1185px) {
-        pointer-events: ${props => props.isShoppingCartToggleable ? 'all' : 'none'};
+        pointer-events: ${(props) => (props.isShoppingCartToggleable ? 'all' : 'none')};
     }
 `;
 
-const ShoppingCartButton__label = styled.h4`
+const ShoppingCartButtonLabel = styled.h4`
     color: var(--primary-white);
     font-weight: 500;
     font-size: 14px;
@@ -43,10 +43,9 @@ const ShoppingCartButton__label = styled.h4`
 
 type TShoppingCartButton = {
     isShoppingCartToggleable: boolean;
-}
+};
 
 export default function ShoppingCartButton({ isShoppingCartToggleable }: TShoppingCartButton) {
-    
     // calculate total number of items in cart
     const cart = useAppSelector((state) => state.cartSlice.cart);
     let cartCount = 0;
@@ -55,16 +54,16 @@ export default function ShoppingCartButton({ isShoppingCartToggleable }: TShoppi
     });
 
     const dispatch = useAppDispatch();
-    
+
     return (
-        <ShoppingCartButton__wrapper 
-            onClick={() => {dispatch(toggleIsOpenFromCartSheet())}}
+        <ShoppingCartButtonWrapper
+            onClick={() => { dispatch(toggleIsOpenFromCartSheet()); }}
             isShoppingCartToggleable={isShoppingCartToggleable}
         >
             <CartIcon />
-            <ShoppingCartButton__label>
+            <ShoppingCartButtonLabel>
                 {cartCount}
-            </ShoppingCartButton__label>
-        </ShoppingCartButton__wrapper>
+            </ShoppingCartButtonLabel>
+        </ShoppingCartButtonWrapper>
     );
 }
