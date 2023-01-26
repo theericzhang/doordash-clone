@@ -8,10 +8,9 @@ import TableOfFood from '../../SVGgraphics/TableOfFood';
 import { restaurantList } from '../../datav2';
 
 // redux global state
-import { useAppDispatch, useAppSelector } from '../../../app-redux/hooks';
-import { resetCartNewStore } from '../../../app-redux/features/cart/cartSlice';
+import { useAppSelector } from '../../../app-redux/hooks';
 
-const CartOverview__wrapper = styled.aside<{ isInCartSheet: boolean }>`
+const CartOverviewWrapper = styled.aside<{ isInCartSheet: boolean }>`
     display: flex;
     flex-direction: column;
     width: ${(props) => (props.isInCartSheet ? '100%' : '340px')};
@@ -30,7 +29,7 @@ const CartOverview__wrapper = styled.aside<{ isInCartSheet: boolean }>`
     }
 `;
 
-const CartOverview__checkout__wrapper = styled.div`
+const CartOverviewCheckoutWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 16px;
@@ -39,19 +38,19 @@ const CartOverview__checkout__wrapper = styled.div`
     row-gap: 17.5px;
 `;
 
-const CartOverview__checkout__description = styled.div`
+const CartOverviewCheckoutDescription = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 3px;
 `;
 
-const CartOverview__checkout__header = styled.h6`
+const CartOverviewCheckoutHeader = styled.h6`
     font-size: 12px;
     font-weight: 500;
     color: var(--quinary-gray);
 `;
 
-const CartOverview__checkout__link = styled(Link)`
+const CartOverviewCheckoutLink = styled(Link)`
     font-size: 18px;
     font-weight: 500;
     letter-spacing: -0.5px;
@@ -60,7 +59,7 @@ const CartOverview__checkout__link = styled(Link)`
     align-items: center;
 `;
 
-const CartOverview__list__wrapper = styled.ul`
+const CartOverviewListWrapper = styled.ul`
     display: flex;
     flex-direction: column;
     align-self: flex-end;
@@ -68,7 +67,7 @@ const CartOverview__list__wrapper = styled.ul`
     border-top: 1px solid var(--primary-gray);
 `;
 
-const CartOverview__zeroItems = styled.div`
+const CartOverviewZeroItems = styled.div`
     width: 100%;
     height: fit-content;
     display: flex;
@@ -77,7 +76,7 @@ const CartOverview__zeroItems = styled.div`
     margin: 36px 0;
 `;
 
-const CartOverview__zeroItems__span__wrapper = styled.div`
+const CartOverviewZeroItemsSpanWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,7 +84,7 @@ const CartOverview__zeroItems__span__wrapper = styled.div`
     row-gap: 1.5px;
 `;
 
-const CartOverview__zeroItems__span = styled.span`
+const CartOverviewZeroItemsSpan = styled.span`
     text-align: center;
     font-size: 14px;
     font-weight: 400;
@@ -98,63 +97,67 @@ type TCartOverview = {
 };
 
 export default function CartOverview({ isInCartSheet, children }: TCartOverview) {
-  const numberofitems = useAppSelector((state) => state.cartSlice.cart[0]?.quantity);
+    const numberofitems = useAppSelector((state) => state.cartSlice.cart[0]?.quantity);
 
-  const restaurants = restaurantList;
+    const restaurants = restaurantList;
 
-  // consume store, get storeID
-  const storeID = useAppSelector((state) => state.cartSlice.storeID) as keyof typeof restaurants;
+    // consume store, get storeID
+    const storeID = useAppSelector((state) => state.cartSlice.storeID) as keyof typeof restaurants;
 
-  // consume store, get cart array
-  const cart = useAppSelector((state) => state.cartSlice.cart);
+    // consume store, get cart array
+    const cart = useAppSelector((state) => state.cartSlice.cart);
 
-  const arrayOfCartItems = cart.map((item) => (
-    <CartItem
-      imageSrc={restaurants[storeID].storefrontData.items[item.itemID].image.src}
-      imageAlt={restaurants[storeID].storefrontData.items[item.itemID].image.alt}
-      itemName={restaurants[storeID].storefrontData.items[item.itemID].itemName}
-      price={restaurants[storeID].storefrontData.items[item.itemID].price}
-      quantity={item.quantity}
-      itemID={item.itemID}
-      key={restaurants[storeID].storefrontData.items[item.itemID].image.src}
-    />
-  ));
+    const arrayOfCartItems = cart.map((item) => (
+        <CartItem
+            imageSrc={restaurants[storeID].storefrontData.items[item.itemID].image.src}
+            imageAlt={restaurants[storeID].storefrontData.items[item.itemID].image.alt}
+            itemName={restaurants[storeID].storefrontData.items[item.itemID].itemName}
+            price={restaurants[storeID].storefrontData.items[item.itemID].price}
+            quantity={item.quantity}
+            itemID={item.itemID}
+            key={restaurants[storeID].storefrontData.items[item.itemID].image.src}
+        />
+    ));
 
-  return (
-    <CartOverview__wrapper isInCartSheet={isInCartSheet}>
-      {children || null}
-      {numberofitems > 0
-        ? (
-          <>
-            <CartOverview__checkout__wrapper>
-              <CartOverview__checkout__description>
-                <CartOverview__checkout__header>
-                  Your cart from
-                </CartOverview__checkout__header>
-                <CartOverview__checkout__link
-                  href={`/store/${storeID}`}
-                >
-                  {restaurants[storeID].restaurantData.restaurantName}
-                  <CarrotRight />
-                </CartOverview__checkout__link>
-              </CartOverview__checkout__description>
-              <CheckoutButton />
-            </CartOverview__checkout__wrapper>
-            <CartOverview__list__wrapper>
-              {arrayOfCartItems}
-            </CartOverview__list__wrapper>
-          </>
-        )
-        : (
-          <CartOverview__zeroItems>
-            <TableOfFood />
-            <CartOverview__zeroItems__span__wrapper>
-              <CartOverview__zeroItems__span>Your cart is empty</CartOverview__zeroItems__span>
-              <CartOverview__zeroItems__span>Add items to get started</CartOverview__zeroItems__span>
-            </CartOverview__zeroItems__span__wrapper>
-          </CartOverview__zeroItems>
-        )}
+    return (
+        <CartOverviewWrapper isInCartSheet={isInCartSheet}>
+            {children || null}
+            {numberofitems > 0
+                ? (
+                    <>
+                        <CartOverviewCheckoutWrapper>
+                            <CartOverviewCheckoutDescription>
+                                <CartOverviewCheckoutHeader>
+                                    Your cart from
+                                </CartOverviewCheckoutHeader>
+                                <CartOverviewCheckoutLink
+                                    href={`/store/${storeID}`}
+                                >
+                                    {restaurants[storeID].restaurantData.restaurantName}
+                                    <CarrotRight />
+                                </CartOverviewCheckoutLink>
+                            </CartOverviewCheckoutDescription>
+                            <CheckoutButton />
+                        </CartOverviewCheckoutWrapper>
+                        <CartOverviewListWrapper>
+                            {arrayOfCartItems}
+                        </CartOverviewListWrapper>
+                    </>
+                )
+                : (
+                    <CartOverviewZeroItems>
+                        <TableOfFood />
+                        <CartOverviewZeroItemsSpanWrapper>
+                            <CartOverviewZeroItemsSpan>
+                                Your cart is empty
+                            </CartOverviewZeroItemsSpan>
+                            <CartOverviewZeroItemsSpan>
+                                Add items to get started
+                            </CartOverviewZeroItemsSpan>
+                        </CartOverviewZeroItemsSpanWrapper>
+                    </CartOverviewZeroItems>
+                )}
 
-    </CartOverview__wrapper>
-  );
+        </CartOverviewWrapper>
+    );
 }

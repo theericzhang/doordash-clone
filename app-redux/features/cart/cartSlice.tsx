@@ -68,6 +68,10 @@ const cartSlice = createSlice({
             state.isOpenFromCartSheet = !state.isOpenFromCartSheet;
         },
 
+        setFalseIsOpenFromCartSheet: (state) => {
+            state.isOpenFromCartSheet = false;
+        },
+
         setPageViewingStoreID: (state, action: PayloadAction<number>) => {
             state.pageViewingStoreID = action.payload;
         },
@@ -140,6 +144,7 @@ const cartSlice = createSlice({
 
 export const {
     toggleIsOpenFromCartSheet,
+    setFalseIsOpenFromCartSheet,
     setPageViewingStoreID,
     setStoreID,
     resetCartNewStore,

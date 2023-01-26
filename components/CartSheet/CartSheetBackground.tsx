@@ -25,9 +25,18 @@ export default function CartSheetBackground({ isStoreCartSheet }: TCartSheetBack
     const dispatch = useAppDispatch();
 
     return (
+        // eslint-disable-next-line styled-components-a11y/no-noninteractive-element-interactions
         <CartSheetBackgroundWrapper
             onClick={() => { dispatch(toggleIsOpenFromCartSheet()); }}
+            onKeyDown={(e) => {
+                if (e.key === 'Escape') {
+                    dispatch(toggleIsOpenFromCartSheet());
+                }
+            }}
             isStoreCartSheet={isStoreCartSheet}
+            role="dialog"
+            tabIndex={-1}
+            aria-modal="true"
         />
     );
 }
