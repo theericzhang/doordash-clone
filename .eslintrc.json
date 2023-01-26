@@ -43,6 +43,9 @@
         "react/require-default-props": 0,
 
         // Suppress multilines wrapping in parentheticals
-        "react/jsx-wrap-multilines": 0
+        "react/jsx-wrap-multilines": 0,
+
+        // Suppress index as key. Ok if items never get re-arranged
+        "react/no-array-index-key": 1
     }
 }

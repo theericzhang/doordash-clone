@@ -1,7 +1,7 @@
-import styles from "../../styles/StoreLayout.module.css";
 import styled from 'styled-components';
-import React from "react";
-import ItemOverlay from "../StoreComponents/ItemOverlay/ItemOverlay";
+import React from 'react';
+import styles from '../../styles/StoreLayout.module.css';
+import ItemOverlay from '../StoreComponents/ItemOverlay/ItemOverlay';
 
 const StorePage = styled.article`
     display: flex;
@@ -18,7 +18,7 @@ const StorePage = styled.article`
     }
 `;
 
-const StorePage__divider = styled.hr`
+const StorePageDivider = styled.hr`
     width: 928px;
     margin: 0 auto;
     border: none;
@@ -38,32 +38,23 @@ const StorePage__divider = styled.hr`
 
 type TStoreLayout = {
     children: JSX.Element[];
-}
+};
 
 export default function StoreLayout({ children }: TStoreLayout) {
-    
     const mainContent = children.slice(0, -1);
     return (
         <>
             <ItemOverlay />
             <main className={styles.main}>
                 <StorePage>
-                    {mainContent.map((child, index) => {
-                        if (index !== mainContent.length -1) {
-                            return (
-                                <React.Fragment key={index}>
-                                    {child}
-                                    <StorePage__divider />
-                                </React.Fragment>
-                            );
-                        } else if (index === mainContent.length - 1) {
-                            return (
-                                <React.Fragment key={index}>
-                                    {child}
-                                </React.Fragment>
-                            );
-                        }
-                    })}
+                    {/* {eslint-disable-next-line arrow-body-style} */}
+                    {mainContent.map((child, index) => (
+                        // eslint-disable-next-line react/no-array-index-key
+                        <React.Fragment key={index}>
+                            {child}
+                            {index !== mainContent.length - 1 ? <StorePageDivider /> : null}
+                        </React.Fragment>
+                    ))}
                 </StorePage>
                 {/* NAV */}
                 {children[children.length - 1]}
