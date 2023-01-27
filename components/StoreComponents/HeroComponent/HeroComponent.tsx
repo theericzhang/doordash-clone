@@ -8,7 +8,7 @@ import ClockIcon from '../../Icons/ClockIcon';
 import Information from '../../Icons/InformationIcon';
 import AuxOptions from './AuxOptions/AuxOptions';
 
-const HeroComponent__wrapper = styled.section`
+const HeroComponentWrapper = styled.section`
     display: flex;
     flex-direction: column;
     width: 928px;
@@ -34,11 +34,11 @@ const HeroComponent__wrapper = styled.section`
     }
 `;
 
-const HeroComponent__images__collection = styled.div`
+const HeroComponentImagesCollection = styled.div`
     position: relative;
 `;
 
-const HeroComponent__image__wrapper = styled.div`
+const HeroComponentImageWrapper = styled.div`
     width: 100%;
     height: 250px;
     border-radius: 15px;
@@ -53,7 +53,7 @@ const HeroComponent__image__wrapper = styled.div`
     }
 `;
 
-const HeroComponent__storeProfile__image__area = styled.div`
+const HeroComponentStoreProfileImageArea = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +68,7 @@ const HeroComponent__storeProfile__image__area = styled.div`
     left: 16px;
 `;
 
-const HeroComponent__storeProfile__image_wrapper = styled.div`
+const HeroComponentStoreProfileImageWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,15 +79,15 @@ const HeroComponent__storeProfile__image_wrapper = styled.div`
     border-radius: 100%;
 `;
 
-const HeroComponent__storeProfile__image = styled(Image)`
+const HeroComponenSttoreProfileImage = styled(Image)`
     object-fit: cover;
 `;
 
-const HeroComponent__image = styled(Image)`
+const HeroComponentImage = styled(Image)`
     object-fit: cover;
 `;
 
-const HeroComponent__information = styled.div`
+const HeroComponentInformation = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -99,7 +99,7 @@ const HeroComponent__information = styled.div`
     }
 `;
 
-const HeroComponent__restaurantName = styled.h2`
+const HeroComponentRestaurantName = styled.h2`
     font-weight: 500;
     font-size: 40px;
     color: var(--primary-black);
@@ -110,11 +110,11 @@ const HeroComponent__restaurantName = styled.h2`
     }
 `;
 
-const HeroComponent__information__primary = styled.div`
+const HeroComponentInformationPrimary = styled.div`
     display: flex;
 `;
 
-const HeroComponent__information__span = styled.span`
+const HeroComponentInformationSpan = styled.span`
     display: flex;
     font-weight: 400;
     color: var(--quinary-gray);
@@ -128,43 +128,43 @@ const HeroComponent__information__span = styled.span`
     }
 `;
 
-const HeroComponent__information__bullet = styled.span`
+const HeroComponentInformationBullet = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
 `;
 
-const HeroComponent__information__rating__wrapper = styled.div`
+const HeroComponentInformationRatingWrapper = styled.div`
     display: flex;
     align-items: center;
     column-gap: 5px;
 `;
 
-const HeroComponent__information__secondary = styled.div`
+const HeroComponentInformationSecondary = styled.div`
     display: flex;
     margin: 6px 0;
     margin-bottom: 3.5px;
 `;
 
-const HeroComponent__information__time_open = styled.span`
+const HeroComponentInformationTimeOpen = styled.span`
     display: flex;
     color: var(--primary-green);
     align-items: center;
     column-gap: 3px;
 `;
 
-const HeroComponent__information__time_closed = styled.span`
+const HeroComponentInformationTimeClosed = styled.span`
     display: flex;
     color: var(--primary-gold);
     align-items: center;
     column-gap: 3px;
 `;
 
-const HeroComponent__information__tertiary = styled.div`
+const HeroComponentInformationTertiary = styled.div`
     display: flex;
 `;
 
-const HeroComponent__information__quaternary = styled.div`
+const HeroComponentInformationQuaternary = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -174,10 +174,11 @@ const HeroComponent__information__quaternary = styled.div`
 type TRestaurantData = {
     restaurantData: TRestaurantDataPrimary;
     storefrontData: TStorefrontData
-}
+};
 
 export default function HeroComponent({ restaurantData, storefrontData }: TRestaurantData) {
-    
+    // already checking to see if storefrontData?.ratingCount exists. disable this lint rule
+    // eslint-disable-next-line no-unsafe-optional-chaining
     const ratingsCountLocalized = storefrontData?.ratingCount && `${(Math.floor(storefrontData?.ratingCount / 1000) * 1000).toLocaleString()}+ ratings`;
     // in the future, validate time (isOpen) against a ground truth source instead of machine local.
     const currentTime = new Date();
@@ -193,128 +194,124 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
     closeTime.setMinutes(storefrontData.operationHours[0].openMinute);
 
     const isOpen = currentTime > openTime && currentTime < closeTime;
-    
+
     return (
-        <HeroComponent__wrapper>
-            <HeroComponent__images__collection>
-                <HeroComponent__image__wrapper>
-                    <HeroComponent__image
+        <HeroComponentWrapper>
+            <HeroComponentImagesCollection>
+                <HeroComponentImageWrapper>
+                    <HeroComponentImage
                         src={restaurantData.restaurantImage.src}
                         alt={restaurantData.restaurantImage.alt}
-                        fill={true}
+                        fill
                         sizes="440px"
                         // sizes="374px"
-                        priority={true}
-                        loading='eager'
+                        priority
+                        loading="eager"
                     />
-                </HeroComponent__image__wrapper>
-                <HeroComponent__storeProfile__image__area>
-                    <HeroComponent__storeProfile__image_wrapper>
-                        <HeroComponent__storeProfile__image
+                </HeroComponentImageWrapper>
+                <HeroComponentStoreProfileImageArea>
+                    <HeroComponentStoreProfileImageWrapper>
+                        <HeroComponenSttoreProfileImage
                             src={restaurantData.restaurantImage.src}
                             alt={restaurantData.restaurantImage.alt}
                             placeholder="blur"
                             blurDataURL="/images/Blur.webp"
-                            fill={true}
+                            fill
                             sizes="(max-width: 960px) 76px, 76px"
                         />
-                    </HeroComponent__storeProfile__image_wrapper>
-                </HeroComponent__storeProfile__image__area>
-            </HeroComponent__images__collection>
-            {/*immediate info area*/}
-            <HeroComponent__information>
-                <HeroComponent__restaurantName>
+                    </HeroComponentStoreProfileImageWrapper>
+                </HeroComponentStoreProfileImageArea>
+            </HeroComponentImagesCollection>
+            {/* immediate info area */}
+            <HeroComponentInformation>
+                <HeroComponentRestaurantName>
                     {restaurantData.restaurantName}
-                </HeroComponent__restaurantName>
-                <HeroComponent__information__primary>
-                    <HeroComponent__information__span>
-                        {!!restaurantData.isDashPass ? 
+                </HeroComponentRestaurantName>
+                <HeroComponentInformationPrimary>
+                    <HeroComponentInformationSpan>
+                        {restaurantData.isDashPass ?
                             <>
-                                <DashPassLabel isFull={true}/>
-                                <HeroComponent__information__bullet>
+                                <DashPassLabel isFull />
+                                <HeroComponentInformationBullet>
                                     •
-                                </HeroComponent__information__bullet>
-                            </> 
-                        : 
-                            null
-                        }
-                        {!!storefrontData.shortDescription ? 
+                                </HeroComponentInformationBullet>
+                            </>
+                            :
+                            null}
+                        {storefrontData.shortDescription ?
                             <>
                                 {storefrontData.shortDescription}
-                                <HeroComponent__information__bullet>
+                                <HeroComponentInformationBullet>
                                     •
-                                </HeroComponent__information__bullet>
+                                </HeroComponentInformationBullet>
                             </>
-                        :
-                            null
-                        }
-                        {!!storefrontData.averageRating ?
-                            <HeroComponent__information__rating__wrapper>
+                            :
+                            null}
+                        {storefrontData.averageRating ?
+                            <HeroComponentInformationRatingWrapper>
                                 {storefrontData.averageRating}
-                                <Star 
-                                    color={`var(--quinary-gray)`}
-                                    isInlineReview={true}
+                                <Star
+                                    color="var(--quinary-gray)"
+                                    isInlineReview
                                 />
                                 {ratingsCountLocalized}
-                                <HeroComponent__information__bullet>
+                                <HeroComponentInformationBullet>
                                     •
-                                </HeroComponent__information__bullet>
-                            </HeroComponent__information__rating__wrapper>
-                        :
-                            null
-                        }
-                        {!!restaurantData.distance ?
+                                </HeroComponentInformationBullet>
+                            </HeroComponentInformationRatingWrapper>
+                            :
+                            null}
+                        {restaurantData.distance ?
                             <>
                                 {restaurantData.distance}
-                                <HeroComponent__information__bullet>
+                                <HeroComponentInformationBullet>
                                     •
-                                </HeroComponent__information__bullet>
+                                </HeroComponentInformationBullet>
                             </>
-                        :
-                            null
-                        }
-                        {!!storefrontData.priceRating ?
+                            :
+                            null}
+                        {storefrontData.priceRating ?
                             <>
                                 {
                                     Array(storefrontData.priceRating).fill('$')
                                 }
                             </>
-                        :
-                            null
-                        }
-                    </HeroComponent__information__span>
-                </HeroComponent__information__primary>
-                <HeroComponent__information__secondary>
-                    <HeroComponent__information__span>
-                    {isOpen ? 
-                        <HeroComponent__information__time_open>
-                            <ClockIcon />
-                            Open now
-                        </HeroComponent__information__time_open>
-                    :
-                        <HeroComponent__information__time_closed>
-                            <ClockIcon />
-                            Closed now
-                        </HeroComponent__information__time_closed>
-                    }
-                    </HeroComponent__information__span>
-                </HeroComponent__information__secondary>
-                <HeroComponent__information__tertiary>
-                    <HeroComponent__information__span>
-                        Pricing & Fees <Information />
-                    </HeroComponent__information__span>
-                </HeroComponent__information__tertiary>
-                <HeroComponent__information__quaternary>
-                    <DeliveryTile 
+                            :
+                            null}
+                    </HeroComponentInformationSpan>
+                </HeroComponentInformationPrimary>
+                <HeroComponentInformationSecondary>
+                    <HeroComponentInformationSpan>
+                        {isOpen ?
+                            <HeroComponentInformationTimeOpen>
+                                <ClockIcon />
+                                Open now
+                            </HeroComponentInformationTimeOpen>
+                            :
+                            <HeroComponentInformationTimeClosed>
+                                <ClockIcon />
+                                Closed now
+                            </HeroComponentInformationTimeClosed>}
+                    </HeroComponentInformationSpan>
+                </HeroComponentInformationSecondary>
+                <HeroComponentInformationTertiary>
+                    <HeroComponentInformationSpan>
+                        Pricing & Fees
+                        {' '}
+                        <Information />
+                    </HeroComponentInformationSpan>
+                </HeroComponentInformationTertiary>
+                <HeroComponentInformationQuaternary>
+                    <DeliveryTile
                         deliveryTime={restaurantData.deliveryTime}
                         pickupTime={restaurantData.pickupTime}
                     />
-                    <AuxOptions 
+                    <AuxOptions
                         deliveryTime={restaurantData.deliveryTime}
                         pickupTime={restaurantData.pickupTime}
                     />
-                </HeroComponent__information__quaternary>
-            </HeroComponent__information>
-        </HeroComponent__wrapper>
+                </HeroComponentInformationQuaternary>
+            </HeroComponentInformation>
+        </HeroComponentWrapper>
     );
 }
