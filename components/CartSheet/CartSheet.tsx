@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import CartOverview from '../StoreComponents/CartOverviewComponent/CartOverview';
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
-import { toggleIsOpenFromCartSheet, setFalseIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSlice';
+import { toggleIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSlice';
 import X from '../Icons/XIcon';
 import CartSheetBackground from './CartSheetBackground';
 
@@ -65,10 +65,7 @@ type TCartSheet = {
 
 export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
     const isOpenFromCartSheet = useAppSelector((state) => state.cartSlice.isOpenFromCartSheet);
-    // const isCartSheetOpen = useAppSelector((state) => state.cartSlice.isOpenFromCartSheet);
     const dispatch = useAppDispatch();
-
-    // TODO: Figure out ESC to close modal, or move forward with linting the application futher
     return (
         <>
             {isOpenFromCartSheet ?
