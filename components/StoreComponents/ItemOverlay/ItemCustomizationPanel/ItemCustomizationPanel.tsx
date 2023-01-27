@@ -244,7 +244,8 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
                     isModalOpen={isModalOpen}
                     onClick={(e) => e.stopPropagation()}
                     ref={nodeRef}
-                    role="presentation"
+                    tabIndex={-1}
+                    role="none"
                 >
                     <ItemCustomizationPanelMainWrapper>
                         <ItemCustomizationPanelButtonClose
