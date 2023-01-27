@@ -6,7 +6,7 @@ import Plus from '../../Icons/PlusIcon';
 import GarbageCan from '../../Icons/GarbageCanIcon';
 
 // redux global state
-import { useAppDispatch } from '../../../app-redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../../app-redux/hooks';
 import { addItemToCart, deleteItemFromCart } from '../../../app-redux/features/cart/cartSlice';
 
 const InputStepperWrapper = styled.div`
@@ -50,7 +50,16 @@ type TInputStepper = {
 };
 
 export default function InputStepper({ quantity, itemID }: TInputStepper) {
-    const [stepperCount, setStepperCount] = useState(quantity);
+    const stateCart = useAppSelector((state) => state.cartSlice.cart);
+    let quantityCart = 0;
+    
+    stateCart.forEach((item) => {
+        itemID === item.itemID ? quantityCart = item.quantity : null;
+    });
+
+    
+
+    console.log('Amount of items: ', quantityCart);
 
     /**
      * TODO: Values need to be debounced before they are dispatched to global store.
@@ -63,15 +72,13 @@ export default function InputStepper({ quantity, itemID }: TInputStepper) {
             itemID,
             quantity: 1,
         };
-        setStepperCount((prevStepperCount) => prevStepperCount + 1);
         dispatch(addItemToCart(cartPayload));
     }
 
     function handleClickDecrement() {
-        if (stepperCount > 1) {
-            setStepperCount((prevStepperCount) => prevStepperCount - 1);
+        if (quantityCart > 1) {
             dispatch(deleteItemFromCart(itemID));
-        } else if (stepperCount === 1) {
+        } else if (quantityCart === 1) {
             // delete item and remove from list if stepperCount reaches 0.
             // think of passing an ID that react can remove from an array of cart items.
             dispatch(deleteItemFromCart(itemID));
@@ -83,14 +90,14 @@ export default function InputStepper({ quantity, itemID }: TInputStepper) {
             <InputStepperButton
                 onClick={handleClickDecrement}
             >
-                {stepperCount === 1 ?
+                {quantityCart === 1 ?
                     <GarbageCan />
                     :
                     <Minus />}
             </InputStepperButton>
             <InputStepperLabelWrapper>
                 <InputStepperLabel>
-                    {stepperCount}
+                    {quantityCart}
                     {' '}
                     ×
                 </InputStepperLabel>

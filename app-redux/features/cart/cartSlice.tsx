@@ -53,6 +53,7 @@ function immutableCalculateCartTotal(state: ICartState) {
             restaurants[state.storeID as keyof typeof restaurants]
                 .storefrontData.items[item.itemID].price;
     });
+    console.log(sum)
     state.totalValue = sum;
 }
 
@@ -95,48 +96,51 @@ const cartSlice = createSlice({
             // if it does not exist, then add the new item to a copy of the existing cart state.
 
             let itemExists = false;
-
-            for (let i = 0; i < state.cart.length; i++) {
-                if (state.cart[i].itemID === action.payload.itemID) {
-                    state.cart[i].quantity += action.payload.quantity;
+            let newState = {...state}; // create a copy of the state
+            for (let i = 0; i < newState.cart.length; i++) {
+                if (newState.cart[i].itemID === action.payload.itemID) {
+                    newState.cart[i].quantity += action.payload.quantity;
                     itemExists = true;
                     break;
                 }
             }
 
             if (!itemExists) {
-                state.cart = [
-                    ...state.cart,
+                newState.cart = [
+                    ...newState.cart,
                     {
                         itemID: action.payload.itemID,
                         quantity: action.payload.quantity,
                     },
                 ];
             }
+            state.cart = newState.cart;
             immutableCalculateCartTotal(state);
         },
 
         // reduces the quantity of an item in a cart if quantity > 0
         // if quantity is 1 and user hits delete, item should be removed from list
         deleteItemFromCart: (state, action: PayloadAction<number>) => {
-            for (let i = 0; i < state.cart.length; i++) {
+            const newState = {...state};
+            for (let i = 0; i < newState.cart.length; i++) {
                 if (
-                    state.cart[i].itemID === action.payload &&
-                    state.cart[i].quantity > 1
+                    newState.cart[i].itemID === action.payload &&
+                    newState.cart[i].quantity > 1
                 ) {
-                    state.cart[i].quantity -= 1;
+                    newState.cart[i].quantity -= 1;
                     break;
                 } else if (
-                    state.cart[i].itemID === action.payload &&
-                    state.cart[i].quantity === 1
+                    newState.cart[i].itemID === action.payload &&
+                    newState.cart[i].quantity === 1
                 ) {
                     // if state.cart[i].quantity is 1, then filter out that item altogether.
-                    state.cart = state.cart.filter(
+                    newState.cart = newState.cart.filter(
                         (item) => item.itemID !== action.payload
                     );
                     break;
                 }
             }
+            state.cart = newState.cart;
             immutableCalculateCartTotal(state);
         },
     },
