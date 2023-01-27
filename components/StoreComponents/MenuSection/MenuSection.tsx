@@ -1,14 +1,15 @@
-import styled from "styled-components";
-import MenuItem from "../MenuItem/MenuItem";
-import { Fragment, useContext } from "react";
-import { StoreItemsContext } from "../../../pages/store/[slug]";
+/* eslint-disable import/no-cycle */
+import styled from 'styled-components';
+import { Fragment, useContext } from 'react';
+import MenuItem from '../MenuItem/MenuItem';
+import { StoreItemsContext } from '../../../pages/store/[slug]';
 
-const MenuSection__section = styled.section`
+const MenuSectionSection = styled.section`
     display: flex;
     flex-direction: column;
 `;
 
-const MenuSection__header__wrapper = styled.div`
+const MenuSectionHeaderWrapper = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 3.5px;
@@ -23,27 +24,28 @@ const MenuSection__header__wrapper = styled.div`
 `;
 
 // reserved for larger headers, like feature items section
-const MenuSection__header__large = styled.h2`
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const MenuSectionHeaderLarge = styled.h2`
     font-size: 24px;
     font-weight: 500;
     letter-spacing: -0.6px;
     color: var(--primary-black);
 `;
 
-const MenuSection__header = styled.h2`
+const MenuSectionHeader = styled.h2`
     font-size: 22px;
     font-weight: 500;
     letter-spacing: -0.7px;
     color: var(--primary-black);
 `;
 
-const MenuSection__subheader = styled.span`
+const MenuSectionSubheader = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
 `;
 
-const MenuSection__items__wrapper = styled.div`
+const MenuSectionItemsWrapper = styled.div`
     display: flex;
     column-gap: 14px;
     row-gap: 16px;
@@ -66,7 +68,7 @@ const MenuSection__items__wrapper = styled.div`
     }
 `;
 
-const MenuSection__items__divider = styled.hr`
+const MenuSectionItemsDivider = styled.hr`
     display: none;
 
     @media screen and (max-width: 770px) {
@@ -77,40 +79,38 @@ const MenuSection__items__divider = styled.hr`
         border-right: none;
         border-bottom: 1px solid var(--primary-gray);
     }
-`
+`;
 
 export default function MenuSection() {
     const restaurantMenu = useContext(StoreItemsContext);
-    
+
     return (
-        <MenuSection__section>
-            <MenuSection__header__wrapper>
-                <MenuSection__header>
+        <MenuSectionSection>
+            <MenuSectionHeaderWrapper>
+                <MenuSectionHeader>
                     Popular Items
-                </MenuSection__header>
-                <MenuSection__subheader>
+                </MenuSectionHeader>
+                <MenuSectionSubheader>
                     The most commonly ordered items and dishes from this store
-                </MenuSection__subheader>
-            </MenuSection__header__wrapper>
-            <MenuSection__items__wrapper>
-                {restaurantMenu?.map((item, index) => {
-                    return (
-                        <Fragment key={item.itemName}>
-                            <MenuItem
-                                itemID={index}
-                                image={item.image}
-                                itemName={item.itemName}
-                                price={item.price}
-                                description={item.description}
-                                ratingCount={item.ratingCount}
-                                ratingPercentage={item.ratingPercentage}
-                                lastOrdered={item?.lastOrdered}
-                            />
-                            <MenuSection__items__divider />
-                        </Fragment>
-                    )
-                })}
-            </MenuSection__items__wrapper>
-        </MenuSection__section>
+                </MenuSectionSubheader>
+            </MenuSectionHeaderWrapper>
+            <MenuSectionItemsWrapper>
+                {restaurantMenu?.map((item, index) => (
+                    <Fragment key={item.itemName}>
+                        <MenuItem
+                            itemID={index}
+                            image={item.image}
+                            itemName={item.itemName}
+                            price={item.price}
+                            description={item.description}
+                            ratingCount={item.ratingCount}
+                            ratingPercentage={item.ratingPercentage}
+                            lastOrdered={item?.lastOrdered}
+                        />
+                        <MenuSectionItemsDivider />
+                    </Fragment>
+                ))}
+            </MenuSectionItemsWrapper>
+        </MenuSectionSection>
     );
 }
