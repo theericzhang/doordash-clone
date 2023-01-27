@@ -1,14 +1,15 @@
-import { useState } from "react";
-import styled from "styled-components";
-import Minus from "../../Icons/MinusIcon";
-import Plus from "../../Icons/PlusIcon";
-import GarbageCan from "../../Icons/GarbageCanIcon";
+/* eslint-disable react/jsx-no-bind */
+import { useState } from 'react';
+import styled from 'styled-components';
+import Minus from '../../Icons/MinusIcon';
+import Plus from '../../Icons/PlusIcon';
+import GarbageCan from '../../Icons/GarbageCanIcon';
 
 // redux global state
-import { useAppDispatch, useAppSelector } from "../../../app-redux/hooks";
-import { addItemToCart, deleteItemFromCart } from "../../../app-redux/features/cart/cartSlice";
+import { useAppDispatch } from '../../../app-redux/hooks';
+import { addItemToCart, deleteItemFromCart } from '../../../app-redux/features/cart/cartSlice';
 
-const InputStepper__wrapper = styled.div`
+const InputStepperWrapper = styled.div`
     display: flex;
     align-items: center;
     background-color: var(--secondary-gray);
@@ -17,7 +18,7 @@ const InputStepper__wrapper = styled.div`
     margin-left: auto;
 `;
 
-const InputStepper__button = styled.button`
+const InputStepperButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,13 +32,13 @@ const InputStepper__button = styled.button`
     }
 `;
 
-const InputStepper__label__wrapper = styled.div`
+const InputStepperLabelWrapper = styled.div`
     display: flex;
     justify-content: center;
     min-width: 32px;
 `;
 
-const InputStepper__label = styled.span`
+const InputStepperLabel = styled.span`
     font-weight: 500;
     font-size: 14px;
     color: var(--primary-black);
@@ -46,10 +47,9 @@ const InputStepper__label = styled.span`
 type TInputStepper = {
     quantity: number;
     itemID: number;
-}
+};
 
 export default function InputStepper({ quantity, itemID }: TInputStepper) {
-    
     const [stepperCount, setStepperCount] = useState(quantity);
 
     /**
@@ -60,47 +60,46 @@ export default function InputStepper({ quantity, itemID }: TInputStepper) {
 
     function handleClickIncrement() {
         const cartPayload = {
-            itemID: itemID,
+            itemID,
             quantity: 1,
-        }
-        setStepperCount(prevStepperCount => prevStepperCount + 1);
+        };
+        setStepperCount((prevStepperCount) => prevStepperCount + 1);
         dispatch(addItemToCart(cartPayload));
-        return;
     }
 
     function handleClickDecrement() {
         if (stepperCount > 1) {
-            setStepperCount(prevStepperCount => prevStepperCount - 1);
+            setStepperCount((prevStepperCount) => prevStepperCount - 1);
             dispatch(deleteItemFromCart(itemID));
         } else if (stepperCount === 1) {
             // delete item and remove from list if stepperCount reaches 0.
             // think of passing an ID that react can remove from an array of cart items.
             dispatch(deleteItemFromCart(itemID));
         }
-        else {return}
     }
 
     return (
-        <InputStepper__wrapper>
-            <InputStepper__button 
+        <InputStepperWrapper>
+            <InputStepperButton
                 onClick={handleClickDecrement}
             >
                 {stepperCount === 1 ?
                     <GarbageCan />
-                :
-                    <Minus />
-                }
-            </InputStepper__button>
-            <InputStepper__label__wrapper>
-                <InputStepper__label>
-                    {stepperCount} ×
-                </InputStepper__label>
-            </InputStepper__label__wrapper>
-            <InputStepper__button 
+                    :
+                    <Minus />}
+            </InputStepperButton>
+            <InputStepperLabelWrapper>
+                <InputStepperLabel>
+                    {stepperCount}
+                    {' '}
+                    ×
+                </InputStepperLabel>
+            </InputStepperLabelWrapper>
+            <InputStepperButton
                 onClick={handleClickIncrement}
             >
                 <Plus />
-            </InputStepper__button>
-        </InputStepper__wrapper>
+            </InputStepperButton>
+        </InputStepperWrapper>
     );
 }
