@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import CarrotDown from "../Icons/CarrotDownIcon";
+import styled from 'styled-components';
+import CarrotDown from '../Icons/CarrotDownIcon';
 
-const FilterButton__wrapper = styled.button`
+const FilterButtonWrapper = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,19 +29,19 @@ const FilterButton__wrapper = styled.button`
     }
 `;
 
-const FilterButton__buttonLabel = styled.h5`
+const FilterButtonButtonLabel = styled.h5`
     font-size: 14px;
     font-weight: 500;
     color: var(--primary-black);
 `;
 
-const FilterButton__verticalDivider = styled.hr`
+const FilterButtonVerticalDivider = styled.hr`
     border: 1px solid var(--quaternary-gray);
     height: 16px;
     border-top: none;
     border-bottom: none;
     border-left: none;
-`
+`;
 
 type TFilterButton = {
     buttonData: {
@@ -51,25 +51,22 @@ type TFilterButton = {
         hasDivider: boolean;
         hasDropdown: boolean;
     }
-}
+};
 
 export default function FilterButton({ buttonData }: TFilterButton) {
-    
     return (
-        <FilterButton__wrapper>
+        <FilterButtonWrapper>
             {buttonData.leftLogo}
-            <FilterButton__buttonLabel>{buttonData.buttonLabel}</FilterButton__buttonLabel>
+            <FilterButtonButtonLabel>{buttonData.buttonLabel}</FilterButtonButtonLabel>
             {buttonData.rightLogo}
-            {buttonData.hasDivider ? 
-                    <FilterButton__verticalDivider />
+            {buttonData.hasDivider ?
+                <FilterButtonVerticalDivider />
                 :
-                    null
-            }
+                null}
             {buttonData.hasDropdown ?
-                    <CarrotDown />
+                <CarrotDown />
                 :
-                    null
-            }
-        </FilterButton__wrapper>
+                null}
+        </FilterButtonWrapper>
     );
 }

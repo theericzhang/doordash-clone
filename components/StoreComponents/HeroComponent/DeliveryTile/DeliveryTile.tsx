@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import DashPassIcon from "../../../Icons/DashPassIcon";
-import Information from "../../../Icons/InformationIcon";
-import { useAppSelector } from "../../../../app-redux/hooks";
+import styled from 'styled-components';
+import DashPassIcon from '../../../Icons/DashPassIcon';
+import Information from '../../../Icons/InformationIcon';
+import { useAppSelector } from '../../../../app-redux/hooks';
 
-const DeliveryTile__wrapper = styled.div`
+const DeliveryTileWrapper = styled.div`
     display: flex;
     align-items: center;
     height: 62px;
@@ -12,7 +12,7 @@ const DeliveryTile__wrapper = styled.div`
     margin: 10px 0;
 `;
 
-const DeliveryTile__half__wrapper = styled.div`
+const DeliveryTileHalfWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,18 +22,18 @@ const DeliveryTile__half__wrapper = styled.div`
     position: relative;
 `;
 
-const DeliveryTile__DashPass__wrapper = styled.div<{ isDelivery: boolean }>`
+const DeliveryTileDashPassWrapper = styled.div<{ isDelivery: boolean }>`
     position: absolute;
-    left: ${props => props.isDelivery ? '34px' : '28px'};
+    left: ${(props) => (props.isDelivery ? '34px' : '28px')};
     top: 10px;
 `;
 
-const DeliveryTile__divider = styled.div`
+const DeliveryTileDivider = styled.div`
     height: 28px;
     border-left: 1px solid var(--primary-gray);
 `;
 
-const DeliveryTime__text_strong_teal = styled.span`
+const DeliveryTimeTextStrongTeal = styled.span`
     font-size: 16px;
     font-weight: 500;
     color: var(--primary-teal);
@@ -41,7 +41,7 @@ const DeliveryTime__text_strong_teal = styled.span`
     margin-bottom: -1px;
 `;
 
-const DeliveryTime__text_strong = styled.span`
+const DeliveryTimeTextStrong = styled.span`
     font-size: 16px;
     font-weight: 500;
     color: var(--primary-black);
@@ -49,13 +49,13 @@ const DeliveryTime__text_strong = styled.span`
     margin-bottom: -1px;
 `;
 
-const DeliveryTime__text_regular = styled.span`
+const DeliveryTimeTextRegular = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
 `;
 
-const DeliveryTime__Information__wrapper = styled.div`
+const DeliveryTimeInformationWrapper = styled.div`
     position: absolute;
     right: 31px;
     bottom: 13px;
@@ -64,36 +64,36 @@ const DeliveryTime__Information__wrapper = styled.div`
 type TDeliveryTime = {
     deliveryTime: string;
     pickupTime: string;
-}
+};
 
 export default function DeliveryTile({ deliveryTime, pickupTime }: TDeliveryTime) {
     const isDelivery = useAppSelector((state) => state.deliverySlice.isDelivery);
 
     return (
-        <DeliveryTile__wrapper>
-            <DeliveryTile__half__wrapper>
-                <DeliveryTile__DashPass__wrapper isDelivery={isDelivery}>
-                    <DashPassIcon color={`var(--primary-teal)`}/>
-                </DeliveryTile__DashPass__wrapper>
-                <DeliveryTime__text_strong_teal>
+        <DeliveryTileWrapper>
+            <DeliveryTileHalfWrapper>
+                <DeliveryTileDashPassWrapper isDelivery={isDelivery}>
+                    <DashPassIcon color="var(--primary-teal)" />
+                </DeliveryTileDashPassWrapper>
+                <DeliveryTimeTextStrongTeal>
                     {isDelivery ? '$0.00' : '5% back'}
-                </DeliveryTime__text_strong_teal>
-                <DeliveryTime__text_regular>
+                </DeliveryTimeTextStrongTeal>
+                <DeliveryTimeTextRegular>
                     {isDelivery ? 'delivery fee' : 'and $0 fees'}
-                </DeliveryTime__text_regular>
-                <DeliveryTime__Information__wrapper>
+                </DeliveryTimeTextRegular>
+                <DeliveryTimeInformationWrapper>
                     <Information />
-                </DeliveryTime__Information__wrapper>
-            </DeliveryTile__half__wrapper>
-            <DeliveryTile__divider />
-            <DeliveryTile__half__wrapper>
-                <DeliveryTime__text_strong>
+                </DeliveryTimeInformationWrapper>
+            </DeliveryTileHalfWrapper>
+            <DeliveryTileDivider />
+            <DeliveryTileHalfWrapper>
+                <DeliveryTimeTextStrong>
                     {isDelivery ? deliveryTime : pickupTime}
-                </DeliveryTime__text_strong>
-                <DeliveryTime__text_regular>
+                </DeliveryTimeTextStrong>
+                <DeliveryTimeTextRegular>
                     {isDelivery ? 'delivery time' : 'ready for pickup'}
-                </DeliveryTime__text_regular>
-            </DeliveryTile__half__wrapper>
-        </DeliveryTile__wrapper>
+                </DeliveryTimeTextRegular>
+            </DeliveryTileHalfWrapper>
+        </DeliveryTileWrapper>
     );
 }

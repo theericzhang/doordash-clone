@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import ThumbsUp from "../../Icons/ThumbsUpIcon";
-import Image from "next/image";
-import { TStoreItem } from "../../../global";
-import { useAppSelector, useAppDispatch } from "../../../app-redux/hooks";
-import { toggleIsModalOpen, setModalData } from "../../../app-redux/features/item/itemSlice";
+import styled from 'styled-components';
+import Image from 'next/image';
+import ThumbsUp from '../../Icons/ThumbsUpIcon';
+import { TStoreItem } from '../../../global';
+import { useAppDispatch } from '../../../app-redux/hooks';
+import { toggleIsModalOpen, setModalData } from '../../../app-redux/features/item/itemSlice';
 
-const Item__wrapper = styled.button`
+const ItemWrapper = styled.button`
     width: 49.2%;
     height: 144px;
     display: flex;
@@ -38,7 +38,7 @@ const Item__wrapper = styled.button`
     }
 `;
 
-const Item__text__wrapper = styled.div`
+const ItemTextWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -52,14 +52,14 @@ const Item__text__wrapper = styled.div`
     }
 `;
 
-const Item__text__name = styled.span`
+const ItemTextName = styled.span`
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.4px;
     color: var(--primary-black);
 `;
 
-const Item__text__description = styled.span`
+const ItemTextDescription = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
@@ -71,34 +71,34 @@ const Item__text__description = styled.span`
     line-height: 1.5;
 `;
 
-const Item__text__stats__wrapper = styled.div`
+const ItemTextStatsWrapper = styled.div`
     display: flex;
     column-gap: 4px;
     align-items: center;
 `;
 
-const Item__text__price = styled.span`
+const ItemTextPrice = styled.span`
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0px;
     color: var(--secondary-black);
 `;
 
-const Item__text__stats = styled.span`
+const ItemTextStats = styled.span`
     font-size: 14px;
     font-weight: 400;
     letter-spacing: -0.3px;
     color: var(--secondary-black);
 `;
 
-const Item__text__lastordered = styled.span`
+const ItemTextLastOrdered = styled.span`
     font-size: 14px;
     font-weight: 500;
     color: var(--primary-teal);
     letter-spacing: -0.4px;
 `;
 
-const Item__image__wrapper = styled.div`
+const ItemImageWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,49 +114,58 @@ const Item__image__wrapper = styled.div`
     }
 `;
 
-const Item__image = styled(Image)`
+const ItemImage = styled(Image)`
     object-fit: cover;
 `;
 
-export default function MenuItem({ itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }: TStoreItem) {
+export default function MenuItem({
+    itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered
+}: TStoreItem) {
     const dispatch = useAppDispatch();
     const priceFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
     });
-    
+
     return (
-        <Item__wrapper 
+        <ItemWrapper
             onClick={
                 () => {
                     dispatch(toggleIsModalOpen());
-                    dispatch(setModalData({ itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered }));
+                    dispatch(setModalData({
+                        itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered
+                    }));
                 }
             }
         >
-            <Item__text__wrapper>
-                <Item__text__name>{itemName}</Item__text__name>
-                <Item__text__description>
+            <ItemTextWrapper>
+                <ItemTextName>{itemName}</ItemTextName>
+                <ItemTextDescription>
                     {description}
-                </Item__text__description>
-                <Item__text__stats__wrapper>
-                    <Item__text__price>{priceFormatter.format(price)}</Item__text__price>
-                    <Item__text__stats>•</Item__text__stats>
+                </ItemTextDescription>
+                <ItemTextStatsWrapper>
+                    <ItemTextPrice>{priceFormatter.format(price)}</ItemTextPrice>
+                    <ItemTextStats>•</ItemTextStats>
                     <ThumbsUp />
-                    <Item__text__stats>{ratingPercentage}% ({ratingCount})</Item__text__stats>
-                </Item__text__stats__wrapper>
-                <Item__text__lastordered>
-                    {!!lastOrdered ? `Last ordered on ${lastOrdered}` : null}
-                </Item__text__lastordered>
-            </Item__text__wrapper>
-            <Item__image__wrapper>
-                <Item__image
+                    <ItemTextStats>
+                        {ratingPercentage}
+                        % (
+                        {ratingCount}
+                        )
+                    </ItemTextStats>
+                </ItemTextStatsWrapper>
+                <ItemTextLastOrdered>
+                    {lastOrdered ? `Last ordered on ${lastOrdered}` : null}
+                </ItemTextLastOrdered>
+            </ItemTextWrapper>
+            <ItemImageWrapper>
+                <ItemImage
                     src={image.src}
                     alt={image.alt}
-                    fill={true}
-                    sizes={"141px"}
+                    fill
+                    sizes="141px"
                 />
-            </Item__image__wrapper>
-        </Item__wrapper>
+            </ItemImageWrapper>
+        </ItemWrapper>
     );
 }

@@ -9,13 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/eslint-plugin-next": "^13.1.5",
     "@next/font": "^13.1.1",
     "@reduxjs/toolkit": "^1.9.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
-    "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
     "next": "^13.1.2",
     "react": "18.2.0",
@@ -26,8 +24,15 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^13.1.5",
     "@types/react-transition-group": "^4.4.5",
     "@types/styled-components": "^5.1.26",
-    "eslint-plugin-jsx-a11y": "^6.7.1"
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-styled-components-a11y": "^0.1.0"
   }
 }

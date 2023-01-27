@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import CarouselTitle from "./CarouselTitle";
-import RestaurantCard from "./RestaurantCard/RestaurantCard";
-import { restaurantList } from "../datav2";
+import styled from 'styled-components';
+import CarouselTitle from './CarouselTitle';
+import RestaurantCard from './RestaurantCard/RestaurantCard';
+import { restaurantList } from '../datav2';
 
-const RestaurantCarousel__article = styled.article`
+const RestaurantCarouselArticle = styled.article`
     display: flex;
     flex-direction: column;
     margin: 30px auto;
@@ -34,7 +34,7 @@ const RestaurantCarousel__article = styled.article`
     }
 `;
 
-const RestaurantCarousel__topRow = styled.div`
+const RestaurantCarouselTopRow = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -48,7 +48,7 @@ const RestaurantCarousel__topRow = styled.div`
     }
 `;
 
-const RestaurantCarousel__carousel = styled.div`
+const RestaurantCarouselCarousel = styled.div`
     display: flex;
     max-width: 100%;
     column-gap: 15px;
@@ -82,31 +82,30 @@ type TRestaurauntCarousel = {
         carouselName: string,
         selectedRestaurantIDs: number[];
     };
-}
+};
 
-export default function RestaurantCarousel({carouselData} : TRestaurauntCarousel) {
-
-    const arrayOfRestaurantCards = carouselData.selectedRestaurantIDs.map(((restaurantID, index) => {
-        return (
-            <RestaurantCard
-                restaurantID={restaurantID}
-                restaurantData={restaurantList[restaurantID as keyof typeof restaurantList].restaurantData}
-                index={index}
-                key={restaurantID}
-            />
-        )
-    }))
+export default function RestaurantCarousel({ carouselData } : TRestaurauntCarousel) {
+    const arrayOfRestaurantCards = carouselData.selectedRestaurantIDs.map(((restaurantID, index) => (
+        <RestaurantCard
+            restaurantID={restaurantID}
+            restaurantData={
+                restaurantList[restaurantID as keyof typeof restaurantList].restaurantData
+            }
+            index={index}
+            key={restaurantID}
+        />
+    )));
 
     return (
-        <RestaurantCarousel__article>
-            <RestaurantCarousel__topRow>
-                <CarouselTitle carouselName={carouselData.carouselName}/>
+        <RestaurantCarouselArticle>
+            <RestaurantCarouselTopRow>
+                <CarouselTitle carouselName={carouselData.carouselName} />
                 {/* add buttons to navigate through carousel */}
-            </RestaurantCarousel__topRow>
-            <RestaurantCarousel__carousel>
-                {/* Add custom restaurant cards here*/}
+            </RestaurantCarouselTopRow>
+            <RestaurantCarouselCarousel>
+                {/* Add custom restaurant cards here */}
                 {arrayOfRestaurantCards}
-            </RestaurantCarousel__carousel>
-        </RestaurantCarousel__article>
+            </RestaurantCarouselCarousel>
+        </RestaurantCarouselArticle>
     );
 }

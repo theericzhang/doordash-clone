@@ -1,10 +1,10 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TStoreItem } from "../../../global";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TStoreItem } from '../../../global';
 
 interface IItemState {
     isModalOpen: boolean;
     itemData: TStoreItem;
-};
+}
 
 const initialState: IItemState = {
     isModalOpen: false,
@@ -12,11 +12,14 @@ const initialState: IItemState = {
 };
 
 const itemSlice = createSlice({
-    name: "item",
-    initialState: initialState,
+    name: 'item',
+    initialState,
     reducers: {
         toggleIsModalOpen: (state) => {
             state.isModalOpen = !state.isModalOpen;
+        },
+        setIsModalOpenFalse: (state) => {
+            state.isModalOpen = false;
         },
         setModalData: (state, action: PayloadAction<TStoreItem>) => {
             state.itemData = action.payload;
@@ -24,5 +27,5 @@ const itemSlice = createSlice({
     }
 });
 
-export const { toggleIsModalOpen, setModalData } = itemSlice.actions;
+export const { toggleIsModalOpen, setIsModalOpenFalse, setModalData } = itemSlice.actions;
 export default itemSlice.reducer;

@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { useAppSelector } from "../../../app-redux/hooks";
+import { useAppSelector } from '../../../app-redux/hooks';
 
-const CheckoutButton__button = styled.button`
+const CheckoutButtonWrapper = styled.button`
     width: 100%;
     height: 40px;
     display: flex;
@@ -26,20 +26,20 @@ const CheckoutButton__button = styled.button`
     }
 `;
 
-const CheckoutButton__text__wrapper = styled.div`
+const CheckoutButtonTextWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 0 16px;
     width: 100%;
 `;
 
-const CheckoutButton__checkout__label = styled.span`
+const CheckoutButtonCheckoutLabel = styled.span`
     font-size: 16px;
     font-weight: 500;
     color: var(--primary-white);
 `;
 
-const CheckoutButton__price__label = styled.span`
+const CheckoutButtonPriceLabel = styled.span`
     font-size: 16px;
     font-weight: 500;
     color: var(--primary-white);
@@ -53,11 +53,11 @@ export default function CheckoutButton() {
     });
 
     return (
-        <CheckoutButton__button>
-            <CheckoutButton__text__wrapper>
-                <CheckoutButton__checkout__label>Checkout</CheckoutButton__checkout__label>
-                <CheckoutButton__price__label>{priceFormatter.format(cartTotalValue)}</CheckoutButton__price__label>
-            </CheckoutButton__text__wrapper>
-        </CheckoutButton__button>
+        <CheckoutButtonWrapper>
+            <CheckoutButtonTextWrapper>
+                <CheckoutButtonCheckoutLabel>Checkout</CheckoutButtonCheckoutLabel>
+                <CheckoutButtonPriceLabel>{priceFormatter.format(cartTotalValue)}</CheckoutButtonPriceLabel>
+            </CheckoutButtonTextWrapper>
+        </CheckoutButtonWrapper>
     );
 }

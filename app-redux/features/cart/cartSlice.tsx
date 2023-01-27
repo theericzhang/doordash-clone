@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { restaurantList } from "../../../components/datav2";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { restaurantList } from '../../../components/datav2';
 
 interface ICartState {
     storeID?: number;
@@ -40,7 +40,6 @@ function calculateCartTotal() {
             restaurants[initialState.storeID as keyof typeof restaurants]
                 .storefrontData.items[item.itemID].price;
     });
-    console.log(initialState.totalValue);
     return sum;
 }
 
@@ -55,17 +54,22 @@ function immutableCalculateCartTotal(state: ICartState) {
                 .storefrontData.items[item.itemID].price;
     });
     state.totalValue = sum;
-    return;
 }
 
 // cartSlice needs access to the storeID to ensure that all items in the cart are from storeID.
-// Without storeID validation, the cart could contain items from multiple stores, which is disallowed in standard DD delivery (with exception of having dasher pick up items after a delivery has been dispatched)
+// Without storeID validation, the cart could contain items from multiple stores, which is
+//  disallowed in standard DD delivery
+// (with exception of having dasher pick up items after a delivery has been dispatched)
 const cartSlice = createSlice({
-    name: "cart",
-    initialState: initialState,
+    name: 'cart',
+    initialState,
     reducers: {
         toggleIsOpenFromCartSheet: (state) => {
             state.isOpenFromCartSheet = !state.isOpenFromCartSheet;
+        },
+
+        setFalseIsOpenFromCartSheet: (state) => {
+            state.isOpenFromCartSheet = false;
         },
 
         setPageViewingStoreID: (state, action: PayloadAction<number>) => {
@@ -76,7 +80,8 @@ const cartSlice = createSlice({
             state.storeID = action.payload;
         },
 
-        // if the user adds an item from a different store, we need to reset the storeID and cart to the storeID of the new item they were looking at
+        // if the user adds an item from a different store, we need to
+        // reset the storeID and cart to the storeID of the new item they were looking at
         resetCartNewStore: (state, action: PayloadAction<number>) => {
             state.storeID = action.payload;
             state.cart = [];
@@ -115,10 +120,16 @@ const cartSlice = createSlice({
         // if quantity is 1 and user hits delete, item should be removed from list
         deleteItemFromCart: (state, action: PayloadAction<number>) => {
             for (let i = 0; i < state.cart.length; i++) {
-                if (state.cart[i].itemID === action.payload && state.cart[i].quantity > 1) {
+                if (
+                    state.cart[i].itemID === action.payload &&
+                    state.cart[i].quantity > 1
+                ) {
                     state.cart[i].quantity -= 1;
                     break;
-                } else if (state.cart[i].itemID === action.payload && state.cart[i].quantity === 1) {
+                } else if (
+                    state.cart[i].itemID === action.payload &&
+                    state.cart[i].quantity === 1
+                ) {
                     // if state.cart[i].quantity is 1, then filter out that item altogether.
                     state.cart = state.cart.filter(
                         (item) => item.itemID !== action.payload
@@ -131,6 +142,13 @@ const cartSlice = createSlice({
     },
 });
 
-export const { toggleIsOpenFromCartSheet, setPageViewingStoreID, setStoreID, resetCartNewStore, addItemToCart, deleteItemFromCart } =
-    cartSlice.actions;
+export const {
+    toggleIsOpenFromCartSheet,
+    setFalseIsOpenFromCartSheet,
+    setPageViewingStoreID,
+    setStoreID,
+    resetCartNewStore,
+    addItemToCart,
+    deleteItemFromCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;

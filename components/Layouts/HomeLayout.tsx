@@ -1,8 +1,8 @@
-import FilterButtonRow from "../FilterButtonRow/FilterButtonRow"
+import FilterButtonRow from '../FilterButtonRow/FilterButtonRow';
 
 type THomeLayout = {
     children: JSX.Element;
-}
+};
 
 export default function HomeLayout({ children }: THomeLayout) {
     return (
@@ -10,5 +10,5 @@ export default function HomeLayout({ children }: THomeLayout) {
             <FilterButtonRow />
             {children}
         </>
-    )
+    );
 }

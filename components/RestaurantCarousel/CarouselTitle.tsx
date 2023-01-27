@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const CarouselTitleHeader = styled.h2`
     font-size: 24px;
@@ -8,9 +8,9 @@ const CarouselTitleHeader = styled.h2`
 
 type TCarouselTitle = {
     carouselName: string;
-}
+};
 
-export default function CarouselTitle({carouselName}: TCarouselTitle) {
+export default function CarouselTitle({ carouselName }: TCarouselTitle) {
     return (
         <CarouselTitleHeader>
             {carouselName}
