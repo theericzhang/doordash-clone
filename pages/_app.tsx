@@ -9,6 +9,7 @@ import Store from './store/[slug]';
 import Navbar from '../components/Navigation/Navbar';
 import { store } from '../app-redux/store';
 import CartSheet from '../components/CartSheet/CartSheet';
+import GithubBadge from '../components/GithubBadge/GithubBadge';
 
 const ttNormsFont = localFont({
     src: [
@@ -85,6 +86,7 @@ export default function App({ Component, pageProps }: AppProps) {
                     <CartSheet isStoreCartSheet />
                 ) : null}
                 <Component {...pageProps} />
+                <GithubBadge />
             </div>
         </Provider>
     );
