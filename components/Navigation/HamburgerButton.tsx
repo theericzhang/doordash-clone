@@ -10,7 +10,7 @@ const HamburgerButtonWrapper = styled.button`
 
 export default function HamburgerButton() {
     return (
-        <HamburgerButtonWrapper>
+        <HamburgerButtonWrapper aria-label="Main menu">
             <svg
                 width="18"
                 height="12"
