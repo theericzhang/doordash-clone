@@ -22,6 +22,7 @@ const ItemModalWrapper = styled.dialog<ItemModalWrapperProps>`
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
     opacity: ${(props) => (props.state === 'entering'
         ?
         0 : props.state === 'entered'
