@@ -1,16 +1,17 @@
-import { GetServerSidePropsContext } from "next";
-import Head from "next/head";
-import { restaurantList } from "../../components/datav2";
-import { TRestaurantDataPrimary, TStorefrontData, TStoreItem } from "../../global";
+import { GetServerSidePropsContext } from 'next';
+import Head from 'next/head';
+import { createContext } from 'react';
+import { restaurantList } from '../../components/datav2';
+import { TRestaurantDataPrimary, TStorefrontData, TStoreItem } from '../../global';
 
-import StoreLayout from "../../components/Layouts/StoreLayout";
-import HeroComponent from "../../components/StoreComponents/HeroComponent/HeroComponent";
-import CartOverview from "../../components/StoreComponents/CartOverviewComponent/CartOverview";
-import QuickActions from "../../components/StoreComponents/QuickActionsComponent/QuickActions";
+import StoreLayout from '../../components/Layouts/StoreLayout';
+import HeroComponent from '../../components/StoreComponents/HeroComponent/HeroComponent';
+import CartOverview from '../../components/StoreComponents/CartOverviewComponent/CartOverview';
+// eslint-disable-next-line import/no-cycle
+import QuickActions from '../../components/StoreComponents/QuickActionsComponent/QuickActions';
 
-import { createContext } from "react";
-import { useAppDispatch } from "../../app-redux/hooks";
-import { setPageViewingStoreID } from "../../app-redux/features/cart/cartSlice";
+import { useAppDispatch } from '../../app-redux/hooks';
+import { setPageViewingStoreID } from '../../app-redux/features/cart/cartSlice';
 
 type TServerSideProps = {
     restaurant: {
@@ -40,7 +41,7 @@ export default function Store({ restaurant, storeID }: TServerSideProps) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <StoreLayout>
-                <HeroComponent 
+                <HeroComponent
                     restaurantData={restaurant.restaurantData}
                     storefrontData={restaurant.storefrontData}
                 />
@@ -48,7 +49,7 @@ export default function Store({ restaurant, storeID }: TServerSideProps) {
                 <StoreItemsContext.Provider value={restaurant.storefrontData.items}>
                     <QuickActions />
                 </StoreItemsContext.Provider>
-                <CartOverview isInCartSheet={false}/>
+                <CartOverview isInCartSheet={false} />
             </StoreLayout>
         </>
     );

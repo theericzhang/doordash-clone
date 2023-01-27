@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import MenuSection from "../MenuSection/MenuSection";
+/* eslint-disable import/no-cycle */
+import styled from 'styled-components';
+import MenuSection from '../MenuSection/MenuSection';
 
-const QuickActions__wrapper = styled.section`
+const QuickActionsWrapper = styled.section`
     display: flex;
     flex-direction: column;
     max-width: 928px;
@@ -21,12 +22,10 @@ const QuickActions__wrapper = styled.section`
     }
 `;
 
-
-
 export default function QuickActions() {
     return (
-        <QuickActions__wrapper>
+        <QuickActionsWrapper>
             <MenuSection />
-        </QuickActions__wrapper>
+        </QuickActionsWrapper>
     );
 }
