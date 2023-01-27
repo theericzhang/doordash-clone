@@ -24,7 +24,10 @@ const CartSheetWrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreCar
 
     @media screen and (max-width: 1185px) {
         width: ${(props) => props.isStoreCartSheet && props.isOpenFromCartSheet && '50%'};
-        right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-53%')};
+        /* width: ${(props) => (props.isOpenFromCartSheet ? props.isStoreCartSheet ? '50%' : 'inherit' : 'inherit')}; */
+        /* right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-53%')}; */
+        /* inverse logic to determine the position if it's CLOSED, then if it's store or home cart */
+        right: ${(props) => (!props.isOpenFromCartSheet ? props.isStoreCartSheet ? '-50vw' : '-370px' : '0px')};
     }
 
     @media screen and (max-width: 770px) {
