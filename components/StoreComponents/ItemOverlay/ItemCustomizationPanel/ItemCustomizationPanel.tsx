@@ -3,12 +3,12 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import styled from 'styled-components';
 import {
-    useState, useRef, useCallback, useEffect
+    useState, useRef,
 } from 'react';
 import { Transition, TransitionStatus } from 'react-transition-group';
 import Image from 'next/image';
 import { useAppDispatch, useAppSelector } from '../../../../app-redux/hooks';
-import { toggleIsModalOpen, setIsModalOpenFalse } from '../../../../app-redux/features/item/itemSlice';
+import { toggleIsModalOpen } from '../../../../app-redux/features/item/itemSlice';
 import {
     addItemToCart,
     setStoreID,
@@ -213,18 +213,18 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
         }
     }
 
-    const keyDownHandler = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
-        if (e.key === 'Escape') {
-            dispatch(setIsModalOpenFalse());
-        }
-    }, [dispatch]);
+    // const keyDownHandler = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    //     if (e.key === 'Escape') {
+    //         dispatch(setIsModalOpenFalse());
+    //     }
+    // }, [dispatch]);
 
-    useEffect(() => {
-        window.addEventListener('keydown', keyDownHandler as any);
-        return () => {
-            window.removeEventListener('keydown', keyDownHandler as any);
-        };
-    }, [keyDownHandler]);
+    // useEffect(() => {
+    //     window.addEventListener('keydown', keyDownHandler as any);
+    //     return () => {
+    //         window.removeEventListener('keydown', keyDownHandler as any);
+    //     };
+    // }, [keyDownHandler]);
 
     return (
         <Transition
@@ -239,7 +239,6 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
                     isModalOpen={isModalOpen}
                     onClick={(e) => e.stopPropagation()}
                     ref={nodeRef}
-                    onKeyDown={(e) => keyDownHandler(e as React.KeyboardEvent<HTMLDivElement>)}
                     role="presentation"
                 >
                     <ItemCustomizationPanelMainWrapper>
