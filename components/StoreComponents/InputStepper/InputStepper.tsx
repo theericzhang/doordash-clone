@@ -45,11 +45,10 @@ const InputStepperLabel = styled.span`
 `;
 
 type TInputStepper = {
-    quantity: number;
     itemID: number;
 };
 
-export default function InputStepper({ quantity, itemID }: TInputStepper) {
+export default function InputStepper({ itemID }: TInputStepper) {
     const stateCart = useAppSelector((state) => state.cartSlice.cart);
     let quantityCart = 0;
     
@@ -63,6 +62,8 @@ export default function InputStepper({ quantity, itemID }: TInputStepper) {
 
     /**
      * TODO: Values need to be debounced before they are dispatched to global store.
+     * REVISION: Values can be directly dispatched to global store. the reducer itself will take care of
+     * debouncing since it will post to the server then.
      */
 
     const dispatch = useAppDispatch();
@@ -80,7 +81,6 @@ export default function InputStepper({ quantity, itemID }: TInputStepper) {
             dispatch(deleteItemFromCart(itemID));
         } else if (quantityCart === 1) {
             // delete item and remove from list if stepperCount reaches 0.
-            // think of passing an ID that react can remove from an array of cart items.
             dispatch(deleteItemFromCart(itemID));
         }
     }

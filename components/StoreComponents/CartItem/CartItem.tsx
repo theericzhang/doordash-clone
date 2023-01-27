@@ -92,7 +92,6 @@ export default function CartItem({
                 </CartItemDescriptionPrice>
             </CartItemDescriptionWrapper>
             <InputStepper
-                quantity={quantity}
                 itemID={itemID}
             />
         </CartItemWrapper>
