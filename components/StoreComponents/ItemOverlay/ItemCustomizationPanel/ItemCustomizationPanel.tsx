@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import styled from 'styled-components';
 import {
-    useState, useRef,
+    useState, useRef, useEffect,
 } from 'react';
 import { Transition, TransitionStatus } from 'react-transition-group';
 import Image from 'next/image';
@@ -175,6 +175,11 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
     const [itemCounter, setItemCounter] = useState(1);
 
     const nodeRef = useRef(null);
+    useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        // nodeRef.current && nodeRef.current.focus();
+        // TODO: Figure out how to set focus on this modal
+    }, []);
 
     const dispatch = useAppDispatch();
     // grabbing item data that was set when the user clicks on MenuItem
