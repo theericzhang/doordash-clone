@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-no-bind */
 import styled from 'styled-components';
 import MinusCircle from '../../../../Icons/MinusCircleIcon';
 import PlusCircle from '../../../../Icons/PlusCircleIcon';
 
-const ModalInputStepper__wrapper = styled.div`
+const ModalInputStepperWrapper = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
@@ -14,7 +15,7 @@ const ModalInputStepper__wrapper = styled.div`
     }
 `;
 
-const ModalInputStepper__button = styled.button`
+const ModalInputStepperButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +27,7 @@ const ModalInputStepper__button = styled.button`
     }
 `;
 
-const ModalInputStepper__input = styled.input`
+const ModalInputStepperInput = styled.input`
     height: 100%;
     width: 64px;
     display: flex;
@@ -79,11 +80,11 @@ export default function ModalInputStepper({ itemCounter, setItemCounter }: TModa
     }
 
     return (
-        <ModalInputStepper__wrapper>
-            <ModalInputStepper__button onClick={decrementCounter}>
+        <ModalInputStepperWrapper>
+            <ModalInputStepperButton onClick={decrementCounter}>
                 <MinusCircle isEnabled={itemCounter > 1} />
-            </ModalInputStepper__button>
-            <ModalInputStepper__input
+            </ModalInputStepperButton>
+            <ModalInputStepperInput
                 placeholder="1"
                 value={itemCounter}
                 type="number"
@@ -93,9 +94,9 @@ export default function ModalInputStepper({ itemCounter, setItemCounter }: TModa
                 id="ModalInputStepperInput"
                 onFocus={setInputFocus}
             />
-            <ModalInputStepper__button onClick={incrementCounter}>
+            <ModalInputStepperButton onClick={incrementCounter}>
                 <PlusCircle isEnabled />
-            </ModalInputStepper__button>
-        </ModalInputStepper__wrapper>
+            </ModalInputStepperButton>
+        </ModalInputStepperWrapper>
     );
 }
