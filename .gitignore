@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 # eslint config
-/.eslintrc.json
+.eslintrc.json
