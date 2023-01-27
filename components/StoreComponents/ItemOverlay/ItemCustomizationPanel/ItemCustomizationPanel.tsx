@@ -1,27 +1,31 @@
-import styled from "styled-components";
-import { useAppDispatch, useAppSelector } from "../../../../app-redux/hooks";
-import { toggleIsModalOpen } from "../../../../app-redux/features/item/itemSlice";
+/* eslint-disable react/jsx-no-bind */
+/* eslint-disable @typescript-eslint/brace-style */
+/* eslint-disable @typescript-eslint/no-shadow */
+import styled from 'styled-components';
+import {
+    useState, useRef, useCallback, useEffect
+} from 'react';
+import { Transition, TransitionStatus } from 'react-transition-group';
+import Image from 'next/image';
+import { useAppDispatch, useAppSelector } from '../../../../app-redux/hooks';
+import { toggleIsModalOpen, setIsModalOpenFalse } from '../../../../app-redux/features/item/itemSlice';
 import {
     addItemToCart,
     setStoreID,
     resetCartNewStore,
     setPageViewingStoreID,
-} from "../../../../app-redux/features/cart/cartSlice";
-import { useState } from "react";
-import { Transition, TransitionStatus } from "react-transition-group";
+} from '../../../../app-redux/features/cart/cartSlice';
 
-import X from "../../../Icons/XIcon";
-import ThumbsUp from "../../../Icons/ThumbsUpIcon";
-import Image from "next/image";
-import ModalInputStepper from "./ModalInputStepper/ModalInputStepper";
-import { useRef } from "react";
+import X from '../../../Icons/XIcon';
+import ThumbsUp from '../../../Icons/ThumbsUpIcon';
+import ModalInputStepper from './ModalInputStepper/ModalInputStepper';
 
 type TItemCustomizationPanel = {
     state: TransitionStatus;
     isModalOpen: boolean;
 };
 
-const ItemCustomizationPanel__wrapper = styled.div<TItemCustomizationPanel>`
+const ItemCustomizationPanelWrapper = styled.div<TItemCustomizationPanel>`
     display: flex;
     flex-direction: column;
     width: 560px;
@@ -31,14 +35,13 @@ const ItemCustomizationPanel__wrapper = styled.div<TItemCustomizationPanel>`
     border-radius: 16px;
     /* padding: 16px; */
     position: relative;
-    transform: ${(props) =>
-        props.state === "entering"
-            ? `scale(0.95)`
-            : props.state === "entered"
-            ? `scale(1)`
-            : props.state === "exiting"
-            ? `scale(0.95)`
-            : `scale(0.95)`};
+    transform: ${(props) => (props.state === 'entering'
+        ? 'scale(0.95)'
+        : props.state === 'entered'
+            ? 'scale(1)'
+            : props.state === 'exiting'
+                ? 'scale(0.95)'
+                : 'scale(0.95)')};
     transition: transform 225ms ease-in-out;
     justify-content: space-between;
 
@@ -53,11 +56,11 @@ const ItemCustomizationPanel__wrapper = styled.div<TItemCustomizationPanel>`
     }
 `;
 
-const ItemCustomizationPanel__main__wrapper = styled.div`
+const ItemCustomizationPanelMainWrapper = styled.div`
     padding: 16px;
 `;
 
-const ItemCustomizationPanel__button_close = styled.button`
+const ItemCustomizationPanelButtonClose = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +74,7 @@ const ItemCustomizationPanel__button_close = styled.button`
     }
 `;
 
-const ItemCustomizationPanel__content__wrapper = styled.div`
+const ItemCustomizationPanelContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 10px;
@@ -79,27 +82,27 @@ const ItemCustomizationPanel__content__wrapper = styled.div`
     margin: 33px 0;
 `;
 
-const ItemCustomizationPanel__item__name = styled.h2`
+const ItemCustomizationPanelItemName = styled.h2`
     font-size: 32px;
     font-weight: 500;
     color: var(--primary-black);
     letter-spacing: -0.45px;
 `;
 
-const ItemCustomizationPanel__stats__wrapper = styled.div`
+const ItemCustomizationPanelStatsWrapper = styled.div`
     display: flex;
     column-gap: 4px;
     align-items: center;
 `;
 
-const ItemCustomizationPanel__stats = styled.span`
+const ItemCustomizationPanelStats = styled.span`
     font-size: 14px;
     font-weight: 400;
     letter-spacing: -0.3px;
     color: var(--secondary-black);
 `;
 
-const ItemCustomizationPanel__item__description = styled.span`
+const ItemCustomizationPanelItemDescription = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--secondary-black);
@@ -108,7 +111,7 @@ const ItemCustomizationPanel__item__description = styled.span`
     margin-bottom: 25px;
 `;
 
-const ItemCustomizationPanel__image__wrapper = styled.div`
+const ItemCustomizationPanelImageWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,12 +121,12 @@ const ItemCustomizationPanel__image__wrapper = styled.div`
     position: relative;
 `;
 
-const ItemCustomizationPanel__image = styled(Image)`
+const ItemCustomizationPanelImage = styled(Image)`
     width: 100%;
     object-fit: cover;
 `;
 
-const ItemCustomizationPanel__footer = styled.div`
+const ItemCustomizationPanelFooter = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -139,7 +142,7 @@ const ItemCustomizationPanel__footer = styled.div`
     }
 `;
 
-const ItemCustomizationPanel__AddToCart__button = styled.button`
+const ItemCustomizationPanelAddToCartButton = styled.button`
     width: 220px;
     height: 40px;
     display: flex;
@@ -168,6 +171,11 @@ const ItemCustomizationPanel__AddToCart__button = styled.button`
 `;
 
 export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCustomizationPanel) {
+    // we need this local state to talk between modalinputstepper and add to cart button
+    const [itemCounter, setItemCounter] = useState(1);
+
+    const nodeRef = useRef(null);
+
     const dispatch = useAppDispatch();
     // grabbing item data that was set when the user clicks on MenuItem
     const itemData = useAppSelector((state) => state.itemSlice.itemData);
@@ -175,9 +183,9 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
     const pageViewingStoreID = useAppSelector(
         (state) => state.cartSlice.pageViewingStoreID
     );
-    const priceFormatter = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
+    const priceFormatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
     });
 
     function addToCartClickHandler() {
@@ -189,7 +197,6 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
         if (cartStoreID === pageViewingStoreID) {
             dispatch(addItemToCart(cartPayload));
             dispatch(toggleIsModalOpen());
-            return;
         }
         // if the cart store is not defined meaning no items in cart, set the viewingID and then add
         else if (cartStoreID === undefined && !!pageViewingStoreID) {
@@ -197,86 +204,98 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
             dispatch(setStoreID(pageViewingStoreID));
             dispatch(addItemToCart(cartPayload));
             dispatch(toggleIsModalOpen());
-            return;
         }
         // if the cart's storeID doesn't match the viewingID, then start a new cart.
         else if (cartStoreID !== pageViewingStoreID && !!pageViewingStoreID) {
             dispatch(resetCartNewStore(pageViewingStoreID));
             dispatch(addItemToCart(cartPayload));
             dispatch(toggleIsModalOpen());
-            return;
         }
     }
 
-    // we need this local state to talk between modalinputstepper and add to cart button
-    const [itemCounter, setItemCounter] = useState(1);
+    const keyDownHandler = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === 'Escape') {
+            dispatch(setIsModalOpenFalse());
+        }
+    }, [dispatch]);
 
-    const nodeRef = useRef(null);
+    useEffect(() => {
+        window.addEventListener('keydown', keyDownHandler as any);
+        return () => {
+            window.removeEventListener('keydown', keyDownHandler as any);
+        };
+    }, [keyDownHandler]);
+
     return (
-        <Transition 
+        <Transition
             nodeRef={nodeRef}
-            in={isModalOpen} 
-            timeout={225} 
+            in={isModalOpen}
+            timeout={225}
             unmountOnExit
         >
             {() => (
-                <ItemCustomizationPanel__wrapper
+                <ItemCustomizationPanelWrapper
                     state={state}
                     isModalOpen={isModalOpen}
                     onClick={(e) => e.stopPropagation()}
                     ref={nodeRef}
+                    onKeyDown={(e) => keyDownHandler(e as React.KeyboardEvent<HTMLDivElement>)}
+                    role="presentation"
                 >
-                    <ItemCustomizationPanel__main__wrapper>
-                        <ItemCustomizationPanel__button_close
+                    <ItemCustomizationPanelMainWrapper>
+                        <ItemCustomizationPanelButtonClose
                             onClick={() => dispatch(toggleIsModalOpen())}
                         >
                             <X />
-                        </ItemCustomizationPanel__button_close>
-                        <ItemCustomizationPanel__content__wrapper>
-                            <ItemCustomizationPanel__item__name>
+                        </ItemCustomizationPanelButtonClose>
+                        <ItemCustomizationPanelContentWrapper>
+                            <ItemCustomizationPanelItemName>
                                 {itemData?.itemName}
-                            </ItemCustomizationPanel__item__name>
+                            </ItemCustomizationPanelItemName>
                             {itemData?.ratingCount ? (
-                                <ItemCustomizationPanel__stats__wrapper>
+                                <ItemCustomizationPanelStatsWrapper>
                                     <ThumbsUp size={16} />
-                                    <ItemCustomizationPanel__stats>
-                                        {itemData.ratingPercentage}% (
-                                        {itemData.ratingCount})
-                                    </ItemCustomizationPanel__stats>
-                                </ItemCustomizationPanel__stats__wrapper>
+                                    <ItemCustomizationPanelStats>
+                                        {itemData.ratingPercentage}
+                                        % (
+                                        {itemData.ratingCount}
+                                        )
+                                    </ItemCustomizationPanelStats>
+                                </ItemCustomizationPanelStatsWrapper>
                             ) : null}
                             {itemData?.description ? (
-                                <ItemCustomizationPanel__item__description>
+                                <ItemCustomizationPanelItemDescription>
                                     {itemData?.description}
-                                </ItemCustomizationPanel__item__description>
+                                </ItemCustomizationPanelItemDescription>
                             ) : null}
                             {itemData?.image.src ? (
-                                <ItemCustomizationPanel__image__wrapper>
-                                    <ItemCustomizationPanel__image
+                                <ItemCustomizationPanelImageWrapper>
+                                    <ItemCustomizationPanelImage
                                         src={itemData.image.src}
                                         alt={itemData.image.alt}
-                                        sizes={"295px"}
-                                        fill={true}
+                                        sizes="295px"
+                                        fill
                                     />
-                                </ItemCustomizationPanel__image__wrapper>
+                                </ItemCustomizationPanelImageWrapper>
                             ) : null}
-                        </ItemCustomizationPanel__content__wrapper>
-                    </ItemCustomizationPanel__main__wrapper>
-                    <ItemCustomizationPanel__footer>
+                        </ItemCustomizationPanelContentWrapper>
+                    </ItemCustomizationPanelMainWrapper>
+                    <ItemCustomizationPanelFooter>
                         <ModalInputStepper
                             itemCounter={itemCounter}
                             setItemCounter={setItemCounter}
                         />
-                        <ItemCustomizationPanel__AddToCart__button
+                        <ItemCustomizationPanelAddToCartButton
                             onClick={addToCartClickHandler}
                         >
-                            Add to Cart -{" "}
+                            Add to Cart -
+                            {' '}
                             {priceFormatter.format(
                                 itemData.price * itemCounter
                             )}
-                        </ItemCustomizationPanel__AddToCart__button>
-                    </ItemCustomizationPanel__footer>
-                </ItemCustomizationPanel__wrapper>
+                        </ItemCustomizationPanelAddToCartButton>
+                    </ItemCustomizationPanelFooter>
+                </ItemCustomizationPanelWrapper>
             )}
         </Transition>
     );
