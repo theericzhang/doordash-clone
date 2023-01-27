@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import Heart from "../../../Icons/HeartIcon";
-import GroupOfPeople from "../../../Icons/GroupOfPeopleIcon";
+import styled from 'styled-components';
+import Heart from '../../../Icons/HeartIcon';
+import GroupOfPeople from '../../../Icons/GroupOfPeopleIcon';
 
 // redux global state
-import { useAppSelector, useAppDispatch } from "../../../../app-redux/hooks";
-import { toggleDeliveryState } from "../../../../app-redux/features/delivery/deliverySlice";
+import { useAppSelector, useAppDispatch } from '../../../../app-redux/hooks';
+import { toggleDeliveryState } from '../../../../app-redux/features/delivery/deliverySlice';
 
-const AuxOptions__wrapper = styled.div`
+const AuxOptionsWrapper = styled.div`
     display: flex;
     height: 40px;
     column-gap: 15px;
@@ -17,7 +17,7 @@ const AuxOptions__wrapper = styled.div`
     }
 `;
 
-const AuxOptions__Button__primary = styled.button`
+const AuxOptionsButtonPrimary = styled.button`
     display: flex;
     height: 100%;
     background-color: var(--primary-gray);
@@ -49,7 +49,7 @@ const AuxOptions__Button__primary = styled.button`
     }
 `;
 
-const AuxOptions__Button__label = styled.span`
+const AuxOptionsButtonLabel = styled.span`
     font-size: 14px;
     font-weight: 500;
     color: var(--primary-black);
@@ -59,7 +59,7 @@ const AuxOptions__Button__label = styled.span`
     }
 `;
 
-const AuxOptions__Toggle__wrapper = styled.button`
+const AuxOptionsToggleWrapper = styled.button`
     display: flex;
     align-items: center;
     height: 100%;
@@ -88,7 +88,7 @@ const AuxOptions__Toggle__wrapper = styled.button`
     }
 `;
 
-const AuxOptions__Toggle__slider = styled.div<{isDelivery: boolean}>`
+const AuxOptionsToggleSlider = styled.div<{ isDelivery: boolean }>`
     display: flex;
     background-color: var(--primary-black);
     justify-content: center;
@@ -99,8 +99,8 @@ const AuxOptions__Toggle__slider = styled.div<{isDelivery: boolean}>`
     transition: 0.25s ease;
     transition-property: background-color;
     position: absolute;
-    left: ${props => props.isDelivery ? '0px' : 'unset'};
-    right: ${props => !props.isDelivery ? '0px' : 'unset'};
+    left: ${(props) => (props.isDelivery ? '0px' : 'unset')};
+    right: ${(props) => (!props.isDelivery ? '0px' : 'unset')};
     z-index: 1;
 
     &:hover {
@@ -111,7 +111,7 @@ const AuxOptions__Toggle__slider = styled.div<{isDelivery: boolean}>`
     }
 `;
 
-const AuxOptions__Toggle__label__wrapper = styled.div`
+const AuxOptionsToggleLabelWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,7 +119,7 @@ const AuxOptions__Toggle__label__wrapper = styled.div`
     margin-bottom: 1px;
 `;
 
-const AuxOptions__Toggle__label__wrapper__stationary__left = styled.div`
+const AuxOptionsToggleLabelWrapperStationaryLeft = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,7 +127,7 @@ const AuxOptions__Toggle__label__wrapper__stationary__left = styled.div`
     margin-bottom: 1px;
 `;
 
-const AuxOptions__Toggle__label__wrapper__stationary__right = styled.div`
+const AuxOptionsToggleLabelWrapperStationaryRight = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -135,23 +135,23 @@ const AuxOptions__Toggle__label__wrapper__stationary__right = styled.div`
     margin-bottom: 1px;
 `;
 
-const AuxOptions__Toggle__label__small = styled.span`
+const AuxOptionsToggleLabelSmall = styled.span`
     font-size: 12px;
     color: var(--quaternary-gray);
 `;
 
-const AuxOptions__Toggle__label = styled.span`
+const AuxOptionsToggleLabel = styled.span`
     font-size: 14px;
     font-weight: 500;
     color: var(--primary-white);
 `;
 
-const AuxOptions__Toggle__label__small__stationary = styled.span`
+const AuxOptionsToggleLabelSmallStationary = styled.span`
     font-size: 12px;
     color: var(--secondary-black);
 `;
 
-const AuxOptions__Toggle__label__stationary = styled.span`
+const AuxOptionsToggleLabelStationary = styled.span`
     font-size: 14px;
     font-weight: 500;
     color: var(--primary-black);
@@ -162,60 +162,62 @@ type TAuxOptions = {
     pickupTime: string;
 };
 
-
 export default function AuxOptions({ deliveryTime, pickupTime }: TAuxOptions) {
-
     const isDelivery = useAppSelector((state) => state.deliverySlice.isDelivery);
     const dispatch = useAppDispatch();
 
     return (
-        <AuxOptions__wrapper>
-            <AuxOptions__Button__primary>
+        <AuxOptionsWrapper>
+            <AuxOptionsButtonPrimary>
                 <Heart />
-                <AuxOptions__Button__label>Save</AuxOptions__Button__label>
-            </AuxOptions__Button__primary>
-            <AuxOptions__Button__primary>
+                <AuxOptionsButtonLabel>Save</AuxOptionsButtonLabel>
+            </AuxOptionsButtonPrimary>
+            <AuxOptionsButtonPrimary>
                 <GroupOfPeople />
-                <AuxOptions__Button__label>
+                <AuxOptionsButtonLabel>
                     Group Order
-                </AuxOptions__Button__label>
-            </AuxOptions__Button__primary>
-            <AuxOptions__Toggle__wrapper 
+                </AuxOptionsButtonLabel>
+            </AuxOptionsButtonPrimary>
+            <AuxOptionsToggleWrapper
                 onClick={() => {
                     dispatch(toggleDeliveryState());
                 }}
+                aria-label="Selected delivery option"
+                role="switch"
+                aria-checked={isDelivery ? 'true' : 'false'}
             >
-                <AuxOptions__Toggle__slider 
+                <AuxOptionsToggleSlider
                     isDelivery={isDelivery}
                     onClick={(e) => e.stopPropagation()}
+                    role="none"
                 >
-                    <AuxOptions__Toggle__label__wrapper>
-                        <AuxOptions__Toggle__label>
+                    <AuxOptionsToggleLabelWrapper>
+                        <AuxOptionsToggleLabel>
                             {isDelivery ? 'Delivery' : 'Pickup'}
-                        </AuxOptions__Toggle__label>
-                        <AuxOptions__Toggle__label__small>
+                        </AuxOptionsToggleLabel>
+                        <AuxOptionsToggleLabelSmall>
                             {isDelivery ? deliveryTime : pickupTime}
-                        </AuxOptions__Toggle__label__small>
-                    </AuxOptions__Toggle__label__wrapper>
-                </AuxOptions__Toggle__slider>
+                        </AuxOptionsToggleLabelSmall>
+                    </AuxOptionsToggleLabelWrapper>
+                </AuxOptionsToggleSlider>
 
-                <AuxOptions__Toggle__label__wrapper__stationary__left>
-                    <AuxOptions__Toggle__label__stationary>
+                <AuxOptionsToggleLabelWrapperStationaryLeft>
+                    <AuxOptionsToggleLabelStationary>
                         Delivery
-                    </AuxOptions__Toggle__label__stationary>
-                    <AuxOptions__Toggle__label__small__stationary>
+                    </AuxOptionsToggleLabelStationary>
+                    <AuxOptionsToggleLabelSmallStationary>
                         {deliveryTime}
-                    </AuxOptions__Toggle__label__small__stationary>
-                </AuxOptions__Toggle__label__wrapper__stationary__left>
-                <AuxOptions__Toggle__label__wrapper__stationary__right>
-                    <AuxOptions__Toggle__label__stationary>
+                    </AuxOptionsToggleLabelSmallStationary>
+                </AuxOptionsToggleLabelWrapperStationaryLeft>
+                <AuxOptionsToggleLabelWrapperStationaryRight>
+                    <AuxOptionsToggleLabelStationary>
                         Pickup
-                    </AuxOptions__Toggle__label__stationary>
-                    <AuxOptions__Toggle__label__small__stationary>
+                    </AuxOptionsToggleLabelStationary>
+                    <AuxOptionsToggleLabelSmallStationary>
                         {pickupTime}
-                    </AuxOptions__Toggle__label__small__stationary>
-                </AuxOptions__Toggle__label__wrapper__stationary__right>
-            </AuxOptions__Toggle__wrapper>
-        </AuxOptions__wrapper>
+                    </AuxOptionsToggleLabelSmallStationary>
+                </AuxOptionsToggleLabelWrapperStationaryRight>
+            </AuxOptionsToggleWrapper>
+        </AuxOptionsWrapper>
     );
 }

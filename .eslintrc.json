@@ -60,6 +60,9 @@
         "react/no-array-index-key": 1,
 
         // Suppress label with htmlFor, since it was deprecated
-        "styled-components-a11y/label-has-for": 0
+        "styled-components-a11y/label-has-for": 0,
+
+        // Suppress max line length
+        "max-len": 0
     }
 }

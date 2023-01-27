@@ -1,8 +1,8 @@
-import Image from "next/image";
-import styled from "styled-components";
-import InputStepper from "../InputStepper/InputStepper";
+import Image from 'next/image';
+import styled from 'styled-components';
+import InputStepper from '../InputStepper/InputStepper';
 
-const CartItem__wrapper = styled.a`
+const CartItemWrapper = styled.a`
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@ const CartItem__wrapper = styled.a`
     border-bottom: 1px solid var(--primary-gray);
 `;
 
-const CartItem__image__wrapper = styled.div`
+const CartItemImageWrapper = styled.div`
     width: 60px;
     height: 60px;
     border-radius: 5px;
@@ -25,11 +25,11 @@ const CartItem__image__wrapper = styled.div`
     position: relative;
 `;
 
-const CartItem__image = styled(Image)`
+const CartItemImage = styled(Image)`
     object-fit: cover;
 `;
 
-const CartItem__description__wrapper = styled.div`
+const CartItemDescriptionWrapper = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 12px;
@@ -37,7 +37,7 @@ const CartItem__description__wrapper = styled.div`
     max-width: 98px;
 `;
 
-const CartItem__description__item = styled.span`
+const CartItemDescriptionItem = styled.span`
     max-width: 100%;
     font-size: 16px;
     font-weight: 400;
@@ -50,7 +50,7 @@ const CartItem__description__item = styled.span`
     -webkit-box-orient: vertical;
 `;
 
-const CartItem__description__price = styled.span`
+const CartItemDescriptionPrice = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--primary-black);
@@ -63,36 +63,38 @@ type TCartItem = {
     price: number;
     quantity: number;
     itemID: number;
-}
+};
 
-export default function CartItem({ imageSrc, imageAlt, itemName, price, quantity, itemID }: TCartItem) {
+export default function CartItem({
+    imageSrc, imageAlt, itemName, price, quantity, itemID
+}: TCartItem) {
     const priceFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
     });
 
     return (
-        <CartItem__wrapper>
-            <CartItem__image__wrapper>
-                <CartItem__image 
+        <CartItemWrapper>
+            <CartItemImageWrapper>
+                <CartItemImage
                     src={imageSrc}
                     alt={imageAlt}
                     sizes="80px"
-                    fill={true}
+                    fill
                 />
-            </CartItem__image__wrapper>
-            <CartItem__description__wrapper>
-                <CartItem__description__item>
+            </CartItemImageWrapper>
+            <CartItemDescriptionWrapper>
+                <CartItemDescriptionItem>
                     {itemName}
-                </CartItem__description__item>
-                <CartItem__description__price>
+                </CartItemDescriptionItem>
+                <CartItemDescriptionPrice>
                     {priceFormatter.format(price)}
-                </CartItem__description__price>
-            </CartItem__description__wrapper>
-            <InputStepper 
+                </CartItemDescriptionPrice>
+            </CartItemDescriptionWrapper>
+            <InputStepper
                 quantity={quantity}
                 itemID={itemID}
             />
-        </CartItem__wrapper>
+        </CartItemWrapper>
     );
 }
