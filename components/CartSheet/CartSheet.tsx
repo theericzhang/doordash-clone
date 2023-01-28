@@ -75,7 +75,6 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
                 isOpenFromCartSheet={!!isOpenFromCartSheet}
                 isStoreCartSheet={!!isStoreCartSheet}
                 aria-hidden={!isOpenFromCartSheet}
-                tabIndex={isOpenFromCartSheet ? 0 : -1}
             >
                 <CartOverview isInCartSheet>
                     <CartSheetButtonClose

@@ -106,13 +106,13 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
                     </RestaurantCardImageWrapper>
                     <RestaurantCardBottom>
                         <RestaurantCardText>
-                            <RestaurantCardRestaurantNameLabel>
+                            <RestaurantCardRestaurantNameLabel aria-label={`${restaurantData.restaurantName} is ${restaurantData.distance} away. Time will take ${restaurantData.deliveryTime}. Get $0 delivery fee over $12.`}>
                                 <DashPassIcon color="var(--primary-teal)" />
                                 <RestaurantCardRestaurantName>
                                     {restaurantData.restaurantName}
                                 </RestaurantCardRestaurantName>
                             </RestaurantCardRestaurantNameLabel>
-                            <RestaurantCardAuxInfo>
+                            <RestaurantCardAuxInfo aria-hidden="true">
                                 {restaurantData.distance}
                                 {' '}
                                 •

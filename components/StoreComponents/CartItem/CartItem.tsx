@@ -61,12 +61,11 @@ type TCartItem = {
     imageAlt: string;
     itemName: string;
     price: number;
-    quantity: number;
     itemID: number;
 };
 
 export default function CartItem({
-    imageSrc, imageAlt, itemName, price, quantity, itemID
+    imageSrc, imageAlt, itemName, price, itemID
 }: TCartItem) {
     const priceFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',

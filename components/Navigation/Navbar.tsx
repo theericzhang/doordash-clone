@@ -138,27 +138,27 @@ export default function Navbar({ isShoppingCartToggleable }: TNavBar) {
                 <HomeLogoLink />
                 <NavbarLinkGroup>
                     <NavbarLinkWrapper>
-                            <Link href="/" passHref legacyBehavior>
-                                <NavbarLinkInner>
-                                    <NavbarLabel aria-label="Delivery.">
-                                        Delivery
-                                    </NavbarLabel>
-                                </NavbarLinkInner>
-                            </Link>
-                            <Link href="/pickup" passHref legacyBehavior>
-                                <NavbarLinkInner>
-                                    <NavbarLabel aria-label="Pickup.">
-                                        Pickup
-                                    </NavbarLabel>
-                                </NavbarLinkInner>
-                            </Link>
+                        <Link href="/" passHref legacyBehavior>
+                            <NavbarLinkInner>
+                                <NavbarLabel aria-label="Delivery.">
+                                    Delivery
+                                </NavbarLabel>
+                            </NavbarLinkInner>
+                        </Link>
+                        <Link href="/pickup" passHref legacyBehavior>
+                            <NavbarLinkInner>
+                                <NavbarLabel aria-label="Pickup.">
+                                    Pickup
+                                </NavbarLabel>
+                            </NavbarLinkInner>
+                        </Link>
                     </NavbarLinkWrapper>
                 </NavbarLinkGroup>
                 <NavbarVerticalDivider />
                 <NavbarLinkWrapper>
-                        <AddressButtonToggle
-                            setIsAddressButtonToggled={setIsAddressButtonToggled}
-                        />
+                    <AddressButtonToggle
+                        setIsAddressButtonToggled={setIsAddressButtonToggled}
+                    />
                 </NavbarLinkWrapper>
             </NavbarSubLeft>
             <NavbarSubRight>

@@ -53,7 +53,6 @@ function immutableCalculateCartTotal(state: ICartState) {
             restaurants[state.storeID as keyof typeof restaurants]
                 .storefrontData.items[item.itemID].price;
     });
-    console.log(sum)
     state.totalValue = sum;
 }
 
@@ -96,7 +95,7 @@ const cartSlice = createSlice({
             // if it does not exist, then add the new item to a copy of the existing cart state.
 
             let itemExists = false;
-            let newState = {...state}; // create a copy of the state
+            const newState = { ...state }; // create a copy of the state
             for (let i = 0; i < newState.cart.length; i++) {
                 if (newState.cart[i].itemID === action.payload.itemID) {
                     newState.cart[i].quantity += action.payload.quantity;
@@ -121,7 +120,7 @@ const cartSlice = createSlice({
         // reduces the quantity of an item in a cart if quantity > 0
         // if quantity is 1 and user hits delete, item should be removed from list
         deleteItemFromCart: (state, action: PayloadAction<number>) => {
-            const newState = {...state};
+            const newState = { ...state };
             for (let i = 0; i < newState.cart.length; i++) {
                 if (
                     newState.cart[i].itemID === action.payload &&

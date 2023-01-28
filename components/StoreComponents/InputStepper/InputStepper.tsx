@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-no-bind */
-import { useState } from 'react';
 import styled from 'styled-components';
 import Minus from '../../Icons/MinusIcon';
 import Plus from '../../Icons/PlusIcon';
@@ -51,12 +50,11 @@ type TInputStepper = {
 export default function InputStepper({ itemID }: TInputStepper) {
     const stateCart = useAppSelector((state) => state.cartSlice.cart);
     let quantityCart = 0;
-    
+
     stateCart.forEach((item) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         itemID === item.itemID ? quantityCart = item.quantity : null;
     });
-
-    
 
     console.log('Amount of items: ', quantityCart);
 

@@ -33,8 +33,8 @@ const GithubBadgeLink = styled(Link)`
 
 export default function GithubBadge() {
     return (
-        <GithubBadgeLink 
-            href="https://github.com/theericzhang/doordash-clone" 
+        <GithubBadgeLink
+            href="https://github.com/theericzhang/doordash-clone"
             target="_blank"
             aria-label="Link to project Github repository"
         >
