@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { Transition, TransitionStatus } from 'react-transition-group';
 import React, { useCallback, useEffect, useRef } from 'react';
+import FocusTrap from 'focus-trap-react';
 import { useAppSelector, useAppDispatch } from '../../../app-redux/hooks';
 import { setIsModalOpenFalse, toggleIsModalOpen } from '../../../app-redux/features/item/itemSlice';
 import ItemCustomizationPanel from './ItemCustomizationPanel/ItemCustomizationPanel';
@@ -67,18 +68,20 @@ export default function ItemModal() {
             unmountOnExit
         >
             {(state) => (
-                <ItemModalWrapper
-                    state={state}
-                    isModalOpen={isModalOpen}
-                    onClick={() => dispatch(toggleIsModalOpen())}
-                    onKeyDown={(e) => keyDownHandler(e as React.KeyboardEvent<HTMLDialogElement>)}
-                    ref={nodeRef}
-                >
-                    <ItemCustomizationPanel
+                <FocusTrap>
+                    <ItemModalWrapper
                         state={state}
                         isModalOpen={isModalOpen}
-                    />
-                </ItemModalWrapper>
+                        onClick={() => dispatch(toggleIsModalOpen())}
+                        onKeyDown={(e) => keyDownHandler(e as React.KeyboardEvent<HTMLDialogElement>)}
+                        ref={nodeRef}
+                    >
+                        <ItemCustomizationPanel
+                            state={state}
+                            isModalOpen={isModalOpen}
+                        />
+                    </ItemModalWrapper>
+                </FocusTrap>
             )}
         </Transition>
     );

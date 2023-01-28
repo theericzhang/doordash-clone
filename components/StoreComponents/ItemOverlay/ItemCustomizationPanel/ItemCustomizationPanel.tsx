@@ -7,7 +7,6 @@ import {
 } from 'react';
 import { Transition, TransitionStatus } from 'react-transition-group';
 import Image from 'next/image';
-import FocusTrap from 'focus-trap-react';
 import { useAppDispatch, useAppSelector } from '../../../../app-redux/hooks';
 import { toggleIsModalOpen } from '../../../../app-redux/features/item/itemSlice';
 import {
@@ -226,72 +225,70 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
             unmountOnExit
         >
             {() => (
-                <FocusTrap>
-                    <ItemCustomizationPanelWrapper
-                        state={state}
-                        isModalOpen={isModalOpen}
-                        onClick={(e) => e.stopPropagation()}
-                        ref={nodeRef}
-                        // eslint-disable-next-line styled-components-a11y/no-noninteractive-tabindex
-                        tabIndex={isModalOpen ? 0 : -1}
-                        id="ItemCustomizationPanel"
-                        role="none"
-                    >
-                        <ItemCustomizationPanelMainWrapper>
-                            <ItemCustomizationPanelButtonClose
-                                onClick={() => dispatch(toggleIsModalOpen())}
-                            >
-                                <X />
-                            </ItemCustomizationPanelButtonClose>
-                            <ItemCustomizationPanelContentWrapper>
-                                <ItemCustomizationPanelItemName>
-                                    {itemData?.itemName}
-                                </ItemCustomizationPanelItemName>
-                                {itemData?.ratingCount ? (
-                                    <ItemCustomizationPanelStatsWrapper>
-                                        <ThumbsUp size={16} />
-                                        <ItemCustomizationPanelStats>
-                                            {itemData.ratingPercentage}
-                                            % (
-                                            {itemData.ratingCount}
-                                            )
-                                        </ItemCustomizationPanelStats>
-                                    </ItemCustomizationPanelStatsWrapper>
-                                ) : null}
-                                {itemData?.description ? (
-                                    <ItemCustomizationPanelItemDescription>
-                                        {itemData?.description}
-                                    </ItemCustomizationPanelItemDescription>
-                                ) : null}
-                                {itemData?.image.src ? (
-                                    <ItemCustomizationPanelImageWrapper>
-                                        <ItemCustomizationPanelImage
-                                            src={itemData.image.src}
-                                            alt={itemData.image.alt}
-                                            sizes="295px"
-                                            fill
-                                        />
-                                    </ItemCustomizationPanelImageWrapper>
-                                ) : null}
-                            </ItemCustomizationPanelContentWrapper>
-                        </ItemCustomizationPanelMainWrapper>
-                        <ItemCustomizationPanelFooter>
-                            <ModalInputStepper
-                                itemCounter={itemCounter}
-                                setItemCounter={setItemCounter}
-                            />
-                            <ItemCustomizationPanelAddToCartButton
-                                onClick={addToCartClickHandler}
-                            >
-                                Add to Cart -
-                                {' '}
-                                {priceFormatter.format(
-                                    itemData.price * itemCounter
-                                )}
-                            </ItemCustomizationPanelAddToCartButton>
-                        </ItemCustomizationPanelFooter>
-                    </ItemCustomizationPanelWrapper>
-                </FocusTrap>
+                <ItemCustomizationPanelWrapper
+                    state={state}
+                    isModalOpen={isModalOpen}
+                    onClick={(e) => e.stopPropagation()}
+                    ref={nodeRef}
+                    // eslint-disable-next-line styled-components-a11y/no-noninteractive-tabindex
+                    tabIndex={isModalOpen ? 0 : -1}
+                    id="ItemCustomizationPanel"
+                    role="none"
+                >
+                    <ItemCustomizationPanelMainWrapper>
+                        <ItemCustomizationPanelButtonClose
+                            onClick={() => dispatch(toggleIsModalOpen())}
+                        >
+                            <X />
+                        </ItemCustomizationPanelButtonClose>
+                        <ItemCustomizationPanelContentWrapper>
+                            <ItemCustomizationPanelItemName>
+                                {itemData?.itemName}
+                            </ItemCustomizationPanelItemName>
+                            {itemData?.ratingCount ? (
+                                <ItemCustomizationPanelStatsWrapper>
+                                    <ThumbsUp size={16} />
+                                    <ItemCustomizationPanelStats>
+                                        {itemData.ratingPercentage}
+                                        % (
+                                        {itemData.ratingCount}
+                                        )
+                                    </ItemCustomizationPanelStats>
+                                </ItemCustomizationPanelStatsWrapper>
+                            ) : null}
+                            {itemData?.description ? (
+                                <ItemCustomizationPanelItemDescription>
+                                    {itemData?.description}
+                                </ItemCustomizationPanelItemDescription>
+                            ) : null}
+                            {itemData?.image.src ? (
+                                <ItemCustomizationPanelImageWrapper>
+                                    <ItemCustomizationPanelImage
+                                        src={itemData.image.src}
+                                        alt={itemData.image.alt}
+                                        sizes="295px"
+                                        fill
+                                    />
+                                </ItemCustomizationPanelImageWrapper>
+                            ) : null}
+                        </ItemCustomizationPanelContentWrapper>
+                    </ItemCustomizationPanelMainWrapper>
+                    <ItemCustomizationPanelFooter>
+                        <ModalInputStepper
+                            itemCounter={itemCounter}
+                            setItemCounter={setItemCounter}
+                        />
+                        <ItemCustomizationPanelAddToCartButton
+                            onClick={addToCartClickHandler}
+                        >
+                            Add to Cart -
+                            {' '}
+                            {priceFormatter.format(
+                                itemData.price * itemCounter
+                            )}
+                        </ItemCustomizationPanelAddToCartButton>
+                    </ItemCustomizationPanelFooter>
+                </ItemCustomizationPanelWrapper>
             )}
         </Transition>
     );
