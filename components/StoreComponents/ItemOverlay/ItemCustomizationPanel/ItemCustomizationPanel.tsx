@@ -178,7 +178,6 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         nodeRef.current && nodeRef.current.focus();
-        // TODO: Figure out how to set focus on this modal
     }, []);
 
     const dispatch = useAppDispatch();
