@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+// import FocusTrap from 'focus-trap-react';
 import CartOverview from '../StoreComponents/CartOverviewComponent/CartOverview';
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { toggleIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSlice';
@@ -71,6 +72,7 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
             {isOpenFromCartSheet ?
                 <CartSheetBackground /> : isStoreCartSheet ?
                     <CartSheetBackground isStoreCartSheet={isStoreCartSheet} /> : null}
+            {/* <FocusTrap> */}
             <CartSheetWrapper
                 isOpenFromCartSheet={!!isOpenFromCartSheet}
                 isStoreCartSheet={!!isStoreCartSheet}
@@ -87,6 +89,7 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
                     </CartSheetButtonClose>
                 </CartOverview>
             </CartSheetWrapper>
+            {/* </FocusTrap> */}
         </>
     );
 }
