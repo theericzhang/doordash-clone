@@ -20,7 +20,7 @@ const DoorDashLogoText = styled.div`
 export default function HomeLogoLink() {
     return (
         <Link href="/" passHref legacyBehavior>
-            <HomeLogoLinkStyle aria-label="Return to homepage">
+            <HomeLogoLinkStyle aria-label="DoorDash Homepage">
                 <svg
                     width="32"
                     height="18"
