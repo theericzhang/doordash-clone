@@ -59,6 +59,7 @@ export default function ShoppingCartButton({ isShoppingCartToggleable }: TShoppi
         <ShoppingCartButtonWrapper
             onClick={() => { dispatch(toggleIsOpenFromCartSheet()); }}
             isShoppingCartToggleable={isShoppingCartToggleable}
+            aria-label={`Shopping cart, ${cartCount} items`}
         >
             <CartIcon />
             <ShoppingCartButtonLabel>
