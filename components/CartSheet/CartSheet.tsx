@@ -78,6 +78,7 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
                 <CartOverview isInCartSheet>
                     <CartSheetButtonClose
                         onClick={() => dispatch(toggleIsOpenFromCartSheet())}
+                        aria-label="Close cart"
                     >
                         <X />
                     </CartSheetButtonClose>
