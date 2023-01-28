@@ -97,7 +97,7 @@ export default function RestaurantCarousel({ carouselData } : TRestaurauntCarous
     )));
 
     return (
-        <RestaurantCarouselArticle>
+        <RestaurantCarouselArticle aria-label={carouselData.carouselName}>
             <RestaurantCarouselTopRow>
                 <CarouselTitle carouselName={carouselData.carouselName} />
                 {/* add buttons to navigate through carousel */}
