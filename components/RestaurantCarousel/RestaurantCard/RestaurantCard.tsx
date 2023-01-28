@@ -76,7 +76,7 @@ const RestaurantCardRestaurantName = styled.h3`
     font-weight: 500;
 `;
 
-const RestaurantCardAuxInfo = styled.h5`
+const RestaurantCardAuxInfo = styled.span`
     font-size: 14px;
     font-weight: 400;
     color: var(--quinary-gray);
