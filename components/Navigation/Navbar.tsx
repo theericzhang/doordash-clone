@@ -140,14 +140,16 @@ export default function Navbar({ isShoppingCartToggleable }: TNavBar) {
                     <NavbarLinkWrapper>
                             <Link href="/" passHref legacyBehavior>
                                 <NavbarLinkInner>
-                                    <NavbarLabel aria-label="Delivery">
+                                    <NavbarLabel aria-label="Delivery.">
                                         Delivery
                                     </NavbarLabel>
                                 </NavbarLinkInner>
                             </Link>
                             <Link href="/pickup" passHref legacyBehavior>
                                 <NavbarLinkInner>
-                                    <NavbarLabel>Pickup</NavbarLabel>
+                                    <NavbarLabel aria-label="Pickup.">
+                                        Pickup
+                                    </NavbarLabel>
                                 </NavbarLinkInner>
                             </Link>
                     </NavbarLinkWrapper>
