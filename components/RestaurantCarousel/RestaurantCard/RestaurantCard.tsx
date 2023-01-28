@@ -71,7 +71,7 @@ const RestaurantCardRestaurantNameLabel = styled.div`
     margin: 0 2px;
 `;
 
-const RestaurantCardRestaurantName = styled.h3`
+const RestaurantCardRestaurantName = styled.span`
     font-size: 16px;
     font-weight: 500;
 `;

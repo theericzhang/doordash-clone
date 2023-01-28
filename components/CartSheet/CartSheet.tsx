@@ -75,14 +75,14 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
                 isOpenFromCartSheet={!!isOpenFromCartSheet}
                 isStoreCartSheet={!!isStoreCartSheet}
                 aria-hidden={!isOpenFromCartSheet}
-                tabIndex={isOpenFromCartSheet ? 0: -1}
+                tabIndex={isOpenFromCartSheet ? 0 : -1}
             >
                 <CartOverview isInCartSheet>
                     <CartSheetButtonClose
                         onClick={() => dispatch(toggleIsOpenFromCartSheet())}
                         aria-label="Close cart"
                         aria-hidden={!isOpenFromCartSheet}
-                        tabIndex={isOpenFromCartSheet ? 0: -1}
+                        tabIndex={isOpenFromCartSheet ? 0 : -1}
                     >
                         <X />
                     </CartSheetButtonClose>
