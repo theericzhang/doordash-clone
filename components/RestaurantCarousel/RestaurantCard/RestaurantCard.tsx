@@ -103,6 +103,9 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
                             sizes="(max-width: 960px) 440px , 440px"
                             loading={index < 3 ? 'eager' : 'lazy'}
                             decoding={index < 3 ? 'async' : 'sync'}
+                            // Look into using this function to load a custom shimmer component?
+                            // e.g. using a shimmer component and conditionally rendering, setting isLoading to false onLoadingComplete
+                            onLoadingComplete={() => { console.log('finished loading'); }}
                         />
                     </RestaurantCardImageWrapper>
                     <RestaurantCardBottom>
