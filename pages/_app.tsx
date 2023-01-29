@@ -29,7 +29,7 @@ const ttNormsFont = localFont({
             style: 'normal',
         },
         {
-            path: '../public/fonts/TTNorms/TTNorms-Light.woff2',
+            path: '../public/fonts/TTNorms/TTNorms-Regular.woff2',
             weight: '300',
             style: 'normal',
         },

@@ -29,20 +29,6 @@ export default class MyDocument extends Document {
                 <Head>
                     <link
                         rel="preload"
-                        href="/fonts/TTNorms/TTNorms-Heavy.woff2"
-                        as="font"
-                        type="font/woff2"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/TTNorms/TTNorms-Black.woff2"
-                        as="font"
-                        type="font/woff2"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
                         href="/fonts/TTNorms/TTNorms-ExtraBold.woff2"
                         as="font"
                         type="font/woff2"
@@ -64,21 +50,7 @@ export default class MyDocument extends Document {
                     />
                     <link
                         rel="preload"
-                        href="/fonts/TTNorms/TTNorms-Light.woff2"
-                        as="font"
-                        type="font/woff2"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/TTNorms/TTNorms-ExtraLight.woff2"
-                        as="font"
-                        type="font/woff2"
-                        crossOrigin=""
-                    />
-                    <link
-                        rel="preload"
-                        href="/fonts/TTNorms/TTNorms-Thin.woff2"
+                        href="/fonts/TTNorms/TTNorms-Regular.woff2"
                         as="font"
                         type="font/woff2"
                         crossOrigin=""

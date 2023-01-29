@@ -50,7 +50,7 @@ a {
     font-family: TTNorms;
     font-style: normal;
     font-weight: 300;
-    src: url("/fonts/TTNorms/TTNorms-Light.woff2") format("woff2");
+    src: url("/fonts/TTNorms/TTNorms-Regular.woff2") format("woff2");
     font-display: block;
 }
 
