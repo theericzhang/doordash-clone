@@ -102,6 +102,7 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
                             fill
                             sizes="(max-width: 960px) 440px , 440px"
                             loading={index < 3 ? 'eager' : 'lazy'}
+                            decoding={index < 3 ? 'async' : 'sync'}
                         />
                     </RestaurantCardImageWrapper>
                     <RestaurantCardBottom>
