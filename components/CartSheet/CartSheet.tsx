@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import FocusTrap from 'focus-trap-react';
+// import FocusTrap from 'focus-trap-react';
 import CartOverview from '../StoreComponents/CartOverviewComponent/CartOverview';
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { toggleIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSlice';
@@ -72,25 +72,25 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
             {isOpenFromCartSheet ?
                 <CartSheetBackground /> : isStoreCartSheet ?
                     <CartSheetBackground isStoreCartSheet={isStoreCartSheet} /> : null}
-            <FocusTrap>
-                {/* TODO: Look into how to use dynamic props to set for the wrapper. */}
-                <CartSheetWrapper
-                    isOpenFromCartSheet={!!isOpenFromCartSheet}
-                    isStoreCartSheet={!!isStoreCartSheet}
-                    aria-hidden={!isOpenFromCartSheet}
-                >
-                    <CartOverview isInCartSheet>
-                        <CartSheetButtonClose
-                            onClick={() => dispatch(toggleIsOpenFromCartSheet())}
-                            aria-label="Close cart"
-                            aria-hidden={!isOpenFromCartSheet}
-                            tabIndex={isOpenFromCartSheet ? 0 : -1}
-                        >
-                            <X />
-                        </CartSheetButtonClose>
-                    </CartOverview>
-                </CartSheetWrapper>
-            </FocusTrap>
+            {/* <FocusTrap> */}
+            {/* TODO: Look into how to use dynamic props to set for the wrapper. */}
+            <CartSheetWrapper
+                isOpenFromCartSheet={!!isOpenFromCartSheet}
+                isStoreCartSheet={!!isStoreCartSheet}
+                aria-hidden={!isOpenFromCartSheet}
+            >
+                <CartOverview isInCartSheet>
+                    <CartSheetButtonClose
+                        onClick={() => dispatch(toggleIsOpenFromCartSheet())}
+                        aria-label="Close cart"
+                        aria-hidden={!isOpenFromCartSheet}
+                        tabIndex={isOpenFromCartSheet ? 0 : -1}
+                    >
+                        <X />
+                    </CartSheetButtonClose>
+                </CartOverview>
+            </CartSheetWrapper>
+            {/* </FocusTrap> */}
         </>
     );
 }
