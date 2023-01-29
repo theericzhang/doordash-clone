@@ -130,7 +130,7 @@ export default function MenuItem({
     });
 
     // shimmer loading state
-    const [isLoading, setIsLoading] = useState(true);
+    const [isImageLoading, setIsImageLoading] = useState(true);
 
     return (
         <ItemWrapper
@@ -164,13 +164,13 @@ export default function MenuItem({
                 </ItemTextLastOrdered>
             </ItemTextWrapper>
             <ItemImageWrapper>
-                {isLoading ? <Shimmer /> : null}
+                {isImageLoading ? <Shimmer width={300} /> : null}
                 <ItemImage
                     src={image.src}
                     alt={image.alt}
                     fill
                     sizes="141px"
-                    onLoadingComplete={() => setIsLoading(false)}
+                    onLoadingComplete={() => setIsImageLoading(false)}
                 />
 
             </ItemImageWrapper>

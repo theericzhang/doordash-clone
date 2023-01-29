@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { Transition, TransitionStatus } from 'react-transition-group';
 import Image from 'next/image';
+import Shimmer from '../../../Placeholders/Shimmer';
 import { useAppDispatch, useAppSelector } from '../../../../app-redux/hooks';
 import { toggleIsModalOpen } from '../../../../app-redux/features/item/itemSlice';
 import {
@@ -174,6 +175,8 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
     // we need this local state to talk between modalinputstepper and add to cart button
     const [itemCounter, setItemCounter] = useState(1);
 
+    const [isImageLoading, setIsImageLoading] = useState(true);
+
     const nodeRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -263,11 +266,13 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
                             ) : null}
                             {itemData?.image.src ? (
                                 <ItemCustomizationPanelImageWrapper>
+                                    {isImageLoading ? <Shimmer width={600} /> : null}
                                     <ItemCustomizationPanelImage
                                         src={itemData.image.src}
                                         alt={itemData.image.alt}
                                         sizes="295px"
                                         fill
+                                        onLoadingComplete={() => setIsImageLoading(false)}
                                     />
                                 </ItemCustomizationPanelImageWrapper>
                             ) : null}

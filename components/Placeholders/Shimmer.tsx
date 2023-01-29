@@ -1,14 +1,28 @@
 import styled, { keyframes } from 'styled-components';
 
-const ShimmerKeyframes = keyframes`
+// const ShimmerKeyframes = keyframes<TShimmer>`
+//     0% {
+//       background-position: -50vw;
+//     }
+
+//     100% {
+//       background-position: 50vw;
+//     }
+// `;
+
+const ShimmerKeyframes = ({ width }: TShimmer) => keyframes`
     0% {
-      background-position: -150px 0;
+      background-position: -${width}px;
     }
     
     100% {
-      background-position: 150px 0; 
+      background-position: ${width}px; 
     }
 `;
+
+type TShimmer = {
+    width: number;
+};
 
 const ShimmerPlaceholder = styled.div`
     background-color: #F0F3F4;
@@ -30,8 +44,8 @@ const ShimmerPlaceholder = styled.div`
     animation-timing-function: linear;
 `;
 
-export default function Shimmer() {
+export default function Shimmer({ width }: TShimmer) {
     return (
-        <ShimmerPlaceholder />
+        <ShimmerPlaceholder width={width} />
     );
 }
