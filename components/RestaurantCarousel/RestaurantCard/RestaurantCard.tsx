@@ -52,6 +52,7 @@ const RestaurantCardImageWrapper = styled.div`
 
 const RestaurantCardImage = styled(Image)`
     object-fit: cover;
+    transition: 0.3s;
 `;
 
 const RestaurantCardBottom = styled.div`

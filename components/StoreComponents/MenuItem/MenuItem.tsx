@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
+import { useState } from 'react';
 import ThumbsUp from '../../Icons/ThumbsUpIcon';
 import { TStoreItem } from '../../../global';
 import { useAppDispatch } from '../../../app-redux/hooks';
@@ -118,6 +119,36 @@ const ItemImage = styled(Image)`
     object-fit: cover;
 `;
 
+const ItemImageShimmerKeyframes = keyframes`
+    0% {
+      background-position: -150px 0;
+    }
+    
+    100% {
+      background-position: 150px 0; 
+    }
+`;
+
+const ItemImageShimmer = styled.div`
+    background-color: #F0F3F4;
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    background-size: 300px 300px; 
+    display: inline-block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    
+    /* animation parameters */
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards; 
+    animation-iteration-count: infinite;
+    animation-name: ${ItemImageShimmerKeyframes};
+    animation-timing-function: linear;
+`;
+
 export default function MenuItem({
     itemID, image, itemName, price, description, ratingCount, ratingPercentage, lastOrdered
 }: TStoreItem) {
@@ -126,6 +157,9 @@ export default function MenuItem({
         style: 'currency',
         currency: 'USD',
     });
+
+    // shimmer loading state
+    const [isLoading, setIsLoading] = useState(true);
 
     return (
         <ItemWrapper
@@ -159,12 +193,15 @@ export default function MenuItem({
                 </ItemTextLastOrdered>
             </ItemTextWrapper>
             <ItemImageWrapper>
+                {isLoading ? <ItemImageShimmer /> : null}
                 <ItemImage
                     src={image.src}
                     alt={image.alt}
                     fill
                     sizes="141px"
+                    onLoadingComplete={() => setIsLoading(false)}
                 />
+
             </ItemImageWrapper>
         </ItemWrapper>
     );
