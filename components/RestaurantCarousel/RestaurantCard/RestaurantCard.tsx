@@ -109,9 +109,6 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
                             sizes="(max-width: 960px) 440px , 440px"
                             loading={index < 3 ? 'eager' : 'lazy'}
                             decoding={index < 3 ? 'async' : 'sync'}
-                            // Look into using this function to load a custom shimmer component?
-                            // e.g. using a shimmer component and conditionally rendering, setting isLoading to false onLoadingComplete
-                            // yes! confirmed that onLoadingComplete fires only after the entire image loads, does not fire as the vertical scan goes down
                             onLoadingComplete={() => { setIsImageLoading(false); }}
                         />
                     </RestaurantCardImageWrapper>
