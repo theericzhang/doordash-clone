@@ -85,8 +85,6 @@ export default function InputStepper({ itemID }: TInputStepper) {
 
     return (
         <InputStepperWrapper
-            aria-live="polite"
-            aria-atomic="true"
             aria-relevant="removals additions"
         >
             <InputStepperButton
@@ -99,7 +97,11 @@ export default function InputStepper({ itemID }: TInputStepper) {
                     <Minus />}
             </InputStepperButton>
             <InputStepperLabelWrapper>
-                <InputStepperLabel aria-label={`Quantity: ${quantityCart}`}>
+                <InputStepperLabel
+                    aria-label="Quantity: "
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
                     {quantityCart}
                     {' '}
                     ×
