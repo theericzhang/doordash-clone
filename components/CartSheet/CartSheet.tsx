@@ -30,19 +30,19 @@ const CartSheetWrapper = styled.aside<ICartSheetWrapper>`
         /* width: ${(props) => (props.isOpenFromCartSheet ? props.isStoreCartSheet ? '50%' : 'inherit' : 'inherit')}; */
         /* right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-53%')}; */
         /* inverse logic to determine the position if it's CLOSED, then if it's store or home cart */
-        right: ${(props) => (!props.isOpenFromCartSheet ? props.isStoreCartSheet ? '-50vw' : '-370px' : '0px')};
+        right: ${(props) => (!(props.state === 'entered') ? props.isStoreCartSheet ? '-50vw' : '-370px' : '0px')};
     }
 
     @media screen and (max-width: 770px) {
         display: flex;
         width: ${(props) => props.isStoreCartSheet && props.isOpenFromCartSheet && '375px'};
-        right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-394px')};
+        right: ${(props) => (props.state === 'entered' ? '0px' : '-394px')};
         pointer-events: all;
     }
 
     @media screen and (max-width: 480px) {
         width: 100%;
-        right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-105%')};
+        right: ${(props) => (props.state === 'entered' ? '0px' : '-105%')};
     }
 `;
 
