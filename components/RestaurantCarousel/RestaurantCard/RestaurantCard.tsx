@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { TRestaurantDataPrimary } from '../../../global';
 import DashPassIcon from '../../Icons/DashPassIcon';
+import Shimmer from '../../Placeholders/Shimmer';
 
 const RestaurantCardArticle = styled.article`
     min-width: 374px;
@@ -90,11 +92,14 @@ type TRestaurantCard = {
 };
 
 export default function RestaurantCard({ restaurantID, restaurantData, index } : TRestaurantCard) {
+    const [isImageLoading, setIsImageLoading] = useState(true);
+
     return (
         <RestaurantCardArticle>
             <Link href={`/store/${restaurantID}`} passHref legacyBehavior>
                 <RestaurantCardLink>
                     <RestaurantCardImageWrapper>
+                        {isImageLoading ? <Shimmer width={600} /> : null}
                         <RestaurantCardImage
                             src={restaurantData.restaurantImage.src}
                             placeholder="blur"
@@ -107,7 +112,7 @@ export default function RestaurantCard({ restaurantID, restaurantData, index } :
                             // Look into using this function to load a custom shimmer component?
                             // e.g. using a shimmer component and conditionally rendering, setting isLoading to false onLoadingComplete
                             // yes! confirmed that onLoadingComplete fires only after the entire image loads, does not fire as the vertical scan goes down
-                            onLoadingComplete={() => { console.log('finished loading'); }}
+                            onLoadingComplete={() => { setIsImageLoading(false); }}
                         />
                     </RestaurantCardImageWrapper>
                     <RestaurantCardBottom>
