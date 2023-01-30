@@ -86,7 +86,7 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
         >
             {(state) => (
                 <FocusTrap>
-                    <div>
+                    <div role="dialog">
                         {isOpenFromCartSheet ?
                             <CartSheetBackground /> : isStoreCartSheet ?
                                 <CartSheetBackground isStoreCartSheet={isStoreCartSheet} /> : null}
