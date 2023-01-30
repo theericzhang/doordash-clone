@@ -11,10 +11,10 @@ import CartSheetBackground from './CartSheetBackground';
 const CartSheetWrapper = styled.aside<ICartSheetWrapper>`
     display: flex;
     position: fixed;
-    // width of the wrapper + box shadow = 340px + 24px
-    right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-370px')};
+    // width of the wrapper + box shadow = 340px + 24px ≈ 370px
+    right: ${(props) => (props.state === 'entered' ? '0px' : '-370px')};
     top: 0px;
-    pointer-events: ${(props) => (props.isOpenFromCartSheet ? 'all' : 'none')};
+    pointer-events: ${(props) => (props.state === 'entered' ? 'all' : 'none')};
     z-index: 4;
     background-color: var(--primary-white);
     height: 100%;
@@ -96,6 +96,7 @@ export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
                             isOpenFromCartSheet={!!isOpenFromCartSheet}
                             isStoreCartSheet={!!isStoreCartSheet}
                             aria-hidden={!isOpenFromCartSheet}
+                            ref={nodeRef}
                         >
                             <CartOverview isInCartSheet>
                                 <CartSheetButtonClose
