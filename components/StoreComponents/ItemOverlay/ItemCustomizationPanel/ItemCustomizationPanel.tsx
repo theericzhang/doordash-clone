@@ -241,6 +241,7 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
                     <ItemCustomizationPanelMainWrapper>
                         <ItemCustomizationPanelButtonClose
                             onClick={() => dispatch(toggleIsModalOpen())}
+                            aria-label="Close Item Customization Modal"
                         >
                             <X />
                         </ItemCustomizationPanelButtonClose>
