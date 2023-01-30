@@ -87,6 +87,7 @@ export default function InputStepper({ itemID }: TInputStepper) {
         <InputStepperWrapper>
             <InputStepperButton
                 onClick={handleClickDecrement}
+                aria-label="Subtract quantity"
             >
                 {quantityCart === 1 ?
                     <GarbageCan />
@@ -102,6 +103,7 @@ export default function InputStepper({ itemID }: TInputStepper) {
             </InputStepperLabelWrapper>
             <InputStepperButton
                 onClick={handleClickIncrement}
+                aria-label="Add quantity"
             >
                 <Plus />
             </InputStepperButton>
