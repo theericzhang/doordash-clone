@@ -84,10 +84,14 @@ export default function InputStepper({ itemID }: TInputStepper) {
     }
 
     return (
-        <InputStepperWrapper>
+        <InputStepperWrapper
+            aria-live="polite"
+            aria-atomic="true"
+            aria-relevant="removals additions"
+        >
             <InputStepperButton
                 onClick={handleClickDecrement}
-                aria-label="Subtract quantity"
+                aria-label={`Subtract quantity. Currently at ${quantityCart} items.`}
             >
                 {quantityCart === 1 ?
                     <GarbageCan />
@@ -95,7 +99,7 @@ export default function InputStepper({ itemID }: TInputStepper) {
                     <Minus />}
             </InputStepperButton>
             <InputStepperLabelWrapper>
-                <InputStepperLabel>
+                <InputStepperLabel aria-label={`Quantity: ${quantityCart}`}>
                     {quantityCart}
                     {' '}
                     ×
@@ -103,7 +107,7 @@ export default function InputStepper({ itemID }: TInputStepper) {
             </InputStepperLabelWrapper>
             <InputStepperButton
                 onClick={handleClickIncrement}
-                aria-label="Add quantity"
+                aria-label={`Add quantity. Currently at ${quantityCart} items.`}
             >
                 <Plus />
             </InputStepperButton>

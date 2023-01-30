@@ -12,6 +12,8 @@ const CartItemWrapper = styled.a`
     padding-left: 5px;
     padding-right: 16px;
     border-bottom: 1px solid var(--primary-gray);
+    background-color: transparent;
+    text-align: left;
 `;
 
 const CartItemImageWrapper = styled.div`
@@ -73,7 +75,11 @@ export default function CartItem({
     });
 
     return (
-        <CartItemWrapper>
+        <CartItemWrapper
+            aria-label={`Cart Item: ${itemName}.`}
+            // eslint-disable-next-line styled-components-a11y/no-noninteractive-tabindex
+            tabIndex={0}
+        >
             <CartItemImageWrapper>
                 <CartItemImage
                     src={imageSrc}
