@@ -81,7 +81,10 @@ export default function ModalInputStepper({ itemCounter, setItemCounter }: TModa
 
     return (
         <ModalInputStepperWrapper>
-            <ModalInputStepperButton onClick={decrementCounter}>
+            <ModalInputStepperButton
+                onClick={decrementCounter}
+                aria-label="Subtract quantity"
+            >
                 <MinusCircle isEnabled={itemCounter > 1} />
             </ModalInputStepperButton>
             <ModalInputStepperInput
@@ -94,7 +97,10 @@ export default function ModalInputStepper({ itemCounter, setItemCounter }: TModa
                 id="ModalInputStepperInput"
                 onFocus={setInputFocus}
             />
-            <ModalInputStepperButton onClick={incrementCounter}>
+            <ModalInputStepperButton
+                onClick={incrementCounter}
+                aria-label="Add quantity"
+            >
                 <PlusCircle isEnabled />
             </ModalInputStepperButton>
         </ModalInputStepperWrapper>
