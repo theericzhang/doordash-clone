@@ -56,8 +56,6 @@ export default function InputStepper({ itemID }: TInputStepper) {
         itemID === item.itemID ? quantityCart = item.quantity : null;
     });
 
-    console.log('Amount of items: ', quantityCart);
-
     /**
      * TODO: Values need to be debounced before they are dispatched to global store.
      * REVISION: Values can be directly dispatched to global store. the reducer itself will take care of
