@@ -12,6 +12,8 @@ const CartItemWrapper = styled.a`
     padding-left: 5px;
     padding-right: 16px;
     border-bottom: 1px solid var(--primary-gray);
+    background-color: transparent;
+    text-align: left;
 `;
 
 const CartItemImageWrapper = styled.div`
@@ -61,12 +63,11 @@ type TCartItem = {
     imageAlt: string;
     itemName: string;
     price: number;
-    quantity: number;
     itemID: number;
 };
 
 export default function CartItem({
-    imageSrc, imageAlt, itemName, price, quantity, itemID
+    imageSrc, imageAlt, itemName, price, itemID
 }: TCartItem) {
     const priceFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -74,7 +75,11 @@ export default function CartItem({
     });
 
     return (
-        <CartItemWrapper>
+        <CartItemWrapper
+            aria-label={`Cart Item: ${itemName}.`}
+            // eslint-disable-next-line styled-components-a11y/no-noninteractive-tabindex
+            tabIndex={0}
+        >
             <CartItemImageWrapper>
                 <CartItemImage
                     src={imageSrc}

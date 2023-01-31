@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-no-bind */
-import { useState } from 'react';
 import styled from 'styled-components';
 import Minus from '../../Icons/MinusIcon';
 import Plus from '../../Icons/PlusIcon';
@@ -51,14 +50,11 @@ type TInputStepper = {
 export default function InputStepper({ itemID }: TInputStepper) {
     const stateCart = useAppSelector((state) => state.cartSlice.cart);
     let quantityCart = 0;
-    
+
     stateCart.forEach((item) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         itemID === item.itemID ? quantityCart = item.quantity : null;
     });
-
-    
-
-    console.log('Amount of items: ', quantityCart);
 
     /**
      * TODO: Values need to be debounced before they are dispatched to global store.
@@ -86,9 +82,12 @@ export default function InputStepper({ itemID }: TInputStepper) {
     }
 
     return (
-        <InputStepperWrapper>
+        <InputStepperWrapper
+            aria-relevant="removals additions"
+        >
             <InputStepperButton
                 onClick={handleClickDecrement}
+                aria-label={`Subtract quantity. Currently at ${quantityCart} items.`}
             >
                 {quantityCart === 1 ?
                     <GarbageCan />
@@ -96,7 +95,11 @@ export default function InputStepper({ itemID }: TInputStepper) {
                     <Minus />}
             </InputStepperButton>
             <InputStepperLabelWrapper>
-                <InputStepperLabel>
+                <InputStepperLabel
+                    aria-label="Quantity: "
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
                     {quantityCart}
                     {' '}
                     ×
@@ -104,6 +107,7 @@ export default function InputStepper({ itemID }: TInputStepper) {
             </InputStepperLabelWrapper>
             <InputStepperButton
                 onClick={handleClickIncrement}
+                aria-label={`Add quantity. Currently at ${quantityCart} items.`}
             >
                 <Plus />
             </InputStepperButton>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import { useState } from 'react';
 import { TRestaurantDataPrimary, TStorefrontData } from '../../../global';
 import DashPassLabel from '../../Icons/DashPassLabel';
 import DeliveryTile from './DeliveryTile/DeliveryTile';
@@ -7,6 +8,7 @@ import Star from '../../Icons/StarIcon';
 import ClockIcon from '../../Icons/ClockIcon';
 import Information from '../../Icons/InformationIcon';
 import AuxOptions from './AuxOptions/AuxOptions';
+import Shimmer from '../../Placeholders/Shimmer';
 
 const HeroComponentWrapper = styled.section`
     display: flex;
@@ -66,6 +68,7 @@ const HeroComponentStoreProfileImageArea = styled.div`
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, .2));
     bottom: -38px;
     left: 16px;
+    z-index: 2;
 `;
 
 const HeroComponentStoreProfileImageWrapper = styled.div`
@@ -195,22 +198,27 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
 
     const isOpen = currentTime > openTime && currentTime < closeTime;
 
+    const [isProfileImageLoading, setIsProfileImageLoading] = useState(true);
+    const [isHeroImageLoading, setIsHeroImageLoading] = useState(true);
+
     return (
         <HeroComponentWrapper>
             <HeroComponentImagesCollection>
                 <HeroComponentImageWrapper>
+                    {isHeroImageLoading ? <Shimmer width={1800} /> : null}
                     <HeroComponentImage
                         src={restaurantData.restaurantImage.src}
                         alt={restaurantData.restaurantImage.alt}
                         fill
                         sizes="440px"
-                        // sizes="374px"
                         priority
                         loading="eager"
+                        onLoadingComplete={() => { setIsHeroImageLoading(false); }}
                     />
                 </HeroComponentImageWrapper>
                 <HeroComponentStoreProfileImageArea>
                     <HeroComponentStoreProfileImageWrapper>
+                        {isProfileImageLoading ? <Shimmer width={180} /> : null}
                         <HeroComponenSttoreProfileImage
                             src={restaurantData.restaurantImage.src}
                             alt={restaurantData.restaurantImage.alt}
@@ -218,6 +226,7 @@ export default function HeroComponent({ restaurantData, storefrontData }: TResta
                             blurDataURL="/images/Blur.webp"
                             fill
                             sizes="(max-width: 960px) 76px, 76px"
+                            onLoadingComplete={() => { setIsProfileImageLoading(false); }}
                         />
                     </HeroComponentStoreProfileImageWrapper>
                 </HeroComponentStoreProfileImageArea>

@@ -1,17 +1,20 @@
 import styled from 'styled-components';
+import FocusTrap from 'focus-trap-react';
+import { useRef } from 'react';
+import { Transition, TransitionStatus } from 'react-transition-group';
 import CartOverview from '../StoreComponents/CartOverviewComponent/CartOverview';
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { toggleIsOpenFromCartSheet } from '../../app-redux/features/cart/cartSlice';
 import X from '../Icons/XIcon';
 import CartSheetBackground from './CartSheetBackground';
 
-const CartSheetWrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreCartSheet?: boolean }>`
+const CartSheetWrapper = styled.aside<ICartSheetWrapper>`
     display: flex;
     position: fixed;
-    // width of the wrapper + box shadow = 340px + 24px
-    right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-370px')};
+    // width of the wrapper + box shadow = 340px + 24px ≈ 370px
+    right: ${(props) => (props.state === 'entered' ? '0px' : '-370px')};
     top: 0px;
-    pointer-events: ${(props) => (props.isOpenFromCartSheet ? 'all' : 'none')};
+    pointer-events: ${(props) => (props.state === 'entered' ? 'all' : 'none')};
     z-index: 4;
     background-color: var(--primary-white);
     height: 100%;
@@ -27,19 +30,19 @@ const CartSheetWrapper = styled.aside<{ isOpenFromCartSheet: boolean; isStoreCar
         /* width: ${(props) => (props.isOpenFromCartSheet ? props.isStoreCartSheet ? '50%' : 'inherit' : 'inherit')}; */
         /* right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-53%')}; */
         /* inverse logic to determine the position if it's CLOSED, then if it's store or home cart */
-        right: ${(props) => (!props.isOpenFromCartSheet ? props.isStoreCartSheet ? '-50vw' : '-370px' : '0px')};
+        right: ${(props) => (!(props.state === 'entered') ? props.isStoreCartSheet ? '-50vw' : '-370px' : '0px')};
     }
 
     @media screen and (max-width: 770px) {
         display: flex;
         width: ${(props) => props.isStoreCartSheet && props.isOpenFromCartSheet && '375px'};
-        right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-394px')};
+        right: ${(props) => (props.state === 'entered' ? '0px' : '-394px')};
         pointer-events: all;
     }
 
     @media screen and (max-width: 480px) {
         width: 100%;
-        right: ${(props) => (props.isOpenFromCartSheet ? '0px' : '-105%')};
+        right: ${(props) => (props.state === 'entered' ? '0px' : '-105%')};
     }
 `;
 
@@ -59,6 +62,12 @@ const CartSheetButtonClose = styled.button`
     }
 `;
 
+interface ICartSheetWrapper {
+    state: TransitionStatus;
+    isOpenFromCartSheet: boolean;
+    isStoreCartSheet?: boolean;
+}
+
 type TCartSheet = {
     isStoreCartSheet?: boolean;
 };
@@ -66,23 +75,43 @@ type TCartSheet = {
 export default function CartSheet({ isStoreCartSheet }: TCartSheet) {
     const isOpenFromCartSheet = useAppSelector((state) => state.cartSlice.isOpenFromCartSheet);
     const dispatch = useAppDispatch();
+    const nodeRef = useRef(null);
+
     return (
-        <>
-            {isOpenFromCartSheet ?
-                <CartSheetBackground /> : isStoreCartSheet ?
-                    <CartSheetBackground isStoreCartSheet={isStoreCartSheet} /> : null}
-            <CartSheetWrapper
-                isOpenFromCartSheet={!!isOpenFromCartSheet}
-                isStoreCartSheet={!!isStoreCartSheet}
-            >
-                <CartOverview isInCartSheet>
-                    <CartSheetButtonClose
-                        onClick={() => dispatch(toggleIsOpenFromCartSheet())}
-                    >
-                        <X />
-                    </CartSheetButtonClose>
-                </CartOverview>
-            </CartSheetWrapper>
-        </>
+        <Transition
+            nodeRef={nodeRef}
+            in={isOpenFromCartSheet}
+            timeout={225}
+            unmountOnExit
+        >
+            {(state) => (
+                <FocusTrap>
+                    <div role="dialog">
+                        {isOpenFromCartSheet ?
+                            <CartSheetBackground /> : isStoreCartSheet ?
+                                <CartSheetBackground isStoreCartSheet={isStoreCartSheet} /> : null}
+                        {/* TODO: Look into how to use dynamic props to set for the wrapper. */}
+                        <CartSheetWrapper
+                            state={state}
+                            isOpenFromCartSheet={!!isOpenFromCartSheet}
+                            isStoreCartSheet={!!isStoreCartSheet}
+                            aria-hidden={!isOpenFromCartSheet}
+                            ref={nodeRef}
+                        >
+                            <CartOverview isInCartSheet>
+                                <CartSheetButtonClose
+                                    onClick={() => dispatch(toggleIsOpenFromCartSheet())}
+                                    aria-label="Close cart"
+                                    aria-hidden={!isOpenFromCartSheet}
+                                    tabIndex={isOpenFromCartSheet ? 0 : -1}
+                                >
+                                    <X />
+                                </CartSheetButtonClose>
+                            </CartOverview>
+                        </CartSheetWrapper>
+                    </div>
+                </FocusTrap>
+            )}
+        </Transition>
     );
 }

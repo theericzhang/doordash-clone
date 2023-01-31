@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { Transition, TransitionStatus } from 'react-transition-group';
 import Image from 'next/image';
+import Shimmer from '../../../Placeholders/Shimmer';
 import { useAppDispatch, useAppSelector } from '../../../../app-redux/hooks';
 import { toggleIsModalOpen } from '../../../../app-redux/features/item/itemSlice';
 import {
@@ -174,11 +175,12 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
     // we need this local state to talk between modalinputstepper and add to cart button
     const [itemCounter, setItemCounter] = useState(1);
 
-    const nodeRef = useRef(null);
+    const [isImageLoading, setIsImageLoading] = useState(true);
+
+    const nodeRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        // nodeRef.current && nodeRef.current.focus();
-        // TODO: Figure out how to set focus on this modal
+        nodeRef.current && nodeRef.current.focus();
     }, []);
 
     const dispatch = useAppDispatch();
@@ -218,19 +220,6 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
         }
     }
 
-    // const keyDownHandler = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
-    //     if (e.key === 'Escape') {
-    //         dispatch(setIsModalOpenFalse());
-    //     }
-    // }, [dispatch]);
-
-    // useEffect(() => {
-    //     window.addEventListener('keydown', keyDownHandler as any);
-    //     return () => {
-    //         window.removeEventListener('keydown', keyDownHandler as any);
-    //     };
-    // }, [keyDownHandler]);
-
     return (
         <Transition
             nodeRef={nodeRef}
@@ -244,12 +233,15 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
                     isModalOpen={isModalOpen}
                     onClick={(e) => e.stopPropagation()}
                     ref={nodeRef}
-                    tabIndex={-1}
+                    // eslint-disable-next-line styled-components-a11y/no-noninteractive-tabindex
+                    tabIndex={isModalOpen ? 0 : -1}
+                    id="ItemCustomizationPanel"
                     role="none"
                 >
                     <ItemCustomizationPanelMainWrapper>
                         <ItemCustomizationPanelButtonClose
                             onClick={() => dispatch(toggleIsModalOpen())}
+                            aria-label="Close Item Customization Modal"
                         >
                             <X />
                         </ItemCustomizationPanelButtonClose>
@@ -275,11 +267,13 @@ export default function ItemCustomizationPanel({ state, isModalOpen }: TItemCust
                             ) : null}
                             {itemData?.image.src ? (
                                 <ItemCustomizationPanelImageWrapper>
+                                    {isImageLoading ? <Shimmer width={600} /> : null}
                                     <ItemCustomizationPanelImage
                                         src={itemData.image.src}
                                         alt={itemData.image.alt}
                                         sizes="295px"
                                         fill
+                                        onLoadingComplete={() => setIsImageLoading(false)}
                                     />
                                 </ItemCustomizationPanelImageWrapper>
                             ) : null}

@@ -39,7 +39,7 @@ const NavbarWrapper = styled.nav`
     }
 `;
 
-const NavbarSubLeft = styled.ul`
+const NavbarSubLeft = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +59,7 @@ const NavbarSubLeft = styled.ul`
     }
 `;
 
-const NavbarLinkGroup = styled.ul`
+const NavbarLinkGroup = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,9 +74,6 @@ const NavbarLinkGroup = styled.ul`
 const NavbarLinkWrapper = styled.div`
     display: flex;
     column-gap: 24px;
-`;
-
-const NavbarLinkli = styled.li`
     text-decoration: none;
     list-style: none;
 `;
@@ -85,7 +82,7 @@ const NavbarLinkInner = styled.a`
     padding: 10px 0;
 `;
 
-const NavbarLabel = styled.h4`
+const NavbarLabel = styled.span`
     font-family: var(--primary-font-family);
     font-size: var(--nav-label-font-size);
     font-weight: var(--nav-label-font-weight);
@@ -104,7 +101,7 @@ const NavbarVerticalDivider = styled.hr`
     }
 `;
 
-const NavbarSubRight = styled.ul`
+const NavbarSubRight = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,29 +138,27 @@ export default function Navbar({ isShoppingCartToggleable }: TNavBar) {
                 <HomeLogoLink />
                 <NavbarLinkGroup>
                     <NavbarLinkWrapper>
-                        <NavbarLinkli>
-                            <Link href="/" passHref legacyBehavior>
-                                <NavbarLinkInner>
-                                    <NavbarLabel>Delivery</NavbarLabel>
-                                </NavbarLinkInner>
-                            </Link>
-                        </NavbarLinkli>
-                        <NavbarLinkli>
-                            <Link href="/pickup" passHref legacyBehavior>
-                                <NavbarLinkInner>
-                                    <NavbarLabel>Pickup</NavbarLabel>
-                                </NavbarLinkInner>
-                            </Link>
-                        </NavbarLinkli>
+                        <Link href="/" passHref legacyBehavior>
+                            <NavbarLinkInner>
+                                <NavbarLabel aria-label="Delivery.">
+                                    Delivery
+                                </NavbarLabel>
+                            </NavbarLinkInner>
+                        </Link>
+                        <Link href="/pickup" passHref legacyBehavior>
+                            <NavbarLinkInner>
+                                <NavbarLabel aria-label="Pickup.">
+                                    Pickup
+                                </NavbarLabel>
+                            </NavbarLinkInner>
+                        </Link>
                     </NavbarLinkWrapper>
                 </NavbarLinkGroup>
                 <NavbarVerticalDivider />
                 <NavbarLinkWrapper>
-                    <NavbarLinkli>
-                        <AddressButtonToggle
-                            setIsAddressButtonToggled={setIsAddressButtonToggled}
-                        />
-                    </NavbarLinkli>
+                    <AddressButtonToggle
+                        setIsAddressButtonToggled={setIsAddressButtonToggled}
+                    />
                 </NavbarLinkWrapper>
             </NavbarSubLeft>
             <NavbarSubRight>

@@ -53,10 +53,10 @@ const FilterButtonRowResizer = styled.div`
     }
 `;
 
-const FilterButtonRowList = styled.ul`
+const FilterButtonRowList = styled.fieldset`
     display: flex;
     column-gap: 8px;
-    list-style: none;
+    border: none;
 
     @media screen and (max-width: 770px) {
         padding: 0 32px;

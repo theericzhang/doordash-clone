@@ -102,6 +102,7 @@ export default function SearchBar({ isSearchBarToggled, setIsSearchBarToggled }:
                 }
             }}
             htmlFor="SearchBar__ID"
+            aria-label="Begin typing to search for stores available on DoorDash."
         >
             {
                 isSearchBarToggled ?
