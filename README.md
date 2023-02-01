@@ -72,6 +72,9 @@ This clone uses Redux-Toolkit to manage state. Several items are put in global s
 
 ### In Progress
 * Notion updates. Begin 1/31/23
+* Add more restaurants and items
+* loading state for getServerSideProps
+* Button visited effect remove, webkit mobile
 
 ### Next Up
 * Implement Search functionality. Start with stores, then cuisines and dishes.
