@@ -625,12 +625,195 @@ export const restaurantList = {
             ],
         },
     },
+    7498723: {
+        restaurantData: {
+            restaurantName: 'Super Duper',
+            restaurantImage: {
+                src: '/images/SuperDuper.webp',
+                alt: 'Image from Super Duper',
+            },
+            distance: '1.5 mi',
+            deliveryTime: '20 min',
+            pickupTime: '15 min',
+            isDashPass: true,
+        },
+        storefrontData: {
+            shortDescription: 'Hamburger Restaurant',
+            averageRating: 4.7,
+            ratingCount: 8459,
+            priceRating: 2,
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    // itemID: 1,
+                    itemName: 'Fried Chicken Sandwich',
+                    image: {
+                        src: '/images/7498723/FriedChickenSandwich.webp',
+                        alt: 'Fried Chicken Sandwich',
+                    },
+                    price: 10.75,
+                    description: 'Free-range chicken thigh coated in our berbere spice blend (get it classic or spicy) with celery, house-made apple slaw, mayo and pickles on a freshly basked bun',
+                    lastOrdered: '1/7/23',
+                    ratingPercentage: 89,
+                    ratingCount: 120,
+                },
+                {
+                    // itemID: 2,
+                    itemName: 'Veggie Burger',
+                    image: {
+                        src: '/images/7498723/VeggieBurger.webp',
+                        alt: 'Veggie Burger',
+                    },
+                    price: 8.5,
+                    description:
+                        'Organic veggie patty served on a fresh baked bun with lettuce, tomato, red onion, and house-made hummus.',
+                    ratingPercentage: 90,
+                    ratingCount: 80,
+                },
+                {
+                    // itemID: 3,
+                    itemName: 'Super Burger',
+                    image: {
+                        src: '/images/7498723/SuperBurger.webp',
+                        alt: 'Super Burger',
+                    },
+                    price: 10.5,
+                    description: 'Two 1/4 lb daily ground, all natural, vegetarian-fed beef patties - cooked medium and served on a fresh baked bun with lettuce, tomato, red onion, and Super Sauce!',
+                    ratingPercentage: 95,
+                    ratingCount: 82,
+                },
+                {
+                    // itemID: 4,
+                    itemName: 'Truffle Burger',
+                    image: {
+                        src: '/images/7498723/TruffleBurger.webp',
+                        alt: 'Truffle Burger',
+                    },
+                    price: 11.5,
+                    description: 'One 1/4 lb daily ground, all natural, vegetarian-fed beef patty with Super Sauce, grilled onions, roasted portobello mushrooms, Monterey Jack cheese, Truffle sauce.',
+                    ratingPercentage: 85,
+                    ratingCount: 7,
+                },
+                {
+                    // itemID: 4,
+                    itemName: 'Garlic Fries',
+                    image: {
+                        src: '/images/7498723/GarlicFries.webp',
+                        alt: 'Garlic Fries',
+                    },
+                    price: 4.75,
+                    description: 'Signature fries, with fresh garlic and 6-month aged cheddar.',
+                    ratingPercentage: 93,
+                    ratingCount: 257,
+                },
+            ],
+        },
+    },
+    986234892: {
+        restaurantData: {
+            restaurantName: 'Blue Bottle Coffee',
+            restaurantImage: {
+                src: '/images/BlueBottleCoffee.webp',
+                alt: 'Image from Blue Bottle Coffee',
+            },
+            distance: '1.8 mi',
+            deliveryTime: '26 min',
+            pickupTime: '21 min',
+            isDashPass: true,
+        },
+        storefrontData: {
+            shortDescription: 'Cold Brew, Coffee',
+            averageRating: 4.9,
+            ratingCount: 448,
+            priceRating: 2,
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    // itemID: 1,
+                    itemName: 'Matcha',
+                    image: {
+                        src: '/images/986234892/Matcha.webp',
+                        alt: 'Matcha',
+                    },
+                    price: 6,
+                    description: 'Made with matcha tea from the Uji tea fields in Kyoto prefecture, this umami-rich, bright green tea is lightly sweetened and served with your choice of steamed milk.',
+                    ratingPercentage: 100,
+                    ratingCount: 6,
+                },
+                {
+                    // itemID: 2,
+                    itemName: 'Overnight Oats',
+                    image: {
+                        src: '/images/986234892/OvernightOats.webp',
+                        alt: 'Overnight Oats',
+                    },
+                    price: 6.5,
+                    lastOrdered: '10/16/22',
+                    description:
+                    'Dried blueberries, sour cherries, oat milk, pomegranate molasses, and oats come together in this wholesome breakfast or snack.',
+                    ratingPercentage: 80,
+                    ratingCount: 10,
+                },
+                {
+                    // itemID: 3,
+                    itemName: 'Poundcake',
+                    image: {
+                        src: '/images/986234892/PoundCake.webp',
+                        alt: 'Poundcake',
+                    },
+                    price: 5.25,
+                    description: 'Our local bakery partners create a seasonal poundcake specific to each market.',
+                    ratingPercentage: 95,
+                    ratingCount: 82,
+                },
+                {
+                    // itemID: 4,
+                    itemName: 'New Orleans-style Iced Coffee',
+                    image: {
+                        src: '/images/986234892/NewOrleansIcedCoffee.webp',
+                        alt: 'New Orleans-style Iced Coffee',
+                    },
+                    price: 6.5,
+                    lastOrdered: '10/16/22',
+                    description: 'New Orleans-style Iced Coffee is a sweet, creamy, decadent iced coffee that’s cold-brewed with roasted chicory, then cut with your choice of milk and cane sugar.',
+                    ratingPercentage: 100,
+                    ratingCount: 34,
+                },
+                {
+                    // itemID: 4,
+                    itemName: 'Caffè Latte',
+                    image: {
+                        src: '/images/986234892/CaffeLatte.webp',
+                        alt: 'Caffè Latte',
+                    },
+                    price: 6,
+                    description: 'One of our most popular drinks, our latte turns our assertive, chocolaty, organic Hayes Valley Espresso velvety-sweet with a long pour of densely steamed milk.',
+                    ratingPercentage: 96,
+                    ratingCount: 50,
+                },
+            ],
+        },
+    },
 };
 
 export const restaurantCarousels = [
     {
         carouselName: 'Now on Doordash',
-        selectedRestaurantIDs: [65341, 120985, 12356667, 18764431, 1243431],
+        selectedRestaurantIDs: [65341, 986234892, 12356667, 18764431, 1243431, 120985],
     },
     {
         carouselName: 'Most Popular Local Restaurants',
@@ -638,6 +821,6 @@ export const restaurantCarousels = [
     },
     {
         carouselName: 'Bring the Tailgate to You',
-        selectedRestaurantIDs: [120985, 65341, 18764431, 1243431, 12356667],
+        selectedRestaurantIDs: [7498723, 18764431, 120985, 65341, 1243431, 12356667],
     },
 ];

@@ -69,9 +69,15 @@ const ItemCustomizationPanelButtonClose = styled.button`
     height: 24px;
     border: none;
     background-color: transparent;
+    color: inherit;
 
     &:hover {
         cursor: pointer;
+    }
+
+    &:visited {
+        color: inherit;
+        background-color: inherit;
     }
 `;
 
@@ -151,7 +157,7 @@ const ItemCustomizationPanelAddToCartButton = styled.button`
     align-items: center;
     background-color: var(--secondary-red);
     border-radius: 20px;
-    transition: ease 0.1s;
+    transition: ease 0.15s;
     transition-property: background-color;
     padding: 0 25px;
     color: var(--primary-white);
@@ -160,9 +166,15 @@ const ItemCustomizationPanelAddToCartButton = styled.button`
 
     &:hover {
         background-color: var(--tertiary-red);
-        transition: ease 0.1s;
+        transition: ease 0.15s;
         transition-property: background-color;
         cursor: pointer;
+    }
+
+    &:active {
+        transition: 0.15s ease;
+        transition-property: background-color;
+        background-color: var(--quaternary-red);
     }
 
     @media screen and (max-width: 480px) {

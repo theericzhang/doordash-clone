@@ -10,5 +10,9 @@ done
 for file in ./*.jpeg; do 
     cwebp "$file" -q 40 -o "${file%}.redo.webp";
 done
+
+for file in ./*.JPEG; do 
+    cwebp "$file" -q 40 -o "${file%}.redo.webp";
+done
  
 
