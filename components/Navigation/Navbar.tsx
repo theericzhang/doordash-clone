@@ -26,7 +26,7 @@ const NavbarWrapper = styled.nav`
     border-left: none;
     padding-left: 64px;
     padding-right: 144px;
-    z-index: 2;
+    z-index: 3;
 
     @media screen and (max-width: 1185px) {
         padding-left: 0;
