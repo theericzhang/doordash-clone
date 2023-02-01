@@ -28,6 +28,7 @@ const AuxOptionsButtonPrimary = styled.button`
     border-radius: 20px;
     padding: 0 12px;
     column-gap: 10px;
+    color: inherit;
 
     &:hover {
         cursor: pointer;
@@ -41,6 +42,11 @@ const AuxOptionsButtonPrimary = styled.button`
         transition: 0.15s ease;
         transition-property: background-color;
         background-color: var(--quaternary-gray);
+    }
+
+    &:visited {
+        color: inherit;
+        background-color: inherit;
     }
 
     @media screen and (max-width: 480px) {
