@@ -67,14 +67,14 @@ This clone uses Redux-Toolkit to manage state. Several items are put in global s
 * Created `<HeroComponent />`, `<CartOverview />`, `<CartItem />`, `<InputStepper />`, and wired them. Currently uses temporary data, needs management from global state. Completed 1/14/23
 * Establish global state for CartOverview & Store Items. Completed 1/19/23 https://github.com/theericzhang/doordash-clone/pull/10
 * Created `<ItemOverlay />`, `<ItemCustomizationPanel />` to complete add-to-cart logic. completed 1/19/23 https://github.com/theericzhang/doordash-clone/pull/10
-* Responsive styling for existing layouts & components when viewport width is under 1800px. (Backlogged, until global state management has been implemented) Begin 1/19/23, Completed 1/26/23 https://github.com/theericzhang/doordash-clone/pull/13
+* Responsive styling for existing layouts & components when viewport width is under 1800px. Begin 1/19/23, Completed 1/26/23 https://github.com/theericzhang/doordash-clone/pull/13
 * a11y + accessibilty enhancements, screen reader testing. Begin 1/26/23, Completed 1/29/23 https://github.com/theericzhang/doordash-clone/pull/16
+* Add more restaurants and items Begin 1/31/23 Completed 2/1/23 https://github.com/theericzhang/doordash-clone/pull/17
+* Button visited effect remove, webkit mobile Begin 1/31/23 Completed 2/1/23 https://github.com/theericzhang/doordash-clone/pull/17
 
 ### In Progress
 * Notion updates. Begin 1/31/23
-* Add more restaurants and items
 * loading state for getServerSideProps
-* Button visited effect remove, webkit mobile
 
 ### Next Up
 * Implement Search functionality. Start with stores, then cuisines and dishes.
