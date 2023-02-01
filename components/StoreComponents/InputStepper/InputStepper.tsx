@@ -25,9 +25,14 @@ const InputStepperButton = styled.button`
     height: 32px;
     border-radius: 500px;
     background-color: var(--primary-white);
+    color: inherit;
 
     &:hover {
         cursor: pointer;
+    }
+
+    &:visited {
+        color: inherit;
     }
 `;
 
