@@ -718,7 +718,7 @@ export const restaurantList = {
     },
     986234892: {
         restaurantData: {
-            restaurantName: 'Cold Brew, Coffee',
+            restaurantName: 'Blue Bottle Coffee',
             restaurantImage: {
                 src: '/images/BlueBottleCoffee.webp',
                 alt: 'Image from Blue Bottle Coffee',
@@ -729,7 +729,7 @@ export const restaurantList = {
             isDashPass: true,
         },
         storefrontData: {
-            shortDescription: 'Coffee',
+            shortDescription: 'Cold Brew, Coffee',
             averageRating: 4.9,
             ratingCount: 448,
             priceRating: 2,
@@ -813,7 +813,7 @@ export const restaurantList = {
 export const restaurantCarousels = [
     {
         carouselName: 'Now on Doordash',
-        selectedRestaurantIDs: [65341, 120985, 12356667, 18764431, 1243431],
+        selectedRestaurantIDs: [65341, 986234892, 12356667, 18764431, 1243431, 120985],
     },
     {
         carouselName: 'Most Popular Local Restaurants',
