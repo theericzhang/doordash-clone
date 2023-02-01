@@ -625,6 +625,97 @@ export const restaurantList = {
             ],
         },
     },
+    7498723: {
+        restaurantData: {
+            restaurantName: 'Super Duper',
+            restaurantImage: {
+                src: '/images/SuperDuper.webp',
+                alt: 'Image from Super Duper',
+            },
+            distance: '1.5 mi',
+            deliveryTime: '20 min',
+            pickupTime: '15 min',
+            isDashPass: true,
+        },
+        storefrontData: {
+            shortDescription: 'Hamburger Restaurant',
+            averageRating: 4.7,
+            ratingCount: 8459,
+            priceRating: 2,
+            operationHours: [
+                {
+                    openHour: 8,
+                    openMinute: 0,
+                    closeHour: 18,
+                    closeMinute: 30,
+                },
+            ],
+            items: [
+                {
+                    // itemID: 1,
+                    itemName: 'Fried Chicken Sandwich',
+                    image: {
+                        src: '/images/7498723/FriedChickenSandwich.webp',
+                        alt: 'Fried Chicken Sandwich',
+                    },
+                    price: 10.75,
+                    description: 'Free-range chicken thigh coated in our berbere spice blend (get it classic or spicy) with celery, house-made apple slaw, mayo and pickles on a freshly basked bun',
+                    lastOrdered: '1/7/23',
+                    ratingPercentage: 89,
+                    ratingCount: 120,
+                },
+                {
+                    // itemID: 2,
+                    itemName: 'Veggie Burger',
+                    image: {
+                        src: '/images/7498723/VeggieBurger.webp',
+                        alt: 'Veggie Burger',
+                    },
+                    price: 8.5,
+                    description:
+                        'Organic veggie patty served on a fresh baked bun with lettuce, tomato, red onion, and house-made hummus.',
+                    ratingPercentage: 90,
+                    ratingCount: 80,
+                },
+                {
+                    // itemID: 3,
+                    itemName: 'Super Burger',
+                    image: {
+                        src: '/images/7498723/SuperBurger.webp',
+                        alt: 'Super Burger',
+                    },
+                    price: 10.5,
+                    description: 'Two 1/4 lb daily ground, all natural, vegetarian-fed beef patties - cooked medium and served on a fresh baked bun with lettuce, tomato, red onion, and Super Sauce!',
+                    ratingPercentage: 95,
+                    ratingCount: 82,
+                },
+                {
+                    // itemID: 4,
+                    itemName: 'Truffle Burger',
+                    image: {
+                        src: '/images/7498723/TruffleBurger.webp',
+                        alt: 'Truffle Burger',
+                    },
+                    price: 11.5,
+                    description: 'One 1/4 lb daily ground, all natural, vegetarian-fed beef patty with Super Sauce, grilled onions, roasted portobello mushrooms, Monterey Jack cheese, Truffle sauce.',
+                    ratingPercentage: 85,
+                    ratingCount: 7,
+                },
+                {
+                    // itemID: 4,
+                    itemName: 'Garlic Fries',
+                    image: {
+                        src: '/images/7498723/GarlicFries.webp',
+                        alt: 'Garlic Fries',
+                    },
+                    price: 4.75,
+                    description: 'Signature fries, with fresh garlic and 6-month aged cheddar.',
+                    ratingPercentage: 93,
+                    ratingCount: 257,
+                },
+            ],
+        },
+    },
 };
 
 export const restaurantCarousels = [
@@ -638,6 +729,6 @@ export const restaurantCarousels = [
     },
     {
         carouselName: 'Bring the Tailgate to You',
-        selectedRestaurantIDs: [120985, 65341, 18764431, 1243431, 12356667],
+        selectedRestaurantIDs: [7498723, 18764431, 120985, 65341, 1243431, 12356667],
     },
 ];
