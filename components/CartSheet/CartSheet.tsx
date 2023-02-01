@@ -56,9 +56,14 @@ const CartSheetButtonClose = styled.button`
     background-color: transparent;
     margin: 18px 0;
     padding: 18px 0;
+    color: inherit;
 
     &:hover {
         cursor: pointer;
+    }
+
+    &:visited {
+        color: inherit;
     }
 `;
 
