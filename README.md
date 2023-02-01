@@ -68,9 +68,10 @@ This clone uses Redux-Toolkit to manage state. Several items are put in global s
 * Establish global state for CartOverview & Store Items. Completed 1/19/23 https://github.com/theericzhang/doordash-clone/pull/10
 * Created `<ItemOverlay />`, `<ItemCustomizationPanel />` to complete add-to-cart logic. completed 1/19/23 https://github.com/theericzhang/doordash-clone/pull/10
 * Responsive styling for existing layouts & components when viewport width is under 1800px. (Backlogged, until global state management has been implemented) Begin 1/19/23, Completed 1/26/23
+* a11y + accessibilty enhancements, screen reader testing. Begin 1/26/23, Completed 1/29/23
 
 ### In Progress
-* a11y + accessibilty enhancements, screen reader testing. Begin 1/26/23
+* Notion updates. Begin 1/31/23
 
 ### Next Up
 * Implement Search functionality. Start with stores, then cuisines and dishes.
