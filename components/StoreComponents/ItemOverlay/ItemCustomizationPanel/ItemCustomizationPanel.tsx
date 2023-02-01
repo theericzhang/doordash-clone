@@ -69,9 +69,15 @@ const ItemCustomizationPanelButtonClose = styled.button`
     height: 24px;
     border: none;
     background-color: transparent;
+    color: inherit;
 
     &:hover {
         cursor: pointer;
+    }
+
+    &:visited {
+        color: inherit;
+        background-color: inherit;
     }
 `;
 
