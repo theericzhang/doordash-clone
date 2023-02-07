@@ -78,8 +78,8 @@ This clone uses Redux-Toolkit to manage state. Several items are put in global s
 * create API routes data - use fetch instead of instantiating data files directly
 
 ### Next Up
-* Implement Search functionality. Start with stores, then cuisines and dishes.
-* Checkout flow.
+* Implement Search functionality. Start with stores, then cuisines and dishes. (backlogged until e-amuse completed)
+* Checkout flow. (backlogged until e-amuse completed)
 * Garner feedback.
 
 ## Resources and References
