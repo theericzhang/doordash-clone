@@ -21,9 +21,17 @@ export default function Home() {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('/api/hello');
-            const data = await res.json();
-            console.log(data);
+            try {
+                const res = await fetch('/api/hello');
+                if (!res.ok) {
+                    console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
+                } else {
+                    const data = await res.json();
+                    console.log(data);
+                }
+            } catch (e) {
+                // console.error(e);
+            }
         }
 
         fetchData();
