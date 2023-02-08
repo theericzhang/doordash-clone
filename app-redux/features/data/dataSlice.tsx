@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { TRestaurantList, TRestaurantsCarousel } from '../../../global';
+import type { TRestaurantList, TRestaurantCarousels } from '../../../global';
 
 const initialState = {
     restaurantListData: {},
@@ -14,9 +14,14 @@ const dataSlice = createSlice({
     reducers: {
         setRestaurantListData: (state, action: PayloadAction<TRestaurantList>) => {
             state.restaurantListData = action.payload;
+            console.log(state.restaurantListData);
         },
-        setRestaurantCarouselData: (state, action: PayloadAction<TRestaurantsCarousel>) => {
+        setRestaurantCarouselData: (state, action: PayloadAction<TRestaurantCarousels>) => {
             state.restaurantCarousels = action.payload;
+            console.log(state.restaurantCarousels);
         }
     }
 });
+
+export const { setRestaurantListData, setRestaurantCarouselData } = dataSlice.actions;
+export default dataSlice.reducer;
