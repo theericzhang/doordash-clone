@@ -12,8 +12,11 @@ const dataSlice = createSlice({
     initialState,
     // todo: try to add restaurantCarousels somehow?
     reducers: {
-        setRestaurantData: (state, action: PayloadAction<TRestaurantList>) => {
+        setRestaurantListData: (state, action: PayloadAction<TRestaurantList>) => {
             state.restaurantListData = action.payload;
+        },
+        setRestaurantCarouselData: (state, action: PayloadAction<TRestaurantsCarousel>) => {
+            state.restaurantCarousels = action.payload;
         }
     }
 });
