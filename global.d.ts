@@ -1,3 +1,9 @@
+export type TRestaurantList = {
+    [key: number]: {
+        restaurantData: TRestaurantDataPrimary;
+    }
+};
+
 export type TRestaurantDataPrimary = {
     restaurantName: string;
     restaurantImage: {
