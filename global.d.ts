@@ -1,7 +1,14 @@
 export type TRestaurantList = {
     [key: number]: {
         restaurantData: TRestaurantDataPrimary;
-    }
+    },
+};
+
+export type TRestaurantCarousels = {
+    restaurantCarouselsData: {
+        carouselName: string,
+        selectedRestaurantIDs: number[]
+    }[]
 };
 
 export type TRestaurantDataPrimary = {
