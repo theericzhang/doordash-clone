@@ -1,6 +1,7 @@
 export type TRestaurantList = {
     [key: number]: {
         restaurantData: TRestaurantDataPrimary;
+        storefrontData: TStorefrontData;
     },
 };
 
