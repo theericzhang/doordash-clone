@@ -9,5 +9,6 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
+    // future: use req.body to specify a restaurant to fetch in the future?
     res.status(200).json({ restaurantListData, restaurantCarouselsData });
 }

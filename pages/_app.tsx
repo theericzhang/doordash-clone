@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import GlobalStyles from '../styles/GlobalStyles';
 import Home from './index';
@@ -16,6 +16,9 @@ export default function App({ Component, pageProps }: AppProps) {
         // Prints: my website to the console
     }, []);
 
+    const [restaurantData, setRestaurantData] = useState({});
+    const [restaurantCarousels, setRestaurantCarouselsData] = useState({});
+
     // fetch restaurant data
     useEffect(() => {
         async function fetchData() {
@@ -25,10 +28,14 @@ export default function App({ Component, pageProps }: AppProps) {
                     console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
                 } else {
                     const data = await res.json();
-                    console.log(data);
+                    // console.log(data);
+                    setRestaurantData(data.restaurantListData);
+                    setRestaurantCarouselsData(data.restaurantCarouselsData);
+                    console.log(restaurantData, restaurantCarousels);
                 }
             } catch (e) {
                 console.error(e);
+                console.log('fetch failed!');
             }
         }
 
