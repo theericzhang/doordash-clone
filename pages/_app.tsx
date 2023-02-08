@@ -16,6 +16,25 @@ export default function App({ Component, pageProps }: AppProps) {
         // Prints: my website to the console
     }, []);
 
+    // fetch restaurant data
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await fetch('/api/hello');
+                if (!res.ok) {
+                    console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
+                } else {
+                    const data = await res.json();
+                    console.log(data);
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        fetchData();
+    }, []);
+
     return (
         <Provider store={store}>
             <GlobalStyles />

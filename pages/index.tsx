@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import { useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 import HomeLayout from '../components/Layouts/HomeLayout';
 import RestaurantCarousel from '../components/RestaurantCarousel/RestaurantCarousel';
@@ -18,24 +17,6 @@ export default function Home() {
             key={index}
         />
     ));
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const res = await fetch('/api/hello');
-                if (!res.ok) {
-                    console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
-                } else {
-                    const data = await res.json();
-                    console.log(data);
-                }
-            } catch (e) {
-                // console.error(e);
-            }
-        }
-
-        fetchData();
-    }, []);
 
     return (
         <>
