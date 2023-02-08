@@ -28,7 +28,6 @@ export default function App({ Component, pageProps }: AppProps) {
                     console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
                 } else {
                     const data = await res.json();
-                    // console.log(data);
                     setRestaurantData(data.restaurantListData);
                     setRestaurantCarouselsData(data.restaurantCarouselsData);
                 }
