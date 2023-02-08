@@ -31,7 +31,6 @@ export default function App({ Component, pageProps }: AppProps) {
                     // console.log(data);
                     setRestaurantData(data.restaurantListData);
                     setRestaurantCarouselsData(data.restaurantCarouselsData);
-                    console.log(restaurantData, restaurantCarousels);
                 }
             } catch (e) {
                 console.error(e);
@@ -41,6 +40,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
         fetchData();
     }, []);
+
+    useEffect(() => {
+        console.log(restaurantData, restaurantCarousels);
+    }, [restaurantData, restaurantCarousels]);
 
     return (
         <Provider store={store}>
