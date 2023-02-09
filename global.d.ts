@@ -7,9 +7,9 @@ export type TRestaurantList = {
 
 export type TRestaurantCarousels = {
     restaurantCarouselsData: {
-        carouselName: string,
-        selectedRestaurantIDs: number[]
-    }[]
+        carouselName: string;
+        selectedRestaurantIDs: number[];
+    }[];
 };
 
 export type TRestaurantDataPrimary = {

@@ -1,12 +1,14 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import GlobalStyles from '../styles/GlobalStyles';
 import Home from './index';
 import Store from './store/[slug]';
 import Navbar from '../components/Navigation/Navbar';
 import { store } from '../app-redux/store';
+// import { useAppDispatch, useAppSelector } from '../app-redux/hooks';
+// import { setRestaurantListData, setRestaurantCarouselData } from '../app-redux/features/data/dataSlice';
 import CartSheet from '../components/CartSheet/CartSheet';
 import GithubBadge from '../components/GithubBadge/GithubBadge';
 
@@ -16,9 +18,9 @@ export default function App({ Component, pageProps }: AppProps) {
         // Prints: my website to the console
     }, []);
 
-    const [restaurantData, setRestaurantData] = useState({});
-    const [restaurantCarousels, setRestaurantCarouselsData] = useState({});
-
+    // const dispatch = useAppDispatch();
+    // const restaurantData = useAppSelector((state) => state.dataSlice.restaurantListData);
+    // const restaurantCarouselData = useAppSelector((state) => state.dataSlice.restaurantCarousels);
     // fetch restaurant data
     useEffect(() => {
         async function fetchData() {
@@ -28,8 +30,10 @@ export default function App({ Component, pageProps }: AppProps) {
                     console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
                 } else {
                     const data = await res.json();
-                    setRestaurantData(data.restaurantListData);
-                    setRestaurantCarouselsData(data.restaurantCarouselsData);
+                    // dispatch(setRestaurantListData(data.restaurantListData));
+                    // dispatch(setRestaurantCarouselData(data.restaurantCarouselsData));
+                    // setRestaurantData(data.restaurantListData);
+                    // setRestaurantCarouselsData(data.restaurantCarouselsData);
                 }
             } catch (e) {
                 console.error(e);
@@ -40,9 +44,9 @@ export default function App({ Component, pageProps }: AppProps) {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        console.log(restaurantData, restaurantCarousels);
-    }, [restaurantData, restaurantCarousels]);
+    // useEffect(() => {
+    //     console.log(restaurantData, restaurantCarouselData);
+    // }, [restaurantData, restaurantCarouselData]);
 
     return (
         <Provider store={store}>

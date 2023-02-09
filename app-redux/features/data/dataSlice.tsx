@@ -7,7 +7,6 @@ const initialState = {
 };
 
 const dataSlice = createSlice({
-    // TODO: add data fetched from _app.tsx to dataSlice. Use a payload tied to action
     name: 'restaurantData',
     initialState,
     // todo: validate restarantListData and restaurantCarousels. also validate global import types
