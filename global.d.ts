@@ -1,3 +1,17 @@
+export type TRestaurantList = {
+    [key: number]: {
+        restaurantData: TRestaurantDataPrimary;
+        storefrontData: TStorefrontData;
+    },
+};
+
+export type TRestaurantCarousels = {
+    restaurantCarouselsData: {
+        carouselName: string;
+        selectedRestaurantIDs: number[];
+    }[];
+};
+
 export type TRestaurantDataPrimary = {
     restaurantName: string;
     restaurantImage: {

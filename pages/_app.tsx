@@ -7,6 +7,8 @@ import Home from './index';
 import Store from './store/[slug]';
 import Navbar from '../components/Navigation/Navbar';
 import { store } from '../app-redux/store';
+// import { useAppDispatch, useAppSelector } from '../app-redux/hooks';
+// import { setRestaurantListData, setRestaurantCarouselData } from '../app-redux/features/data/dataSlice';
 import CartSheet from '../components/CartSheet/CartSheet';
 import GithubBadge from '../components/GithubBadge/GithubBadge';
 
@@ -15,6 +17,38 @@ export default function App({ Component, pageProps }: AppProps) {
         console.log('%chttps://anericzhang.com', 'background: orange; font-size: 16px');
         // Prints: my website to the console
     }, []);
+
+    // const dispatch = useAppDispatch();
+    // const restaurantData = useAppSelector((state) => state.dataSlice.restaurantListData);
+    // const restaurantCarouselData = useAppSelector((state) => state.dataSlice.restaurantCarousels);
+    // fetch restaurant data
+    useEffect(() => {
+        // Set fetchData for later.
+
+        // async function fetchData() {
+        //     try {
+        //         const res = await fetch('/api/hello');
+        //         if (!res.ok) {
+        //             console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
+        //         } else {
+        //             const data = await res.json();
+        //             // dispatch(setRestaurantListData(data.restaurantListData));
+        //             // dispatch(setRestaurantCarouselData(data.restaurantCarouselsData));
+        //             // setRestaurantData(data.restaurantListData);
+        //             // setRestaurantCarouselsData(data.restaurantCarouselsData);
+        //         }
+        //     } catch (e) {
+        //         console.error(e);
+        //         console.log('fetch failed!');
+        //     }
+        // }
+
+        // fetchData();
+    }, []);
+
+    // useEffect(() => {
+    //     console.log(restaurantData, restaurantCarouselData);
+    // }, [restaurantData, restaurantCarouselData]);
 
     return (
         <Provider store={store}>
