@@ -23,25 +23,27 @@ export default function App({ Component, pageProps }: AppProps) {
     // const restaurantCarouselData = useAppSelector((state) => state.dataSlice.restaurantCarousels);
     // fetch restaurant data
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const res = await fetch('/api/hello');
-                if (!res.ok) {
-                    console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
-                } else {
-                    const data = await res.json();
-                    // dispatch(setRestaurantListData(data.restaurantListData));
-                    // dispatch(setRestaurantCarouselData(data.restaurantCarouselsData));
-                    // setRestaurantData(data.restaurantListData);
-                    // setRestaurantCarouselsData(data.restaurantCarouselsData);
-                }
-            } catch (e) {
-                console.error(e);
-                console.log('fetch failed!');
-            }
-        }
+        // Set fetchData for later.
 
-        fetchData();
+        // async function fetchData() {
+        //     try {
+        //         const res = await fetch('/api/hello');
+        //         if (!res.ok) {
+        //             console.log(`fetch failed, error code ${res.status} - ${res.statusText}`);
+        //         } else {
+        //             const data = await res.json();
+        //             // dispatch(setRestaurantListData(data.restaurantListData));
+        //             // dispatch(setRestaurantCarouselData(data.restaurantCarouselsData));
+        //             // setRestaurantData(data.restaurantListData);
+        //             // setRestaurantCarouselsData(data.restaurantCarouselsData);
+        //         }
+        //     } catch (e) {
+        //         console.error(e);
+        //         console.log('fetch failed!');
+        //     }
+        // }
+
+        // fetchData();
     }, []);
 
     // useEffect(() => {
